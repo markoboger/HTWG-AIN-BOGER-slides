@@ -1,0 +1,49 @@
+# VS Code
+.vscode/
+!.vscode/tasks.json
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# Node.js / npm
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Marp CLI temporary / generated files
+*.html
+*.pdf
+*.pptx
+
+# Except the ones we want to keep for GitHub Pages and downloads
+!lectures/**/*.html
+!lectures/**/*.pdf
+
+# General temporary files
+.DS_Store
+Thumbs.db
+*.tmp
+*.temp
+
+# Logs
+*.log
+
+# OS generated files
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# Editor / IDE files
+*.swp
+*.swo
+*~
+.project
+.settings/
+.idea/
+*.iml
+
+# Marp-specific caches (if any)
+.marp/
