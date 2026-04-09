@@ -1,0 +1,44 @@
+name: Deploy Marp Slides
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build all Marp slides (HTML + PDF)
+        uses: KoharaKazuya/marp-cli-action@v4
+        with:
+          config-file: .marprc.yml
+          generate-html: true
+          generate-pdf: true
+          # Optional: limit to lectures folder only
+          # input-dir: lectures
+
+      - name: Upload artifact for GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .   # HTML files are generated next to the .md files
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      # Optional: commit generated PDFs back into the repo for easy download
+      - name: Commit built PDFs
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update generated PDFs"
+          file_pattern: "*.pdf"

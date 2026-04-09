@@ -1,0 +1,8 @@
+themeSet:
+  - ./themes/htwg.css
+
+html: true                  # needed for .columns and advanced HTML
+markdown:
+  theme: htwg
+  header: "HTWG Konstanz – Computer Science"
+  footer: "Prof. Dr. Marko Boger"
