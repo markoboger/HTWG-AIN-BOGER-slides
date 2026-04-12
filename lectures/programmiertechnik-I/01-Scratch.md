@@ -20,9 +20,6 @@ Visual programming as a gentle introduction to core programming concepts.
 
 # What Is Scratch
 
-<div class="columns">
-<div markdown="1">
-
 - Scratch is a **block-based visual programming language** developed by MIT.
 - It is designed for beginners, but it is strong enough to teach central programming ideas.
 - Students can build **games, animations, and interactive stories**.
@@ -34,60 +31,15 @@ Why it matters for us:
 - it makes logic visible
 - it gives immediate feedback
 
-</div>
-<div markdown="1">
-
-```mermaid
-mindmap
-  root((Scratch))
-    Block-based
-    Visual
-    Beginner-friendly
-    Online and offline
-    Creates
-      Games
-      Animations
-      Stories
-    Teaches
-      Logic
-      Events
-      Variables
-      Routines
-```
-
-</div>
-</div>
-
 ---
 
 # Why We Start With Scratch
-
-<div class="columns">
-<div markdown="1">
 
 - **No syntax errors**: we focus on logic instead of punctuation.
 - **Immediate feedback**: results appear directly on the stage.
 - **Creative motivation**: students can build things that feel playful and personal.
 - **Transfer value**: the ideas later reappear in Python, Java, and C#.
 - **University relevance**: it trains problem-solving and computational thinking.
-
-</div>
-<div markdown="1">
-
-```mermaid
-flowchart TD
-    A[Scratch] --> B[Focus on logic]
-    A --> C[See results immediately]
-    A --> D[Create playful projects]
-    A --> E[Transfer concepts later]
-    B --> F[Less syntax frustration]
-    C --> G[Fast learning loop]
-    D --> H[More engagement]
-    E --> I[Preparation for text-based languages]
-```
-
-</div>
-</div>
 
 ---
 
@@ -105,16 +57,9 @@ flowchart TD
 </div>
 <div markdown="1">
 
-```mermaid
-flowchart LR
-    subgraph UI["Scratch Workspace"]
-      P[Blocks Palette] --> S[Scripts Area]
-      S --> T[Stage]
-      B[Backdrops and Sounds] --> T
-      R[Sprites] --> S
-      R --> T
-    end
-```
+<div class="visual-frame">
+<img src="assets/scratch-environment.png" alt="Scratch environment overview" />
+</div>
 
 </div>
 </div>
@@ -140,16 +85,9 @@ Core idea:
 </div>
 <div markdown="1">
 
-```mermaid
-flowchart LR
-    A[Sprite] --> B[Owns scripts]
-    A --> C[Owns variables]
-    A --> D[Responds to events]
-    B --> E[Behavior]
-    C --> E
-    D --> E
-    E --> F[Visible object on the stage]
-```
+<div class="visual-frame">
+<img src="assets/sprites-are-objects.png" alt="Sprites mapped to objects" />
+</div>
 
 </div>
 </div>
@@ -173,18 +111,9 @@ The categories are important because they reflect different roles in a program.
 </div>
 <div markdown="1">
 
-```mermaid
-flowchart TD
-    A[Scratch Blocks]
-    A --> B[Effect Blocks]
-    A --> C[Event Blocks]
-    A --> D[Control Blocks]
-    A --> E[Function Blocks]
-    B --> B1[Change what we see or hear]
-    C --> C1[Start execution]
-    D --> D1[Sequence, repeat, decide]
-    E --> E1[Compute a value]
-```
+<div class="visual-frame">
+<img src="assets/types-of-blocks.png" alt="Scratch block categories" />
+</div>
 
 </div>
 </div>
@@ -211,20 +140,17 @@ These are the building blocks for algorithmic thinking.
 </div>
 <div markdown="1">
 
-```mermaid
-flowchart TD
-    A[Control Structures]
-    A --> B[wait]
-    A --> C[repeat]
-    A --> D[forever]
-    A --> E[if then]
-    A --> F[if then else]
-    B --> B1[Delay execution]
-    C --> C1[Fixed repetition]
-    D --> D1[Loop without end]
-    E --> E1[Conditional action]
-    F --> F1[Conditional branching]
-```
+<div class="visual-pair">
+<div class="visual-stack tight">
+<div class="visual-frame"><img src="assets/control-wait.png" alt="Wait block" /></div>
+<div class="visual-frame"><img src="assets/control-repeat.png" alt="Repeat block" /></div>
+<div class="visual-frame"><img src="assets/control-forever.png" alt="Forever block" /></div>
+</div>
+<div class="visual-stack tight">
+<div class="visual-frame"><img src="assets/control-if-then.png" alt="If then block" /></div>
+<div class="visual-frame"><img src="assets/control-if-then-else.png" alt="If then else block" /></div>
+</div>
+</div>
 
 </div>
 </div>
@@ -232,9 +158,6 @@ flowchart TD
 ---
 
 # Blocks Are Routines
-
-<div class="columns">
-<div markdown="1">
 
 We use several names for reusable behavior:
 
@@ -250,32 +173,9 @@ We use several names for reusable behavior:
 
 The common abstraction is a **routine**.
 
-</div>
-<div markdown="1">
-
-```mermaid
-flowchart TD
-    R[Routine]
-    R --> P[Procedure]
-    R --> F[Function]
-    R --> M[Method]
-    P --> P1[Input possible]
-    P --> P2[No output]
-    F --> F1[Parameters]
-    F --> F2[Returns a value]
-    M --> M1[Belongs to an object]
-    M --> M2[Object-specific behavior]
-```
-
-</div>
-</div>
-
 ---
 
 # Scratch Blocks and Routines
-
-<div class="columns">
-<div markdown="1">
 
 What this means for Scratch:
 
@@ -287,21 +187,310 @@ So when we work with Scratch blocks, we are already learning a more general prog
 
 **Programs are built from reusable routines.**
 
+---
+
+# Function Blocks Have a Type
+
+<div class="columns">
+<div markdown="1">
+
+Types are:
+
+- **Numbers** `(round)`
+  - only number input is allowed
+- **Strings** `(round)`
+  - numbers are converted to strings when necessary
+- **Boolean** `(pointed)`
+
+Function blocks are typed, and the shape already hints at what kind of value they produce.
+
 </div>
 <div markdown="1">
 
-```mermaid
-flowchart LR
-    A[Scratch Blocks] --> B[Command Blocks]
-    A --> C[Reporter Blocks]
-    A --> D[Sprite-specific Scripts]
-    B --> E[Procedure-like]
-    C --> F[Function-like]
-    D --> G[Method-like]
-    E --> H[Reusable routine concepts]
-    F --> H
-    G --> H
-```
+<div class="visual-pair">
+<div class="visual-stack tight">
+<div class="visual-frame"><img src="assets/function-type-round-number.png" alt="Round number block" /></div>
+<div class="visual-frame"><img src="assets/function-type-string.png" alt="Round string block" /></div>
+</div>
+<div class="visual-frame"><img src="assets/function-type-boolean.png" alt="Boolean pointed block" /></div>
+</div>
 
 </div>
 </div>
+
+---
+
+# Functions and Operators
+
+<div class="columns">
+<div markdown="1">
+
+- Function blocks return a value.
+- The value can be a **number**, a **string**, or a **boolean**.
+- Operators are again constructed from function blocks.
+- Some operators transform numbers or strings into boolean values.
+
+This is the basis for building larger expressions from smaller parts.
+
+</div>
+<div markdown="1">
+
+<div class="visual-stack tight">
+<div class="visual-pair">
+<div class="visual-frame"><img src="assets/function-example-reporter.png" alt="Reporter block example" /></div>
+<div class="visual-frame"><img src="assets/function-example-operator.png" alt="Operator block example" /></div>
+</div>
+<div class="visual-center">
+<div class="visual-frame"><img src="assets/function-example-boolean.png" alt="Boolean operator example" /></div>
+</div>
+</div>
+
+</div>
+</div>
+
+---
+
+# Expressions
+
+<div class="columns">
+<div markdown="1">
+
+An **expression** combines numbers, variables, operations, or functions and can be evaluated to a value.
+
+Expressions can also be nested.
+
+- **Numeric expression**
+  - contains only numbers
+  - example: `3 + (5 * 2)`
+- **Algebraic expression**
+  - contains numbers and variables
+  - example: `4x + 3`
+- **Boolean expression**
+  - uses logical operators such as `and`, `or`, and `not`
+  - example: `A ^ (B | C)`
+
+</div>
+<div markdown="1">
+
+<div class="visual-frame">
+<img src="assets/expression-example.png" alt="Expression example from Scratch" />
+</div>
+
+</div>
+</div>
+
+---
+
+# Variables
+
+<div class="columns">
+<div markdown="1">
+
+- Variables can have a varying value.
+- Variables can be:
+  - defined
+  - initialized
+  - changed
+  - incremented
+  - shown
+  - hidden
+- Variables can have a **local** or **global** scope.
+
+</div>
+<div markdown="1">
+
+<div class="visual-frame">
+<img src="assets/variables-example.png" alt="Variable block example" />
+</div>
+
+</div>
+</div>
+
+---
+
+# Algebra
+
+<div class="columns">
+<div markdown="1">
+
+**Algebra** is the branch of mathematics that works with variables and rules for manipulating them.
+
+Key components:
+
+- **Variables**: symbols for unknown or changing values
+- **Constants**: fixed numeric values
+- **Operations**: addition, subtraction, multiplication, division, and more
+- **Expressions**: combinations such as `2x + 5`
+- **Equations**: statements like `2x + 5 = 11`
+- **Functions**: rules like `f(x) = x^2`
+
+</div>
+<div markdown="1">
+
+Types of algebra:
+
+- **Elementary algebra**: basic operations, linear and quadratic equations
+- **Abstract algebra**: structures such as groups, rings, and fields
+- **Linear algebra**: vectors, matrices, and transformations
+- **Boolean algebra**: logic with binary values for computing
+
+</div>
+</div>
+
+---
+
+# Boolean Algebra
+
+Boolean algebra is the algebra of **truth values**.
+
+Instead of calculating with numbers such as `3` or `17`, we calculate with:
+
+- `true`
+- `false`
+
+It is used whenever a program needs to make a decision.
+
+Typical operators are:
+
+- **and**
+- **or**
+- **not**
+
+Examples:
+
+- `score > 10 and lives > 0`
+- `touching edge or touching enemy`
+- `not gameOver`
+
+This matters in Scratch because conditions inside blocks such as **if**, **if else**, and **repeat until** are boolean expressions.
+
+---
+
+# Define Blocks
+
+<div class="columns">
+<div markdown="1">
+
+- You can define your own blocks.
+- These blocks can:
+  - have parameters
+  - change variables
+- But they can **not**:
+  - return a value
+
+So in this form they are **procedures**, not functions.
+
+Defined blocks are local to the current sprite.
+
+</div>
+<div markdown="1">
+
+<div class="visual-frame">
+<img src="assets/define-blocks-example.png" alt="Define blocks example" />
+</div>
+
+</div>
+</div>
+
+---
+
+# Messages
+
+<div class="columns">
+<div markdown="1">
+
+- Messages are events that can be received and trigger execution.
+- Messages can not have parameters.
+- One script **sends** a message with `broadcast`.
+- Another script **starts** when it matches that message with `when I receive`.
+
+This is how Scratch lets sprites coordinate behavior.
+
+</div>
+<div markdown="1">
+
+<div class="scratch-block-stack">
+  <div>
+    <div class="scratch-block">
+      <span>broadcast</span>
+      <span class="scratch-pill">start game</span>
+    </div>
+    <div class="scratch-note">send a message to all sprites</div>
+  </div>
+  <div>
+    <div class="scratch-block hat">
+      <span>when I receive</span>
+      <span class="scratch-pill">start game</span>
+    </div>
+    <div class="scratch-note">start this script when that message arrives</div>
+  </div>
+</div>
+
+</div>
+</div>
+
+---
+
+# Namespace
+
+<div class="columns">
+<div markdown="1">
+
+Namespaces are an important concept in programming languages.
+
+They help us manage:
+
+- visibility
+- scope
+
+</div>
+<div markdown="1">
+
+In Scratch, there are only two namespaces:
+
+- the object or sprite
+- the global namespace
+
+A global namespace can be problematic, but it is common in scripting-oriented systems such as JavaScript.
+
+</div>
+</div>
+
+---
+
+# Visibility or Scope
+
+<div class="columns">
+<div markdown="1">
+
+Variables have a visibility:
+
+- **global**: available to all objects
+- **local**: available only in the defining object
+
+Defined blocks always have local visibility.
+
+Messages are always sent globally as a broadcast.
+
+</div>
+<div markdown="1">
+
+This is a limitation.
+
+We will later introduce namespaces to define visibility and scope in a much more fine-grained way.
+
+</div>
+</div>
+
+---
+
+# Task
+
+Create a Scratch project.
+
+It should contain:
+
+- expressions
+- variables
+- defined blocks
+- messages

@@ -1,6 +1,6 @@
 ---
 marp: true
-# theme: htwg
+theme: htwg
 paginate: true
 _paginate: false
 footer: "![](../../themes/htwgin40.png)&nbsp;&nbsp;Prof. Dr. Marko Boger"
@@ -9,12 +9,12 @@ _footer : ""
 
 ![bg](../../themes/htwgin-titel.png)
 
-## Software Architecture with AI
+## Software Architecture 
 # Lecture 01: Monolith as Architectural Baseline
 
-Chess as our running example, AI as our implementation accelerator.
+Chess as running example, AI as implementation accelerator.
 
-<p class="small">Prof. Dr. Marko Boger</p>
+Prof. Dr. Marko Boger
 
 ---
 
@@ -27,6 +27,7 @@ Chess as our running example, AI as our implementation accelerator.
 - one place to understand the rules of the system
 
 **Before we distribute a system, we need to understand its core responsibilities.**
+
 
 ---
 

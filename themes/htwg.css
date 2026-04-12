@@ -54,6 +54,75 @@ section {
     margin: 0 auto;
 }
 
+.visual-frame {
+    background: #ffffff;
+    border: 1px solid #d9e3e2;
+    border-radius: 18px;
+    padding: 0.5rem;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+}
+
+.visual-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.visual-stack.tight {
+    gap: 0.5rem;
+}
+
+.visual-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+    align-items: start;
+}
+
+.visual-center {
+    display: flex;
+    justify-content: center;
+}
+
+.scratch-block-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+.scratch-block {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    background: #ffbf31;
+    color: #222222;
+    border: 2px solid #d89b00;
+    border-radius: 10px;
+    padding: 0.65rem 0.85rem;
+    font-weight: 700;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+.scratch-block.hat {
+    border-radius: 18px 18px 10px 10px;
+}
+
+.scratch-pill {
+    display: inline-block;
+    background: #fff4cc;
+    border: 2px solid #d89b00;
+    border-radius: 999px;
+    padding: 0.15rem 0.7rem;
+    font-weight: 600;
+}
+
+.scratch-note {
+    font-size: 0.8em;
+    color: #5a5a5a;
+    margin-top: -0.2rem;
+    padding-left: 0.4rem;
+}
+
 .small {
     font-size: 0.7em;
 }
