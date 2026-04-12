@@ -1,6 +1,6 @@
 ---
 marp: true
-theme: ../../themes/htwg.css
+theme: htwg
 paginate: true
 html: true
 title: 01 – Einführung in die Programmiertechnik

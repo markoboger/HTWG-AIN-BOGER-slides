@@ -1,6 +1,6 @@
 ---
 marp: true
-theme: ../../themes/htwg.css
+# theme: htwg
 paginate: true
 _paginate: false
 footer: "![](../../themes/htwgin40.png)&nbsp;&nbsp;Prof. Dr. Marko Boger"
