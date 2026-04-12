@@ -15,13 +15,25 @@ Alle Folien werden automatisch mit **Marp** erstellt und sind hier immer in der 
 
 ---
 
+### Programmiertechnik I
+
+- **[01-Scratch](lectures/programmiertechnik-I/01-Scratch.html)**  
+  [PDF](lectures/programmiertechnik-I/01-Scratch.pdf)
+
+---
+
 ### Software Architecture
 
 - **[01-Monolith](lectures/software-architecture/01-Monolith.html)**  
-  [📄 PDF](lectures/software-architecture/01-Monolith.pdf)
-
-
-*(Weitere Kapitel folgen)*
+  [PDF](lectures/software-architecture/01-Monolith.pdf)
+- **[03-ImportExport](lectures/software-architecture/03-ImportExport.html)**  
+  [PDF](lectures/software-architecture/03-ImportExport.pdf)
+- **[04-HTTP](lectures/software-architecture/04-HTTP.html)**  
+  [PDF](lectures/software-architecture/04-HTTP.pdf)
+- **[05-Microservices](lectures/software-architecture/05-Microservices.html)**  
+  [PDF](lectures/software-architecture/05-Microservices.pdf)
+- **[07-Persistence](lectures/software-architecture/07-Persistence.html)**  
+  [PDF](lectures/software-architecture/07-Persistence.pdf)
 
 ---
 
