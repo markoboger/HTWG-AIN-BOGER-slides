@@ -16,6 +16,17 @@ From monolith to independently deployable services.
 
 <p class="small">Based on Martin Fowler / James Lewis, Spotify engineering publications, and AWS / Amazon material.</p>
 
+
+---
+# C4 Model, Structurizr
+
+![](assets/L2_SessionRuntime.svg)
+
+---
+
+# SonarQube Analysis
+![fit](assets/sonarqube.png)
+
 ---
 
 # Learning Goals
@@ -314,6 +325,236 @@ They were paired with:
 - engineering guardrails
 - operational excellence
 - strong internal platforms
+
+---
+
+# Netflix Example: Simian Army
+
+<div class="columns">
+<div markdown="1">
+
+- Netflix used the **Simian Army** as a family of automated tools for testing resilience, security, and operational discipline
+- each "monkey" attacks a different weakness in a distributed system
+- the goal is not chaos for its own sake
+- the goal is to expose fragile assumptions before real incidents do
+
+Why this matters for microservices:
+
+- many services depend on networks, instances, regions, and cloud policies
+- resilience has to be exercised continuously, not only described in diagrams
+- architecture quality shows up when the system is stressed
+
+</div>
+<div markdown="1">
+
+![w:100%](assets/simian-army/simian-army-family.webp)
+
+</div>
+</div>
+
+---
+
+# Chaos Monkey
+
+<div class="columns">
+<div markdown="1">
+
+- **Purpose:** randomly shut down production instances
+- this teaches teams to expect machine failure as a normal event
+- services must recover through redundancy, health checks, and automatic replacement
+
+Teaching point:
+
+- if one server disappears and the service collapses, the architecture was not resilient enough
+
+</div>
+<div markdown="1">
+
+![w:78%](assets/simian-army/chaos-monkey.webp)
+
+</div>
+</div>
+
+---
+
+# Janitor Monkey
+
+<div class="columns">
+<div markdown="1">
+
+- **Purpose:** identify and remove unused cloud resources
+- examples include stale snapshots, unattached volumes, and other abandoned infrastructure
+- this reduces waste, cost, and confusion in large cloud environments
+
+Operational lesson:
+
+- good architecture includes cleanup discipline, not only service design
+
+</div>
+<div markdown="1">
+
+![w:82%](assets/simian-army/janitor-monkey.png)
+
+</div>
+</div>
+
+---
+
+# Conformity Monkey
+
+<div class="columns">
+<div markdown="1">
+
+- **Purpose:** find instances that do not follow engineering standards
+- examples include wrong instance types, missing metadata, or configurations that violate best practices
+- this helps teams stay autonomous without abandoning shared rules
+
+Architectural lesson:
+
+- autonomy works better when standards are checked automatically
+
+</div>
+<div markdown="1">
+
+![w:82%](assets/simian-army/conformity-monkey.webp)
+
+</div>
+</div>
+
+---
+
+# Doctor Monkey
+
+<div class="columns">
+<div markdown="1">
+
+- **Purpose:** detect unhealthy instances and take action before they cause bigger failures
+- signals can include failed health checks, bad metrics, or repeated unhealthy behavior
+- the idea is to treat unhealthy nodes as replaceable, not precious
+
+Microservice lesson:
+
+- fast recovery is usually better than manual rescue of every single machine
+
+</div>
+<div markdown="1">
+
+![w:78%](assets/simian-army/doctor-monkey.webp)
+
+</div>
+</div>
+
+---
+
+# Security Monkey
+
+<div class="columns">
+<div markdown="1">
+
+- **Purpose:** detect security violations and dangerous cloud configurations
+- examples include overly open firewall rules, weak IAM policies, and exposed resources
+- security becomes a continuous automated check instead of an occasional review
+
+Architectural lesson:
+
+- in microservice systems, security has to scale with platform automation
+
+</div>
+<div markdown="1">
+
+![w:78%](assets/simian-army/security-monkey.webp)
+
+</div>
+</div>
+
+---
+
+# Latency Monkey
+
+<div class="columns">
+<div markdown="1">
+
+- **Purpose:** simulate slow networks and delayed service responses
+- this tests timeouts, retries, fallbacks, and graceful degradation
+- many production incidents begin with slowness before they become full outages
+
+Microservice lesson:
+
+- strong service design handles slow dependencies, not only dead ones
+
+</div>
+<div markdown="1">
+
+![w:82%](assets/simian-army/latency-monkey.webp)
+
+</div>
+</div>
+
+---
+
+# Chaos Gorilla
+
+<div class="columns">
+<div markdown="1">
+
+- **Purpose:** simulate the failure of an entire availability zone
+- this is much more severe than losing a single instance
+- services must keep working by shifting traffic and capacity to healthy zones
+
+Microservice lesson:
+
+- resilience must be designed at the infrastructure level, not just inside one service
+
+</div>
+<div markdown="1">
+
+![w:78%](assets/simian-army/chaos-gorilla.webp)
+
+</div>
+</div>
+
+---
+
+# Chaos Kong
+
+<div class="columns">
+<div markdown="1">
+
+- **Purpose:** simulate the loss of an entire cloud region
+- this forces teams to think about disaster recovery, replication, and multi-region failover
+- it is a much more demanding resilience test than zone-level failure
+
+Architectural lesson:
+
+- true resilience is proven when a whole region can disappear and the business still operates
+
+</div>
+<div markdown="1">
+
+![w:78%](assets/simian-army/chaos-kong.webp)
+
+</div>
+</div>
+
+---
+
+# Published Snapshots: Spotify vs. Netflix
+
+- these numbers are **published snapshots**, not live dashboards
+- they come from different years, because the companies do not disclose the same metrics at the same time
+
+| Metric | Spotify | Netflix |
+| --- | --- | --- |
+| Teams | **280+ engineering teams**  | **~30 engineering teams**  |
+| Team size | **6-12 people** | |
+| Team locations | **50+ squads across 4 cities**  | **U.S. and Poland** |
+| Services total | **2,000+ backend services**  | **>500 microservices**  |
+| Services per team |  **7 backend services per team** | **16+ microservices per team** |
+
+Takeaway:
+
+
+<p class="small">Sources: Backstage announcement (March 16, 2020), Spotify engineering culture snapshot (2014), Netflix QCon San Francisco talk by Sudhir Tonse / Nitesh Kant (2014), Netflix careers / office pages, and Netflix Poland engineering hub announcement (January 10, 2023).</p>
 
 ---
 
