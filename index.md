@@ -34,6 +34,8 @@ Alle Folien werden automatisch mit **Marp** erstellt und sind hier immer in der 
   [PDF](lectures/software-architecture/05-Microservices.pdf)
 - **[07-Persistence](lectures/software-architecture/07-Persistence.html)**  
   [PDF](lectures/software-architecture/07-Persistence.pdf)
+- **[08-Performance-Testing](lectures/software-architecture/08-Performance-Testing.html)**  
+  [PDF](lectures/software-architecture/08-Performance-Testing.pdf)
 
 ---
 
