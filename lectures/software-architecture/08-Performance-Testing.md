@@ -4,13 +4,12 @@ theme: htwg
 paginate: true
 _paginate: false
 footer: "![](../../themes/htwgin40.png)&nbsp;&nbsp;Prof. Dr. Marko Boger"
-_footer: ""
+_footer : ""
 ---
 
 ![bg](../../themes/htwgin-titel.png)
 
-<!-- _class: title -->
-## Software Architecture with AI
+## Software Architecture 
 # Lecture 08: Performance Testing
 
 From “it works” to **it stays fast under load**.
@@ -18,7 +17,9 @@ From “it works” to **it stays fast under load**.
 <p class="small">k6, modern test design, and JVM benchmarking (JMH)</p>
 
 ---
+
 <div class="columns">
+
 <div>
 
 # Types of Testing
@@ -39,10 +40,13 @@ From “it works” to **it stays fast under load**.
 ![Test Types](assets/performance/test-types.jpg)
 
 </div>
+
 </div>
 
 ---
+
 <div class="columns">
+
 <div>
 
 # Unit Testing
@@ -61,11 +65,13 @@ Unit testing validates the correct functionality of individual components in iso
 ![unit testing](assets/performance/unit-test.jpg)
 
 </div>
+
 </div>
 
 ---
 
 <div class="columns">
+
 <div>
 
 # Integration Testing
@@ -85,11 +91,13 @@ Integration testing validates how components work together.
 ![integration testing](assets/performance/integration.jpg)
 
 </div>
+
 </div>
 
 ---
 
 <div class="columns">
+
 <div>
 
 # System Testing
@@ -107,11 +115,13 @@ System testing validates the complete integrated system.
 ![system testing](assets/performance/system.avif)
 
 </div>
+
 </div>
 
 ---
 
 <div class="columns">
+
 <div>
 
 # Acceptance Testing
@@ -130,11 +140,13 @@ Acceptance testing ensures the system meets user needs.
 ![acceptance testing](assets/performance/acceptance.jpg)
 
 </div>
+
 </div>
 
 ----
 
 <div class="columns">
+
 <div>
 
 # Performance Testing
@@ -149,16 +161,19 @@ Performance testing is **non-functional testing** to determine how a system perf
 Goal: **find bottlenecks, fix them, and prove the improvement.**
 
 </div>
+
 <div>
 
 ![performance testing](assets/performance/performance.png)
 
 </div>
+
 </div>
 
 ---
 
 <div class="columns">
+
 <div>
 
 # Types of Performance Testing
@@ -175,15 +190,19 @@ Goal: **find bottlenecks, fix them, and prove the improvement.**
   - sudden load increase (autoscaling, queues, rate limiting)
 
 </div>
+
 <div>
 
 ![performance testing](assets/performance/performance.png)
 
 </div>
+
 </div>
 
 ---
+
 <div class="columns">
+
 <div>
 
 # Load Testing
@@ -202,15 +221,19 @@ Load tests should be:
 - comparable across runs (same version, same environment, same data)
 
 </div>
+
 <div>
 
 ![load testing](assets/performance/healt.png)
 
 </div>
+
 </div>
 
 ---
+
 <div class="columns">
+
 <div>
 
 # Stress Testing
@@ -227,15 +250,19 @@ Good stress tests include:
 - clear recovery criteria (system returns to normal after load drops)
 
 </div>
+
 <div>
 
 ![stress testing](assets/performance/stress.png)
 
 </div>
+
 </div>
 
 ---
+
 <div class="columns">
+
 <div>
 
 # Volume / Endurance / Spike
@@ -251,15 +278,19 @@ Good stress tests include:
 - typical failures: thread pool exhaustion, rate-limits, autoscaling delays
 
 </div>
+
 <div>
 
 ![volume testing](assets/performance/volume.png)
 
 </div>
+
 </div>
 
 ---
+
 <div class="columns">
+
 <div>
 
 # Performance Metrics
@@ -285,8 +316,11 @@ Common meanings of “performance”:
   - Error rate (HTTP 5xx, timeouts)
 
 ---
+
 <div class="columns">  
+
 <div>
+
 # Before You Optimize
 
 > “Premature optimization is the root of all evil.”  
@@ -303,11 +337,13 @@ Rule of thumb:
 **Measure first. Optimize where it matters. Re-measure.**
 
 </div>
+
 <div>
 
 ![knuth](assets/performance/professor-donald-knuth.avif)
 
 </div>
+
 </div>
 
 ---
