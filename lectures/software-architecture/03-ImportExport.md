@@ -1,14 +1,16 @@
 ---
 marp: true
-title: "Lecture 03: Import and Export"
-description: "Parsers, Grammars, JSON, FEN, PGN, and Dependency Injection"
-paginate: true
 theme: htwg
+paginate: true
+_paginate: false
+footer: "![](../../themes/htwgin40.png)&nbsp;&nbsp;Prof. Dr. Marko Boger"
+_footer : ""
 ---
 
-<!-- _class: title -->
-# Lecture 03
-## Import and Export
+![bg](../../themes/htwgin-titel.png)
+
+## Software Architecture 
+# Lecture 03: Import and Export
 
 <span class="eyebrow">Software Architecture with AI</span>
 

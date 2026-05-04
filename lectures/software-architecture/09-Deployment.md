@@ -4,14 +4,15 @@ theme: htwg
 paginate: true
 _paginate: false
 footer: "![](../../themes/htwgin40.png)&nbsp;&nbsp;Prof. Dr. Marko Boger"
-_footer: ""
+_footer : ""
 ---
 
-<!-- _class: title -->
-## Software Architecture with AI
+![bg](../../themes/htwgin-titel.png)
+
+## Software Architecture 
 # Lecture 09: Deployment
 
-From a **JAR on a laptop** to **repeatable, observable production**.
+From development to production.
 
 <p class="small">Docker → Compose → Kubernetes → k3s → k3d → Keycloak</p>
 
@@ -19,11 +20,9 @@ From a **JAR on a laptop** to **repeatable, observable production**.
 
 # Learning Goals
 
-By the end of today, students should be able to:
-
-- explain what **containers** buy you compared to “install on a VM”
-- describe **Docker Compose** as a local multi-service runtime contract
-- name the main parts of **Kubernetes** and what they schedule
+- review **docker containers** for local development
+- extend to **Docker Compose** as a local multi-service runtime 
+- introduction to **Kubernetes** as a production deployment environment
 - compare **k3s** vs. “full” Kubernetes and when each fits
 - use **k3d** to spin up a disposable cluster on a laptop
 - position **Keycloak** as identity and access management in front of services
@@ -411,8 +410,6 @@ Relationship:
 
 ![w:100%](assets/deployment/k3d-logo.svg)
 
-<p class="small">Logo from k3d documentation site.</p>
-
 </div>
 </div>
 
@@ -477,8 +474,6 @@ Typical pattern:
 <div markdown="1">
 
 ![w:100%](assets/deployment/keycloak-logo.svg)
-
-<p class="small">Logo from Keycloak website.</p>
 
 </div>
 </div>
@@ -546,22 +541,10 @@ In Kubernetes, Keycloak is usually:
 <!-- _class: compact -->
 # Task Suggestion
 
-1. Add a **Dockerfile** for one service in the project and document the build command.
-2. Extend **Docker Compose** with one more service (for example a cache or reverse proxy).
-3. Create a **k3d** cluster and deploy the same stack with **Kubernetes manifests** (even a single Deployment is enough).
-4. Run **Keycloak** in Compose, create a realm and client, and obtain a token manually (browser or `curl`).
+1. Review **Dockerfiles** for your project
+2. Extend **Docker Compose** to locally test all your services
+3. Create a **k3d** cluster and deploy the same stack with **Kubernetes manifests** 
+4. Deploy on your assigned virtual server
+5. Optional: include **Keycloak** in Compose, create a realm and client to manage access rights.
 
-Deliverables: compose file, manifests, short README with exact commands.
 
----
-
-# Sources (images and diagrams)
-
-- Docker logo and installation diagram: Wikimedia Commons — <https://commons.wikimedia.org/wiki/File:Docker_(container_engine)_logo.svg>, <https://commons.wikimedia.org/wiki/File:Diagram_of_the_docker_installation.png>
-- Kubernetes logo: Wikimedia Commons — <https://commons.wikimedia.org/wiki/File:Kubernetes_logo_without_workmark.svg>
-- Kubernetes components diagram: Kubernetes documentation — <https://kubernetes.io/images/docs/components-of-kubernetes.svg>
-- k3s logo: k3s documentation — <https://docs.k3s.io/img/k3s-logo-light.svg>
-- k3d logo: k3d documentation — <https://k3d.io/static/img/k3d_logo_black_blue.svg>
-- Keycloak logo: Keycloak website — <https://www.keycloak.org/resources/images/logo.svg>
-
-Local copies for reliable Marp rendering: `lectures/software-architecture/assets/deployment/`.
