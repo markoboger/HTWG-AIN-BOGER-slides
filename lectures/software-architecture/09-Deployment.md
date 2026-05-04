@@ -2,9 +2,7 @@
 marp: true
 theme: htwg
 paginate: true
-_paginate: false
 footer: "![](../../themes/htwgin40.png)&nbsp;&nbsp;Prof. Dr. Marko Boger"
-_footer : ""
 ---
 
 ![bg](../../themes/htwgin-titel.png)
@@ -39,11 +37,6 @@ Continuous integration (CI) is the practice integrating code changes continuousl
 Continuous delivery (CD) is the automated delivery of completed code to deployment environment for integration and acceptance tests. CD provides an automated and consistent way for code to be delivered to these environments.
 
 
-Continuous deployment is the next step of continuous delivery. Every change that passes the automated tests is automatically placed in production, resulting in many production deployments.
-
-
-Continuous deployment should be the goal of most companies that are not constrained by regulatory or other requirements.
-
 ![bg right:50% contain](assets/deployment/cicd.svg)
 
 ---
@@ -54,13 +47,8 @@ DevOps is a cultural and technical approach merging software development (Dev) a
 
 What made DevOps possible is Docker. Docker makes the know-how of operators accessible in open-source deployment patterns and makes it repeatable.
 
-![bg right:50% contain](assets/deployment/devops-tools.jpeg)
-
+![bg right:50% contain](assets/deployment/devops-tools.webp)
 ---
-
-<div class="columns">
-
-<div markdown="1">
 
 # Docker
 
@@ -72,15 +60,8 @@ What made DevOps possible is Docker. Docker makes the know-how of operators acce
 
 Docker is not a VM: it virtualizes **userspace**, not a full hardware machine.
 
-</div>
 
-<div markdown="1">
-
-![w:100%](assets/deployment/docker-logo.svg)
-
-</div>
-
-</div>
+![bg right:50% contain](assets/deployment/docker-logo.svg)
 
 ---
 
@@ -142,9 +123,6 @@ docker run --rm -p 8080:8080 chess-api:local
 
 ---
 
-<div class="columns">
-<div markdown="1">
-
 # Docker Compose
 
 ## What it does
@@ -155,15 +133,7 @@ docker run --rm -p 8080:8080 chess-api:local
 
 Compose is ideal for **local development** and **small staging** setups.
 
-</div>
-<div markdown="1">
-
-![fit h:480](assets/L2_DockerCompose.svg)
-
-<p class="small">Course example: multi-container chess stack (Vue UI, gateway, game service, databases).</p>
-
-</div>
-</div>
+![bg right:50% contain](assets/L2_DockerCompose.svg)
 
 ---
 
@@ -226,9 +196,6 @@ Compose teaches **service graphs**. Kubernetes adds **cluster operations**.
 
 ---
 
-<div class="columns">
-<div markdown="1">
-
 # Kubernetes
 
 *(English “Kubernetes”, often abbreviated **K8s**.)*
@@ -242,15 +209,7 @@ Compose teaches **service graphs**. Kubernetes adds **cluster operations**.
 
 The **control plane** decides *what runs where*; **kubelet** on each node makes it real.
 
-</div>
-<div markdown="1">
-
-![w:100%](assets/deployment/kubernetes-logo.svg)
-
-<p class="small">Official-style mark (Wikimedia).</p>
-
-</div>
-</div>
+![bg right:50% contain](assets/deployment/kubernetes-logo.svg)
 
 ---
 
@@ -336,9 +295,6 @@ Inside the cluster, other Pods reach `http://api`.
 
 ---
 
-<div class="columns">
-<div markdown="1">
-
 # k3s
 
 ## What it does
@@ -349,15 +305,7 @@ Inside the cluster, other Pods reach `http://api`.
 
 Think: “Kubernetes semantics, smaller footprint.”
 
-</div>
-<div markdown="1">
-
-![w:100%](assets/deployment/k3s-logo-light.svg)
-
-<p class="small">Logo from k3s documentation site.</p>
-
-</div>
-</div>
+![bg right:50% contain](assets/deployment/k3s-logo-light.svg)
 
 ---
 
@@ -380,9 +328,6 @@ Docs: <https://docs.k3s.io/installation>
 
 ---
 
-<div class="columns">
-<div markdown="1">
-
 # k3d
 
 ## What it does
@@ -395,13 +340,7 @@ Relationship:
 
 **Docker → hosts → k3d → launches → k3s nodes → Kubernetes API**
 
-</div>
-<div markdown="1">
-
-![w:100%](assets/deployment/k3d-logo.svg)
-
-</div>
-</div>
+![bg right:50% contain](assets/deployment/k3d-logo.svg)
 
 ---
 
@@ -445,9 +384,6 @@ k3d cluster delete demo
 
 ---
 
-<div class="columns">
-<div markdown="1">
-
 # Keycloak
 
 ## What it does
@@ -460,13 +396,7 @@ Typical pattern:
 
 `Browser / SPA → Keycloak (login) → access token → your API (JWT validation)`
 
-</div>
-<div markdown="1">
-
-![w:100%](assets/deployment/keycloak-logo.svg)
-
-</div>
-</div>
+![bg right:50% contain](assets/deployment/keycloak-logo.svg)
 
 ---
 
@@ -515,16 +445,6 @@ In Kubernetes, Keycloak is usually:
 - a **Deployment + Service**
 - optionally behind the same **Ingress** as your apps
 - configured with **Secrets** for admin passwords and DB credentials
-
----
-
-# Operations Checklist (short)
-
-- **images** are versioned tags, not `:latest` in production
-- **health checks** exist for every long-running container
-- **logs and metrics** leave the container (stdout + collector)
-- **secrets** never live in Git; use secret stores or sealed patterns
-- **rollbacks** are practiced before you need them at 3 a.m.
 
 ---
 
