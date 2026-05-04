@@ -44,7 +44,7 @@ Continuous deployment is the next step of continuous delivery. Every change that
 
 Continuous deployment should be the goal of most companies that are not constrained by regulatory or other requirements.
 
-![bg right:50%](assets/deployment/cicd.svg)
+![bg right:50% contain](assets/deployment/cicd.svg)
 
 ---
 
@@ -54,9 +54,12 @@ DevOps is a cultural and technical approach merging software development (Dev) a
 
 What made DevOps possible is Docker. Docker makes the know-how of operators accessible in open-source deployment patterns and makes it repeatable.
 
-![bg right:50%](assets/deployment/devops-tools.jpeg)
+![bg right:50% contain](assets/deployment/devops-tools.jpeg)
+
 ---
+
 <div class="columns">
+
 <div markdown="1">
 
 # Docker
@@ -70,11 +73,13 @@ What made DevOps possible is Docker. Docker makes the know-how of operators acce
 Docker is not a VM: it virtualizes **userspace**, not a full hardware machine.
 
 </div>
+
 <div markdown="1">
 
 ![w:100%](assets/deployment/docker-logo.svg)
 
 </div>
+
 </div>
 
 ---
