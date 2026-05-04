@@ -3,12 +3,12 @@ marp: true
 theme: htwg
 paginate: true
 _paginate: false
-footer: "![](../../themes/htwgin40.png)&nbsp;&nbsp;Prof. Dr. Marko Boger"
+footer: "![](../../themes/htwgin40.png)&nbsp;&nbsp;Prof. Dr. Marko Boger, Prof. Dr. Pascal Laube"
 _footer: ""
 ---
 
 ![bg](../../themes/htwgin-titel.png)
-
+### Prof. Dr. Marko Boger, Prof. Dr. Pascal Laube
 ## Programmiertechnik I
 # Lecture 01: Scratch
 

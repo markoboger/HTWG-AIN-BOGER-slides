@@ -3,11 +3,13 @@ marp: true
 theme: htwg
 paginate: true
 html: true
-title: 01 – Einführung in die Programmiertechnik
 footer: "![](../../themes/htwgin40.png)&nbsp;&nbsp;Prof. Dr. Marko Boger"
 _footer : ""
 ---
+
 ![bg](../../themes/htwgin-titel.png)
+
+### Prof. Dr. Marko Boger
 ## Programmiertechnik I
 # 01 – Einführung in die Programmiertechnik
 

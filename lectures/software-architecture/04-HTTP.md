@@ -9,6 +9,7 @@ _footer : ""
 
 ![bg](../../themes/htwgin-titel.png)
 
+### Prof. Dr. Marko Boger
 ## Software Architecture 
 # Lecture 04: HTTP Interface for the Monolith
 

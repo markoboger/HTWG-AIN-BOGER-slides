@@ -1,20 +1,19 @@
 ---
 marp: true
-title: "Lecture 07: Persistence"
-description: "Persistence Layer, PostgreSQL, Slick, MongoDB, and Polyglot Persistence"
-paginate: true
 theme: htwg
+paginate: true
+_paginate: false
+footer: "![](../../themes/htwgin40.png)&nbsp;&nbsp;Prof. Dr. Marko Boger"
+_footer : ""
 ---
 
-<!-- _class: title -->
-# Lecture 07
-## Persistence Layer
+![bg](../../themes/htwgin-titel.png)
 
-<span class="eyebrow">Software Architecture with AI</span>
+### Prof. Dr. Marko Boger
+## Software Architecture 
+# Lecture 07: Persistence Layer
 
 PostgreSQL, Slick, MongoDB, and a practical persistence strategy for the chess system
-
-<p class="small">Prof. Dr. Marko Boger</p>
 
 ---
 

@@ -9,7 +9,8 @@ _footer : ""
 
 ![bg](../../themes/htwgin-titel.png)
 
-## Software Architecture with AI
+### Prof. Dr. Marko Boger
+## Software Architecture 
 # Lecture 05: Microservices
 
 From monolith to independently deployable services.

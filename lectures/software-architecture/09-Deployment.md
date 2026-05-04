@@ -9,6 +9,7 @@ _footer : ""
 
 ![bg](../../themes/htwgin-titel.png)
 
+### Prof. Dr. Marko Boger
 ## Software Architecture 
 # Lecture 09: Deployment
 
@@ -29,44 +30,32 @@ From development to production.
 
 ---
 
-# Why Deployment Is Architecture
+# Continuous Integration/ Continuous Deployment
+## CI/CD
 
-Deployment decisions affect:
+Continuous integration (CI) is the practice integrating code changes continuously to their shared code base. Integration is done every time all tests for a new feature/bug fix pass. It triggers automated testing on a centralized server.
 
-- how fast you can ship fixes
-- how safely you can roll back
-- how you scale under load
-- how secrets and identities are handled
-- how much operational complexity the team carries
 
-**If you cannot deploy reliably, the best design on paper does not matter.**
+Continuous delivery (CD) is the automated delivery of completed code to deployment environment for integration and acceptance tests. CD provides an automated and consistent way for code to be delivered to these environments.
 
----
 
-<div class="columns">
-<div markdown="1">
+Continuous deployment is the next step of continuous delivery. Every change that passes the automated tests is automatically placed in production, resulting in many production deployments.
 
-# Lecture Roadmap
 
-1. **Docker** — package and run one process reproducibly
-2. **Docker Compose** — define a small system of services
-3. **Kubernetes** — orchestrate many containers across machines
-4. **k3s** — lightweight Kubernetes distribution
-5. **k3d** — k3s clusters inside Docker (great for learning)
-6. **Keycloak** — OIDC/SAML identity for apps and APIs
+Continuous deployment should be the goal of most companies that are not constrained by regulatory or other requirements.
 
-</div>
-<div markdown="1">
-
-![w:100%](assets/deployment/docker-logo.svg)
-
-<p class="small">Logos and diagrams in this deck were downloaded from public sources; see <strong>Sources</strong> at the end.</p>
-
-</div>
-</div>
+![bg:right](assets/deployment/cicd.svg)
 
 ---
 
+
+# DevOps
+DevOps is a cultural and technical approach merging software development (Dev) and IT operations (Ops) to accelerate delivery, improve software quality, and increase reliability through automation, collaboration, and shared responsibility. It breaks down silos between teams, enabling faster, more frequent, and reliable releases using tools like CI/CD, monitoring, and cloud services.
+
+What made DevOps possible is Docker. Docker makes the know-how of operators accessible in open-source deployment patterns and makes it repeatable.
+
+![bg:right](assets/deployment/devops-tools.jpeg)
+---
 <div class="columns">
 <div markdown="1">
 
@@ -84,10 +73,6 @@ Docker is not a VM: it virtualizes **userspace**, not a full hardware machine.
 <div markdown="1">
 
 ![w:100%](assets/deployment/docker-logo.svg)
-
-![fit](assets/deployment/docker-installation-diagram.png)
-
-<p class="small">Installation overview (Wikimedia).</p>
 
 </div>
 </div>
