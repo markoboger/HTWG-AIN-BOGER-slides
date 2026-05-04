@@ -1,16 +1,23 @@
 ---
 marp: true
-title: HTWG Konstanz – Computer Science Lectures
-description: Vorlesungsfolien für Programmiertechnik, Software Engineering und Software Architecture
-paginate: false
+theme: htwg
+paginate: true
+_paginate: false
+footer: "![](../../themes/htwgin40.png)&nbsp;&nbsp;Prof. Dr. Marko Boger"
+_footer : ""
 ---
 
-# HTWG Konstanz  
-**Computer Science Lectures**
+![bg](../../themes/htwgin-titel.png)
 
-Willkommen zu den Vorlesungsfolien der Informatik-Studiengänge.
+## HTWG
+**Computer Science Lectures by Prof. Dr. Marko Boger**
 
-Alle Folien werden automatisch mit **Marp** erstellt und sind hier immer in der aktuellsten Version verfügbar.
+# Programmiertechnik I (1. Sem)
+# Software Engineering (3. Sem)
+# Software Architecture (6. Sem)
+
+
+Diese Folien werden mit **Marp** erstellt und sind nach jedem Push in der aktuellsten Version verfügbar.
 
 
 ---
@@ -47,7 +54,7 @@ Alle Folien werden automatisch mit **Marp** erstellt und sind hier immer in der 
 
 - **[09-Deployment](lectures/software-architecture/09-Deployment.html)**  
   [PDF](lectures/software-architecture/09-Deployment.pdf)
-  
+
 </div>
 
 </div>
