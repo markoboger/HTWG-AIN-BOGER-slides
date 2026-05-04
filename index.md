@@ -36,6 +36,8 @@ Alle Folien werden automatisch mit **Marp** erstellt und sind hier immer in der 
   [PDF](lectures/software-architecture/07-Persistence.pdf)
 - **[08-Performance-Testing](lectures/software-architecture/08-Performance-Testing.html)**  
   [PDF](lectures/software-architecture/08-Performance-Testing.pdf)
+- **[09-Deployment](lectures/software-architecture/09-Deployment.html)**  
+  [PDF](lectures/software-architecture/09-Deployment.pdf)
 
 ---
 
