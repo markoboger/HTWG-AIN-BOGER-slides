@@ -24,6 +24,8 @@ Alle Folien werden automatisch mit **Marp** erstellt und sind hier immer in der 
 
 ### Software Architecture
 
+<div class="columns">
+<div>
 - **[01-Monolith](lectures/software-architecture/01-Monolith.html)**  
   [PDF](lectures/software-architecture/01-Monolith.pdf)
 - **[03-ImportExport](lectures/software-architecture/03-ImportExport.html)**  
@@ -36,9 +38,12 @@ Alle Folien werden automatisch mit **Marp** erstellt und sind hier immer in der 
   [PDF](lectures/software-architecture/07-Persistence.pdf)
 - **[08-Performance-Testing](lectures/software-architecture/08-Performance-Testing.html)**  
   [PDF](lectures/software-architecture/08-Performance-Testing.pdf)
+</div>
+<div>
 - **[09-Deployment](lectures/software-architecture/09-Deployment.html)**  
   [PDF](lectures/software-architecture/09-Deployment.pdf)
-
+</div>
+</div>
 ---
 
 ## Hinweise zur Nutzung
