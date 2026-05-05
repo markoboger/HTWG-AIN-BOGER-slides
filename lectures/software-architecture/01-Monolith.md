@@ -15,7 +15,6 @@ _footer : ""
 
 Chess as running example, AI as implementation accelerator.
 
-Prof. Dr. Marko Boger
 
 ---
 

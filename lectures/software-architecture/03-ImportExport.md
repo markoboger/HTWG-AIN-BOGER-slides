@@ -17,8 +17,6 @@ _footer : ""
 
 Parsers, grammars, JSON, FEN, PGN, and how to switch implementations cleanly
 
-<p class="small">Prof. Dr. Marko Boger</p>
-
 ---
 
 # Why Import and Export Matter
@@ -496,11 +494,11 @@ That makes it much easier to explain than a giant regular expression.
 
 # Tradeoffs Between the Three
 
-| Approach | Strength | Weakness |
-|---|---|---|
-| Regex | fast, small, simple for small formats | poor maintainability |
-| Combinators | readable, close to grammar | can be slower |
-| FastParse | readable and performant | extra dependency, different style |
+| Approach    | Strength                              | Weakness                          |
+| ----------- | ------------------------------------- | --------------------------------- |
+| Regex       | fast, small, simple for small formats | poor maintainability              |
+| Combinators | readable, close to grammar            | can be slower                     |
+| FastParse   | readable and performant               | extra dependency, different style |
 
 The right choice depends on:
 

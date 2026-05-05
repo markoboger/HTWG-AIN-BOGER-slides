@@ -17,8 +17,6 @@ _footer : ""
 
 Expose the `GameController` through a REST API before we split anything into services
 
-<p class="small">Prof. Dr. Marko Boger</p>
-
 ---
 
 # Today’s Goal
