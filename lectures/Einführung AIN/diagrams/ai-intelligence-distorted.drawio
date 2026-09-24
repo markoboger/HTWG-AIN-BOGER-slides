@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-09-24T17:00:00.000Z" agent="Grok" version="22.1.0" type="device">
+  <diagram id="ai-intelligence-distorted" name="ai-intelligence-distorted">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1120" pageHeight="700" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+<mxCell id="t1" value="Our Distorted View of Intelligence" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=22;fontStyle=1;fontColor=#00008B" parent="1" vertex="1"><mxGeometry x="250" y="10" width="600" height="36" as="geometry"/></mxCell>
+<mxCell id="yl" value="Intelligence" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=16;fontStyle=1;fontColor=#00008B;rotation=-90" parent="1" vertex="1"><mxGeometry x="10" y="300" width="120" height="30" as="geometry"/></mxCell>
+<mxCell id="xl" value="Time" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=16;fontStyle=1;fontColor=#00008B" parent="1" vertex="1"><mxGeometry x="500" y="640" width="100" height="30" as="geometry"/></mxCell>
+<mxCell id="lv0" value="EINSTEIN" style="text;html=1;strokeColor=none;fillColor=none;align=right;fontSize=12;fontStyle=1;fontColor=#FF8C00" parent="1" vertex="1"><mxGeometry x="40" y="70" width="140" height="24" as="geometry"/></mxCell>
+<mxCell id="ln0" value="" style="endArrow=none;dashed=1;html=1;strokeColor=#FF8C00;strokeWidth=2" parent="1" edge="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="lv1" value="DUMB HUMAN" style="text;html=1;strokeColor=none;fillColor=none;align=right;fontSize=12;fontStyle=1;fontColor=#00AA00" parent="1" vertex="1"><mxGeometry x="40" y="210" width="140" height="24" as="geometry"/></mxCell>
+<mxCell id="ln1" value="" style="endArrow=none;dashed=1;html=1;strokeColor=#00AA00;strokeWidth=2" parent="1" edge="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="lv2" value="CHIMP" style="text;html=1;strokeColor=none;fillColor=none;align=right;fontSize=12;fontStyle=1;fontColor=#00AAAA" parent="1" vertex="1"><mxGeometry x="40" y="370" width="140" height="24" as="geometry"/></mxCell>
+<mxCell id="ln2" value="" style="endArrow=none;dashed=1;html=1;strokeColor=#00AAAA;strokeWidth=2" parent="1" edge="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="lv3" value="BIRD" style="text;html=1;strokeColor=none;fillColor=none;align=right;fontSize=12;fontStyle=1;fontColor=#0000AA" parent="1" vertex="1"><mxGeometry x="40" y="440" width="140" height="24" as="geometry"/></mxCell>
+<mxCell id="ln3" value="" style="endArrow=none;dashed=1;html=1;strokeColor=#0000AA;strokeWidth=2" parent="1" edge="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="lv4" value="ANT" style="text;html=1;strokeColor=none;fillColor=none;align=right;fontSize=12;fontStyle=1;fontColor=#800080" parent="1" vertex="1"><mxGeometry x="40" y="510" width="140" height="24" as="geometry"/></mxCell>
+<mxCell id="ln4" value="" style="endArrow=none;dashed=1;html=1;strokeColor=#800080;strokeWidth=2" parent="1" edge="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="ai" value="AI INTELLIGENCE" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=14;fontStyle=1;fontColor=#FF0000" parent="1" vertex="1"><mxGeometry x="250" y="480" width="200" height="24" as="geometry"/></mxCell>
+<mxCell id="spk1" value="Haha that&#x27;s adorable the funny robot can do monkey tricks!" style="text;html=1;strokeColor=none;fillColor=none;fontSize=11" parent="1" vertex="1"><mxGeometry x="550" y="100" width="280" height="50" as="geometry"/></mxCell>
+<mxCell id="src" value="waitbutwhy.com" style="text;html=1;strokeColor=none;fillColor=none;align=right;fontSize=10" parent="1" vertex="1"><mxGeometry x="900" y="660" width="150" height="20" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

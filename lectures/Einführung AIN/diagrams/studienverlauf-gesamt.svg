@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="640" viewBox="0 0 1120 640">
+  <rect width="100%" height="100%" fill="#ffffff"/>
+<rect x="40" y="16" width="306" height="32" fill="#45908F"/>
+<text x="193.0" y="38" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#fff" text-anchor="middle" font-weight="bold">Grundstudium</text>
+<rect x="346" y="16" width="757" height="32" fill="#354458"/>
+<text x="724.5" y="38" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#fff" text-anchor="middle" font-weight="bold">Hauptstudium</text>
+<rect x="40" y="52" width="145" height="28" fill="#354458"/>
+<text x="112.5" y="71" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">Semester 1</text>
+<rect x="193" y="52" width="145" height="28" fill="#354458"/>
+<text x="265.5" y="71" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">Semester 2</text>
+<rect x="346" y="52" width="145" height="28" fill="#354458"/>
+<text x="418.5" y="71" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">Semester 3</text>
+<rect x="499" y="52" width="145" height="28" fill="#354458"/>
+<text x="571.5" y="71" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">Semester 4</text>
+<rect x="652" y="52" width="145" height="28" fill="#354458"/>
+<text x="724.5" y="71" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">Semester 5</text>
+<rect x="805" y="52" width="145" height="28" fill="#354458"/>
+<text x="877.5" y="71" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">Semester 6</text>
+<rect x="958" y="52" width="145" height="28" fill="#354458"/>
+<text x="1030.5" y="71" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">Semester 7</text>
+<rect x="40" y="92.0" width="145" height="132.0" fill="#D9E2E9" stroke="#fff" stroke-width="2"/>
+<text x="112.5" y="114.0" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#111" text-anchor="middle" font-weight="bold"><tspan x="112.5" dy="0">7 ECTS</tspan>
+<tspan x="112.5" dy="15">Algebra bzw.</tspan>
+<tspan x="112.5" dy="15">Analysis</tspan>
+</text>
+<rect x="40" y="224.0" width="145" height="132.0" fill="#D9E2E9" stroke="#fff" stroke-width="2"/>
+<text x="112.5" y="246.0" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#111" text-anchor="middle" font-weight="bold"><tspan x="112.5" dy="0">8 ECTS</tspan>
+<tspan x="112.5" dy="15">Digitaltechnik</tspan>
+</text>
+<rect x="40" y="356.0" width="145" height="132.0" fill="#D9E2E9" stroke="#fff" stroke-width="2"/>
+<text x="112.5" y="378.0" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#111" text-anchor="middle" font-weight="bold"><tspan x="112.5" dy="0">8 ECTS</tspan>
+<tspan x="112.5" dy="15">Programmier-</tspan>
+<tspan x="112.5" dy="15">technik 1</tspan>
+</text>
+<rect x="40" y="488.0" width="145" height="132.0" fill="#D9E2E9" stroke="#fff" stroke-width="2"/>
+<text x="112.5" y="510.0" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#111" text-anchor="middle" font-weight="bold"><tspan x="112.5" dy="0">7 ECTS</tspan>
+<tspan x="112.5" dy="15">Software-</tspan>
+<tspan x="112.5" dy="15">modellierung</tspan>
+</text>
+<rect x="193" y="92.0" width="145" height="105.6" fill="#D9E2E9" stroke="#fff" stroke-width="2"/>
+<text x="265.5" y="114.0" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#111" text-anchor="middle" font-weight="bold"><tspan x="265.5" dy="0">7 ECTS</tspan>
+<tspan x="265.5" dy="15">Analysis bzw.</tspan>
+<tspan x="265.5" dy="15">Algebra</tspan>
+</text>
+<rect x="193" y="197.6" width="145" height="105.6" fill="#D9E2E9" stroke="#fff" stroke-width="2"/>
+<text x="265.5" y="219.6" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#111" text-anchor="middle" font-weight="bold"><tspan x="265.5" dy="0">5 ECTS</tspan>
+<tspan x="265.5" dy="15">Datenbank-</tspan>
+<tspan x="265.5" dy="15">systeme 1</tspan>
+</text>
+<rect x="193" y="303.2" width="145" height="105.6" fill="#D9E2E9" stroke="#fff" stroke-width="2"/>
+<text x="265.5" y="325.2" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#111" text-anchor="middle" font-weight="bold"><tspan x="265.5" dy="0">7 ECTS</tspan>
+<tspan x="265.5" dy="15">Programmier-</tspan>
+<tspan x="265.5" dy="15">technik 2</tspan>
+</text>
+<rect x="193" y="408.79999999999995" width="145" height="105.6" fill="#D9E2E9" stroke="#fff" stroke-width="2"/>
+<text x="265.5" y="430.79999999999995" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#111" text-anchor="middle" font-weight="bold"><tspan x="265.5" dy="0">5 ECTS</tspan>
+<tspan x="265.5" dy="15">Rechner-</tspan>
+<tspan x="265.5" dy="15">architekturen</tspan>
+</text>
+<rect x="193" y="514.4" width="145" height="105.6" fill="#D9E2E9" stroke="#fff" stroke-width="2"/>
+<text x="265.5" y="536.4" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#111" text-anchor="middle" font-weight="bold"><tspan x="265.5" dy="0">6 ECTS</tspan>
+<tspan x="265.5" dy="15">System-</tspan>
+<tspan x="265.5" dy="15">programmierung</tspan>
+</text>
+<rect x="346" y="92.0" width="145" height="105.6" fill="#D9E2E9" stroke="#fff" stroke-width="2"/>
+<text x="418.5" y="114.0" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#111" text-anchor="middle" font-weight="bold"><tspan x="418.5" dy="0">6 ECTS</tspan>
+<tspan x="418.5" dy="15">Algorithmen und</tspan>
+<tspan x="418.5" dy="15">Datenstrukturen</tspan>
+</text>
+<rect x="346" y="197.6" width="145" height="105.6" fill="#D9E2E9" stroke="#fff" stroke-width="2"/>
+<text x="418.5" y="219.6" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#111" text-anchor="middle" font-weight="bold"><tspan x="418.5" dy="0">6 ECTS</tspan>
+<tspan x="418.5" dy="15">Betriebssysteme</tspan>
+</text>
+<rect x="346" y="303.2" width="145" height="105.6" fill="#D9E2E9" stroke="#fff" stroke-width="2"/>
+<text x="418.5" y="325.2" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#111" text-anchor="middle" font-weight="bold"><tspan x="418.5" dy="0">6 ECTS</tspan>
+<tspan x="418.5" dy="15">Stochastik</tspan>
+</text>
+<rect x="346" y="408.79999999999995" width="145" height="105.6" fill="#D9E2E9" stroke="#fff" stroke-width="2"/>
+<text x="418.5" y="430.79999999999995" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#111" text-anchor="middle" font-weight="bold"><tspan x="418.5" dy="0">6 ECTS</tspan>
+<tspan x="418.5" dy="15">Software</tspan>
+<tspan x="418.5" dy="15">Engineering</tspan>
+</text>
+<rect x="346" y="514.4" width="145" height="105.6" fill="#4D4D4D" stroke="#fff" stroke-width="2"/>
+<text x="418.5" y="536.4" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold"><tspan x="418.5" dy="0">6 ECTS</tspan>
+<tspan x="418.5" dy="15">Wahlpflichtmodul</tspan>
+<tspan x="418.5" dy="15">Wahlbereich I</tspan>
+</text>
+<rect x="499" y="92" width="145" height="528" fill="#CCCCCC" stroke="#fff" stroke-width="2"/>
+<text x="571.5" y="346.0" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#111" text-anchor="middle" font-weight="bold"><tspan x="571.5" dy="0">30 ECTS</tspan>
+<tspan x="571.5" dy="15">Praxissemester</tspan>
+</text>
+<rect x="652" y="92.0" width="145" height="105.6" fill="#D9E2E9" stroke="#fff" stroke-width="2"/>
+<text x="724.5" y="114.0" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#111" text-anchor="middle" font-weight="bold"><tspan x="724.5" dy="0">6 ECTS</tspan>
+<tspan x="724.5" dy="15">Foundations of</tspan>
+<tspan x="724.5" dy="15">IT-Security (EN)</tspan>
+</text>
+<rect x="652" y="197.6" width="145" height="105.6" fill="#D9E2E9" stroke="#fff" stroke-width="2"/>
+<text x="724.5" y="219.6" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#111" text-anchor="middle" font-weight="bold"><tspan x="724.5" dy="0">6 ECTS</tspan>
+<tspan x="724.5" dy="15">Rechnernetze</tspan>
+</text>
+<rect x="652" y="303.2" width="145" height="105.6" fill="#D9E2E9" stroke="#fff" stroke-width="2"/>
+<text x="724.5" y="325.2" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#111" text-anchor="middle" font-weight="bold"><tspan x="724.5" dy="0">6 ECTS</tspan>
+<tspan x="724.5" dy="15">Theoretische</tspan>
+<tspan x="724.5" dy="15">Informatik</tspan>
+</text>
+<rect x="652" y="408.79999999999995" width="145" height="105.6" fill="#4D4D4D" stroke="#fff" stroke-width="2"/>
+<text x="724.5" y="430.79999999999995" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold"><tspan x="724.5" dy="0">24 ECTS</tspan>
+<tspan x="724.5" dy="15">Vertiefungsmodul</tspan>
+<tspan x="724.5" dy="15">AI / Embedded / SE</tspan>
+</text>
+<rect x="652" y="514.4" width="145" height="105.6" fill="#4D4D4D" stroke="#fff" stroke-width="2"/>
+<text x="724.5" y="536.4" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold"><tspan x="724.5" dy="0">12 ECTS</tspan>
+<tspan x="724.5" dy="15">Wahlpflichtmodul</tspan>
+<tspan x="724.5" dy="15">Wahlbereich II</tspan>
+</text>
+<rect x="805" y="92.0" width="145" height="176.0" fill="#D9E2E9" stroke="#fff" stroke-width="2"/>
+<text x="877.5" y="114.0" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#111" text-anchor="middle" font-weight="bold"><tspan x="877.5" dy="0">9 ECTS</tspan>
+<tspan x="877.5" dy="15">Teamprojekt</tspan>
+</text>
+<rect x="805" y="268.0" width="145" height="176.0" fill="#D9E2E9" stroke="#fff" stroke-width="2"/>
+<text x="877.5" y="290.0" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#111" text-anchor="middle" font-weight="bold"><tspan x="877.5" dy="0">6 ECTS</tspan>
+<tspan x="877.5" dy="15">Verteilte Systeme</tspan>
+</text>
+<rect x="805" y="444.0" width="145" height="176.0" fill="#4D4D4D" stroke="#fff" stroke-width="2"/>
+<text x="877.5" y="466.0" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold"><tspan x="877.5" dy="0">6 ECTS</tspan>
+<tspan x="877.5" dy="15">Studium generale</tspan>
+</text>
+<rect x="958" y="92" width="145" height="264.0" fill="#CCCCCC" stroke="#fff" stroke-width="2"/>
+<text x="1030.5" y="214.0" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#111" text-anchor="middle" font-weight="bold"><tspan x="1030.5" dy="0">12 ECTS</tspan>
+<tspan x="1030.5" dy="15">Bachelorarbeit</tspan>
+</text>
+<rect x="958" y="356.0" width="145" height="264.0" fill="#D9E2E9" stroke="#fff" stroke-width="2"/>
+<text x="1030.5" y="478.0" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#111" text-anchor="middle" font-weight="bold"><tspan x="1030.5" dy="0">3 ECTS</tspan>
+<tspan x="1030.5" dy="15">Gruppenbetreuung</tspan>
+</text>
+</svg>

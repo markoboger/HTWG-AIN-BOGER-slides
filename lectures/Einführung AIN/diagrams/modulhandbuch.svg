@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="640" viewBox="0 0 1120 640">
+  <rect width="100%" height="100%" fill="#ffffff"/>
+<text x="40" y="35" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#111" text-anchor="start" font-weight="bold">Modulhandbuch in INdigit</text>
+<rect x="40" y="55" width="1020" height="36" fill="#5D9CEC" stroke="none" stroke-width="1" rx="0"/>
+<text x="56" y="78" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#fff" text-anchor="start" font-weight="bold">INdigit  |  Modulhandbücher  |  AIN SPO 4</text>
+<text x="50" y="125" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#111" text-anchor="start" font-weight="bold">Modul Software Engineering</text>
+<text x="50" y="160" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5D9CEC" text-anchor="start" font-weight="bold">Modul-Kürzel/-Nr.</text>
+<text x="260" y="160" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#111" text-anchor="start" font-weight="normal">SENG/16</text>
+<text x="50" y="200" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5D9CEC" text-anchor="start" font-weight="bold">Name</text>
+<text x="260" y="200" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#111" text-anchor="start" font-weight="normal">Software Engineering</text>
+<text x="50" y="240" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5D9CEC" text-anchor="start" font-weight="bold">Modultyp</text>
+<text x="260" y="240" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#111" text-anchor="start" font-weight="normal">PM</text>
+<text x="50" y="280" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5D9CEC" text-anchor="start" font-weight="bold">Modul-Koordination</text>
+<text x="260" y="280" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#111" text-anchor="start" font-weight="normal">Boger, Marko</text>
+<text x="50" y="320" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5D9CEC" text-anchor="start" font-weight="bold">Kontaktzeit</text>
+<text x="260" y="320" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#111" text-anchor="start" font-weight="normal">60</text>
+<text x="50" y="360" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5D9CEC" text-anchor="start" font-weight="bold">Selbststudium</text>
+<text x="260" y="360" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#111" text-anchor="start" font-weight="normal">120</text>
+<text x="50" y="400" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5D9CEC" text-anchor="start" font-weight="bold">Startsemester</text>
+<text x="260" y="400" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#111" text-anchor="start" font-weight="normal">3</text>
+<text x="50" y="440" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5D9CEC" text-anchor="start" font-weight="bold">Sprache</text>
+<text x="260" y="440" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#111" text-anchor="start" font-weight="normal">Deutsch</text>
+<text x="560" y="160" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5D9CEC" text-anchor="start" font-weight="bold">Voraussetzung</text>
+<text x="770" y="160" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#111" text-anchor="start" font-weight="normal">PROG1/03, PROG2/07</text>
+<text x="560" y="200" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5D9CEC" text-anchor="start" font-weight="bold">Erforderlich für</text>
+<text x="770" y="200" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#111" text-anchor="start" font-weight="normal">WAPP, SPKO, SOAR, SWQS…</text>
+<text x="560" y="240" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5D9CEC" text-anchor="start" font-weight="bold">Benotete Prüfung</text>
+<text x="770" y="240" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#111" text-anchor="start" font-weight="normal">SP (LP, PR, AB)</text>
+<text x="560" y="280" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5D9CEC" text-anchor="start" font-weight="bold">Lehrformen</text>
+<text x="770" y="280" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#111" text-anchor="start" font-weight="normal">Vorlesung, Labor, Selbststudium</text>
+<rect x="50" y="490" width="1000" height="60" fill="#F7F7F7" stroke="#ddd" stroke-width="1" rx="0"/>
+<text x="62" y="525" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#111" text-anchor="start" font-weight="normal">Lernziele: Übergang von kleinen Programmieraufgaben zu größeren Softwarestrukturen, Patterns und Produkten.</text>
+<rect x="50" y="570" width="1000" height="40" fill="#EEE" stroke="none" stroke-width="1" rx="0"/>
+<text x="62" y="595" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#111" text-anchor="start" font-weight="bold">LV: Software Engineering (V, 3 ECTS)  |  Software Engineering Übungen (LÜ, 3 ECTS)</text>
+</svg>

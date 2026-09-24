@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg content="&lt;mxfile host=&quot;app.diagrams.net&quot; modified=&quot;2026-09-24T17:00:00.000Z&quot; agent=&quot;Grok&quot; version=&quot;22.1.0&quot; type=&quot;device&quot;&gt;&#10;  &lt;diagram id=&quot;stundenplan&quot; name=&quot;stundenplan&quot;&gt;&#10;    &lt;mxGraphModel dx=&quot;1200&quot; dy=&quot;800&quot; grid=&quot;1&quot; gridSize=&quot;10&quot; guides=&quot;1&quot; tooltips=&quot;1&quot; connect=&quot;1&quot; arrows=&quot;1&quot; fold=&quot;1&quot; page=&quot;1&quot; pageScale=&quot;1&quot; pageWidth=&quot;1120&quot; pageHeight=&quot;680&quot; math=&quot;0&quot; shadow=&quot;0&quot;&gt;&#10;      &lt;root&gt;&#10;        &lt;mxCell id=&quot;0&quot;/&gt;&#10;        &lt;mxCell id=&quot;1&quot; parent=&quot;0&quot;/&gt;&#10;&lt;mxCell id=&quot;t1&quot; value=&quot;Stundenplan AIN1 (LSF)&quot; style=&quot;text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=24;fontStyle=1&quot; parent=&quot;1&quot; vertex=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;40&quot; y=&quot;10&quot; width=&quot;500&quot; height=&quot;36&quot; as=&quot;geometry&quot;/&gt;&lt;/mxCell&gt;&#10;&lt;mxCell id=&quot;nav&quot; value=&quot;Studentisches Leben | Veranstaltungen | Räume | Personen&quot; style=&quot;rounded=0;fillColor=#45908F;fontColor=#fff;align=left;spacingLeft=12;fontSize=11&quot; parent=&quot;1&quot; vertex=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;40&quot; y=&quot;55&quot; width=&quot;1020&quot; height=&quot;28&quot; as=&quot;geometry&quot;/&gt;&lt;/mxCell&gt;&#10;&lt;mxCell id=&quot;d0&quot; value=&quot;Zeit&quot; style=&quot;rounded=0;fillColor=#354458;fontColor=#fff;align=center;fontSize=12;fontStyle=1&quot; parent=&quot;1&quot; vertex=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;40&quot; y=&quot;100&quot; width=&quot;168&quot; height=&quot;30&quot; as=&quot;geometry&quot;/&gt;&lt;/mxCell&gt;&#10;&lt;mxCell id=&quot;d1&quot; value=&quot;Montag&quot; style=&quot;rounded=0;fillColor=#354458;fontColor=#fff;align=center;fontSize=12;fontStyle=1&quot; parent=&quot;1&quot; vertex=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;210&quot; y=&quot;100&quot; width=&quot;168&quot; height=&quot;30&quot; as=&quot;geometry&quot;/&gt;&lt;/mxCell&gt;&#10;&lt;mxCell id=&quot;d2&quot; value=&quot;Dienstag&quot; style=&quot;rounded=0;fillColor=#354458;fontColor=#fff;align=center;fontSize=12;fontStyle=1&quot; parent=&quot;1&quot; vertex=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;380&quot; y=&quot;100&quot; width=&quot;168&quot; height=&quot;30&quot; as=&quot;geometry&quot;/&gt;&lt;/mxCell&gt;&#10;&lt;mxCell id=&quot;d3&quot; value=&quot;Mittwoch&quot; style=&quot;rounded=0;fillColor=#354458;fontColor=#fff;align=center;fontSize=12;fontStyle=1&quot; parent=&quot;1&quot; vertex=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;550&quot; y=&quot;100&quot; width=&quot;168&quot; height=&quot;30&quot; as=&quot;geometry&quot;/&gt;&lt;/mxCell&gt;&#10;&lt;mxCell id=&quot;d4&quot; value=&quot;Donnerstag&quot; style=&quot;rounded=0;fillColor=#354458;fontColor=#fff;align=center;fontSize=12;fontStyle=1&quot; parent=&quot;1&quot; vertex=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;720&quot; y=&quot;100&quot; width=&quot;168&quot; height=&quot;30&quot; as=&quot;geometry&quot;/&gt;&lt;/mxCell&gt;&#10;&lt;mxCell id=&quot;d5&quot; value=&quot;Freitag&quot; style=&quot;rounded=0;fillColor=#354458;fontColor=#fff;align=center;fontSize=12;fontStyle=1&quot; parent=&quot;1&quot; vertex=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;890&quot; y=&quot;100&quot; width=&quot;168&quot; height=&quot;30&quot; as=&quot;geometry&quot;/&gt;&lt;/mxCell&gt;&#10;&lt;mxCell id=&quot;tm0&quot; value=&quot;8&quot; style=&quot;rounded=0;fillColor=#EEEEEE;align=center;fontSize=12;fontStyle=1&quot; parent=&quot;1&quot; vertex=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;40&quot; y=&quot;135&quot; width=&quot;168&quot; height=&quot;76&quot; as=&quot;geometry&quot;/&gt;&lt;/mxCell&gt;&#10;&lt;mxCell id=&quot;tm1&quot; value=&quot;9&quot; style=&quot;rounded=0;fillColor=#EEEEEE;align=center;fontSize=12;fontStyle=1&quot; parent=&quot;1&quot; vertex=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;40&quot; y=&quot;215&quot; width=&quot;168&quot; height=&quot;76&quot; as=&quot;geometry&quot;/&gt;&lt;/mxCell&gt;&#10;&lt;mxCell id=&quot;tm2&quot; value=&quot;10&quot; style=&quot;rounded=0;fillColor=#EEEEEE;align=center;fontSize=12;fontStyle=1&quot; parent=&quot;1&quot; vertex=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;40&quot; y=&quot;295&quot; width=&quot;168&quot; height=&quot;76&quot; as=&quot;geometry&quot;/&gt;&lt;/mxCell&gt;&#10;&lt;mxCell id=&quot;tm3&quot; value=&quot;11&quot; style=&quot;rounded=0;fillColor=#EEEEEE;align=center;fontSize=12;fontStyle=1&quot; parent=&quot;1&quot; vertex=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;40&quot; y=&quot;375&quot; width=&quot;168&quot; height=&quot;76&quot; as=&quot;geometry&quot;/&gt;&lt;/mxCell&gt;&#10;&lt;mxCell id=&quot;tm4&quot; value=&quot;14&quot; style=&quot;rounded=0;fillColor=#EEEEEE;align=center;fontSize=12;fontStyle=1&quot; parent=&quot;1&quot; vertex=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;40&quot; y=&quot;455&quot; width=&quot;168&quot; height=&quot;76&quot; as=&quot;geometry&quot;/&gt;&lt;/mxCell&gt;&#10;&lt;mxCell id=&quot;tm5&quot; value=&quot;15&quot; style=&quot;rounded=0;fillColor=#EEEEEE;align=center;fontSize=12;fontStyle=1&quot; parent=&quot;1&quot; vertex=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;40&quot; y=&quot;535&quot; width=&quot;168&quot; height=&quot;76&quot; as=&quot;geometry&quot;/&gt;&lt;/mxCell&gt;&#10;&lt;mxCell id=&quot;b0&quot; value=&quot;Grp 1 Analysis&amp;amp;#xa;F-022&quot; style=&quot;rounded=0;whiteSpace=wrap;html=1;fillColor=#D6EAF8;strokeColor=#5B9BD5;strokeWidth=1;align=center;fontSize=11&quot; parent=&quot;1&quot; vertex=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;210&quot; y=&quot;135&quot; width=&quot;166&quot; height=&quot;76&quot; as=&quot;geometry&quot;/&gt;&lt;/mxCell&gt;&#10;&lt;mxCell id=&quot;b1&quot; value=&quot;Grp 2 Analysis&amp;amp;#xa;F-022&quot; style=&quot;rounded=0;whiteSpace=wrap;html=1;fillColor=#D6EAF8;strokeColor=#5B9BD5;strokeWidth=1;align=center;fontSize=11&quot; parent=&quot;1&quot; vertex=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;210&quot; y=&quot;215&quot; width=&quot;166&quot; height=&quot;76&quot; as=&quot;geometry&quot;/&gt;&lt;/mxCell&gt;&#10;&lt;mxCell id=&quot;b2&quot; value=&quot;AIN1/2 Analysis&amp;amp;#xa;G-240&quot; style=&quot;rounded=0;whiteSpace=wrap;html=1;fillColor=#D6EAF8;strokeColor=#5B9BD5;strokeWidth=1;align=center;fontSize=11&quot; parent=&quot;1&quot; vertex=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;210&quot; y=&quot;295&quot; width=&quot;166&quot; height=&quot;76&quot; as=&quot;geometry&quot;/&gt;&lt;/mxCell&gt;&#10;&lt;mxCell id=&quot;b3&quot; value=&quot;Programmiertechnik 1&amp;amp;#xa;O-207&quot; style=&quot;rounded=0;whiteSpace=wrap;html=1;fillColor=#D6EAF8;strokeColor=#5B9BD5;strokeWidth=1;align=center;fontSize=11&quot; parent=&quot;1&quot; vertex=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;380&quot; y=&quot;215&quot; width=&quot;166&quot; height=&quot;76&quot; as=&quot;geometry&quot;/&gt;&lt;/mxCell&gt;&#10;&lt;mxCell id=&quot;b4&quot; value=&quot;Digitaltechnik&amp;amp;#xa;G-240&quot; style=&quot;rounded=0;whiteSpace=wrap;html=1;fillColor=#D6EAF8;strokeColor=#5B9BD5;strokeWidth=1;align=center;fontSize=11&quot; parent=&quot;1&quot; vertex=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;380&quot; y=&quot;295&quot; width=&quot;166&quot; height=&quot;76&quot; as=&quot;geometry&quot;/&gt;&lt;/mxCell&gt;&#10;&lt;mxCell id=&quot;b5&quot; value=&quot;G1 Prog. / G2 Dig.&amp;amp;#xa;O-201 / O-107&quot; style=&quot;rounded=0;whiteSpace=wrap;html=1;fillColor=#D6EAF8;strokeColor=#C00000;strokeWidth=3;align=center;fontSize=11&quot; parent=&quot;1&quot; vertex=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;380&quot; y=&quot;455&quot; width=&quot;166&quot; height=&quot;76&quot; as=&quot;geometry&quot;/&gt;&lt;/mxCell&gt;&#10;&lt;mxCell id=&quot;b6&quot; value=&quot;Softwaremodellierung&amp;amp;#xa;G-240&quot; style=&quot;rounded=0;whiteSpace=wrap;html=1;fillColor=#D6EAF8;strokeColor=#5B9BD5;strokeWidth=1;align=center;fontSize=11&quot; parent=&quot;1&quot; vertex=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;550&quot; y=&quot;215&quot; width=&quot;166&quot; height=&quot;76&quot; as=&quot;geometry&quot;/&gt;&lt;/mxCell&gt;&#10;&lt;mxCell id=&quot;b7&quot; value=&quot;Digitaltechnik&amp;amp;#xa;G-240&quot; style=&quot;rounded=0;whiteSpace=wrap;html=1;fillColor=#D6EAF8;strokeColor=#5B9BD5;strokeWidth=1;align=center;fontSize=11&quot; parent=&quot;1&quot; vertex=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;550&quot; y=&quot;455&quot; width=&quot;166&quot; height=&quot;76&quot; as=&quot;geometry&quot;/&gt;&lt;/mxCell&gt;&#10;&lt;mxCell id=&quot;b8&quot; value=&quot;Programmiertechnik 1&amp;amp;#xa;O-207&quot; style=&quot;rounded=0;whiteSpace=wrap;html=1;fillColor=#D6EAF8;strokeColor=#5B9BD5;strokeWidth=1;align=center;fontSize=11&quot; parent=&quot;1&quot; vertex=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;720&quot; y=&quot;215&quot; width=&quot;166&quot; height=&quot;76&quot; as=&quot;geometry&quot;/&gt;&lt;/mxCell&gt;&#10;&lt;mxCell id=&quot;b9&quot; value=&quot;Softwaremodellierung&amp;amp;#xa;O-102&quot; style=&quot;rounded=0;whiteSpace=wrap;html=1;fillColor=#D6EAF8;strokeColor=#5B9BD5;strokeWidth=1;align=center;fontSize=11&quot; parent=&quot;1&quot; vertex=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;720&quot; y=&quot;295&quot; width=&quot;166&quot; height=&quot;76&quot; as=&quot;geometry&quot;/&gt;&lt;/mxCell&gt;&#10;&lt;mxCell id=&quot;b10&quot; value=&quot;G1 Softmod. / G3 Ana.&amp;amp;#xa;O-201 / O-103&quot; style=&quot;rounded=0;whiteSpace=wrap;html=1;fillColor=#D6EAF8;strokeColor=#C00000;strokeWidth=3;align=center;fontSize=11&quot; parent=&quot;1&quot; vertex=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;720&quot; y=&quot;455&quot; width=&quot;166&quot; height=&quot;76&quot; as=&quot;geometry&quot;/&gt;&lt;/mxCell&gt;&#10;      &lt;/root&gt;&#10;    &lt;/mxGraphModel&gt;&#10;  &lt;/diagram&gt;&#10;&lt;/mxfile&gt;&#10;" xmlns="http://www.w3.org/2000/svg" width="1120" height="680" viewBox="0 0 1120 680">
+  <rect width="100%" height="100%" fill="#ffffff"/>
+<text x="40" y="35" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#111" text-anchor="start" font-weight="bold">Stundenplan AIN1 (LSF)</text>
+<rect x="40" y="55" width="1020" height="28" fill="#45908F" stroke="none" stroke-width="1" rx="0"/>
+<text x="52" y="74" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#fff" text-anchor="start" font-weight="normal">Studentisches Leben | Veranstaltungen | Räume | Personen</text>
+<rect x="40" y="100" width="168" height="30" fill="#354458" stroke="none" stroke-width="1" rx="0"/>
+<text x="125.0" y="120" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">Zeit</text>
+<rect x="210" y="100" width="168" height="30" fill="#354458" stroke="none" stroke-width="1" rx="0"/>
+<text x="295.0" y="120" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">Montag</text>
+<rect x="380" y="100" width="168" height="30" fill="#354458" stroke="none" stroke-width="1" rx="0"/>
+<text x="465.0" y="120" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">Dienstag</text>
+<rect x="550" y="100" width="168" height="30" fill="#354458" stroke="none" stroke-width="1" rx="0"/>
+<text x="635.0" y="120" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">Mittwoch</text>
+<rect x="720" y="100" width="168" height="30" fill="#354458" stroke="none" stroke-width="1" rx="0"/>
+<text x="805.0" y="120" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">Donnerstag</text>
+<rect x="890" y="100" width="168" height="30" fill="#354458" stroke="none" stroke-width="1" rx="0"/>
+<text x="975.0" y="120" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">Freitag</text>
+<rect x="40" y="135" width="168" height="76" fill="#EEE" stroke="#ccc" stroke-width="1" rx="0"/>
+<text x="125.0" y="175.0" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#111" text-anchor="middle" font-weight="bold">8</text>
+<rect x="40" y="215" width="168" height="76" fill="#EEE" stroke="#ccc" stroke-width="1" rx="0"/>
+<text x="125.0" y="255.0" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#111" text-anchor="middle" font-weight="bold">9</text>
+<rect x="40" y="295" width="168" height="76" fill="#EEE" stroke="#ccc" stroke-width="1" rx="0"/>
+<text x="125.0" y="335.0" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#111" text-anchor="middle" font-weight="bold">10</text>
+<rect x="40" y="375" width="168" height="76" fill="#EEE" stroke="#ccc" stroke-width="1" rx="0"/>
+<text x="125.0" y="415.0" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#111" text-anchor="middle" font-weight="bold">11</text>
+<rect x="40" y="455" width="168" height="76" fill="#EEE" stroke="#ccc" stroke-width="1" rx="0"/>
+<text x="125.0" y="495.0" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#111" text-anchor="middle" font-weight="bold">14</text>
+<rect x="40" y="535" width="168" height="76" fill="#EEE" stroke="#ccc" stroke-width="1" rx="0"/>
+<text x="125.0" y="575.0" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#111" text-anchor="middle" font-weight="bold">15</text>
+<rect x="210" y="135" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="210" y="215" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="210" y="295" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="210" y="375" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="210" y="455" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="210" y="535" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="380" y="135" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="380" y="215" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="380" y="295" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="380" y="375" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="380" y="455" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="380" y="535" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="550" y="135" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="550" y="215" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="550" y="295" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="550" y="375" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="550" y="455" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="550" y="535" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="720" y="135" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="720" y="215" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="720" y="295" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="720" y="375" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="720" y="455" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="720" y="535" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="890" y="135" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="890" y="215" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="890" y="295" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="890" y="375" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="890" y="455" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="890" y="535" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="210" y="135" width="166" height="76" fill="#D6EAF8" stroke="#5B9BD5" stroke-width="1" rx="0"/>
+<text x="293.0" y="165.0" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#111" text-anchor="middle" font-weight="normal">
+<tspan x="293.0" dy="0">Grp 1 Analysis</tspan>
+<tspan x="293.0" dy="13.75">F-022</tspan>
+</text>
+<rect x="210" y="215" width="166" height="76" fill="#D6EAF8" stroke="#5B9BD5" stroke-width="1" rx="0"/>
+<text x="293.0" y="245.0" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#111" text-anchor="middle" font-weight="normal">
+<tspan x="293.0" dy="0">Grp 2 Analysis</tspan>
+<tspan x="293.0" dy="13.75">F-022</tspan>
+</text>
+<rect x="210" y="295" width="166" height="76" fill="#D6EAF8" stroke="#5B9BD5" stroke-width="1" rx="0"/>
+<text x="293.0" y="325.0" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#111" text-anchor="middle" font-weight="normal">
+<tspan x="293.0" dy="0">AIN1/2 Analysis</tspan>
+<tspan x="293.0" dy="13.75">G-240</tspan>
+</text>
+<rect x="380" y="215" width="166" height="76" fill="#D6EAF8" stroke="#5B9BD5" stroke-width="1" rx="0"/>
+<text x="463.0" y="245.0" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#111" text-anchor="middle" font-weight="normal">
+<tspan x="463.0" dy="0">Programmiertechnik 1</tspan>
+<tspan x="463.0" dy="13.75">O-207</tspan>
+</text>
+<rect x="380" y="295" width="166" height="76" fill="#D6EAF8" stroke="#5B9BD5" stroke-width="1" rx="0"/>
+<text x="463.0" y="325.0" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#111" text-anchor="middle" font-weight="normal">
+<tspan x="463.0" dy="0">Digitaltechnik</tspan>
+<tspan x="463.0" dy="13.75">G-240</tspan>
+</text>
+<rect x="380" y="455" width="166" height="76" fill="#D6EAF8" stroke="#C00000" stroke-width="3" rx="0"/>
+<text x="463.0" y="485.0" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#111" text-anchor="middle" font-weight="normal">
+<tspan x="463.0" dy="0">G1 Prog. / G2 Dig.</tspan>
+<tspan x="463.0" dy="13.75">O-201 / O-107</tspan>
+</text>
+<rect x="550" y="215" width="166" height="76" fill="#D6EAF8" stroke="#5B9BD5" stroke-width="1" rx="0"/>
+<text x="633.0" y="245.0" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#111" text-anchor="middle" font-weight="normal">
+<tspan x="633.0" dy="0">Softwaremodellierung</tspan>
+<tspan x="633.0" dy="13.75">G-240</tspan>
+</text>
+<rect x="550" y="455" width="166" height="76" fill="#D6EAF8" stroke="#5B9BD5" stroke-width="1" rx="0"/>
+<text x="633.0" y="485.0" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#111" text-anchor="middle" font-weight="normal">
+<tspan x="633.0" dy="0">Digitaltechnik</tspan>
+<tspan x="633.0" dy="13.75">G-240</tspan>
+</text>
+<rect x="720" y="215" width="166" height="76" fill="#D6EAF8" stroke="#5B9BD5" stroke-width="1" rx="0"/>
+<text x="803.0" y="245.0" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#111" text-anchor="middle" font-weight="normal">
+<tspan x="803.0" dy="0">Programmiertechnik 1</tspan>
+<tspan x="803.0" dy="13.75">O-207</tspan>
+</text>
+<rect x="720" y="295" width="166" height="76" fill="#D6EAF8" stroke="#5B9BD5" stroke-width="1" rx="0"/>
+<text x="803.0" y="325.0" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#111" text-anchor="middle" font-weight="normal">
+<tspan x="803.0" dy="0">Softwaremodellierung</tspan>
+<tspan x="803.0" dy="13.75">O-102</tspan>
+</text>
+<rect x="720" y="455" width="166" height="76" fill="#D6EAF8" stroke="#C00000" stroke-width="3" rx="0"/>
+<text x="803.0" y="485.0" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#111" text-anchor="middle" font-weight="normal">
+<tspan x="803.0" dy="0">G1 Softmod. / G3 Ana.</tspan>
+<tspan x="803.0" dy="13.75">O-201 / O-103</tspan>
+</text>
+</svg>

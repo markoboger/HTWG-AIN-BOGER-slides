@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="680" viewBox="0 0 1120 680">
+  <rect width="100%" height="100%" fill="#ffffff"/>
+<text x="40" y="35" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#111" text-anchor="start" font-weight="bold">Stundenplan AIN1 (LSF)</text>
+<rect x="40" y="55" width="1020" height="28" fill="#45908F" stroke="none" stroke-width="1" rx="0"/>
+<text x="52" y="74" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#fff" text-anchor="start" font-weight="normal">Studentisches Leben | Veranstaltungen | Räume | Personen</text>
+<rect x="40" y="100" width="168" height="30" fill="#354458" stroke="none" stroke-width="1" rx="0"/>
+<text x="125.0" y="120" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">Zeit</text>
+<rect x="210" y="100" width="168" height="30" fill="#354458" stroke="none" stroke-width="1" rx="0"/>
+<text x="295.0" y="120" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">Montag</text>
+<rect x="380" y="100" width="168" height="30" fill="#354458" stroke="none" stroke-width="1" rx="0"/>
+<text x="465.0" y="120" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">Dienstag</text>
+<rect x="550" y="100" width="168" height="30" fill="#354458" stroke="none" stroke-width="1" rx="0"/>
+<text x="635.0" y="120" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">Mittwoch</text>
+<rect x="720" y="100" width="168" height="30" fill="#354458" stroke="none" stroke-width="1" rx="0"/>
+<text x="805.0" y="120" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">Donnerstag</text>
+<rect x="890" y="100" width="168" height="30" fill="#354458" stroke="none" stroke-width="1" rx="0"/>
+<text x="975.0" y="120" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">Freitag</text>
+<rect x="40" y="135" width="168" height="76" fill="#EEE" stroke="#ccc" stroke-width="1" rx="0"/>
+<text x="125.0" y="175.0" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#111" text-anchor="middle" font-weight="bold">8</text>
+<rect x="40" y="215" width="168" height="76" fill="#EEE" stroke="#ccc" stroke-width="1" rx="0"/>
+<text x="125.0" y="255.0" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#111" text-anchor="middle" font-weight="bold">9</text>
+<rect x="40" y="295" width="168" height="76" fill="#EEE" stroke="#ccc" stroke-width="1" rx="0"/>
+<text x="125.0" y="335.0" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#111" text-anchor="middle" font-weight="bold">10</text>
+<rect x="40" y="375" width="168" height="76" fill="#EEE" stroke="#ccc" stroke-width="1" rx="0"/>
+<text x="125.0" y="415.0" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#111" text-anchor="middle" font-weight="bold">11</text>
+<rect x="40" y="455" width="168" height="76" fill="#EEE" stroke="#ccc" stroke-width="1" rx="0"/>
+<text x="125.0" y="495.0" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#111" text-anchor="middle" font-weight="bold">14</text>
+<rect x="40" y="535" width="168" height="76" fill="#EEE" stroke="#ccc" stroke-width="1" rx="0"/>
+<text x="125.0" y="575.0" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#111" text-anchor="middle" font-weight="bold">15</text>
+<rect x="210" y="135" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="210" y="215" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="210" y="295" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="210" y="375" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="210" y="455" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="210" y="535" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="380" y="135" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="380" y="215" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="380" y="295" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="380" y="375" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="380" y="455" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="380" y="535" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="550" y="135" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="550" y="215" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="550" y="295" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="550" y="375" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="550" y="455" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="550" y="535" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="720" y="135" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="720" y="215" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="720" y="295" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="720" y="375" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="720" y="455" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="720" y="535" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="890" y="135" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="890" y="215" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="890" y="295" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="890" y="375" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="890" y="455" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="890" y="535" width="166" height="76" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" rx="0"/>
+<rect x="210" y="135" width="166" height="76" fill="#D6EAF8" stroke="#5B9BD5" stroke-width="1" rx="0"/>
+<text x="293.0" y="165.0" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#111" text-anchor="middle" font-weight="normal">
+<tspan x="293.0" dy="0">Grp 1 Analysis</tspan>
+<tspan x="293.0" dy="13.75">F-022</tspan>
+</text>
+<rect x="210" y="215" width="166" height="76" fill="#D6EAF8" stroke="#5B9BD5" stroke-width="1" rx="0"/>
+<text x="293.0" y="245.0" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#111" text-anchor="middle" font-weight="normal">
+<tspan x="293.0" dy="0">Grp 2 Analysis</tspan>
+<tspan x="293.0" dy="13.75">F-022</tspan>
+</text>
+<rect x="210" y="295" width="166" height="76" fill="#D6EAF8" stroke="#5B9BD5" stroke-width="1" rx="0"/>
+<text x="293.0" y="325.0" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#111" text-anchor="middle" font-weight="normal">
+<tspan x="293.0" dy="0">AIN1/2 Analysis</tspan>
+<tspan x="293.0" dy="13.75">G-240</tspan>
+</text>
+<rect x="380" y="215" width="166" height="76" fill="#D6EAF8" stroke="#5B9BD5" stroke-width="1" rx="0"/>
+<text x="463.0" y="245.0" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#111" text-anchor="middle" font-weight="normal">
+<tspan x="463.0" dy="0">Programmiertechnik 1</tspan>
+<tspan x="463.0" dy="13.75">O-207</tspan>
+</text>
+<rect x="380" y="295" width="166" height="76" fill="#D6EAF8" stroke="#5B9BD5" stroke-width="1" rx="0"/>
+<text x="463.0" y="325.0" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#111" text-anchor="middle" font-weight="normal">
+<tspan x="463.0" dy="0">Digitaltechnik</tspan>
+<tspan x="463.0" dy="13.75">G-240</tspan>
+</text>
+<rect x="380" y="455" width="166" height="76" fill="#D6EAF8" stroke="#C00000" stroke-width="3" rx="0"/>
+<text x="463.0" y="485.0" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#111" text-anchor="middle" font-weight="normal">
+<tspan x="463.0" dy="0">G1 Prog. / G2 Dig.</tspan>
+<tspan x="463.0" dy="13.75">O-201 / O-107</tspan>
+</text>
+<rect x="550" y="215" width="166" height="76" fill="#D6EAF8" stroke="#5B9BD5" stroke-width="1" rx="0"/>
+<text x="633.0" y="245.0" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#111" text-anchor="middle" font-weight="normal">
+<tspan x="633.0" dy="0">Softwaremodellierung</tspan>
+<tspan x="633.0" dy="13.75">G-240</tspan>
+</text>
+<rect x="550" y="455" width="166" height="76" fill="#D6EAF8" stroke="#5B9BD5" stroke-width="1" rx="0"/>
+<text x="633.0" y="485.0" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#111" text-anchor="middle" font-weight="normal">
+<tspan x="633.0" dy="0">Digitaltechnik</tspan>
+<tspan x="633.0" dy="13.75">G-240</tspan>
+</text>
+<rect x="720" y="215" width="166" height="76" fill="#D6EAF8" stroke="#5B9BD5" stroke-width="1" rx="0"/>
+<text x="803.0" y="245.0" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#111" text-anchor="middle" font-weight="normal">
+<tspan x="803.0" dy="0">Programmiertechnik 1</tspan>
+<tspan x="803.0" dy="13.75">O-207</tspan>
+</text>
+<rect x="720" y="295" width="166" height="76" fill="#D6EAF8" stroke="#5B9BD5" stroke-width="1" rx="0"/>
+<text x="803.0" y="325.0" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#111" text-anchor="middle" font-weight="normal">
+<tspan x="803.0" dy="0">Softwaremodellierung</tspan>
+<tspan x="803.0" dy="13.75">O-102</tspan>
+</text>
+<rect x="720" y="455" width="166" height="76" fill="#D6EAF8" stroke="#C00000" stroke-width="3" rx="0"/>
+<text x="803.0" y="485.0" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#111" text-anchor="middle" font-weight="normal">
+<tspan x="803.0" dy="0">G1 Softmod. / G3 Ana.</tspan>
+<tspan x="803.0" dy="13.75">O-201 / O-103</tspan>
+</text>
+</svg>

@@ -13,7 +13,7 @@ footer: "![](../../themes/htwgin40.png)&nbsp;&nbsp;Prof. Dr. Marko Boger"
 
 From development to production.
 
-<p class="small">Docker → Compose → Kubernetes → k3s → k3d → Keycloak</p>
+<p class="small">Docker → Compose → Nginx / Traefik → Kubernetes → k3s → k3d → Keycloak → Lichess bot API (optional)</p>
 
 ---
 
@@ -25,6 +25,8 @@ From development to production.
 - compare **k3s** vs. “full” Kubernetes and when each fits
 - use **k3d** to spin up a disposable cluster on a laptop
 - position **Keycloak** as identity and access management in front of services
+- explain how **Nginx** and **Traefik** terminate HTTP, route traffic, and fit into Compose and Kubernetes
+- (optional) outline how a **Lichess bot account** consumes the **Bot HTTP API** to play other bots
 
 ---
 
@@ -193,6 +195,168 @@ docker compose up --build
 | **Networking** | bridge networks | Services, Ingress, CNI |
 
 Compose teaches **service graphs**. Kubernetes adds **cluster operations**.
+
+---
+
+# Edge traffic: reverse proxies
+
+Most real deployments do **not** expose every container port directly to the internet.
+
+A **reverse proxy** (or **ingress controller**) sits at the edge and:
+
+- terminates **TLS** (HTTPS certificates)
+- routes **Host** / **path** to the correct upstream service
+- can add **compression**, **rate limiting**, and **basic auth**
+- often provides **load balancing** across replicas
+
+**Nginx** and **Traefik** are two very common choices—different philosophy, same job at the boundary.
+
+---
+
+# Nginx
+
+## What it does
+
+- **HTTP(S) server** and **reverse proxy** with a stable, file-based configuration model
+- widely used to serve **static files** (SPA `index.html`, assets) and to **proxy** to app servers
+- in Kubernetes, **Ingress-Nginx** is a popular **Ingress controller** implementation
+
+Typical roles:
+
+- `proxy_pass` to a JVM/Node API behind the same Compose network
+- cache or gzip at the edge
+- optional **mTLS** between proxy and backends
+
+![bg right:50% contain](assets/deployment/nginx-logo.svg)
+
+---
+
+# Nginx: minimal reverse proxy
+
+`/etc/nginx/conf.d/app.conf` (or mounted into a container):
+
+```nginx
+server {
+    listen 80;
+    server_name api.example.local;
+
+    location / {
+        proxy_pass         http://api:8080;
+        proxy_http_version 1.1;
+        proxy_set_header   Host $host;
+        proxy_set_header   X-Real-IP $remote_addr;
+        proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header   X-Forwarded-Proto $scheme;
+    }
+}
+```
+
+In **Docker Compose**, run an `nginx` service, mount this file, and publish **only** port `80` on the host.
+
+---
+
+# Nginx: install
+
+**macOS**
+
+```bash
+brew install nginx
+nginx -v
+```
+
+**Linux (Debian/Ubuntu)**
+
+```bash
+sudo apt update && sudo apt install -y nginx
+sudo nginx -t && sudo systemctl enable --now nginx
+```
+
+**Container (official image)**
+
+```bash
+docker run --rm -p 8080:80 nginx:alpine
+```
+
+Docs: <https://nginx.org/en/docs/>
+
+---
+
+# Traefik
+
+## What it does
+
+- **cloud-native reverse proxy** and **ingress** solution
+- discovers routes from **labels** (Docker / Compose) or from **Kubernetes** `Ingress` / **CRDs** (`IngressRoute`)
+- built-in **Let’s Encrypt** (ACME) support for automatic HTTPS certificates
+
+Good fit when:
+
+- services come and go frequently (dynamic backends)
+- you want **declarative routing** next to your Compose or Helm charts
+
+![bg right:50% contain](assets/deployment/traefik-logo.png)
+
+---
+
+# Traefik: Compose labels (dynamic routing)
+
+Traefik watches the Docker socket and builds a routing table from **labels**:
+
+```yaml
+services:
+  traefik:
+    image: traefik:v3.2
+    command:
+      - --providers.docker=true
+      - --providers.docker.exposedbydefault=false
+      - --entrypoints.web.address=:80
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+  api:
+    image: ghcr.io/example/api:1.0.0
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.api.rule=Host(`api.localhost`)
+      - traefik.http.services.api.loadbalancer.server.port=8080
+```
+
+Docs: <https://doc.traefik.io/traefik/getting-started/docker/> and Kubernetes install: <https://doc.traefik.io/traefik/getting-started/install-traefik/>
+
+---
+
+# Traefik: install (CLI / Compose)
+
+**macOS**
+
+```bash
+brew install traefik
+traefik version
+```
+
+**Static binary**
+
+```bash
+curl -sL https://github.com/traefik/traefik/releases/latest/download/traefik_linux_amd64.tar.gz | tar xz
+./traefik version
+```
+
+On **Kubernetes**, you usually install Traefik via **Helm** or a vendor chart; it then acts as your **Ingress controller**.
+
+---
+
+# Nginx vs Traefik (when to pick which)
+
+| | **Nginx** | **Traefik** |
+| --- | --- | --- |
+| **Configuration** | files (`*.conf`), reload | often **labels / CRDs**, hot reload |
+| **TLS / ACME** | possible (e.g. Certbot sidecar) | first-class **ACME** integration |
+| **Discovery** | mostly **static** upstreams | **dynamic** from Docker / K8s |
+| **Mental model** | “classic high-performance web server” | “routing fabric for microservices” |
+
+Many teams use **both**: Traefik at the outer edge and Nginx **inside** as a static file server or sidecar.
 
 ---
 
@@ -433,7 +597,7 @@ Docs: <https://www.keycloak.org/getting-started/getting-started-docker>
 Internet
    │
    ▼
-Ingress / API Gateway
+Nginx / Traefik / other Ingress (TLS, routing)
    │
    ├──► Keycloak (login, token issuance)
    │
@@ -448,13 +612,136 @@ In Kubernetes, Keycloak is usually:
 
 ---
 
+# Optional extension: **Lichess** bot deployment
+
+Connecting your **deployed** chess engine / service to **Lichess** is a realistic “runtime integration” exercise:
+
+- your bot runs **as a container or process** somewhere permanent (Compose, VPS, Kubernetes)
+- it holds a **long-lived HTTP client** against the Lichess **Bot API**
+- it plays **rated / casual** games against humans or **other bots** by receiving challenges or issuing them
+
+Official reference: **[Lichess HTTP API](https://lichess.org/api)** — read the **Bot** section before you automate anything.
+
+---
+
+# Lichess: Board API vs **Bot API**
+
+| | **Board API** (normal account) | **Bot API** (marked bot account) |
+| --- | --- | --- |
+| **Account type** | your personal Lichess user | account upgraded **once** to “bot” |
+| **Fair-play rules** | not for unattended engine play vs humans | engineered for autonomous engine/bot opponents |
+| **Typical usage** | human drives UI / tools | unattended service plays via HTTP |
+
+For this lecture’s goal—**playing other bots on the platform**—students should use an **explicit bot account**, not automate a normal user.
+
+---
+
+# Bot account & personal access token
+
+1. Follow Lichess instructions to create **or upgrade** an account flagged as **BOT** (`POST /api/bot/account/upgrade` is irreversible — only after reading their policy).
+2. At **lichess.org** → profile → **[API tokens](https://lichess.org/account/oauth/token)** generate a token with scopes your client needs for bot play (often **challenge read/write**, **bot play**, as documented on the Bot API pages).
+3. Store the secret as an **environment variable** or Kubernetes **Secret**, never commit it:
+
+```bash
+export LICHESS_BOT_TOKEN='lip_whatever'
+curl -s -H "Authorization: Bearer $LICHESS_BOT_TOKEN" https://lichess.org/api/account/me
+```
+
+Treat it like production credentials (rotate if leaked).
+
+---
+
+# How a bot listens and plays
+
+Lichess bot integrations are mostly **streaming HTTP**:
+
+```text
+                    ┌─────────────────────┐
+  Lichess platform  │  NdJSON event stream │   your bot container
+ ─────────────────► │  `/api/stream/event` ├──────────────────────►
+                    └─────────────────────┘        │
+                           challenges,           parse line →
+                           game starts            choose move
+                                                    │
+                    ┌─────────────────────┐         │
+ move / status      │ `/api/bot/game/…` stream      │
+ ◄─────────────────│ (per-game stream) ◄─┘──────────┘
+```
+
+You **consume** newline-delivered JSON (**NDJSON**) and react: accept or decline challenges, then attach to **per-game** streams and **POST moves** when it is your turn.
+
+---
+
 <!-- _class: compact -->
-# Task Suggestion
+# Typical Bot API endpoints (cheat sheet)
+
+All requests use header `Authorization: Bearer <token>`.
+
+| Goal | Verb + path | Notes |
+| --- | --- | --- |
+| Open stream of challenges / events | `GET /api/stream/event` | **long-lived** connection; loop in code |
+| Accept a challenge id | `POST /api/challenge/{id}/accept` | Body often empty (`-d ''`) |
+| Challenge another **user or bot** | `POST /api/challenge/{username}` (+ JSON/time controls as per docs) | how you explicitly play **another bot by name** |
+| Stream one game | `GET /api/bot/game/stream/{gameId}` | board state updates |
+| Submit a move (UCI) | `POST /api/bot/game/{gameId}/move/{uci}` | e.g. `e2e4` |
+
+Exact parameters and quirks **change** — always cross-check **`lichess.org/api`**.
+
+---
+
+# Minimal flow in pseudocode
+
+```pseudo
+TOKEN = getenv("LICHESS_BOT_TOKEN")
+open SSE/HTTP stream GET lichess.org/api/stream/event + Authorization header
+for each NDJSON line:
+  if challenge from acceptable opponent → POST …/challenge/{id}/accept
+open GET …/bot/game/stream/{gameId}
+  if chessbot turn → compute move SAN/UCI → POST …/bot/game/{id}/move/{uci}
+```
+
+Implement with **timeouts**, **reconnect** on disconnect, **logging**, and fair **thinking time**.
+
+---
+
+# Playing specifically **against other bots**
+
+Ways teams usually do it in projects:
+
+1. **Discover** bots on [the Lichess bot list](https://lichess.org/player/bots) (or opponent given in assignment).
+2. **Challenge** another bot username with documented time controls (**bullet / blitz** limits apply).
+3. **Accept inbound** bot-vs-bot seeks if your stream receives them.
+
+Architecturally identical to humans—only pairing and etiquette differ.
+
+Operational tips:
+
+- one **persistent** outbound stream per bot process  
+- backoff if Lichess returns **HTTP 429** (rate limiting)
+
+---
+
+# Compliance & operations
+
+Lichess enforces strict **fair play** for human games; **bots are isolated** under rules you must accept at account upgrade.
+
+Operational checklist for a deployed bot:
+
+- health check: alive if stream reconnects cleanly  
+- secret rotation for `lip_…` token  
+- version your engine **separately** from the adapter that talks HTTPS  
+- never DDoS the API (`429` ⇒ slow down)
+
+---
+
+<!-- _class: compact -->
+# Task Assignment
 
 1. Review **Dockerfiles** for your project
 2. Extend **Docker Compose** to locally test all your services
 3. Create a **k3d** cluster and deploy the same stack with **Kubernetes manifests** 
 4. Deploy on your assigned virtual server
 5. Optional: include **Keycloak** in Compose, create a realm and client to manage access rights.
+6. Connect to the Lichess Bot API
 
-
+---

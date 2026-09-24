@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="Electron" agent="svg2drawio.py" version="24.0.0" type="device">
+  <diagram id="studieninhalte-temple" name="studieninhalte-temple">
+    <mxGraphModel dx="1200" dy="800" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1000" pageHeight="520" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="studieninhalte-temple-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;locked=1;" vertex="1" parent="1"><mxGeometry x="0" y="0" width="1000" height="520" as="geometry" /></mxCell>
+        <mxCell id="studieninhalte-temple-3" value="" style="triangle;direction=north;whiteSpace=wrap;html=1;fillColor=#008F8F;strokeColor=#006666;strokeWidth=2;" vertex="1" parent="1"><mxGeometry x="150" y="30" width="700" height="120" as="geometry" /></mxCell>
+        <mxCell id="studieninhalte-temple-4" value="Angewandte Informatik" style="text;html=1;align=center;verticalAlign=middle;spacing=0;spacingTop=0;spacingBottom=0;spacingLeft=0;spacingRight=0;fontSize=26;fontStyle=1;fontColor=#FFFFFF;fontFamily=Arial;strokeColor=none;fillColor=none;" vertex="1" parent="1"><mxGeometry x="343.7" y="95.39" width="312.6" height="31.2" as="geometry" /></mxCell>
+        <mxCell id="studieninhalte-temple-5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#C00000;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="1"><mxGeometry x="170" y="150" width="110" height="320" as="geometry" /></mxCell>
+        <mxCell id="studieninhalte-temple-6" value="Theorie und Mathematik" style="text;html=1;align=center;verticalAlign=middle;spacing=0;spacingTop=0;spacingBottom=0;spacingLeft=0;spacingRight=0;fontSize=20;fontStyle=1;fontColor=#111111;fontFamily=Arial;strokeColor=none;fillColor=none;rotation=-90;" vertex="1" parent="1"><mxGeometry x="92.19" y="298" width="251.75" height="24" as="geometry" /></mxCell>
+        <mxCell id="studieninhalte-temple-7" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFC000;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="1"><mxGeometry x="300" y="150" width="110" height="320" as="geometry" /></mxCell>
+        <mxCell id="studieninhalte-temple-8" value="Rechner und Netze" style="text;html=1;align=center;verticalAlign=middle;spacing=0;spacingTop=0;spacingBottom=0;spacingLeft=0;spacingRight=0;fontSize=20;fontStyle=1;fontColor=#111111;fontFamily=Arial;strokeColor=none;fillColor=none;rotation=-90;" vertex="1" parent="1"><mxGeometry x="249.52" y="298" width="197.1" height="24" as="geometry" /></mxCell>
+        <mxCell id="studieninhalte-temple-9" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#92D050;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="1"><mxGeometry x="430" y="150" width="110" height="320" as="geometry" /></mxCell>
+        <mxCell id="studieninhalte-temple-10" value="Programmierung" style="text;html=1;align=center;verticalAlign=middle;spacing=0;spacingTop=0;spacingBottom=0;spacingLeft=0;spacingRight=0;fontSize=20;fontStyle=1;fontColor=#111111;fontFamily=Arial;strokeColor=none;fillColor=none;rotation=-90;" vertex="1" parent="1"><mxGeometry x="393.23" y="298" width="169.67" height="24" as="geometry" /></mxCell>
+        <mxCell id="studieninhalte-temple-11" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#00B0F0;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="1"><mxGeometry x="560" y="150" width="110" height="320" as="geometry" /></mxCell>
+        <mxCell id="studieninhalte-temple-12" value="Datenbanken" style="text;html=1;align=center;verticalAlign=middle;spacing=0;spacingTop=0;spacingBottom=0;spacingLeft=0;spacingRight=0;fontSize=20;fontStyle=1;fontColor=#111111;fontFamily=Arial;strokeColor=none;fillColor=none;rotation=-90;" vertex="1" parent="1"><mxGeometry x="540.51" y="298" width="135.11" height="24" as="geometry" /></mxCell>
+        <mxCell id="studieninhalte-temple-13" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#00DADA;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="1"><mxGeometry x="690" y="150" width="110" height="320" as="geometry" /></mxCell>
+        <mxCell id="studieninhalte-temple-14" value="Anwendungen" style="text;html=1;align=center;verticalAlign=middle;spacing=0;spacingTop=0;spacingBottom=0;spacingLeft=0;spacingRight=0;fontSize=20;fontStyle=1;fontColor=#111111;fontFamily=Arial;strokeColor=none;fillColor=none;rotation=-90;" vertex="1" parent="1"><mxGeometry x="665.11" y="298" width="145.91" height="24" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

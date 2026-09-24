@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-09-24T17:00:00.000Z" agent="Grok" version="22.1.0" type="device">
+  <diagram id="stundenplan" name="stundenplan">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1120" pageHeight="680" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+<mxCell id="t1" value="Stundenplan AIN1 (LSF)" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=24;fontStyle=1" parent="1" vertex="1"><mxGeometry x="40" y="10" width="500" height="36" as="geometry"/></mxCell>
+<mxCell id="nav" value="Studentisches Leben | Veranstaltungen | Räume | Personen" style="rounded=0;fillColor=#45908F;fontColor=#fff;align=left;spacingLeft=12;fontSize=11" parent="1" vertex="1"><mxGeometry x="40" y="55" width="1020" height="28" as="geometry"/></mxCell>
+<mxCell id="d0" value="Zeit" style="rounded=0;fillColor=#354458;fontColor=#fff;align=center;fontSize=12;fontStyle=1" parent="1" vertex="1"><mxGeometry x="40" y="100" width="168" height="30" as="geometry"/></mxCell>
+<mxCell id="d1" value="Montag" style="rounded=0;fillColor=#354458;fontColor=#fff;align=center;fontSize=12;fontStyle=1" parent="1" vertex="1"><mxGeometry x="210" y="100" width="168" height="30" as="geometry"/></mxCell>
+<mxCell id="d2" value="Dienstag" style="rounded=0;fillColor=#354458;fontColor=#fff;align=center;fontSize=12;fontStyle=1" parent="1" vertex="1"><mxGeometry x="380" y="100" width="168" height="30" as="geometry"/></mxCell>
+<mxCell id="d3" value="Mittwoch" style="rounded=0;fillColor=#354458;fontColor=#fff;align=center;fontSize=12;fontStyle=1" parent="1" vertex="1"><mxGeometry x="550" y="100" width="168" height="30" as="geometry"/></mxCell>
+<mxCell id="d4" value="Donnerstag" style="rounded=0;fillColor=#354458;fontColor=#fff;align=center;fontSize=12;fontStyle=1" parent="1" vertex="1"><mxGeometry x="720" y="100" width="168" height="30" as="geometry"/></mxCell>
+<mxCell id="d5" value="Freitag" style="rounded=0;fillColor=#354458;fontColor=#fff;align=center;fontSize=12;fontStyle=1" parent="1" vertex="1"><mxGeometry x="890" y="100" width="168" height="30" as="geometry"/></mxCell>
+<mxCell id="tm0" value="8" style="rounded=0;fillColor=#EEEEEE;align=center;fontSize=12;fontStyle=1" parent="1" vertex="1"><mxGeometry x="40" y="135" width="168" height="76" as="geometry"/></mxCell>
+<mxCell id="tm1" value="9" style="rounded=0;fillColor=#EEEEEE;align=center;fontSize=12;fontStyle=1" parent="1" vertex="1"><mxGeometry x="40" y="215" width="168" height="76" as="geometry"/></mxCell>
+<mxCell id="tm2" value="10" style="rounded=0;fillColor=#EEEEEE;align=center;fontSize=12;fontStyle=1" parent="1" vertex="1"><mxGeometry x="40" y="295" width="168" height="76" as="geometry"/></mxCell>
+<mxCell id="tm3" value="11" style="rounded=0;fillColor=#EEEEEE;align=center;fontSize=12;fontStyle=1" parent="1" vertex="1"><mxGeometry x="40" y="375" width="168" height="76" as="geometry"/></mxCell>
+<mxCell id="tm4" value="14" style="rounded=0;fillColor=#EEEEEE;align=center;fontSize=12;fontStyle=1" parent="1" vertex="1"><mxGeometry x="40" y="455" width="168" height="76" as="geometry"/></mxCell>
+<mxCell id="tm5" value="15" style="rounded=0;fillColor=#EEEEEE;align=center;fontSize=12;fontStyle=1" parent="1" vertex="1"><mxGeometry x="40" y="535" width="168" height="76" as="geometry"/></mxCell>
+<mxCell id="b0" value="Grp 1 Analysis&amp;#xa;F-022" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D6EAF8;strokeColor=#5B9BD5;strokeWidth=1;align=center;fontSize=11" parent="1" vertex="1"><mxGeometry x="210" y="135" width="166" height="76" as="geometry"/></mxCell>
+<mxCell id="b1" value="Grp 2 Analysis&amp;#xa;F-022" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D6EAF8;strokeColor=#5B9BD5;strokeWidth=1;align=center;fontSize=11" parent="1" vertex="1"><mxGeometry x="210" y="215" width="166" height="76" as="geometry"/></mxCell>
+<mxCell id="b2" value="AIN1/2 Analysis&amp;#xa;G-240" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D6EAF8;strokeColor=#5B9BD5;strokeWidth=1;align=center;fontSize=11" parent="1" vertex="1"><mxGeometry x="210" y="295" width="166" height="76" as="geometry"/></mxCell>
+<mxCell id="b3" value="Programmiertechnik 1&amp;#xa;O-207" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D6EAF8;strokeColor=#5B9BD5;strokeWidth=1;align=center;fontSize=11" parent="1" vertex="1"><mxGeometry x="380" y="215" width="166" height="76" as="geometry"/></mxCell>
+<mxCell id="b4" value="Digitaltechnik&amp;#xa;G-240" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D6EAF8;strokeColor=#5B9BD5;strokeWidth=1;align=center;fontSize=11" parent="1" vertex="1"><mxGeometry x="380" y="295" width="166" height="76" as="geometry"/></mxCell>
+<mxCell id="b5" value="G1 Prog. / G2 Dig.&amp;#xa;O-201 / O-107" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D6EAF8;strokeColor=#C00000;strokeWidth=3;align=center;fontSize=11" parent="1" vertex="1"><mxGeometry x="380" y="455" width="166" height="76" as="geometry"/></mxCell>
+<mxCell id="b6" value="Softwaremodellierung&amp;#xa;G-240" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D6EAF8;strokeColor=#5B9BD5;strokeWidth=1;align=center;fontSize=11" parent="1" vertex="1"><mxGeometry x="550" y="215" width="166" height="76" as="geometry"/></mxCell>
+<mxCell id="b7" value="Digitaltechnik&amp;#xa;G-240" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D6EAF8;strokeColor=#5B9BD5;strokeWidth=1;align=center;fontSize=11" parent="1" vertex="1"><mxGeometry x="550" y="455" width="166" height="76" as="geometry"/></mxCell>
+<mxCell id="b8" value="Programmiertechnik 1&amp;#xa;O-207" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D6EAF8;strokeColor=#5B9BD5;strokeWidth=1;align=center;fontSize=11" parent="1" vertex="1"><mxGeometry x="720" y="215" width="166" height="76" as="geometry"/></mxCell>
+<mxCell id="b9" value="Softwaremodellierung&amp;#xa;O-102" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D6EAF8;strokeColor=#5B9BD5;strokeWidth=1;align=center;fontSize=11" parent="1" vertex="1"><mxGeometry x="720" y="295" width="166" height="76" as="geometry"/></mxCell>
+<mxCell id="b10" value="G1 Softmod. / G3 Ana.&amp;#xa;O-201 / O-103" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D6EAF8;strokeColor=#C00000;strokeWidth=3;align=center;fontSize=11" parent="1" vertex="1"><mxGeometry x="720" y="455" width="166" height="76" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

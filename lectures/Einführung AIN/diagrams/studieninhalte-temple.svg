@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="520" viewBox="0 0 1000 520">
+  <polygon points="150,150 500,30 850,150" fill="#008F8F" stroke="#006666" stroke-width="2"/>
+  <text x="500" y="120" font-family="Arial, Helvetica, sans-serif" font-size="26" fill="#fff" text-anchor="middle" font-weight="bold">Angewandte Informatik</text>
+  <rect x="170" y="150" width="110" height="320" fill="#C00000" stroke="#222" stroke-width="1.5"/>
+  <text x="225" y="310" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#111" text-anchor="middle" font-weight="bold" transform="rotate(-90 225 310)">Theorie und Mathematik</text>
+  <rect x="300" y="150" width="110" height="320" fill="#FFC000" stroke="#222" stroke-width="1.5"/>
+  <text x="355" y="310" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#111" text-anchor="middle" font-weight="bold" transform="rotate(-90 355 310)">Rechner und Netze</text>
+  <rect x="430" y="150" width="110" height="320" fill="#92D050" stroke="#222" stroke-width="1.5"/>
+  <text x="485" y="310" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#111" text-anchor="middle" font-weight="bold" transform="rotate(-90 485 310)">Programmierung</text>
+  <rect x="560" y="150" width="110" height="320" fill="#00B0F0" stroke="#222" stroke-width="1.5"/>
+  <text x="615" y="310" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#111" text-anchor="middle" font-weight="bold" transform="rotate(-90 615 310)">Datenbanken</text>
+  <rect x="690" y="150" width="110" height="320" fill="#00DADA" stroke="#222" stroke-width="1.5"/>
+  <text x="745" y="310" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#111" text-anchor="middle" font-weight="bold" transform="rotate(-90 745 310)">Anwendungen</text>
+</svg>

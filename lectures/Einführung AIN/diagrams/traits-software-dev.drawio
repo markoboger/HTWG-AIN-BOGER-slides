@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="Electron" agent="svg2drawio.py" version="24.0.0" type="device">
+  <diagram id="traits-software-dev" name="traits-software-dev">
+    <mxGraphModel dx="1200" dy="800" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1040" pageHeight="520" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="traits-software-dev-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;locked=1;" vertex="1" parent="1"><mxGeometry x="0" y="0" width="1040" height="520" as="geometry" /></mxCell>
+        <mxCell id="traits-software-dev-3" value="Software Development" style="text;html=1;align=center;verticalAlign=middle;spacing=0;spacingTop=0;spacingBottom=0;spacingLeft=0;spacingRight=0;fontSize=22;fontStyle=1;fontColor=#111111;fontFamily=Arial;strokeColor=none;fillColor=none;" vertex="1" parent="1"><mxGeometry x="380.41" y="227.18" width="259.18" height="26.4" as="geometry" /></mxCell>
+        <mxCell id="traits-software-dev-4" value='&lt;div style="line-height:17.5px"&gt;Software Architecture&lt;br&gt;The art of connecting solutions&lt;br&gt;to a system and maintaining it&lt;/div&gt;' style="text;html=1;align=center;verticalAlign=middle;spacing=0;spacingTop=0;spacingBottom=0;spacingLeft=0;spacingRight=0;fontSize=14;fontStyle=1;fontColor=#111111;fontFamily=Arial;strokeColor=none;fillColor=none;" vertex="1" parent="1"><mxGeometry x="395.89" y="14.4" width="228.23" height="52.5" as="geometry" /></mxCell>
+        <mxCell id="traits-software-dev-5" value='&lt;div style="line-height:17.5px"&gt;Software Engineering&lt;br&gt;The discipline of repeatably&lt;br&gt;finding solutions in teams&lt;/div&gt;' style="text;html=1;align=center;verticalAlign=middle;spacing=0;spacingTop=0;spacingBottom=0;spacingLeft=0;spacingRight=0;fontSize=14;fontStyle=1;fontColor=#111111;fontFamily=Arial;strokeColor=none;fillColor=none;" vertex="1" parent="1"><mxGeometry x="408.28" y="364.4" width="203.43" height="52.5" as="geometry" /></mxCell>
+        <mxCell id="traits-software-dev-6" value='&lt;div style="line-height:17.5px"&gt;Programming&lt;br&gt;The activity of solving a&lt;br&gt;problem with a computer&lt;/div&gt;' style="text;html=1;align=center;verticalAlign=middle;spacing=0;spacingTop=0;spacingBottom=0;spacingLeft=0;spacingRight=0;fontSize=14;fontStyle=1;fontColor=#111111;fontFamily=Arial;strokeColor=none;fillColor=none;" vertex="1" parent="1"><mxGeometry x="48.64" y="184.4" width="182.72" height="52.5" as="geometry" /></mxCell>
+        <mxCell id="traits-software-dev-7" value='&lt;div style="line-height:17.5px"&gt;Software Science&lt;br&gt;The science of what problems&lt;br&gt;have solutions and what they are&lt;/div&gt;' style="text;html=1;align=center;verticalAlign=middle;spacing=0;spacingTop=0;spacingBottom=0;spacingLeft=0;spacingRight=0;fontSize=14;fontStyle=1;fontColor=#111111;fontFamily=Arial;strokeColor=none;fillColor=none;" vertex="1" parent="1"><mxGeometry x="768.1" y="184.4" width="243.8" height="52.5" as="geometry" /></mxCell>
+        <mxCell id="traits-software-dev-8" value="Video: https://www.youtube.com/watch?v=4wIwdsEObTA" style="text;html=1;align=center;verticalAlign=middle;spacing=0;spacingTop=0;spacingBottom=0;spacingLeft=0;spacingRight=0;fontSize=11;fontStyle=0;fontColor=#009B91;fontFamily=Arial;strokeColor=none;fillColor=none;" vertex="1" parent="1"><mxGeometry x="353.12" y="497.59" width="313.76" height="13.2" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
