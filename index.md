@@ -12,6 +12,7 @@ _footer : ""
 ## HTWG
 **Computer Science Lectures by Prof. Dr. Marko Boger**
 
+# Einführung AIN (Erstsemester)
 # Programmiertechnik I (1. Sem)
 # Software Engineering (3. Sem)
 # Software Architecture (6. Sem)
@@ -19,6 +20,13 @@ _footer : ""
 
 Diese Folien werden mit **Marp** erstellt und sind nach jedem Push in der aktuellsten Version verfügbar.
 
+
+---
+
+### Einführung AIN
+
+- **[Einführung AIN für Erstsemester](lectures/Einf%C3%BChrung%20AIN/Einf%C3%BChrung-AIN-Erstsemester.html)**  
+  [PDF](lectures/Einf%C3%BChrung%20AIN/Einf%C3%BChrung-AIN-Erstsemester.pdf)
 
 ---
 
