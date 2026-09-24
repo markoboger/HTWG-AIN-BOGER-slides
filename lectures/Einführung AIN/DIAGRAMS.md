@@ -1,11 +1,11 @@
 # Diagrams — Einführung AIN Erstsemester
 
-Editable Draw.io sources (`.drawio`) and exported SVGs (`.svg`) live in `diagrams/`.
-Marp deck: `Einführung-AIN-Erstsemester.md` (relative embeds: `diagrams/<name>.svg`).
+The only diagram sources are the `.drawio.svg` files in `diagrams/` (SVG with the embedded Draw.io model; see below). There are no separate `.drawio` or plain `.svg` files.
+Marp deck: `Einführung-AIN-Erstsemester.md` (relative embeds: `diagrams/<name>.drawio.svg`).
 
 Source Google Slides: [Einführung AIN Erstsemester](https://docs.google.com/presentation/d/12VpE4i2CEMk00CgfC-Uah1sGcPEaVNzKVlb2AiUhWjg) (24 slides).
 
-## Files created (19 diagrams × `.drawio` + `.svg`)
+## Files (19 diagrams, each `diagrams/<stem>.drawio.svg`)
 
 | File stem | Depicts |
 |-----------|---------|
@@ -43,13 +43,13 @@ Repeated decorative HTWG logos on every slide were not duplicated into each diag
 ## Notes
 
 - Screenshots (Moodle, LSF, INdigit, HTWG dates pages) are **annotated schematics**, not pixel-perfect UI clones.
-- Open any `.drawio` in [diagrams.net](https://app.diagrams.net/) to edit; re-export SVG if you change the source.
+- To edit, open `diagrams/<stem>.drawio.svg` directly in the Draw.io editor (Cursor/VS Code extension hediet.vscode-drawio, or [diagrams.net](https://app.diagrams.net/)) and save it in place. No export step is needed; the deck uses the same file.
 - Theme paths from this lecture folder: `../../themes/htwg.css`, `../../themes/htwgin40.png`, `../../themes/htwgin-titel.png`.
 
-- `language-history` — Programmiersprachen-Zeitlinie (aus Programmiertechnik I, Logos unter `assets/logos/`)
+- `language-history` — Programmiersprachen-Zeitlinie (aus Programmiertechnik I). Logos for ASM, Simula, Smalltalk, Objective-C, Eiffel and BASIC come from `assets/logos/new/` and are embedded as SVG data URIs (the same in `paradigms` and `sprachen-ain`). The Smalltalk logo („Smalltalk Balloon“ by Codefrau, CC BY-SA 4.0, via Wikimedia Commons) needs the credit line that sits under the diagram on the slide.
 
 ## Editable `.drawio.svg` sources (used by the deck)
 
-- The deck now embeds `diagrams/<name>.drawio.svg`. Each file is a normal SVG whose root `<svg>` carries the uncompressed Draw.io model in its `content` attribute, so it renders in Marp and opens directly in the Draw.io editor (hediet.vscode-drawio) in Cursor/VS Code. **These `.drawio.svg` files are the editable sources used by the deck; edit them rather than the plain `.svg`/`.drawio` files.**
-- For diagrams whose `.svg` had been hand-edited after the `.drawio` (curriculum-sem1-4, paradigms, sprachen-ain, studieninhalte-temple, studienverlauf-gesamt, traits-software-dev, uebungsgruppen, vertiefung-katalog, vertiefungsrichtungen, vorlesungen-1sem), the Draw.io model was regenerated from the SVG and the `.drawio` files were updated to match.
+- The deck embeds `diagrams/<name>.drawio.svg`. Each file is a normal SVG whose root `<svg>` carries the uncompressed Draw.io model in its `content` attribute, so it renders in Marp and opens directly in the Draw.io editor (hediet.vscode-drawio) in Cursor/VS Code. **These `.drawio.svg` files are the only sources. The former plain `.drawio`/`.svg` copies have been removed.**
+- Images inside diagrams (logos) must be embedded as data URIs. Marp loads the SVG as an image, and Chrome does not load external or relative files referenced from inside such an SVG.
 - Note: when you save in Draw.io, the SVG body is re-exported by Draw.io; each generated model contains an invisible, locked frame cell that keeps the original canvas size.

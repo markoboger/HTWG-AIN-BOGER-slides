@@ -100,6 +100,100 @@ Assembler is already more readable than pure bits, but it is still very close to
 
 ---
 
+# Example in BASIC: Lunar Lander (1/2)
+
+<style scoped>pre { font-size: 0.55em; }</style>
+
+```basic
+10 REM *** LUNAR LANDER ***
+20 REM EXAMPLE FOR THE FIRST-SEMESTER LECTURE
+30 REM H = HEIGHT IN METERS
+40 REM V = VELOCITY IN M/S (POSITIVE = DOWNWARD)
+50 REM F = FUEL, B = BURN (THRUST), T = TIME IN SECONDS
+60 REM G = GRAVITY (EACH SECOND V GROWS BY G)
+70 REM --- INITIAL VALUES ---
+80 LET H = 500
+90 LET V = 50
+100 LET F = 250
+110 LET T = 0
+120 LET G = 5
+130 PRINT "LUNAR LANDING: TOUCH DOWN AT 5 M/S OR LESS!"
+140 PRINT "EACH TURN IS ONE SECOND. BURN 0 TO 30."
+150 PRINT "EVERY 2 UNITS OF BURN SLOW YOU BY 1 M/S."
+160 PRINT
+170 REM --- MAIN LOOP: STATUS DISPLAY ---
+180 PRINT "TIME"; T; "  HEIGHT"; H; "  SPEED"; V; "  FUEL"; F
+190 IF F > 0 THEN 240
+200 PRINT "OUT OF FUEL - FREE FALL!"
+210 LET B = 0
+220 GOTO 330
+230 REM --- READ THE BURN ---
+240 PRINT "BURN";
+250 INPUT B
+260 IF B < 0 THEN 290
+270 IF B > 30 THEN 290
+280 GOTO 310
+290 PRINT "INVALID! PLEASE ENTER A VALUE FROM 0 TO 30."
+300 GOTO 240
+310 IF B <= F THEN 330
+320 LET B = F
+```
+
+---
+
+# Example in BASIC: Lunar Lander (2/2)
+
+<style scoped>pre { font-size: 0.55em; }</style>
+
+```basic
+330 REM --- PHYSICS: ONE SECOND PASSES ---
+340 LET F = F - B
+350 LET W = V
+360 LET V = V + G - B / 2
+370 LET H = H - (W + V) / 2
+380 LET T = T + 1
+390 IF H > 0 THEN 180
+400 REM --- TOUCHDOWN: WIN OR LOSE ---
+410 PRINT
+420 PRINT "TOUCHDOWN AFTER"; T; "SECONDS AT"; V; "M/S."
+430 IF V <= 5 THEN 490
+440 IF V <= 15 THEN 470
+450 PRINT "CRASH! YOU JUST MADE A NEW CRATER."
+460 GOTO 520
+470 PRINT "HARD LANDING. THE SHIP IS DAMAGED."
+480 GOTO 520
+490 PRINT "PERFECT LANDING! CONGRATULATIONS, COMMANDER."
+500 PRINT "FUEL LEFT:"; F
+510 REM --- PLAY AGAIN? ---
+520 PRINT
+530 PRINT "PLAY AGAIN (1 = YES, 0 = NO)";
+540 INPUT A
+550 IF A = 1 THEN 80
+560 PRINT "END OF MISSION."
+570 END
+```
+
+BASIC (Dartmouth, 1964) is already a high-level language, but control flow still works with line numbers and GOTO jumps, much like the branches in assembler.
+
+---
+
+# Lunar Lander: The Arcade Game (Atari, 1979)
+
+<style scoped>
+.video-link { position: relative; display: inline-block; line-height: 0; }
+.video-link img { height: 430px; width: auto; border-radius: 12px; box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18); }
+.video-link .play { position: absolute; left: 50%; top: 50%; width: 96px; height: 96px; margin: -48px 0 0 -48px; border-radius: 50%; background: rgba(0, 155, 145, 0.8); border: 3px solid rgba(255, 255, 255, 0.9); box-sizing: border-box; }
+.video-link .play::after { content: ""; position: absolute; left: 35px; top: 25px; border-style: solid; border-width: 20px 0 20px 32px; border-color: transparent transparent transparent #ffffff; }
+</style>
+
+<div class="visual-center">
+<a class="video-link" href="https://www.youtube.com/embed/McAhSoAEbhM?start=0&end=60"><img src="assets/languages/lunar-lander-atari-1979.jpg" alt="Lunar Lander (Atari, 1979) arcade gameplay video" /><span class="play"></span></a>
+</div>
+
+Watch the first minute: [youtube.com/embed/McAhSoAEbhM](https://www.youtube.com/embed/McAhSoAEbhM?start=0&end=60) — Atari's 1979 arcade version: same idea as our BASIC program (fuel, height, speed), now with vector graphics.
+
+---
+
 # Machine Code
 
 ```asm
