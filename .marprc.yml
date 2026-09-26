@@ -6,3 +6,4 @@ markdown:
   theme: htwg
   header: "HTWG Konstanz – Computer Science"
   footer: "Prof. Dr. Marko Boger"
+allowLocalFiles: true       # CI-PDFs brauchen lokale Bilder/SVGs

@@ -34,6 +34,8 @@ Diese Folien werden mit **Marp** erstellt und sind nach jedem Push in der aktuel
 
 - **[01-Scratch](lectures/programmiertechnik-I/01-Scratch.html)**  
   [PDF](lectures/programmiertechnik-I/01-Scratch.pdf)
+- **[03-ProgrammingLanguages](lectures/programmiertechnik-I/03-ProgrammingLanguages.html)**  
+  [PDF](lectures/programmiertechnik-I/03-ProgrammingLanguages.pdf)
 
 ---
 
