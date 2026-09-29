@@ -18,6 +18,8 @@ Visual programming as a gentle introduction to core programming concepts.
 
 # About this Lecture Series
 
+- Moodle as central infrastructure.
+- Lectures are in presence.
 - Introduction to programming for first-semester students of Applied Computer Science (AIN)
 - From visual programming with Scratch to general concepts: objects, routines, types, expressions, and scope
 - Each lecture ends with a hands-on task to practice the new concepts
