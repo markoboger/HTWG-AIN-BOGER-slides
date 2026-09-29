@@ -16,5 +16,25 @@ Deepening the core programming concepts with Scratch.
 
 ---
 
-<!-- Placeholder: content to be defined -->
+# Lists
+
+To be defined
+
+---
+
+# Cloning
+
+To be defined
+
+---
+
+# Versioning
+
+To be defined
+
+---
+
+# Sharing
+
+To be defined
 
