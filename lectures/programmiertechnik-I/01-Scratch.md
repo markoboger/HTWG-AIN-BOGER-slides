@@ -14,7 +14,7 @@ _footer: ""
 
 Visual programming as a gentle introduction to core programming concepts.
 
-<p class="small">Proof of concept migrated from the Google Slides deck "PR-01-Scratch", slides 1-8.</p>
+<p class="small">This lecture is taught alternately: Prof. Dr. Marko Boger in the winter semester, Prof. Dr. Pascal Laube in the summer semester.</p>
 
 ---
 
