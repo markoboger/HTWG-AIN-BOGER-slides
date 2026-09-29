@@ -153,12 +153,6 @@ Diagramme: diagrams/*.drawio.svg (editierbare Quellen: SVG mit eingebettetem Dra
 
 ---
 
-# Modulhandbuch in INdigit
-
-![Modulhandbuch in INdigit](diagrams/modulhandbuch.drawio.svg)
-
----
-
 # Stundenplan AIN1 (LSF)
 
 ![Stundenplan AIN1 LSF](diagrams/stundenplan.drawio.svg)
