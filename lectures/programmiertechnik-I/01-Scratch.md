@@ -39,9 +39,7 @@ Visual programming as a gentle introduction to core programming concepts.
 
 # Content of this Lecture
 
-<!-- TODO Marko: Inhalte der Vorlesung ergänzen -->
-
-*To be defined.*
+- Scratch
 
 ---
 
