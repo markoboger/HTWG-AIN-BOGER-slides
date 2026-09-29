@@ -20,6 +20,8 @@ Visual programming as a gentle introduction to core programming concepts.
 
 - Moodle as central infrastructure.
 - Lectures are in presence.
+- Lectures: Tuesdays 11:30–13:00 and Wednesdays 9:45–11:15, room G 240 (Oct 6, 2026 – Jan 20, 2027)
+- Exercises: Tuesdays in room O 008, group 2 at 14:00–15:30, group 1 at 15:45–17:15
 - Introduction to programming for first-semester students of Applied Computer Science (AIN)
 - From visual programming with Scratch to general concepts: objects, routines, types, expressions, and scope
 - Each lecture ends with a hands-on task to practice the new concepts
