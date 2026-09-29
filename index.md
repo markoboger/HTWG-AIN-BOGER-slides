@@ -25,17 +25,15 @@ Diese Folien werden mit **Marp** erstellt und sind nach jedem Push in der aktuel
 
 ### Einführung AIN
 
-- **[Einführung AIN für Erstsemester](lectures/Einf%C3%BChrung%20AIN/Einf%C3%BChrung-AIN-Erstsemester.html)**  
-  [PDF](lectures/Einf%C3%BChrung%20AIN/Einf%C3%BChrung-AIN-Erstsemester.pdf)
+- **[Einführung AIN für Erstsemester](lectures/Einf%C3%BChrung%20AIN/Einf%C3%BChrung-AIN-Erstsemester.html)** ([HTML](lectures/Einf%C3%BChrung%20AIN/Einf%C3%BChrung-AIN-Erstsemester.html), [PDF](lectures/Einf%C3%BChrung%20AIN/Einf%C3%BChrung-AIN-Erstsemester.pdf))
 
 ---
 
 ### Programmiertechnik I
 
-- **[01-Scratch](lectures/programmiertechnik-I/01-Scratch.html)**  
-  [PDF](lectures/programmiertechnik-I/01-Scratch.pdf)
-- **[03-ProgrammingLanguages](lectures/programmiertechnik-I/03-ProgrammingLanguages.html)**  
-  [PDF](lectures/programmiertechnik-I/03-ProgrammingLanguages.pdf)
+- **[01-Scratch](lectures/programmiertechnik-I/01-Scratch.html)** ([HTML](lectures/programmiertechnik-I/01-Scratch.html), [PDF](lectures/programmiertechnik-I/01-Scratch.pdf))
+- **[02-Scratch-II](lectures/programmiertechnik-I/02-Scratch-II.html)** ([HTML](lectures/programmiertechnik-I/02-Scratch-II.html), [PDF](lectures/programmiertechnik-I/02-Scratch-II.pdf))
+- **[03-ProgrammingLanguages](lectures/programmiertechnik-I/03-ProgrammingLanguages.html)** ([HTML](lectures/programmiertechnik-I/03-ProgrammingLanguages.html), [PDF](lectures/programmiertechnik-I/03-ProgrammingLanguages.pdf))
 
 ---
 
@@ -45,25 +43,18 @@ Diese Folien werden mit **Marp** erstellt und sind nach jedem Push in der aktuel
 
 <div>
 
-- **[01-Monolith](lectures/software-architecture/01-Monolith.html)**  
-  [PDF](lectures/software-architecture/01-Monolith.pdf)
-- **[03-ImportExport](lectures/software-architecture/03-ImportExport.html)**  
-  [PDF](lectures/software-architecture/03-ImportExport.pdf)
-- **[04-HTTP](lectures/software-architecture/04-HTTP.html)**  
-  [PDF](lectures/software-architecture/04-HTTP.pdf)
-- **[05-Microservices](lectures/software-architecture/05-Microservices.html)**  
-  [PDF](lectures/software-architecture/05-Microservices.pdf)
-- **[07-Persistence](lectures/software-architecture/07-Persistence.html)**  
-  [PDF](lectures/software-architecture/07-Persistence.pdf)
-- **[08-Performance-Testing](lectures/software-architecture/08-Performance-Testing.html)**  
-  [PDF](lectures/software-architecture/08-Performance-Testing.pdf)
+- **[01-Monolith](lectures/software-architecture/01-Monolith.html)** ([HTML](lectures/software-architecture/01-Monolith.html), [PDF](lectures/software-architecture/01-Monolith.pdf))
+- **[03-ImportExport](lectures/software-architecture/03-ImportExport.html)** ([HTML](lectures/software-architecture/03-ImportExport.html), [PDF](lectures/software-architecture/03-ImportExport.pdf))
+- **[04-HTTP](lectures/software-architecture/04-HTTP.html)** ([HTML](lectures/software-architecture/04-HTTP.html), [PDF](lectures/software-architecture/04-HTTP.pdf))
+- **[05-Microservices](lectures/software-architecture/05-Microservices.html)** ([HTML](lectures/software-architecture/05-Microservices.html), [PDF](lectures/software-architecture/05-Microservices.pdf))
+- **[07-Persistence](lectures/software-architecture/07-Persistence.html)** ([HTML](lectures/software-architecture/07-Persistence.html), [PDF](lectures/software-architecture/07-Persistence.pdf))
+- **[08-Performance-Testing](lectures/software-architecture/08-Performance-Testing.html)** ([HTML](lectures/software-architecture/08-Performance-Testing.html), [PDF](lectures/software-architecture/08-Performance-Testing.pdf))
 
 </div>
 
 <div>
 
-- **[09-Deployment](lectures/software-architecture/09-Deployment.html)**  
-  [PDF](lectures/software-architecture/09-Deployment.pdf)
+- **[09-Deployment](lectures/software-architecture/09-Deployment.html)** ([HTML](lectures/software-architecture/09-Deployment.html), [PDF](lectures/software-architecture/09-Deployment.pdf))
 
 </div>
 
