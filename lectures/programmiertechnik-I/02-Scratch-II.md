@@ -16,6 +16,12 @@ Deepening the core programming concepts with Scratch.
 
 ---
 
+# Tutors
+
+Exercises are supported and evaluated by Tutors.
+
+---
+
 # Learning Goals
 
 - Use clones to create repeated or dynamic game elements.
