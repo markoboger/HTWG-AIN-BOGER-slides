@@ -138,7 +138,10 @@ Diagramme: diagrams/*.drawio.svg (editierbare Quellen: SVG mit eingebettetem Dra
 
 Übungsgruppen im Moodle-Kurs **AINORGA**
 
-![h:450](diagrams/uebungsgruppen.drawio.svg)
+| Gruppe | Programmiertechnik 1 | Digitaltechnik | Softwaremodellierung |
+|--------|----------------------|----------------|----------------------|
+| <span style="color: green;">●</span> Grüne Gruppe | Dienstag 14:00–15:30<br/>O 008 | Mittwoch 14:00–15:30<br/>F 023 | Mittwoch 15:45–17:15<br/>O 107 |
+| <span style="color: blue;">●</span> Blaue Gruppe | Dienstag 15:45–17:15<br/>O 008 | Mittwoch 15:45–17:15<br/>F 023 | Mittwoch 14:00–15:30<br/>O 107 |
 
 ---
 
