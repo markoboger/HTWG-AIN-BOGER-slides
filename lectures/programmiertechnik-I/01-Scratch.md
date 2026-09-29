@@ -125,7 +125,7 @@ Why it matters for us:
 - **No syntax errors**: we focus on logic instead of punctuation.
 - **Immediate feedback**: results appear directly on the stage.
 - **Creative motivation**: students can build things that feel playful and personal.
-- **Transfer value**: the ideas later reappear in Python, Java, and C#.
+- **Transfer value**: the ideas later reappear in Scala and Unity.
 - **University relevance**: it trains problem-solving and computational thinking.
 
 ---
@@ -181,17 +181,26 @@ Core idea:
 
 ---
 
+<style scoped>
+.columns li { font-size: 0.78em !important; margin: 0 !important; line-height: 1.3 !important; }
+</style>
+
 # Types of Blocks
 
 <div class="columns">
 <div markdown="1">
 
-Scratch uses different categories of blocks:
+Scratch groups its blocks into categories:
 
-1. **Effect blocks** change appearance or sound
-2. **Event blocks** start behavior
-3. **Control blocks** manage flow
-4. **Function blocks** compute and return values
+- **Motion**: move and turn sprites
+- **Looks**: change appearance and speech bubbles
+- **Sound**: play sounds and change volume
+- **Events**: start scripts (green flag, key press, messages)
+- **Control**: wait, loops, conditions, clones
+- **Sensing**: react to input, touching, and timers
+- **Operators**: arithmetic, comparisons, and logic
+- **Variables**: variables and lists
+- **My Blocks**: self-defined blocks
 
 The categories are important because they reflect different roles in a program.
 
