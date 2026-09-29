@@ -144,7 +144,9 @@ Diagramme: diagrams/*.drawio.svg (editierbare Quellen: SVG mit eingebettetem Dra
 
 # INdigit
 
-![h:520](diagrams/indigit.drawio.svg)
+![bg right:40% contain](assets/indigit-home.png)
+
+![h:420](diagrams/indigit.drawio.svg)
 
 ---
 
