@@ -16,6 +16,21 @@ Visual programming as a gentle introduction to core programming concepts.
 
 ---
 
+# About this Lecture Series
+
+- Introduction to programming for first-semester students of Applied Computer Science (AIN)
+- From visual programming with Scratch to general concepts: objects, routines, types, expressions, and scope
+- Each lecture ends with a hands-on task to practice the new concepts
+
+---
+
+# Organization
+
+- **Alternating lecturers**: this lecture is taught alternately by Prof. Dr. Marko Boger in the winter semester and Prof. Dr. Pascal Laube in the summer semester.
+- **Materials**: all slides, files, and course materials are provided in **Moodle**.
+
+---
+
 # Prof. Dr. Marko Boger
 
 - Room O205
@@ -35,13 +50,6 @@ Visual programming as a gentle introduction to core programming concepts.
 - Professor of Software Development
 
 ![bg right:40% contain](../../assets/pascal-laube.jpg)
-
----
-
-# Organization
-
-- **Alternating lecturers**: this lecture is taught alternately by Prof. Dr. Marko Boger in the winter semester and Prof. Dr. Pascal Laube in the summer semester.
-- **Materials**: all slides, files, and course materials are provided in **Moodle**.
 
 ---
 
