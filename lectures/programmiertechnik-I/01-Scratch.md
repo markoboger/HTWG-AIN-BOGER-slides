@@ -29,6 +29,14 @@ Visual programming as a gentle introduction to core programming concepts.
 
 ---
 
+# Main Goal of this Lecture
+
+<!-- TODO Marko: Hauptziel der Vorlesung ergänzen -->
+
+*To be defined.*
+
+---
+
 # Organization
 
 - **Alternating lecturers**: this lecture is taught alternately by Prof. Dr. Marko Boger in the winter semester and Prof. Dr. Pascal Laube in the summer semester.
