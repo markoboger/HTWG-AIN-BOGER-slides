@@ -9,10 +9,41 @@ _footer: ""
 
 ![bg](../../themes/htwgin-titel.png)
 ### Prof. Dr. Marko Boger, Prof. Dr. Pascal Laube
-## Programmiertechnik I
-# Lecture 01: Scratch
+# Programmiertechnik I
+Programming proficiency in the Age of AI
 
-Visual programming as a gentle introduction to core programming concepts.
+---
+
+# Organization
+
+- **Alternating lecturers**: this lecture is taught alternately by Prof. Dr. Marko Boger in the winter semester and Prof. Dr. Pascal Laube in the summer semester.
+- **Materials**: all slides, files, and course materials are provided in **Moodle**.
+- **Excercises**: Tutors (AIN Students 7. Semester) support and evaluate the excercises.
+- **CodeTask**: CodeTask is a learning platform to support excercises and exams
+- **Exams**: Exams are digital on the learning platform CodeTask
+- **Grades**: Grades will be a mix of points collected throughout the semester and the final exam
+
+---
+
+# Prof. Dr. Marko Boger
+
+- Room O205
+- marko.boger@htwg-konstanz.de
+- Office hours: Thursdays 11:30–13:00
+- Dean of AIN, Software Engineering, Software Architecture
+
+![bg right:40% contain](../../assets/marko-boger.jpg)
+
+---
+
+# Prof. Dr. Pascal Laube
+
+- Room O205
+- plaube@htwg-konstanz.de
+- Office hours: by appointment via email
+- Professor of Software Development and AI
+
+![bg right:40% contain](../../assets/pascal-laube.jpg)
 
 ---
 
@@ -20,11 +51,8 @@ Visual programming as a gentle introduction to core programming concepts.
 
 - Moodle as central infrastructure.
 - Lectures are in presence.
-- Lectures: Tuesdays 11:30–13:00 and Wednesdays 9:45–11:15, room G 240 (Oct 6, 2026 – Jan 20, 2027)
+- Lectures: Tuesdays 11:30–13:00 and Wednesdays 9:45–11:15, room G 240
 - Exercises: Tuesdays in room O 008, group 2 at 14:00–15:30, group 1 at 15:45–17:15
-- Introduction to programming for first-semester students of Applied Computer Science (AIN)
-- From visual programming with Scratch to general concepts: objects, routines, types, expressions, and scope
-- Each lecture ends with a hands-on task to practice the new concepts
 - Slides are in English, communication usually is in German.
 
 ---
@@ -32,8 +60,12 @@ Visual programming as a gentle introduction to core programming concepts.
 # Main Goal of this Lecture
 
 <p style="text-align:center; font-size:3em; font-weight:bold; margin-top:1.2em;">Programming proficiency</p>
-
-<p style="text-align:center;">The ability to read, write, and reason about code — syntax, semantics, and type systems.</p>
+- Introduction to programming for first-semester students of Applied Computer Science (AIN)
+- The ability to read, write, and reason about code</p>
+- From visual programming with Scratch to general concepts: objects, routines, types, expressions, and scope
+- Syntax, semantics, and type systems of programming lanugages
+- Multiple paradigms: Procedural, Object-oriented, Functional
+- Each lecture ends with a hands-on task to practice the new concepts
 
 ---
 
@@ -49,14 +81,8 @@ li li { font-size: 1em; }
 <div>
 
 - Scratch
-  - Introduction, Scratch
-  - Scratch 2
-- Unity
-  - *(no topics assigned in the concept matrix yet)*
-
-</div>
-<div>
-
+  - Introduction to concepts
+  - First project - individual
 - Scala
   - Languages and Paradigms
   - Scala in CLI
@@ -66,42 +92,32 @@ li li { font-size: 1em; }
   - Tuple, Objects, Enums and Classes
   - Generic Types, Pattern Matching
   - Recursion
+
+</div>
+<div>
+
+- Scala (continued)
   - Version Control
   - Collections
   - Namespaces
   - LazyList
+  - Second project - teams of two
+
+- Unity
+  - C#
+  - Third project - teams of two
 
 </div>
 </div>
 
 ---
 
-# Organization
+![bg](../../themes/htwgin-titel.png)
+### Prof. Dr. Marko Boger, Prof. Dr. Pascal Laube
+## Programmiertechnik I
+# Lecture 01: Scratch
 
-- **Alternating lecturers**: this lecture is taught alternately by Prof. Dr. Marko Boger in the winter semester and Prof. Dr. Pascal Laube in the summer semester.
-- **Materials**: all slides, files, and course materials are provided in **Moodle**.
-
----
-
-# Prof. Dr. Marko Boger
-
-- Room O205
-- marko.boger@htwg-konstanz.de
-- Office hours: Thursdays 11:30–13:00
-- Dean of Studies, Applied Computer Science (AIN)
-
-![bg right:40% contain](../../assets/marko-boger.jpg)
-
----
-
-# Prof. Dr. Pascal Laube
-
-- Room O205
-- plaube@htwg-konstanz.de
-- Office hours: by appointment via email
-- Professor of Software Development
-
-![bg right:40% contain](../../assets/pascal-laube.jpg)
+Visual programming as a gentle introduction to core programming concepts.
 
 ---
 

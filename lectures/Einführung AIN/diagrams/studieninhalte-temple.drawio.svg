@@ -1,15 +1,122 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg content="&lt;mxfile host=&quot;Electron&quot; agent=&quot;svg2drawio.py&quot; version=&quot;24.0.0&quot; type=&quot;device&quot;&gt;&#10;  &lt;diagram id=&quot;studieninhalte-temple&quot; name=&quot;studieninhalte-temple&quot;&gt;&#10;    &lt;mxGraphModel dx=&quot;1200&quot; dy=&quot;800&quot; grid=&quot;0&quot; gridSize=&quot;10&quot; guides=&quot;1&quot; tooltips=&quot;1&quot; connect=&quot;1&quot; arrows=&quot;1&quot; fold=&quot;1&quot; page=&quot;0&quot; pageScale=&quot;1&quot; pageWidth=&quot;1000&quot; pageHeight=&quot;520&quot; math=&quot;0&quot; shadow=&quot;0&quot;&gt;&#10;      &lt;root&gt;&#10;        &lt;mxCell id=&quot;0&quot; /&gt;&#10;        &lt;mxCell id=&quot;1&quot; parent=&quot;0&quot; /&gt;&#10;        &lt;mxCell id=&quot;studieninhalte-temple-2&quot; value=&quot;&quot; style=&quot;rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;locked=1;&quot; vertex=&quot;1&quot; parent=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;0&quot; y=&quot;0&quot; width=&quot;1000&quot; height=&quot;520&quot; as=&quot;geometry&quot; /&gt;&lt;/mxCell&gt;&#10;        &lt;mxCell id=&quot;studieninhalte-temple-3&quot; value=&quot;&quot; style=&quot;triangle;direction=north;whiteSpace=wrap;html=1;fillColor=#008F8F;strokeColor=#006666;strokeWidth=2;&quot; vertex=&quot;1&quot; parent=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;150&quot; y=&quot;30&quot; width=&quot;700&quot; height=&quot;120&quot; as=&quot;geometry&quot; /&gt;&lt;/mxCell&gt;&#10;        &lt;mxCell id=&quot;studieninhalte-temple-4&quot; value=&quot;Angewandte Informatik&quot; style=&quot;text;html=1;align=center;verticalAlign=middle;spacing=0;spacingTop=0;spacingBottom=0;spacingLeft=0;spacingRight=0;fontSize=26;fontStyle=1;fontColor=#FFFFFF;fontFamily=Arial;strokeColor=none;fillColor=none;&quot; vertex=&quot;1&quot; parent=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;343.7&quot; y=&quot;95.39&quot; width=&quot;312.6&quot; height=&quot;31.2&quot; as=&quot;geometry&quot; /&gt;&lt;/mxCell&gt;&#10;        &lt;mxCell id=&quot;studieninhalte-temple-5&quot; value=&quot;&quot; style=&quot;rounded=0;whiteSpace=wrap;html=1;fillColor=#C00000;strokeColor=#222222;strokeWidth=1.5;&quot; vertex=&quot;1&quot; parent=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;170&quot; y=&quot;150&quot; width=&quot;110&quot; height=&quot;320&quot; as=&quot;geometry&quot; /&gt;&lt;/mxCell&gt;&#10;        &lt;mxCell id=&quot;studieninhalte-temple-6&quot; value=&quot;Theorie und Mathematik&quot; style=&quot;text;html=1;align=center;verticalAlign=middle;spacing=0;spacingTop=0;spacingBottom=0;spacingLeft=0;spacingRight=0;fontSize=20;fontStyle=1;fontColor=#111111;fontFamily=Arial;strokeColor=none;fillColor=none;rotation=-90;&quot; vertex=&quot;1&quot; parent=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;92.19&quot; y=&quot;298&quot; width=&quot;251.75&quot; height=&quot;24&quot; as=&quot;geometry&quot; /&gt;&lt;/mxCell&gt;&#10;        &lt;mxCell id=&quot;studieninhalte-temple-7&quot; value=&quot;&quot; style=&quot;rounded=0;whiteSpace=wrap;html=1;fillColor=#FFC000;strokeColor=#222222;strokeWidth=1.5;&quot; vertex=&quot;1&quot; parent=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;300&quot; y=&quot;150&quot; width=&quot;110&quot; height=&quot;320&quot; as=&quot;geometry&quot; /&gt;&lt;/mxCell&gt;&#10;        &lt;mxCell id=&quot;studieninhalte-temple-8&quot; value=&quot;Rechner und Netze&quot; style=&quot;text;html=1;align=center;verticalAlign=middle;spacing=0;spacingTop=0;spacingBottom=0;spacingLeft=0;spacingRight=0;fontSize=20;fontStyle=1;fontColor=#111111;fontFamily=Arial;strokeColor=none;fillColor=none;rotation=-90;&quot; vertex=&quot;1&quot; parent=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;249.52&quot; y=&quot;298&quot; width=&quot;197.1&quot; height=&quot;24&quot; as=&quot;geometry&quot; /&gt;&lt;/mxCell&gt;&#10;        &lt;mxCell id=&quot;studieninhalte-temple-9&quot; value=&quot;&quot; style=&quot;rounded=0;whiteSpace=wrap;html=1;fillColor=#92D050;strokeColor=#222222;strokeWidth=1.5;&quot; vertex=&quot;1&quot; parent=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;430&quot; y=&quot;150&quot; width=&quot;110&quot; height=&quot;320&quot; as=&quot;geometry&quot; /&gt;&lt;/mxCell&gt;&#10;        &lt;mxCell id=&quot;studieninhalte-temple-10&quot; value=&quot;Programmierung&quot; style=&quot;text;html=1;align=center;verticalAlign=middle;spacing=0;spacingTop=0;spacingBottom=0;spacingLeft=0;spacingRight=0;fontSize=20;fontStyle=1;fontColor=#111111;fontFamily=Arial;strokeColor=none;fillColor=none;rotation=-90;&quot; vertex=&quot;1&quot; parent=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;393.23&quot; y=&quot;298&quot; width=&quot;169.67&quot; height=&quot;24&quot; as=&quot;geometry&quot; /&gt;&lt;/mxCell&gt;&#10;        &lt;mxCell id=&quot;studieninhalte-temple-11&quot; value=&quot;&quot; style=&quot;rounded=0;whiteSpace=wrap;html=1;fillColor=#00B0F0;strokeColor=#222222;strokeWidth=1.5;&quot; vertex=&quot;1&quot; parent=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;560&quot; y=&quot;150&quot; width=&quot;110&quot; height=&quot;320&quot; as=&quot;geometry&quot; /&gt;&lt;/mxCell&gt;&#10;        &lt;mxCell id=&quot;studieninhalte-temple-12&quot; value=&quot;Datenbanken&quot; style=&quot;text;html=1;align=center;verticalAlign=middle;spacing=0;spacingTop=0;spacingBottom=0;spacingLeft=0;spacingRight=0;fontSize=20;fontStyle=1;fontColor=#111111;fontFamily=Arial;strokeColor=none;fillColor=none;rotation=-90;&quot; vertex=&quot;1&quot; parent=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;540.51&quot; y=&quot;298&quot; width=&quot;135.11&quot; height=&quot;24&quot; as=&quot;geometry&quot; /&gt;&lt;/mxCell&gt;&#10;        &lt;mxCell id=&quot;studieninhalte-temple-13&quot; value=&quot;&quot; style=&quot;rounded=0;whiteSpace=wrap;html=1;fillColor=#00DADA;strokeColor=#222222;strokeWidth=1.5;&quot; vertex=&quot;1&quot; parent=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;690&quot; y=&quot;150&quot; width=&quot;110&quot; height=&quot;320&quot; as=&quot;geometry&quot; /&gt;&lt;/mxCell&gt;&#10;        &lt;mxCell id=&quot;studieninhalte-temple-14&quot; value=&quot;Anwendungen&quot; style=&quot;text;html=1;align=center;verticalAlign=middle;spacing=0;spacingTop=0;spacingBottom=0;spacingLeft=0;spacingRight=0;fontSize=20;fontStyle=1;fontColor=#111111;fontFamily=Arial;strokeColor=none;fillColor=none;rotation=-90;&quot; vertex=&quot;1&quot; parent=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;665.11&quot; y=&quot;298&quot; width=&quot;145.91&quot; height=&quot;24&quot; as=&quot;geometry&quot; /&gt;&lt;/mxCell&gt;&#10;      &lt;/root&gt;&#10;    &lt;/mxGraphModel&gt;&#10;  &lt;/diagram&gt;&#10;&lt;/mxfile&gt;&#10;" xmlns="http://www.w3.org/2000/svg" width="1000" height="520" viewBox="0 0 1000 520">
-  <polygon points="150,150 500,30 850,150" fill="#008F8F" stroke="#006666" stroke-width="2"/>
-  <text x="500" y="120" font-family="Arial, Helvetica, sans-serif" font-size="26" fill="#fff" text-anchor="middle" font-weight="bold">Angewandte Informatik</text>
-  <rect x="170" y="150" width="110" height="320" fill="#C00000" stroke="#222" stroke-width="1.5"/>
-  <text x="225" y="310" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#111" text-anchor="middle" font-weight="bold" transform="rotate(-90 225 310)">Theorie und Mathematik</text>
-  <rect x="300" y="150" width="110" height="320" fill="#FFC000" stroke="#222" stroke-width="1.5"/>
-  <text x="355" y="310" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#111" text-anchor="middle" font-weight="bold" transform="rotate(-90 355 310)">Rechner und Netze</text>
-  <rect x="430" y="150" width="110" height="320" fill="#92D050" stroke="#222" stroke-width="1.5"/>
-  <text x="485" y="310" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#111" text-anchor="middle" font-weight="bold" transform="rotate(-90 485 310)">Programmierung</text>
-  <rect x="560" y="150" width="110" height="320" fill="#00B0F0" stroke="#222" stroke-width="1.5"/>
-  <text x="615" y="310" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#111" text-anchor="middle" font-weight="bold" transform="rotate(-90 615 310)">Datenbanken</text>
-  <rect x="690" y="150" width="110" height="320" fill="#00DADA" stroke="#222" stroke-width="1.5"/>
-  <text x="745" y="310" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#111" text-anchor="middle" font-weight="bold" transform="rotate(-90 745 310)">Anwendungen</text>
+<svg host="65bd71144e" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="1001px" height="521px" viewBox="-0.5 -0.5 1001 521" content="&lt;mxfile&gt;&lt;diagram id=&quot;studieninhalte-temple&quot; name=&quot;studieninhalte-temple&quot;&gt;7Zldb9sgFIZ/TS5rGQh2fJmPupu0TlNbadcsPrFRMESENOl+/bCDE3tOl1b5nBQuEvOCCbznPCCRDhnmqwfNZtmjSkB0sJ+sOmTUwRjhHrVfhfLmFBSGayXVPFlr/lZ45r/BdazUBU9g7rS1ZJQShs+a4lhJCWPT0JjWatnsNlEiaQgzlkJjGoXwPGYCWt1+8sRk1ez8WvcvwNPM/TStxslZ1dkJ84wlalmTyH2HDLVSZv2Ur4YgCveavsTvtG4mpkGaj7wwN4uEg+QyY8LAnYF8JuAOr4d5ZWLhVuxma94qC7RayASKUfwOGSwzbuB5xsZF69JG3WqZyYWtIfs44UIMlVDa1qWSttNgbrSawl+iUONpOWbxUnspbnWvoA2sapJb2gOoHIx+s12Wu6KS7YoIc6mQbl7eumUfnGGfMY/sN89ozmRa1AYJ1zZDuZKlC7qY9Wfc7GDi+724F7csLVsCWzYtVariA82tWqmz0FFcrbPmfbjLenQ667st6/syhSWTiQGrf5UTpS2CfNqOCKxM02UmeFoEZWwdAmvooHCG2z2g7xpyniRlCOc2UlymDgVXe1GzpjBQxqi8qX2DiWkqT86nQpooadzeh4Oq7qaMXL0W7bgsTo9ZzkURmL5NNfEebzu4PEJikC7xwkZqRNQjUSs7CMJe0M4Pgjx8qgShJ9zYbAiGflF2oYjL0kIRefRIMIZNGDdw1ndCtINGcjoag5bZLxkozQsUrcf289Eeh/B/AunvBxKV5VAgtTLMnQ93kX+cbImwh6Lm5h31WvmCKfJC2k4Z3D1VxoSnxTOOhxfCk/jXh2evZfYTjDNp0arw/A7GJvuNzDOSibuRR/FeNFEUeuicZEanJTPCI59ehMwuuT4yq5+ruf1Dq1SzPOegF5afG5NnZJJExMNkP5NB5AXhOaFEqJUnR6XS9wd+fBEqaXCFVLZvRUbMgPzF5BTkDclzIkm7vkfRfiQJ9dBZz0n0gdufw5Ac9Uf9SyAZRFeI5K4LnyXIxJ6RNyTPi2QQbFn7F5Jd6kXHQdJWtxflZVvt/wZy/wc=&lt;/diagram&gt;&lt;/mxfile&gt;">
+    <defs/>
+    <g>
+        <rect x="0" y="0" width="1000" height="520" fill="none" stroke="none" pointer-events="all"/>
+        <path d="M 440 -268 L 560 82 L 440 432 Z" fill="#008f8f" stroke="#006666" stroke-width="2" stroke-miterlimit="10" transform="rotate(270,500,82)" pointer-events="all"/>
+        <rect x="343.7" y="95.39" width="312.6" height="31.2" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 111px; margin-left: 500px;">
+                        <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 26px; font-family: Arial; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; font-weight: bold; white-space: nowrap;">
+                                Angewandte Informatik
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="500" y="119" fill="#FFFFFF" font-family="Arial" font-size="26px" text-anchor="middle" font-weight="bold">
+                    Angewandte Informatik
+                </text>
+            </switch>
+        </g>
+        <rect x="170" y="150" width="110" height="320" fill="#c00000" stroke="#222222" stroke-width="1.5" pointer-events="all"/>
+        <rect x="92.19" y="298" width="251.75" height="24" fill="none" stroke="none" transform="rotate(-90,218.07,310)" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)rotate(-90 218.06500000000005 310)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 310px; margin-left: 218px;">
+                        <div data-drawio-colors="color: #111111; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 20px; font-family: Arial; color: rgb(17, 17, 17); line-height: 1.2; pointer-events: all; font-weight: bold; white-space: nowrap;">
+                                Theorie und Mathematik
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="218" y="316" fill="#111111" font-family="Arial" font-size="20px" text-anchor="middle" font-weight="bold">
+                    Theorie und Mathematik
+                </text>
+            </switch>
+        </g>
+        <rect x="300" y="150" width="110" height="320" fill="#ffc000" stroke="#222222" stroke-width="1.5" pointer-events="all"/>
+        <rect x="249.52" y="298" width="197.1" height="24" fill="none" stroke="none" transform="rotate(-90,348.07,310)" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)rotate(-90 348.06999999999994 310)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 310px; margin-left: 348px;">
+                        <div data-drawio-colors="color: #111111; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 20px; font-family: Arial; color: rgb(17, 17, 17); line-height: 1.2; pointer-events: all; font-weight: bold; white-space: nowrap;">
+                                Rechner und Netze
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="348" y="316" fill="#111111" font-family="Arial" font-size="20px" text-anchor="middle" font-weight="bold">
+                    Rechner und Netze
+                </text>
+            </switch>
+        </g>
+        <rect x="430" y="150" width="110" height="320" fill="#92d050" stroke="#222222" stroke-width="1.5" pointer-events="all"/>
+        <rect x="393.23" y="298" width="169.67" height="24" fill="none" stroke="none" transform="rotate(-90,478.07,310)" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)rotate(-90 478.06500000000005 310)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 310px; margin-left: 478px;">
+                        <div data-drawio-colors="color: #111111; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 20px; font-family: Arial; color: rgb(17, 17, 17); line-height: 1.2; pointer-events: all; font-weight: bold; white-space: nowrap;">
+                                Programmierung
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="478" y="316" fill="#111111" font-family="Arial" font-size="20px" text-anchor="middle" font-weight="bold">
+                    Programmierung
+                </text>
+            </switch>
+        </g>
+        <rect x="560" y="150" width="110" height="320" fill="#00b0f0" stroke="#222222" stroke-width="1.5" pointer-events="all"/>
+        <rect x="540.51" y="298" width="135.11" height="24" fill="none" stroke="none" transform="rotate(-90,608.07,310)" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)rotate(-90 608.065 310)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 310px; margin-left: 608px;">
+                        <div data-drawio-colors="color: #111111; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 20px; font-family: Arial; color: rgb(17, 17, 17); line-height: 1.2; pointer-events: all; font-weight: bold; white-space: nowrap;">
+                                Datenbanken
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="608" y="316" fill="#111111" font-family="Arial" font-size="20px" text-anchor="middle" font-weight="bold">
+                    Datenbanken
+                </text>
+            </switch>
+        </g>
+        <rect x="690" y="150" width="110" height="320" fill="#00dada" stroke="#222222" stroke-width="1.5" pointer-events="all"/>
+        <rect x="665.11" y="298" width="145.91" height="24" fill="none" stroke="none" transform="rotate(-90,738.07,310)" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)rotate(-90 738.065 310)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 310px; margin-left: 738px;">
+                        <div data-drawio-colors="color: #111111; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 20px; font-family: Arial; color: rgb(17, 17, 17); line-height: 1.2; pointer-events: all; font-weight: bold; white-space: nowrap;">
+                                Anwendungen
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="738" y="316" fill="#111111" font-family="Arial" font-size="20px" text-anchor="middle" font-weight="bold">
+                    Anwendungen
+                </text>
+            </switch>
+        </g>
+    </g>
+    <switch>
+        <g requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"/>
+        <a transform="translate(0,-5)" xlink:href="https://www.diagrams.net/doc/faq/svg-export-text-problems" target="_blank">
+            <text text-anchor="middle" font-size="10px" x="50%" y="100%">
+                Text is not SVG - cannot display
+            </text>
+        </a>
+    </switch>
 </svg>
