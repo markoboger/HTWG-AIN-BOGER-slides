@@ -31,7 +31,7 @@ Visual programming as a gentle introduction to core programming concepts.
 
 # Main Goal of this Lecture
 
-<p style="text-align:center; font-size:3em; font-weight:bold; margin-top:1.2em;">Agility</p>
+<p style="text-align:center; font-size:3em; font-weight:bold; margin-top:1.2em;">Programming skills</p>
 
 ---
 
