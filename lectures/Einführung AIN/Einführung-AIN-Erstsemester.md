@@ -155,7 +155,7 @@ Diagramme: diagrams/*.drawio.svg (editierbare Quellen: SVG mit eingebettetem Dra
 
 # Stundenplan AIN1 (LSF)
 
-![Stundenplan AIN1 LSF](diagrams/stundenplan.drawio.svg)
+![h:500](assets/lsf-stundenplan-ws2627.png)
 
 ---
 
