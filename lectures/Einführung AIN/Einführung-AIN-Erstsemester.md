@@ -160,6 +160,10 @@ Diagramme: diagrams/*.drawio.svg (editierbare Quellen: SVG mit eingebettetem Dra
 
 ---
 
-# Noch Fragen?
+<!-- _class: abschluss -->
 
-## Und viel Erfolg!
+# Questions?
+
+## Thank you and good luck!
+
+marko.boger@htwg-konstanz.de

@@ -29,6 +29,8 @@ PostgreSQL, Slick, MongoDB, and a practical persistence strategy for the chess s
 
 ---
 
+<!-- _class: zitat -->
+
 # First Principle
 
 ## A persistence layer is not "the database"
@@ -463,10 +465,19 @@ It is a foundation for later lectures.
 
 ---
 
-<!-- _class: compact -->
+<!-- _class: compact aufgabe -->
+<style scoped>
+.columns { align-items: start; gap: 1.5em; grid-template-columns: 3fr 2fr; }
+section { font-size: 19px; }
+</style>
+
 # Task Assignment
 
 ## Build a persistence pipeline for opening intelligence
+
+<div class="columns">
+<div markdown="1">
+
 
 1. Define a repository abstraction for the data you need.
 2. Import a small Lichess archive into MongoDB as raw game documents.
@@ -476,6 +487,10 @@ It is a foundation for later lectures.
 6. Expose the analysis through the application layer.
 7. Make the result visible in the UI.
 
+
+</div>
+<div markdown="1">
+
 Deliverables:
 
 - schema design
@@ -483,7 +498,12 @@ Deliverables:
 - one working dataflow
 - one screenshot or demo of the UI using DB-backed analysis
 
+</div>
+</div>
+
 ---
+
+<!-- _class: zitat -->
 
 # Key Message
 
@@ -495,3 +515,13 @@ Deliverables:
 - the UI turns stored data into visible value
 
 That is the architectural lesson of Lecture 07.
+
+---
+
+<!-- _class: abschluss -->
+
+# Questions?
+
+## Thank you!
+
+marko.boger@htwg-konstanz.de

@@ -19,6 +19,8 @@ Expose the `GameController` through a REST API before we split anything into ser
 
 ---
 
+<!-- _class: inhalt -->
+
 # Today’s Goal
 
 We still have:
@@ -573,7 +575,17 @@ This is a nice property of http4s:
 
 ---
 
+<!-- _class: aufgabe -->
+
+<style scoped>
+.columns { align-items: start; gap: 1.5em; }
+</style>
+
 # What Students Should Build
+
+<div class="columns">
+<div markdown="1">
+
 
 Expose the functionality of the game controller through REST.
 
@@ -587,12 +599,21 @@ Minimum scope:
 - load FEN
 - health endpoint
 
+
+</div>
+<div markdown="1">
+
 Optional:
 
 - delete a game
 - AI move endpoint
 
+</div>
+</div>
+
 ---
+
+<!-- _class: aufgabe -->
 
 # Suggested Work Plan
 
@@ -618,9 +639,19 @@ Optional:
 
 ---
 
+<!-- _class: aufgabe -->
+
+<style scoped>
+.columns { align-items: start; gap: 1.5em; }
+</style>
+
 # Student Assignment
 
 ## Build a REST interface for the monolithic chess application
+
+<div class="columns">
+<div markdown="1">
+
 
 Implement an HTTP API around the game controller.
 
@@ -632,6 +663,10 @@ Required:
 - manual testing with `curl` or Postman
 - at least 3 automated route tests
 
+
+</div>
+<div markdown="1">
+
 Deliver:
 
 - source code
@@ -639,7 +674,12 @@ Deliver:
 - example requests and responses
 - short explanation of how the HTTP layer maps to the controller
 
+</div>
+</div>
+
 ---
+
+<!-- _class: zitat -->
 
 # Key Message
 
@@ -654,3 +694,13 @@ It is the first step toward:
 
 First we teach the monolith to speak HTTP.
 Only later do we distribute it.
+
+---
+
+<!-- _class: abschluss -->
+
+# Questions?
+
+## Thank you!
+
+marko.boger@htwg-konstanz.de

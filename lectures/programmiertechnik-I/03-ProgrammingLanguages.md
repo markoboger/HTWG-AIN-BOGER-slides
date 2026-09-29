@@ -717,3 +717,13 @@ What becomes valuable:
 - precise interfaces
 
 The more code we create, review, and regenerate, the more we benefit from languages that make mistakes visible early.
+
+---
+
+<!-- _class: abschluss -->
+
+# Questions?
+
+## Thank you!
+
+marko.boger@htwg-konstanz.de

@@ -45,3 +45,13 @@ println("Hello, World!")
 </div>
 
 </div>
+
+---
+
+<!-- _class: abschluss -->
+
+# Questions?
+
+## Thank you!
+
+marko.boger@htwg-konstanz.de

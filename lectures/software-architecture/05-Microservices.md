@@ -30,6 +30,8 @@ From monolith to independently deployable services.
 
 ---
 
+<!-- _class: inhalt -->
+
 # Learning Goals
 
 By the end of today, students should be able to:
@@ -602,6 +604,8 @@ Microservices are a socio-technical refactoring.
 
 ---
 
+<!-- _class: inhalt -->
+
 # Takeaways
 
 - microservices are about independent deployability and bounded ownership
@@ -621,3 +625,13 @@ Microservices are a socio-technical refactoring.
 - Backstage docs, "The Spotify Story": <https://backstage.io/docs/overview/background>
 - AWS Executive Insights, "Amazon's Two Pizza Teams": <https://aws.amazon.com/executive-insights/content/amazon-two-pizza-team/>
 - AWS, "The Amazon Builders' Library": <https://aws.amazon.com/builders-library/>
+
+---
+
+<!-- _class: abschluss -->
+
+# Questions?
+
+## Thank you!
+
+marko.boger@htwg-konstanz.de

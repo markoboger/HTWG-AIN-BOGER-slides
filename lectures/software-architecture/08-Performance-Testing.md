@@ -349,6 +349,8 @@ Rule of thumb:
 
 ---
 
+<!-- _class: zitat -->
+
 
 # General Rule
 
@@ -796,16 +798,28 @@ Use patterns as **tools**, not as decorations.
 
 ---
 
-<!-- _class: compact -->
+<!-- _class: compact aufgabe -->
+<style scoped>
+.columns { align-items: start; gap: 1.5em; }
+</style>
+
 # Task Assignment (updated)
 
 ## Performance testing + benchmarking loop
+
+<div class="columns">
+<div markdown="1">
+
 
 1. Create a **k6** test:
 2. Create a **Gatling** test
 3. Define **thresholds** (p95 latency + error rate) and make the run reproducible.
 4. Add one **JMH benchmark** for a hot function in your codebase (e.g. parsing/serialization).
 5. Run baseline → optimize → rerun.
+
+</div>
+<div markdown="1">
+
 6. Deliver evidence:
    - k6 summary + a short note about bottleneck and fix
    - Gatling summary + a short note about bottleneck and fix
@@ -813,3 +827,15 @@ Use patterns as **tools**, not as decorations.
 7. Establish a baseline 
 8. Find optimization and measure improvement
 
+</div>
+</div>
+
+---
+
+<!-- _class: abschluss -->
+
+# Questions?
+
+## Thank you!
+
+marko.boger@htwg-konstanz.de

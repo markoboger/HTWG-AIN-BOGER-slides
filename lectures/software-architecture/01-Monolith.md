@@ -56,6 +56,8 @@ We use a chess application because it has:
 
 ---
 
+<!-- _class: inhalt -->
+
 # Lecture 01 Goals
 
 By the end of today, students should be able to:
@@ -226,6 +228,8 @@ Students should be able to answer:
 
 ---
 
+<!-- _class: aufgabe -->
+
 # Exercise
 
 Use AI to answer these questions about the repo:
@@ -301,6 +305,8 @@ The earlier the feedback loop starts, the more useful it is.
 
 ---
 
+<!-- _class: aufgabe -->
+
 # Lecture 01 Task Extension
 
 ## Set up project quality automation
@@ -315,6 +321,8 @@ Each team should:
 
 ---
 
+<!-- _class: aufgabe -->
+
 # Deliverables for the Setup Task
 
 - one GitHub Actions workflow file
@@ -327,6 +335,8 @@ Each team should:
   - which failures should block a merge
 
 ---
+
+<!-- _class: zitat -->
 
 # Key Message
 
@@ -353,3 +363,11 @@ The monolith is our control group for the rest of the course.
 - using AI to propose abstractions without losing clarity
 
 ---
+
+<!-- _class: abschluss -->
+
+# Questions?
+
+## Thank you!
+
+marko.boger@htwg-konstanz.de

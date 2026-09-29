@@ -642,9 +642,19 @@ This ties the parser lecture back to user value.
 
 ---
 
+<!-- _class: aufgabe -->
+
+<style scoped>
+.columns { align-items: start; gap: 1.5em; }
+</style>
+
 # Assignment
 
 ## Extend the chess application with import and export
+
+<div class="columns">
+<div markdown="1">
+
 
 Students must implement:
 
@@ -654,6 +664,10 @@ Students must implement:
    - regex
    - parser combinators
    - FastParse
+
+</div>
+<div markdown="1">
+
 4. a PGN parser with:
    - regex or hand-written parser
    - parser combinators
@@ -662,7 +676,12 @@ Students must implement:
 6. copy-paste support using these parsers
 7. dependency injection to choose the active parser implementation
 
+</div>
+</div>
+
 ---
+
+<!-- _class: aufgabe -->
 
 # Deliverables
 
@@ -680,6 +699,8 @@ Optional:
 
 ---
 
+<!-- _class: zitat -->
+
 # Key Message
 
 Import and export are not just file handling.
@@ -693,3 +714,13 @@ They are about:
 - and clean architectural separation
 
 The chess application becomes much more useful once it can speak multiple languages.
+
+---
+
+<!-- _class: abschluss -->
+
+# Questions?
+
+## Thank you!
+
+marko.boger@htwg-konstanz.de

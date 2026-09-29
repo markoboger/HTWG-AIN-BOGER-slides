@@ -44,6 +44,8 @@ Exercises are supported and evaluated by Tutors.
 
 ---
 
+<!-- _class: inhalt -->
+
 # Learning Goals
 
 - Use clones to create repeated or dynamic game elements.
@@ -222,6 +224,8 @@ To be defined
 
 ---
 
+<!-- _class: aufgabe -->
+
 # Task
 
 - Build a small advanced Scratch game or simulation.
@@ -229,3 +233,13 @@ To be defined
 - Include one debugging strategy during development, such as visible variables or temporary tracing messages.
 - Prepare to explain how your design avoids chaos when many scripts run at once.
 - Focus on clarity, structure, and maintainability, not only on visual effects.
+
+---
+
+<!-- _class: abschluss -->
+
+# Questions?
+
+## Thank you!
+
+marko.boger@htwg-konstanz.de

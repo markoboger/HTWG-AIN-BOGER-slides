@@ -49,25 +49,34 @@ Programming proficiency in the Age of AI
 
 # About this Lecture Series
 
-- Moodle as central infrastructure.
+- [Moodle](https://moodle.htwg-konstanz.de/moodle/course/view.php?id=3194) as central infrastructure.
 - Lectures are in presence.
 - Lectures: Tuesdays 11:30–13:00 and Wednesdays 9:45–11:15, room G 240
-- Exercises: Tuesdays in room O 008, group 2 at 14:00–15:30, group 1 at 15:45–17:15
+- Exercises: Tuesdays in room O 008, 
+  - group 2 (green) at 14:00–15:30, 
+  - group 1 (blue) at 15:45–17:15
 - Slides are in English, communication usually is in German.
 
 ---
 
+<style scoped>
+li { font-size: 0.8em; white-space: nowrap; }
+</style>
+
 # Main Goal of this Lecture
 
 <p style="text-align:center; font-size:3em; font-weight:bold; margin-top:1.2em;">Programming proficiency</p>
+
 - Introduction to programming for first-semester students of Applied Computer Science (AIN)
-- The ability to read, write, and reason about code</p>
+- The ability to read, write, and reason about code
 - From visual programming with Scratch to general concepts: objects, routines, types, expressions, and scope
 - Syntax, semantics, and type systems of programming lanugages
 - Multiple paradigms: Procedural, Object-oriented, Functional
 - Each lecture ends with a hands-on task to practice the new concepts
 
 ---
+
+<!-- _class: inhalt -->
 
 <style scoped>
 .cols { display: grid; grid-template-columns: 1fr 1fr; column-gap: 3em; align-items: start; }
@@ -143,6 +152,14 @@ Why it matters for us:
 - **Creative motivation**: students can build things that feel playful and personal.
 - **Transfer value**: the ideas later reappear in Scala and Unity.
 - **University relevance**: it trains problem-solving and computational thinking.
+
+---
+
+<!-- _class: kapitel -->
+
+# Basic Elements
+
+Sprites, blocks and control structures
 
 ---
 
@@ -269,6 +286,14 @@ These are the building blocks for algorithmic thinking.
 
 ---
 
+<!-- _class: kapitel -->
+
+# Abstraction
+
+Routines, functions, types, variables and scope
+
+---
+
 # Blocks Are Routines
 
 We use several names for reusable behavior:
@@ -332,6 +357,12 @@ Function blocks are typed, and the shape already hints at what kind of value the
 
 ---
 
+<style scoped>
+/* all three block images share one scale (46 % of their natural pixel size) */
+.columns { align-items: start; }
+.columns img.same-scale { max-height: none; max-width: none; }
+</style>
+
 # Functions and Operators
 
 <div class="columns">
@@ -349,11 +380,11 @@ This is the basis for building larger expressions from smaller parts.
 
 <div class="visual-stack tight">
 <div class="visual-pair">
-<div class="visual-frame"><img src="assets/function-example-reporter.png" alt="Reporter block example" /></div>
-<div class="visual-frame"><img src="assets/function-example-operator.png" alt="Operator block example" /></div>
+<div class="visual-frame"><img class="same-scale" style="width:180px" src="assets/function-example-reporter.png" alt="Reporter block example" /></div>
+<div class="visual-frame"><img class="same-scale" style="width:208px" src="assets/function-example-operator.png" alt="Operator block example" /></div>
 </div>
 <div class="visual-center">
-<div class="visual-frame"><img src="assets/function-example-boolean.png" alt="Boolean operator example" /></div>
+<div class="visual-frame"><img class="same-scale" style="width:232px" src="assets/function-example-boolean.png" alt="Boolean operator example" /></div>
 </div>
 </div>
 
@@ -451,7 +482,14 @@ Types of algebra:
 
 ---
 
+<style scoped>
+.columns { align-items: start; }
+</style>
+
 # Boolean Algebra
+
+<div class="columns">
+<div markdown="1">
 
 Boolean algebra is the algebra of **truth values**.
 
@@ -468,6 +506,9 @@ Typical operators are:
 - **or**
 - **not**
 
+</div>
+<div markdown="1">
+
 Examples:
 
 - `score > 10 and lives > 0`
@@ -475,6 +516,9 @@ Examples:
 - `not gameOver`
 
 This matters in Scratch because conditions inside blocks such as **if**, **if else**, and **repeat until** are boolean expressions.
+
+</div>
+</div>
 
 ---
 
@@ -596,6 +640,8 @@ We will later introduce namespaces to define visibility and scope in a much more
 
 ---
 
+<!-- _class: aufgabe -->
+
 # Task
 
 Create a Scratch project.
@@ -606,3 +652,13 @@ It should contain:
 - variables
 - defined blocks
 - messages
+
+---
+
+<!-- _class: abschluss -->
+
+# Questions?
+
+## Thank you!
+
+marko.boger@htwg-konstanz.de

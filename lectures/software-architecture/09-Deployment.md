@@ -17,6 +17,8 @@ From development to production.
 
 ---
 
+<!-- _class: inhalt -->
+
 # Learning Goals
 
 - review **docker containers** for local development
@@ -734,7 +736,7 @@ Operational checklist for a deployed bot:
 
 ---
 
-<!-- _class: compact -->
+<!-- _class: compact aufgabe -->
 # Task Assignment
 
 1. Review **Dockerfiles** for your project
@@ -745,3 +747,11 @@ Operational checklist for a deployed bot:
 6. Connect to the Lichess Bot API
 
 ---
+
+<!-- _class: abschluss -->
+
+# Questions?
+
+## Thank you!
+
+marko.boger@htwg-konstanz.de
