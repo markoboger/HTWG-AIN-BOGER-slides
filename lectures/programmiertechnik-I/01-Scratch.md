@@ -31,7 +31,9 @@ Visual programming as a gentle introduction to core programming concepts.
 
 # Main Goal of this Lecture
 
-<p style="text-align:center; font-size:3em; font-weight:bold; margin-top:1.2em;">Programming skills</p>
+<p style="text-align:center; font-size:3em; font-weight:bold; margin-top:1.2em;">Programming proficiency</p>
+
+<p style="text-align:center;">The ability to read, write, and reason about code — syntax, semantics, and type systems.</p>
 
 ---
 
