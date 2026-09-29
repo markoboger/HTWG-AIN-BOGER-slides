@@ -250,7 +250,7 @@ int main() {
 
 # A Short Language History
 
-![bg height:80%]<img src="diagrams/language-history.drawio.svg"/>
+<img src="diagrams/language-history.drawio.svg"/>
 
 ---
 
