@@ -16,6 +16,17 @@ Visual programming as a gentle introduction to core programming concepts.
 
 ---
 
+# Prof. Dr. Marko Boger
+
+- Room O205
+- marko.boger@htwg-konstanz.de
+- Office hours: Tuesdays 11:30–13:00
+- Dean of Studies, Applied Computer Science (AIN)
+
+![bg right:40% contain](../../assets/marko-boger.jpg)
+
+---
+
 # Organization
 
 - **Alternating lecturers**: this lecture is taught alternately by Prof. Dr. Marko Boger in the winter semester and Prof. Dr. Pascal Laube in the summer semester.
