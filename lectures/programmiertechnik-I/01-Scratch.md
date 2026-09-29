@@ -20,10 +20,21 @@ Visual programming as a gentle introduction to core programming concepts.
 
 - Room O205
 - marko.boger@htwg-konstanz.de
-- Office hours: Tuesdays 11:30–13:00
+- Office hours: Thursdays 11:30–13:00
 - Dean of Studies, Applied Computer Science (AIN)
 
 ![bg right:40% contain](../../assets/marko-boger.jpg)
+
+---
+
+# Prof. Dr. Pascal Laube
+
+- Room O205
+- plaube@htwg-konstanz.de
+- Office hours: by appointment via email
+- Professor of Software Development
+
+![bg right:40% contain](../../assets/pascal-laube.jpg)
 
 ---
 

@@ -28,7 +28,7 @@ Diagramme: diagrams/*.drawio.svg (editierbare Quellen: SVG mit eingebettetem Dra
 
 - Raum O205
 - marko.boger@htwg-konstanz.de
-- Sprechstunde: Dienstags 11:30–13:00
+- Sprechstunde: Donnerstags 11:30–13:00 Uhr
 - Studiendekan AIN
 
 ![bg right:40% contain](../../assets/marko-boger.jpg)
