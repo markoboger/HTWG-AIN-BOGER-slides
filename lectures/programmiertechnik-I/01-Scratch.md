@@ -14,8 +14,6 @@ _footer: ""
 
 Visual programming as a gentle introduction to core programming concepts.
 
-<p class="small">This lecture is taught alternately: Prof. Dr. Marko Boger in the winter semester, Prof. Dr. Pascal Laube in the summer semester.</p>
-
 ---
 
 # Organization
