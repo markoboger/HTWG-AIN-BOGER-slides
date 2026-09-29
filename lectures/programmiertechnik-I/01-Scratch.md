@@ -37,11 +37,32 @@ Visual programming as a gentle introduction to core programming concepts.
 
 ---
 
+<style scoped>
+li { font-size: 0.85em; margin: 0; line-height: 1.3; }
+li li { font-size: 1em; }
+ul > li:nth-child(2) > ul { columns: 2; column-gap: 2em; }
+</style>
+
 # Content of this Lecture
 
 - Scratch
+  - Introduction, Scratch
+  - Scratch 2
 - Scala
-- C#
+  - Languages and Paradigms
+  - Scala in CLI
+  - Number Types
+  - Arrays and Lists
+  - Control Structures
+  - Tuple, Objects, Enums and Classes
+  - Generic Types, Pattern Matching
+  - Recursion
+  - Version Control
+  - Collections
+  - Namespaces
+  - LazyList
+- Unity
+  - *(no topics assigned in the concept matrix yet)*
 
 ---
 
