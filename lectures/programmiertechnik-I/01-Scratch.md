@@ -31,9 +31,7 @@ Visual programming as a gentle introduction to core programming concepts.
 
 # Main Goal of this Lecture
 
-<!-- TODO Marko: Hauptziel der Vorlesung ergänzen -->
-
-*To be defined.*
+<p style="text-align:center; font-size:3em; font-weight:bold; margin-top:1.2em;">Agility</p>
 
 ---
 
