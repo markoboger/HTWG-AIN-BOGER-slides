@@ -18,6 +18,13 @@ Visual programming as a gentle introduction to core programming concepts.
 
 ---
 
+# Organization
+
+- **Alternating lecturers**: this lecture is taught alternately by Prof. Dr. Marko Boger in the winter semester and Prof. Dr. Pascal Laube in the summer semester.
+- **Materials**: all slides, files, and course materials are provided in **Moodle**.
+
+---
+
 # What Is Scratch
 
 - Scratch is a **block-based visual programming language** developed by MIT.
