@@ -38,16 +38,25 @@ Visual programming as a gentle introduction to core programming concepts.
 ---
 
 <style scoped>
-li { font-size: 0.85em; margin: 0; line-height: 1.3; }
+.cols { display: grid; grid-template-columns: 1fr 1fr; column-gap: 3em; align-items: start; }
+li { font-size: 0.9em; margin: 0; line-height: 1.35; }
 li li { font-size: 1em; }
-ul > li:nth-child(2) > ul { columns: 2; column-gap: 2em; }
 </style>
 
 # Content of this Lecture
 
+<div class="cols">
+<div>
+
 - Scratch
   - Introduction, Scratch
   - Scratch 2
+- Unity
+  - *(no topics assigned in the concept matrix yet)*
+
+</div>
+<div>
+
 - Scala
   - Languages and Paradigms
   - Scala in CLI
@@ -61,8 +70,9 @@ ul > li:nth-child(2) > ul { columns: 2; column-gap: 2em; }
   - Collections
   - Namespaces
   - LazyList
-- Unity
-  - *(no topics assigned in the concept matrix yet)*
+
+</div>
+</div>
 
 ---
 
