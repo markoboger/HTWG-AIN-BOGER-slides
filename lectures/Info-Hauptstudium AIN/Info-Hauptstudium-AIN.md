@@ -319,7 +319,7 @@ Stattdessen bietet Pascal Laube die Vorlesung „Cloud Native AI“ an.
 
 Bisher 16 registrierte Studenten, 54 Plätze (8 Projekte)
 
-Vorstellung der Projekte im Anschluss um 11:30, O201
+Vorstellung der Projekte im Anschluss gegen 12:30 Uhr
 
 ![w:1050](assets/teamprojekte-ws2627-indigit.png)
 
