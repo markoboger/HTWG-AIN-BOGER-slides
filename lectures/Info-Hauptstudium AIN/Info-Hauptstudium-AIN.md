@@ -426,13 +426,15 @@ Weiterentwicklung für Software Engineering
 
 ---
 
-# MarkOne
+# Raumplanungstool
 
-MarkOne ist eine IoT-Anwendung für das Segeln.
+Das Raumplanungstool ist ein Teamprojekt<br>zur Planung der Räume an der HTWG.
 
-Es soll als Open-Source-Projekt einem größeren Publikum bereit gestellt werden.
+Projektleitung: Marko Boger
 
-![bg right:48% contain](assets/markone.png)
+Bis zu 7 Mitglieder
+
+![bg right:48% contain](assets/raumplanungstool.png)
 
 ---
 
