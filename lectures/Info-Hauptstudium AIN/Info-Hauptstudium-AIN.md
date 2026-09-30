@@ -395,6 +395,16 @@ Techniken und Strategien für die Sicherung der Qualität und<br>Wartbarkeit von
 
 ---
 
+# Cloud Native AI<br>Prof. Pascal Laube
+
+Wahlpflichtmodul, 6 ECTS, Klausur K60<br>plus unbenotete Labor- und Programmierarbeiten
+
+Nachfolgeveranstaltung von Sprachkonzepte
+
+Ersetzt in SPO3 im WS26/27 Mobile Anwendungen (SE)<br>und Parallel Computing (AI, ES)
+
+---
+
 # Geplante Änderungen in den Vertiefungsrichtungen für WS
 
 ![h:430](assets/geplante-aenderungen-ws.png)
