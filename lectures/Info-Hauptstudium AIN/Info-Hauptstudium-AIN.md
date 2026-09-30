@@ -315,34 +315,6 @@ Stattdessen bietet Pascal Laube die Vorlesung „Cloud Native AI“ an.
 
 ---
 
-# Teamprojekte, Sem6 in INdigit
-
-Bisher 16 registrierte Studenten, 54 Plätze (8 Projekte)
-
-Vorstellung der Projekte im Anschluss gegen 12:30 Uhr
-
-<style scoped>
-table { font-size: 16px; margin-top: 0.3em; }
-th, td { padding: 4px 10px; }
-td:nth-child(2), td:nth-child(3) { white-space: nowrap; }
-td:nth-child(4) { min-width: 9em; }
-</style>
-
-| Titel | Info | Projektleiter*in | Vorstellung |
-|---|---|---|---|
-| CodeTask: Eine Lernplattform für das Programmieren | 0 / 7 Mitglieder | Boger, Marko | |
-| How can we leverage multimodal data to boost sleep disorder classification using machine learning? | 0 / 7 Mitglieder | Seepold, Ralf | ab 13 Uhr |
-| OOXML-Forensik mit Windows PowerShell | 0 / 7 Mitglieder | Langweg, Hanno | 1. Präsentation (muss 12:50 gehen) |
-| Projekt im Bereich Rechnernetze und Kommunikationstechnik | 0 / 7 Mitglieder | Staehle, Dirk | |
-| Raumplanungstool für die HTWG | 0 / 7 Mitglieder | Boger, Marko | |
-| SongConverter – KI-gestützte Konvertierung und manuelle Nachbearbeitung von Musikformaten (PDF, Audio, MIDI, MusicXML) | 0 / 5 Mitglieder | Haase, Oliver | keine Vorstellung, siehe [Moodle-Kurs](https://moodle.htwg-konstanz.de/moodle/course/view.php?id=3037) |
-| Turing-Maschine zum Anfassen 1.1 oder 2.0 | 0 / 7 Mitglieder | Staehle, Barbara | Barbara (bis auf Widerruf) |
-| youBot 2.0 – Modernisierung eines mobilen Manipulators für ROS 2 | 0 / 7 Mitglieder | Blaich, Michael | keine Vorstellung |
-
-<!-- Im Original steht zusätzlich die (vom Bild verdeckte) Textzeile „lkjlj“. -->
-
----
-
 # Vertiefungsrichtungen
 
 Artificial Intelligence: Michael Blaich
@@ -413,11 +385,27 @@ Ersetzt in SPO3 im WS26/27 Mobile Anwendungen (SE)<br>und Parallel Computing (AI
 
 # Teamprojekte, Sem6 in INdigit
 
-Bisher 37 registrierte Studenten, 46 Plätze
+Bisher 16 registrierte Studenten, 54 Plätze (8 Projekte)
 
-Vorstellung der Projekte im Anschluss um 11:30, O201
+Vorstellung der Projekte im Anschluss gegen 12:30 Uhr
 
-![w:1050](assets/teamprojekte-sem6-indigit.png)
+<style scoped>
+table { font-size: 16px; margin-top: 0.3em; }
+th, td { padding: 4px 10px; }
+td:nth-child(2), td:nth-child(3) { white-space: nowrap; }
+td:nth-child(4) { min-width: 9em; }
+</style>
+
+| Titel | Info | Projektleiter*in | Vorstellung |
+|---|---|---|---|
+| CodeTask: Eine Lernplattform für das Programmieren | 0 / 7 Mitglieder | Boger, Marko | |
+| How can we leverage multimodal data to boost sleep disorder classification using machine learning? | 0 / 7 Mitglieder | Seepold, Ralf | ab 13 Uhr |
+| OOXML-Forensik mit Windows PowerShell | 0 / 7 Mitglieder | Langweg, Hanno | 1. Präsentation (muss 12:50 gehen) |
+| Projekt im Bereich Rechnernetze und Kommunikationstechnik | 0 / 7 Mitglieder | Staehle, Dirk | |
+| Raumplanungstool für die HTWG | 0 / 7 Mitglieder | Boger, Marko | |
+| SongConverter – KI-gestützte Konvertierung und manuelle Nachbearbeitung von Musikformaten (PDF, Audio, MIDI, MusicXML) | 0 / 5 Mitglieder | Haase, Oliver | keine Vorstellung, siehe [Moodle-Kurs](https://moodle.htwg-konstanz.de/moodle/course/view.php?id=3037) |
+| Turing-Maschine zum Anfassen 1.1 oder 2.0 | 0 / 7 Mitglieder | Staehle, Barbara | Barbara (bis auf Widerruf) |
+| youBot 2.0 – Modernisierung eines mobilen Manipulators für ROS 2 | 0 / 7 Mitglieder | Blaich, Michael | keine Vorstellung |
 
 <!-- Im Original steht zusätzlich die (vom Bild verdeckte) Textzeile „lkjlj“. -->
 
