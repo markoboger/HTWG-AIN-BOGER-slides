@@ -419,7 +419,8 @@ Es wird im Wintersemester in Programmiertechnik 1 eingesetzt.
 
 - Übungen
 - Klausuren
-- Weiterentwicklung für Software Engineering
+
+Weiterentwicklung für Software Engineering
 
 ![bg right:48% contain](assets/codetask.png)
 
