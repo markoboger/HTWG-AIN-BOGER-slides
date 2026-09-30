@@ -320,7 +320,7 @@ th, td { padding: 8px 14px; }
 
 Artificial Intelligence: Michael Blaich
 
-Embedded Systems: Irenäus Schoppa
+Embedded Systems: Dirk Stähle
 
 Software Engineering: Marko Boger
 
@@ -349,18 +349,6 @@ Entwicklung in Teams von Teams
 <style scoped>p:has(> img) { text-align: center; }</style>
 
 ![h:230](assets/softwarearchitektur-diagramm.png)
-
----
-
-# Sprachkonzepte<br>Prof. Heiko von Drachenfels
-
-Tools und Material für die Softwareentwicklung
-
-Compiler und Interpreter
-
-Programmierparadigmen
-
-![h:220](assets/sprachkonzepte-1.png) ![h:220](assets/sprachkonzepte-2.png)
 
 ---
 
