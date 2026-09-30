@@ -33,7 +33,7 @@ Raum O205
 
 marko.boger@htwg-konstanz.de
 
-Sprechstunde Dienstags 11:30-13:00
+Sprechstunde: Donnerstags 11:30–13:00 Uhr
 
 ![bg right:35% contain](assets/marko-boger-portrait.png)
 
