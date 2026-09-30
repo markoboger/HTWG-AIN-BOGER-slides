@@ -17,8 +17,8 @@ _footer : ""
 # [Einführung AIN (Erstsemester)](#2)
 # [Informationen fürs Hauptstudium AIN (3.–7. Sem)](#2)
 # [Programmiertechnik I (1. Sem)](#3)
-# Software Engineering (3. Sem)
-# [Software Architecture (6. Sem)](#4)
+# [Software Engineering (3. Sem)](#4)
+# [Software Architecture (6. Sem)](#5)
 
 
 Diese Folien werden mit **Marp** erstellt und sind nach jedem Push in der aktuellsten Version verfügbar.
@@ -38,6 +38,14 @@ Diese Folien werden mit **Marp** erstellt und sind nach jedem Push in der aktuel
 - **[01-Scratch](lectures/programmiertechnik-I/01-Scratch.html)** ([HTML](lectures/programmiertechnik-I/01-Scratch.html), [PDF](lectures/programmiertechnik-I/01-Scratch.pdf))
 - **[02-Scratch-II](lectures/programmiertechnik-I/02-Scratch-II.html)** ([HTML](lectures/programmiertechnik-I/02-Scratch-II.html), [PDF](lectures/programmiertechnik-I/02-Scratch-II.pdf))
 - **[03-ProgrammingLanguages](lectures/programmiertechnik-I/03-ProgrammingLanguages.html)** ([HTML](lectures/programmiertechnik-I/03-ProgrammingLanguages.html), [PDF](lectures/programmiertechnik-I/03-ProgrammingLanguages.pdf))
+
+---
+
+### Software Engineering
+
+- **[Introduction to Scala](lectures/software-engineering/01-Introduction-to-Scala.html)** ([HTML](lectures/software-engineering/01-Introduction-to-Scala.html), [PDF](lectures/software-engineering/01-Introduction-to-Scala.pdf))
+- **[Version Control System – Git](lectures/software-engineering/02-Version-Control-Systems.html)** ([HTML](lectures/software-engineering/02-Version-Control-Systems.html), [PDF](lectures/software-engineering/02-Version-Control-Systems.pdf))
+- **[Agile Development](lectures/software-engineering/03-Agile-Development.html)** ([HTML](lectures/software-engineering/03-Agile-Development.html), [PDF](lectures/software-engineering/03-Agile-Development.pdf))
 
 ---
 

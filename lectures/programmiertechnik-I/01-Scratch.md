@@ -173,6 +173,7 @@ Sprites, blocks and control structures
 - **Blocks palette**: the available building blocks
 - **Scripts area**: where blocks are assembled into behavior
 - **Backdrops and sounds**: media that shape the scene
+- **Costumes tab**: draw a sprite's look (Pong: white rectangle, circle); the backdrop is the stage's picture (Pong: centre line)
 
 </div>
 <div markdown="1">
@@ -281,6 +282,51 @@ These are the building blocks for algorithmic thinking.
 </div>
 </div>
 
+</div>
+</div>
+
+---
+
+# Coordinates and Direction
+
+<div class="columns" style="grid-template-columns: auto 1fr; gap: 1.4rem; align-items: start; font-size: 18px;">
+<div style="width: 500px;">
+<img src="assets/stage-coordinates.png" alt="Stage 480 by 360 with (0, 0) in the centre and corners (±240, ±180); compass with directions 0 up, 90 right, 180 down, -90 left" style="width: 500px; margin: 0;">
+<div style="display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.6rem;">
+<img src="assets/motion-go-to-xy.png" alt="go to x: 0 y: 0" style="width: 170px; margin: 0;">
+<img src="assets/motion-point-direction.png" alt="point in direction 45" style="width: 170px; margin: 0;">
+<img src="assets/motion-change-y.png" alt="change y by 8" style="width: 141px; margin: 0;">
+</div>
+</div>
+<div markdown="1">
+
+- The stage is **480 × 360** pixels, **(0, 0)** in the centre: x from -240 to 240, y from -180 to 180.
+- `go to x: () y: ()` places a sprite; `change y by ()` moves up (+) or down (−); `x position` / `y position` report where it is.
+- **Direction** in degrees: 90 = right, -90 = left, 0 = up, 180 = down; `move () steps` goes in the current direction.
+- `if on edge, bounce` mirrors the direction at the stage edge.
+- Mirroring by hand: `180 - direction` bounces off a horizontal surface, `0 - direction` off a vertical one (Pong paddles).
+
+</div>
+</div>
+
+---
+
+# Events and Parallel Scripts
+
+<div class="columns" style="grid-template-columns: 1fr auto; gap: 1.6rem; align-items: start; font-size: 19px;">
+<div markdown="1">
+
+- Every script starts with a **hat block**: `when green flag clicked`, `when [key] key pressed`, `when I receive [msg]`.
+- One green-flag click starts all flag scripts of all sprites **and of the stage** at the same time: they run **in parallel**.
+- The stage can have scripts too, e.g. setting `score` to 0 at the start.
+- `when key pressed` reacts with the keyboard repeat delay; for smooth movement check `key [w] pressed?` inside `forever`.
+
+</div>
+<div style="display: flex; flex-direction: column; gap: 0.7rem; width: 340px;">
+<img src="assets/event-green-flag.png" alt="when green flag clicked" style="width: 156px; margin: 0;">
+<img src="assets/event-key-pressed.png" alt="when space key pressed" style="width: 260px; margin: 0;">
+<div style="font-size: 16px; color: #575e75;"><strong>Smooth movement:</strong></div>
+<img src="assets/event-smooth-key-loop.png" alt="forever: if key w pressed then change y by 8" style="width: 328px; margin: 0;">
 </div>
 </div>
 
@@ -435,8 +481,7 @@ Expressions can also be nested.
   - initialized
   - changed
   - incremented
-  - shown
-  - hidden
+  - shown on the stage as a **monitor** (checkbox), e.g. `score`
 - Variables can have a **local** or **global** scope.
 
 </div>
@@ -445,6 +490,8 @@ Expressions can also be nested.
 <div class="visual-frame">
 <img src="assets/variables-example.png" alt="Variable block example" />
 </div>
+
+<img src="assets/var-monitor.png" alt="Stage with the variable monitor score 3" style="width: 220px; margin: 0.6rem auto 0 auto; display: block;">
 
 </div>
 </div>
@@ -522,31 +569,22 @@ This matters in Scratch because conditions inside blocks such as **if**, **if el
 
 ---
 
-# Define Blocks
+# First Game: Pong
 
-<div class="columns">
-<div markdown="1">
-
-- You can define your own blocks.
-- These blocks can:
-  - have parameters
-  - change variables
-- But they can **not**:
-  - return a value
-
-So in this form they are **procedures**, not functions.
-
-Defined blocks are local to the current sprite.
-
+<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1.2rem; margin-top: 0.4rem; font-size: 18px; color: #575e75;">
+<div style="display: flex; flex-direction: column; gap: 0.3rem;"><strong>Ball</strong>
+<img src="assets/pong-ball.png" alt="Ball: when green flag clicked, go to x 0 y 0, point in direction 45, forever: move 8 steps, if on edge bounce, if touching Paddle then point in direction 180 minus direction" style="width: 286px; margin: 0 0 0.4rem 0;">
 </div>
-<div markdown="1">
-
-<div class="visual-frame">
-<img src="assets/define-blocks-example.png" alt="Define blocks example" />
+<div style="display: flex; flex-direction: column; gap: 0.3rem;"><strong>Paddle</strong>
+<img src="assets/pong-paddle.png" alt="Paddle: when green flag clicked, forever: set x to mouse x" style="width: 193px; margin: 0 0 0.4rem 0;">
 </div>
-
+<div style="display: flex; flex-direction: column; gap: 0.3rem;"><strong>First collision check</strong>
+<img src="assets/pong-touching.png" alt="touching Paddle?" style="width: 235px; margin: 0 0 0.4rem 0;">
+<img src="assets/pong-stage.png" alt="Pong stage: ball bounces off the edge and the paddle" style="width: 256px; margin: 0 0 0.4rem 0;">
 </div>
 </div>
+
+<p style="text-align: center; font-size: 24px; margin-top: 0.3rem;"><strong>A collision is just a condition checked in every loop.</strong></p>
 
 ---
 
@@ -559,6 +597,7 @@ Defined blocks are local to the current sprite.
 - Messages can not have parameters.
 - One script **sends** a message with `broadcast`.
 - Another script **starts** when it matches that message with `when I receive`.
+- `broadcast () and wait` continues only after all receiving scripts have finished (Pong: reset the ball, then go on).
 
 This is how Scratch lets sprites coordinate behavior.
 
@@ -589,7 +628,7 @@ This is how Scratch lets sprites coordinate behavior.
 
 # Namespace
 
-<div class="columns">
+<div class="columns" style="grid-template-columns: 1fr auto; gap: 1.5rem; align-items: center; font-size: 20px;">
 <div markdown="1">
 
 Namespaces are an important concept in programming languages.
@@ -599,9 +638,6 @@ They help us manage:
 - visibility
 - scope
 
-</div>
-<div markdown="1">
-
 In Scratch, there are only two namespaces:
 
 - the object or sprite
@@ -610,13 +646,16 @@ In Scratch, there are only two namespaces:
 A global namespace can be problematic, but it is common in scripting-oriented systems such as JavaScript.
 
 </div>
+<div>
+<img src="assets/namespace-tree.png" alt="Namespace tree: global namespace contains the global variable score, the Stage, sprite Ball and sprite Paddle; Ball and Paddle each have their own local variable speed. Highlighted path: global › Ball › speed" style="width: 532px; margin: 0;">
+</div>
 </div>
 
 ---
 
 # Visibility or Scope
 
-<div class="columns">
+<div class="columns" style="grid-template-columns: 1fr auto; gap: 1.5rem; align-items: center; font-size: 20px;">
 <div markdown="1">
 
 Variables have a visibility:
@@ -624,16 +663,85 @@ Variables have a visibility:
 - **global**: available to all objects
 - **local**: available only in the defining object
 
-Defined blocks always have local visibility.
-
 Messages are always sent globally as a broadcast.
-
-</div>
-<div markdown="1">
 
 This is a limitation.
 
 We will later introduce namespaces to define visibility and scope in a much more fine-grained way.
+
+</div>
+<div>
+<img src="assets/scope-matrix.png" alt="Access matrix: global variables and broadcast messages are available from the same script, other scripts of the sprite, the Stage and other sprites; local variables only from the same sprite, other sprites can only read them with the sensing block speed of Ball" style="width: 523px; margin: 0;">
+</div>
+</div>
+
+---
+
+# Project Ideas: Classic Arcade Games
+
+<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 0.4rem;">
+<div style="background: #fff; border: 2px solid #d9e3f2; border-radius: 14px; padding: 0.6rem; display: flex; flex-direction: column; gap: 0.35rem;">
+<img src="assets/retro-pong.png" alt="Own pixel-art illustration in the style of Pong" style="width: 100%; margin: 0; border-radius: 6px; image-rendering: pixelated;">
+<div style="display: flex; justify-content: space-between; align-items: baseline;"><strong style="font-size: 21px; color: #222;">Pong</strong><span style="color: #ff8c1a; font-size: 18px; letter-spacing: 0.1em;">★☆☆</span></div>
+<div style="font-size: 16px; color: #575e75;"><strong>Scratch:</strong> touching, bounce, score variable</div>
+</div>
+<div style="background: #fff; border: 2px solid #d9e3f2; border-radius: 14px; padding: 0.6rem; display: flex; flex-direction: column; gap: 0.35rem;">
+<img src="assets/retro-breakout.png" alt="Own pixel-art illustration in the style of Breakout" style="width: 100%; margin: 0; border-radius: 6px; image-rendering: pixelated;">
+<div style="display: flex; justify-content: space-between; align-items: baseline;"><strong style="font-size: 21px; color: #222;">Breakout</strong><span style="color: #ff8c1a; font-size: 18px; letter-spacing: 0.1em;">★☆☆</span></div>
+<div style="font-size: 16px; color: #575e75;"><strong>Scratch:</strong> clones for bricks, touching, lives</div>
+</div>
+<div style="background: #fff; border: 2px solid #d9e3f2; border-radius: 14px; padding: 0.6rem; display: flex; flex-direction: column; gap: 0.35rem;">
+<img src="assets/retro-lunar-lander.png" alt="Own pixel-art illustration in the style of Lunar Lander" style="width: 100%; margin: 0; border-radius: 6px; image-rendering: pixelated;">
+<div style="display: flex; justify-content: space-between; align-items: baseline;"><strong style="font-size: 21px; color: #222;">Lunar Lander</strong><span style="color: #ff8c1a; font-size: 18px; letter-spacing: 0.1em;">★★☆</span></div>
+<div style="font-size: 16px; color: #575e75;"><strong>Scratch:</strong> gravity via variables, key events, fuel</div>
+</div>
+</div>
+
+<p style="text-align: center; font-size: 22px; margin-top: 0.9rem;"><strong>Build the core mechanic first, then add levels, sound, and polish.</strong></p>
+
+---
+
+# More Project Ideas
+
+<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 0.4rem;">
+<div style="background: #fff; border: 2px solid #d9e3f2; border-radius: 14px; padding: 0.6rem; display: flex; flex-direction: column; gap: 0.35rem;">
+<img src="assets/retro-space-invaders.png" alt="Own pixel-art illustration in the style of Space Invaders" style="width: 100%; margin: 0; border-radius: 6px; image-rendering: pixelated;">
+<div style="display: flex; justify-content: space-between; align-items: baseline;"><strong style="font-size: 21px; color: #222;">Space Invaders</strong><span style="color: #ff8c1a; font-size: 18px; letter-spacing: 0.1em;">★★☆</span></div>
+<div style="font-size: 16px; color: #575e75;"><strong>Scratch:</strong> clones for aliens and shots, broadcasts</div>
+</div>
+<div style="background: #fff; border: 2px solid #d9e3f2; border-radius: 14px; padding: 0.6rem; display: flex; flex-direction: column; gap: 0.35rem;">
+<img src="assets/retro-asteroids.png" alt="Own pixel-art illustration in the style of Asteroids" style="width: 100%; margin: 0; border-radius: 6px; image-rendering: pixelated;">
+<div style="display: flex; justify-content: space-between; align-items: baseline;"><strong style="font-size: 21px; color: #222;">Asteroids</strong><span style="color: #ff8c1a; font-size: 18px; letter-spacing: 0.1em;">★★★</span></div>
+<div style="font-size: 16px; color: #575e75;"><strong>Scratch:</strong> direction and rotation, clones that split</div>
+</div>
+<div style="background: #fff; border: 2px solid #d9e3f2; border-radius: 14px; padding: 0.6rem; display: flex; flex-direction: column; gap: 0.35rem;">
+<img src="assets/retro-climber.png" alt="Own pixel-art illustration in the style of Donkey Kong" style="width: 100%; margin: 0; border-radius: 6px; image-rendering: pixelated;">
+<div style="display: flex; justify-content: space-between; align-items: baseline;"><strong style="font-size: 21px; color: #222;">Donkey Kong</strong><span style="color: #ff8c1a; font-size: 18px; letter-spacing: 0.1em;">★★★</span></div>
+<div style="font-size: 16px; color: #575e75;"><strong>Scratch:</strong> clones for barrels, touching color for platforms, levels</div>
+</div>
+</div>
+
+<p style="text-align: center; font-size: 22px; margin-top: 0.9rem;"><strong>All illustrations are our own pixel art, not screenshots of the original games.</strong></p>
+
+---
+
+# Finished Example: Pong.sb3
+
+<div class="columns" style="grid-template-columns: auto 1fr; gap: 1.6rem; align-items: start; margin-top: 0.3rem;">
+<div style="width: 430px;">
+<img src="assets/pong-game-stage.png" alt="The finished Pong project running: black stage, dashed centre line, two white paddles, a ball, and the score monitors score left and score right" style="width: 430px; margin: 0; border-radius: 8px; border: 2px solid #d9e3f2;">
+<div style="font-size: 16px; color: #575e75; margin-top: 0.4rem;">Open <strong>Pong.sb3</strong> and click the green flag.<br>Left paddle: <strong>W / S</strong> &middot; right paddle: <strong>&uarr; / &darr;</strong></div>
+</div>
+<div style="font-size: 18px;" markdown="1">
+
+- **Sprites + stage:** Paddle Left, Paddle Right, Ball; the stage draws the centre line
+- **Smooth movement:** `forever` + `if key pressed` for each paddle
+- **Motion:** `move (speed) steps` and `if on edge, bounce`
+- **Collision:** `touching` a paddle **and** the right direction, then `point in direction (0 - direction)`
+- **Scoring:** global variables, checked via the ball's x position
+- **Serve:** `broadcast new ball` resets the ball; every hit makes it faster
+
+<img src="assets/pong-game-hit.png" alt="if touching Paddle Right and direction greater than 0 then point in direction 0 minus direction, change speed by 0.5" style="width: 440px; margin: 0.5rem 0 0 0;">
 
 </div>
 </div>
@@ -650,7 +758,6 @@ It should contain:
 
 - expressions
 - variables
-- defined blocks
 - messages
 
 ---
