@@ -306,6 +306,15 @@ Stattdessen bietet Pascal Laube die Vorlesung „Cloud Native AI“ an.
 
 ---
 
+# Vertiefungsrichtung ES SPO3
+
+Die Vorlesung Parallel Computing findet im WS26/27 nicht statt.
+
+Stattdessen bietet Pascal Laube die Vorlesung „Cloud Native AI“ an.
+
+
+---
+
 # Teamprojekte, Sem6 in INdigit
 
 Bisher 37 registrierte Studenten, 46 Plätze
@@ -367,15 +376,6 @@ Speicherung von großen Datenmengen in<br>SQL- und Non-SQL-Datenbanken
 Techniken und Strategien für die Sicherung der Qualität und<br>Wartbarkeit von Software
 
 ![h:300](assets/softwarequalitaetssicherung.png)
-
----
-
-# Vertiefungsrichtung Embedded Systems<br>Dirk Stähle
-
-Vorstellung der Vertiefungsrichtung durch Dirk Stähle
-
-<!-- TODO: Themen/Lehrveranstaltungen, Eckdaten und Bild ergänzen (lagen nicht vor). -->
-
 
 ---
 
