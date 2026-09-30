@@ -333,7 +333,7 @@ td:nth-child(4) { min-width: 9em; }
 | CodeTask: Eine Lernplattform für das Programmieren | 0 / 7 Mitglieder | Boger, Marko | |
 | How can we leverage multimodal data to boost sleep disorder classification using machine learning? | 0 / 7 Mitglieder | Seepold, Ralf | ab 13 Uhr |
 | OOXML-Forensik mit Windows PowerShell | 0 / 7 Mitglieder | Langweg, Hanno | 1. Präsentation (muss 12:50 gehen) |
-| Projekt im Bereich Rechnernetze und Kommunikationstechnik | 0 / 7 Mitglieder | Stähle, Dirk | verfügbar, kann vorstellen (Option) |
+| Projekt im Bereich Rechnernetze und Kommunikationstechnik | 0 / 7 Mitglieder | Stähle, Dirk | |
 | Raumplanungstool für die HTWG | 0 / 7 Mitglieder | Boger, Marko | |
 | SongConverter – KI-gestützte Konvertierung und manuelle Nachbearbeitung von Musikformaten (PDF, Audio, MIDI, MusicXML) | 0 / 5 Mitglieder | Haase, Oliver | keine Vorstellung, siehe [Moodle-Kurs](https://moodle.htwg-konstanz.de/moodle/course/view.php?id=3037) |
 | Turing-Maschine zum Anfassen 1.1 oder 2.0 | 0 / 7 Mitglieder | Stähle, Barbara | |
