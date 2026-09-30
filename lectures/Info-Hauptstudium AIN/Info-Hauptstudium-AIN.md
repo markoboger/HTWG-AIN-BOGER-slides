@@ -302,8 +302,6 @@ Die Vorlesung Mobile Anwendungen findet im WS26/27 nicht statt.
 
 Evtl. wird diese im SS27 wieder angeboten.
 
-Die Vorlesung „Anwendungen der KI“ von Jie Bai wird ebenfalls nicht angeboten.
-
 Stattdessen bietet Pascal Laube die Vorlesung „Cloud Native AI“ an.
 
 ---
@@ -369,6 +367,15 @@ Speicherung von großen Datenmengen in<br>SQL- und Non-SQL-Datenbanken
 Techniken und Strategien für die Sicherung der Qualität und<br>Wartbarkeit von Software
 
 ![h:300](assets/softwarequalitaetssicherung.png)
+
+---
+
+# Vertiefungsrichtung Embedded Systems<br>Dirk Stähle
+
+Vorstellung der Vertiefungsrichtung durch Dirk Stähle
+
+<!-- TODO: Themen/Lehrveranstaltungen, Eckdaten und Bild ergänzen (lagen nicht vor). -->
+
 
 ---
 
