@@ -215,7 +215,7 @@ th, td { padding: 8px 14px; }
 
 - Die SPO4 ist gültig für alle Studienanfänger im Sommersemester 2024.
 - Alle Studierenden, die zum Wintersemester 2023/24 bereits eingeschrieben waren bleiben in der AIN SPO3.
-- Ein Wechsel in die SPO 4 ist mit Antrag beim Prüfungsausschussvorsitzenden (Schoppa / Stähle) möglich.
+- Ein Wechsel in die SPO 4 ist mit Antrag beim Prüfungsausschussvorsitzenden (Schoppa / Staehle) möglich.
 - Die Anerkennung einzelner Leistungen nach SPO4 in SPO3 ist ebenfalls möglich.
 
 ---
@@ -333,10 +333,10 @@ td:nth-child(4) { min-width: 9em; }
 | CodeTask: Eine Lernplattform für das Programmieren | 0 / 7 Mitglieder | Boger, Marko | |
 | How can we leverage multimodal data to boost sleep disorder classification using machine learning? | 0 / 7 Mitglieder | Seepold, Ralf | ab 13 Uhr |
 | OOXML-Forensik mit Windows PowerShell | 0 / 7 Mitglieder | Langweg, Hanno | 1. Präsentation (muss 12:50 gehen) |
-| Projekt im Bereich Rechnernetze und Kommunikationstechnik | 0 / 7 Mitglieder | Stähle, Dirk | |
+| Projekt im Bereich Rechnernetze und Kommunikationstechnik | 0 / 7 Mitglieder | Staehle, Dirk | |
 | Raumplanungstool für die HTWG | 0 / 7 Mitglieder | Boger, Marko | |
 | SongConverter – KI-gestützte Konvertierung und manuelle Nachbearbeitung von Musikformaten (PDF, Audio, MIDI, MusicXML) | 0 / 5 Mitglieder | Haase, Oliver | keine Vorstellung, siehe [Moodle-Kurs](https://moodle.htwg-konstanz.de/moodle/course/view.php?id=3037) |
-| Turing-Maschine zum Anfassen 1.1 oder 2.0 | 0 / 7 Mitglieder | Stähle, Barbara | Barbara (bis auf Widerruf) |
+| Turing-Maschine zum Anfassen 1.1 oder 2.0 | 0 / 7 Mitglieder | Staehle, Barbara | Barbara (bis auf Widerruf) |
 | youBot 2.0 – Modernisierung eines mobilen Manipulators für ROS 2 | 0 / 7 Mitglieder | Blaich, Michael | keine Vorstellung |
 
 <!-- Im Original steht zusätzlich die (vom Bild verdeckte) Textzeile „lkjlj“. -->
@@ -347,7 +347,7 @@ td:nth-child(4) { min-width: 9em; }
 
 Artificial Intelligence: Michael Blaich
 
-Embedded Systems: Dirk Stähle
+Embedded Systems: Dirk Staehle
 
 Software Engineering: Marko Boger
 
