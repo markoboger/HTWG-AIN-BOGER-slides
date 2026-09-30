@@ -13,6 +13,7 @@ _footer : ""
 **Computer Science Lectures by Prof. Dr. Marko Boger**
 
 # Einführung AIN (Erstsemester)
+# Info Hauptstudium AIN
 # Programmiertechnik I (1. Sem)
 # Software Engineering (3. Sem)
 # Software Architecture (6. Sem)
