@@ -415,7 +415,7 @@ td:nth-child(4) { min-width: 9em; }
 
 CodeTask ist eine Lernplattform für das Programmieren.
 
-Es wird im Wintersemester in Programmiertechnik eingesetzt.
+Es wird im Wintersemester in Programmiertechnik 1 eingesetzt.
 
 - Übungen
 - Klausuren
