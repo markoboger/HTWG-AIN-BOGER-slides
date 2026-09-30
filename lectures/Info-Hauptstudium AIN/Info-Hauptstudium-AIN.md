@@ -373,7 +373,11 @@ Techniken und Strategien für die Sicherung<br>der Qualität und Wartbarkeit von
 
 # Cloud Native AI<br>Prof. Pascal Laube
 
-Wahlpflichtmodul, 6 ECTS, Klausur K60<br>plus unbenotete Labor- und Programmierarbeiten
+Wahlpflichtmodul, 6 ECTS
+
+- KI-Agenten und Multi-Agent-Systeme
+- Retrieval-Augmented Generation (RAG)
+- Deployment und Optimierung von ML-Modellen
 
 Nachfolgeveranstaltung von Sprachkonzepte
 
