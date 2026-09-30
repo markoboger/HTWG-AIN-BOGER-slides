@@ -161,7 +161,7 @@ Vorlesungen anderer Fachbereiche können ebenfalls genehmigt werden.
 
 ---
 
-# Gruppenbetreuung Sem7
+# Methoden zur Gruppenbetreuung
 
 <!-- Ersetzt den veralteten Screenshot. Quelle: E-Mail Emmanuel Winkler, 29.09.2026 (Methoden der Gruppenbetreuung). -->
 
@@ -215,7 +215,7 @@ th, td { padding: 8px 14px; }
 
 - Die SPO4 ist gültig für alle Studienanfänger im Sommersemester 2024.
 - Alle Studierenden, die zum Wintersemester 2023/24 bereits eingeschrieben waren bleiben in der AIN SPO3.
-- Ein Wechsel in die SPO 4 ist mit Antrag beim Prüfungsausschussvorsitzenden (Schoppa) möglich.
+- Ein Wechsel in die SPO 4 ist mit Antrag beim Prüfungsausschussvorsitzenden (~~Schoppa~~ / Stähle) möglich.
 - Die Anerkennung einzelner Leistungen nach SPO4 in SPO3 ist ebenfalls möglich.
 
 ---
