@@ -337,7 +337,7 @@ td:nth-child(4) { min-width: 9em; }
 | Raumplanungstool für die HTWG | 0 / 7 Mitglieder | Boger, Marko | |
 | SongConverter – KI-gestützte Konvertierung und manuelle Nachbearbeitung von Musikformaten (PDF, Audio, MIDI, MusicXML) | 0 / 5 Mitglieder | Haase, Oliver | kommt nicht (Termin 12:45) – siehe [Moodle-Kurs](https://moodle.htwg-konstanz.de/moodle/course/view.php?id=3037) |
 | Turing-Maschine zum Anfassen 1.1 oder 2.0 | 0 / 7 Mitglieder | Stähle, Barbara | |
-| youBot 2.0 – Modernisierung eines mobilen Manipulators für ROS 2 | 0 / 7 Mitglieder | Blaich, Michael | abgesagt, keine Vorstellung |
+| youBot 2.0 – Modernisierung eines mobilen Manipulators für ROS 2 | 0 / 7 Mitglieder | Blaich, Michael | keine Vorstellung |
 
 <!-- Im Original steht zusätzlich die (vom Bild verdeckte) Textzeile „lkjlj“. -->
 
