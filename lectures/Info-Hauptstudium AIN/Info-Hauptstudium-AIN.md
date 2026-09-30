@@ -415,7 +415,7 @@ td:nth-child(4) { min-width: 9em; }
 
 CodeTask ist eine Lernplattform für das Programmieren.
 
-Es soll ab WS 26/27 in Programmieren I eingesetzt werden.
+Es wird im Wintersemester in Programmiertechnik eingesetzt.
 
 - Übungen
 - Klausuren
