@@ -317,11 +317,11 @@ Stattdessen bietet Pascal Laube die Vorlesung „Cloud Native AI“ an.
 
 # Teamprojekte, Sem6 in INdigit
 
-Bisher 37 registrierte Studenten, 46 Plätze
+Bisher 16 registrierte Studenten, 54 Plätze (8 Projekte)
 
 Vorstellung der Projekte im Anschluss um 11:30, O201
 
-![w:1050](assets/teamprojekte-sem6-indigit.png)
+![w:1050](assets/teamprojekte-ws2627-indigit.png)
 
 <!-- Im Original steht zusätzlich die (vom Bild verdeckte) Textzeile „lkjlj“. -->
 
