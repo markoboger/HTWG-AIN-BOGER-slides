@@ -148,6 +148,26 @@ Vorlesungen anderer Fachbereiche können ebenfalls genehmigt werden.
 
 ---
 
+# Gruppenbetreuung Sem7
+
+<!-- Ersetzt den veralteten Screenshot. Quelle: E-Mail Emmanuel Winkler, 29.09.2026 (Methoden der Gruppenbetreuung). -->
+
+<style scoped>
+table { font-size: 21px; margin-top: 0.4em; }
+th, td { padding: 8px 14px; }
+</style>
+
+| Tag | Gruppe | Unterricht | Pausen | UE |
+|---|---|---|---|---|
+| Fr 09.10.2026 | Gruppe 1 (SE) | 08:00–13:00 | 09:30–09:45, 11:15–11:30 | 6 |
+| Fr 09.10.2026 | Gruppe 2 (übrige VR) | 14:00–19:00 | 15:30–15:45, 17:15–17:30 | 6 |
+| Sa 10.10.2026 | Gruppe 1 (SE) | 08:00–13:00 | 09:30–09:45, 11:15–11:30 | 6 |
+| Sa 10.10.2026 | Gruppe 2 (übrige VR) | 14:00–19:00 | 15:30–15:45, 17:15–17:30 | 6 |
+| Mo 12.10.2026 | Gruppe 1 (SE) | 08:00–10:30 | 09:30–09:45 | 3 |
+| Mo 12.10.2026 | Gruppe 2 (übrige VR) | 14:00–16:30 | 15:30–15:45 | 3 |
+
+---
+
 # Gruppenbetreuung/Tutorium
 
 - Zuordnung von Studierenden zu Fächern
@@ -293,26 +313,6 @@ Vorstellung der Projekte im Anschluss um 11:30, O201
 ![w:1050](assets/teamprojekte-sem6-indigit.png)
 
 <!-- Im Original steht zusätzlich die (vom Bild verdeckte) Textzeile „lkjlj“. -->
-
----
-
-# Gruppenbetreuung Sem7
-
-<!-- Ersetzt den veralteten Screenshot. Quelle: E-Mail Emmanuel Winkler, 29.09.2026 (Methoden der Gruppenbetreuung). -->
-
-<style scoped>
-table { font-size: 21px; margin-top: 0.4em; }
-th, td { padding: 8px 14px; }
-</style>
-
-| Tag | Gruppe | Unterricht | Pausen | UE |
-|---|---|---|---|---|
-| Fr 09.10.2026 | Gruppe 1 (SE) | 08:00–13:00 | 09:30–09:45, 11:15–11:30 | 6 |
-| Fr 09.10.2026 | Gruppe 2 (übrige VR) | 14:00–19:00 | 15:30–15:45, 17:15–17:30 | 6 |
-| Sa 10.10.2026 | Gruppe 1 (SE) | 08:00–13:00 | 09:30–09:45, 11:15–11:30 | 6 |
-| Sa 10.10.2026 | Gruppe 2 (übrige VR) | 14:00–19:00 | 15:30–15:45, 17:15–17:30 | 6 |
-| Mo 12.10.2026 | Gruppe 1 (SE) | 08:00–10:30 | 09:30–09:45 | 3 |
-| Mo 12.10.2026 | Gruppe 2 (übrige VR) | 14:00–16:30 | 15:30–15:45 | 3 |
 
 ---
 
