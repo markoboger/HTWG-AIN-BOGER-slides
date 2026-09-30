@@ -156,6 +156,8 @@ Vorlesungen anderer Fachbereiche können ebenfalls genehmigt werden.
   - vor der ersten Vorlesungswoche
 - Absprachen mit Professoren/innen können<br>nur bedingt berücksichtigt werden.
 - Vorziehen ist mit einer Genehmigung des/r Vorsitzenden des Prüfungsausschusses möglich.<br>Voraussetzung: alle Leistungen aus den früheren Semestern müssen erfolgreich bestanden sein.
+- Referent „Methoden der Gruppenbetreuung“: Emmanuel Winkler
+
 
 ---
 
