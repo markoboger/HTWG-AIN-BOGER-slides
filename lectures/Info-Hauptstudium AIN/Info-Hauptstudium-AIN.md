@@ -296,6 +296,12 @@ Lösungen:
 
 ---
 
+# Geplante Änderungen in den Vertiefungsrichtungen für WS
+
+![h:430](assets/geplante-aenderungen-ws.png)
+
+---
+
 # Vertiefungsrichtung SE SPO3
 
 Die Vorlesung Mobile Anwendungen findet im WS26/27 nicht statt.
@@ -374,12 +380,6 @@ Nachfolgeveranstaltung von Sprachkonzepte
 Ersetzt in SPO3 im WS26/27 Mobile Anwendungen (SE)<br>und Parallel Computing (AI, ES)
 
 ![bg right:35% contain](assets/cloud-native-ai.png)
-
----
-
-# Geplante Änderungen in den Vertiefungsrichtungen für WS
-
-![h:430](assets/geplante-aenderungen-ws.png)
 
 ---
 
