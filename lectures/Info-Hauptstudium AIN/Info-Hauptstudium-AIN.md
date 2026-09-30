@@ -322,7 +322,7 @@ Stattdessen bietet Pascal Laube die Vorlesung „Cloud Native AI“ an.
 
 # Vertiefungsrichtungen
 
-Artificial Intelligence: Michael Blaich
+Artificial Intelligence: N.N.
 
 Embedded Systems: Dirk Staehle
 
