@@ -321,7 +321,23 @@ Bisher 16 registrierte Studenten, 54 Plätze (8 Projekte)
 
 Vorstellung der Projekte im Anschluss gegen 12:30 Uhr
 
-![w:1050](assets/teamprojekte-ws2627-indigit.png)
+<style scoped>
+table { font-size: 16px; margin-top: 0.3em; }
+th, td { padding: 4px 10px; }
+td:nth-child(2), td:nth-child(3) { white-space: nowrap; }
+td:nth-child(4) { min-width: 9em; }
+</style>
+
+| Titel | Info | Projektleiter*in | Vorstellung |
+|---|---|---|---|
+| CodeTask: Eine Lernplattform für das Programmieren | 0 / 7 Mitglieder | Boger, Marko | |
+| How can we leverage multimodal data to boost sleep disorder classification using machine learning? | 0 / 7 Mitglieder | Seepold, Ralf | |
+| OOXML-Forensik mit Windows PowerShell | 0 / 7 Mitglieder | Langweg, Hanno | |
+| Projekt im Bereich Rechnernetze und Kommunikationstechnik | 0 / 7 Mitglieder | Stähle, Dirk | |
+| Raumplanungstool für die HTWG | 0 / 7 Mitglieder | Boger, Marko | |
+| SongConverter – KI-gestützte Konvertierung und manuelle Nachbearbeitung von Musikformaten (PDF, Audio, MIDI, MusicXML) | 0 / 5 Mitglieder | Haase, Oliver | |
+| Turing-Maschine zum Anfassen 1.1 oder 2.0 | 0 / 7 Mitglieder | Stähle, Barbara | |
+| youBot 2.0 – Modernisierung eines mobilen Manipulators für ROS 2 | 0 / 7 Mitglieder | Blaich, Michael | |
 
 <!-- Im Original steht zusätzlich die (vom Bild verdeckte) Textzeile „lkjlj“. -->
 
