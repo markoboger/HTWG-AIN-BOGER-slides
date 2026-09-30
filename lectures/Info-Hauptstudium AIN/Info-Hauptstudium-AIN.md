@@ -426,7 +426,7 @@ Weiterentwicklung für Software Engineering
 
 ---
 
-# Raumplanungstool
+# Raumplanungstool für die HTWG
 
 Das Raumplanungstool ist ein Teamprojekt<br>zur Planung der Räume an der HTWG.
 
