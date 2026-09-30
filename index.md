@@ -13,7 +13,7 @@ _footer : ""
 **Computer Science Lectures by Prof. Dr. Marko Boger**
 
 # Einführung AIN (Erstsemester)
-# Info Hauptstudium AIN
+# Informationen fürs Hauptstudium AIN
 # Programmiertechnik I (1. Sem)
 # Software Engineering (3. Sem)
 # Software Architecture (6. Sem)
@@ -27,7 +27,7 @@ Diese Folien werden mit **Marp** erstellt und sind nach jedem Push in der aktuel
 ### Einführung AIN
 
 - **[Einführung AIN für Erstsemester](lectures/Einf%C3%BChrung%20AIN/Einf%C3%BChrung-AIN-Erstsemester.html)** ([HTML](lectures/Einf%C3%BChrung%20AIN/Einf%C3%BChrung-AIN-Erstsemester.html), [PDF](lectures/Einf%C3%BChrung%20AIN/Einf%C3%BChrung-AIN-Erstsemester.pdf))
-- **[Info Hauptstudium](lectures/Info-Hauptstudium%20AIN/Info-Hauptstudium-AIN.html)** ([HTML](lectures/Info-Hauptstudium%20AIN/Info-Hauptstudium-AIN.html), [PDF](lectures/Info-Hauptstudium%20AIN/Info-Hauptstudium-AIN.pdf))
+- **[Informationen fürs Hauptstudium AIN](lectures/Info-Hauptstudium%20AIN/Info-Hauptstudium-AIN.html)** ([HTML](lectures/Info-Hauptstudium%20AIN/Info-Hauptstudium-AIN.html), [PDF](lectures/Info-Hauptstudium%20AIN/Info-Hauptstudium-AIN.pdf))
 
 ---
 
