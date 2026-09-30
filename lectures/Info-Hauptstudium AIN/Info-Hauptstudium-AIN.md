@@ -65,7 +65,7 @@ td:last-child { background: #D9E5EC; padding: 12px 28px; }
 |---|---|
 | Embedded<br>Systems | − Internet of Things, Industrie 4.0<br>− Steuerungs- und Automatisierungstechnik<br>− Erfassung und Verarbeitung von Messwerten |
 | Artificial<br>Intelligence | − Robotik und Sicherheitssysteme<br>− Videobasierte Fahrerassistenzsysteme<br>− Maschinelles Lernen, Mustererkennung |
-| Software-<br>Engineering | − Software- und Web-Entwicklung<br>− Softwareoptimierung und Qualitätssicherung<br>− IT-Sicherheit |
+| Software-<br>Engineering | − Software- und Web-Entwicklung<br>− Softwarearchitektur und Qualitätssicherung<br>− IT-Sicherheit |
 
 ---
 
