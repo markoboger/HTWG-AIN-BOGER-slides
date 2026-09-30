@@ -21,7 +21,7 @@ des Folien-Thumbnails, weil dort Markierungsrahmen bzw. ein aus Formen gezeichne
 ![bg](../../themes/htwgin-titel.png)
 
 ## Angewandte Informatik (AIN5)
-# Vertiefungsrichtungen
+# Informationen für das Hauptstudium AIN - Vertiefungsrichtungen
 
 ---
 
@@ -371,8 +371,6 @@ Techniken und Strategien für die Sicherung<br>der Qualität und Wartbarkeit von
 ---
 
 # Cloud Native AI<br>Prof. Pascal Laube
-
-Wahlpflichtmodul, 6 ECTS
 
 - KI-Agenten und Multi-Agent-Systeme
 - Retrieval-Augmented Generation (RAG)
