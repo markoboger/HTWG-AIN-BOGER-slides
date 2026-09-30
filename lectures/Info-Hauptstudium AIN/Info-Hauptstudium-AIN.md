@@ -430,6 +430,8 @@ Weiterentwicklung für Software Engineering
 
 Neuentwicklung eines Raumplanungstools mit KI.
 
+Anbindung an HISinOne.
+
 ![bg right:48% contain](assets/raumplanungstool.png)
 
 ---
