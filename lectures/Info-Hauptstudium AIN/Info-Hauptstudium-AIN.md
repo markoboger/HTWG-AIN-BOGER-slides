@@ -428,11 +428,7 @@ Weiterentwicklung für Software Engineering
 
 # Raumplanungstool<br>für die HTWG
 
-Das Raumplanungstool ist ein Teamprojekt<br>zur Planung der Räume an der HTWG.
-
-Projektleitung: Marko Boger
-
-Bis zu 7 Mitglieder
+Neuentwicklung eines Raumplanungstools mit KI.
 
 ![bg right:48% contain](assets/raumplanungstool.png)
 
