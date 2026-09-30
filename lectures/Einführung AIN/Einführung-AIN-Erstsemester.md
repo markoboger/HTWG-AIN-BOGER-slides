@@ -59,11 +59,9 @@ Diagramme: diagrams/*.drawio.svg (editierbare Quellen: SVG mit eingebettetem Dra
 
 ---
 
-# Programmiersprachen — Zeitlinie (Auszug)
+# Programmiersprachen — Zeitlinie
 
-![h:500](diagrams/language-history.drawio.svg)
-
-<div style="font-size:14px;text-align:right;color:#666">Smalltalk-Logo: „Smalltalk Balloon“ von Codefrau, CC BY-SA 4.0, via Wikimedia Commons</div>
+![h:560](diagrams/language-history.drawio.svg)
 
 ---
 
