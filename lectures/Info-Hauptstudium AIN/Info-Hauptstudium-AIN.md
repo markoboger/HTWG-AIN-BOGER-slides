@@ -295,12 +295,6 @@ Lösungen:
 
 ---
 
-# Geplante Änderungen in den Vertiefungsrichtungen für WS
-
-![h:430](assets/geplante-aenderungen-ws.png)
-
----
-
 # Vertiefungsrichtung SE SPO3
 
 Die Vorlesung Mobile Anwendungen findet im WS26/27 nicht statt.
