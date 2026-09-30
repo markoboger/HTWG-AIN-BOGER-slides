@@ -345,9 +345,7 @@ Software-Entwicklung im Back-End
 
 Entwicklung in Teams von Teams
 
-<style scoped>p:has(> img) { text-align: center; }</style>
-
-![h:230](assets/softwarearchitektur-diagramm.png)
+![bg right:35% contain](assets/softwarearchitektur-diagramm.png)
 
 ---
 
@@ -355,15 +353,15 @@ Entwicklung in Teams von Teams
 
 Speicherung von großen Datenmengen in<br>SQL- und Non-SQL-Datenbanken
 
-![h:300](assets/datenbanksysteme-2.png)
+![bg right:35% contain](assets/datenbanksysteme-2.png)
 
 ---
 
 # Softwarequalitätssicherung<br>Prof. Markus Eiglsperger
 
-Techniken und Strategien für die Sicherung der Qualität und<br>Wartbarkeit von Software
+Techniken und Strategien für die Sicherung<br>der Qualität und Wartbarkeit von Software
 
-![h:300](assets/softwarequalitaetssicherung.png)
+![bg right:35% contain](assets/softwarequalitaetssicherung.png)
 
 ---
 
@@ -374,6 +372,8 @@ Wahlpflichtmodul, 6 ECTS, Klausur K60<br>plus unbenotete Labor- und Programmiera
 Nachfolgeveranstaltung von Sprachkonzepte
 
 Ersetzt in SPO3 im WS26/27 Mobile Anwendungen (SE)<br>und Parallel Computing (AI, ES)
+
+![bg right:35% contain](assets/cloud-native-ai.png)
 
 ---
 
@@ -419,6 +419,7 @@ Es wird im Wintersemester in Programmiertechnik 1 eingesetzt.
 
 - Übungen
 - Klausuren
+- Weiterentwicklung für Software Engineering
 
 ![bg right:48% contain](assets/codetask.png)
 
