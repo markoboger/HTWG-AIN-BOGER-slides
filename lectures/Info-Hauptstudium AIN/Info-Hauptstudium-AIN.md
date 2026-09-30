@@ -127,11 +127,8 @@ Vorlesungen anderer Fachbereiche können ebenfalls genehmigt werden.
 ---
 
 <!-- _footer: "" -->
-<style scoped>section { padding: 24px 30px 20px 30px; justify-content: flex-start; } h1 { margin: 0 0 8px 0; } p { margin: 0; text-align: center; }</style>
 
-# Vertiefungsfächer nach SPO4
-
-<img src="assets/vertiefungsfaecher-spo4.png" style="height:600px; width:auto; max-width:100%; display:block; margin:0 auto;">
+![bg contain](assets/vertiefungsfaecher-spo4.png)
 
 ---
 
