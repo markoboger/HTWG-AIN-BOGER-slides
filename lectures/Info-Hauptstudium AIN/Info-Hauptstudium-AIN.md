@@ -107,9 +107,10 @@ Der Katalog der angebotenen Vorlesungen kann sich über die Zeit ändern.
 
 Der Wahlbereich II umfasst
 
-- weitere Fächer des Vertiefungsbereichts über 4 Module hinaus.
-  - Anwendungen der KI, Jie Bai
-  - Embedded Security, Vater
+- derzeit keine weiteren Fächer des Vertiefungsbereichs.
+  - Anwendungen der KI ist ausgesetzt
+  - Embedded Security hatten wir im Sommersemester
+    - derzeit keine
 - Module anderer Vertiefungsbereiche.
 - die Orientierungsfächer aus Wahlbereich I, soweit sie nicht schon als Orientierungsfach für die Vertiefung im Wahlbereich I gewählt wurden.
 
