@@ -147,7 +147,7 @@ Vorlesungen anderer Fachbereiche können ebenfalls genehmigt werden.
 
 ---
 
-# Gruppenbetreuung/Tutorium
+# Methoden der Gruppenbetreuung/Tutorium
 
 - Zuordnung von Studierenden zu Fächern
   - aus den ersten drei Semestern im SG AIN
