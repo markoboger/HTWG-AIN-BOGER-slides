@@ -148,6 +148,17 @@ Vorlesungen anderer Fachbereiche können ebenfalls genehmigt werden.
 
 ---
 
+# Gruppenbetreuung/Tutorium
+
+- Zuordnung von Studierenden zu Fächern
+  - aus den ersten drei Semestern im SG AIN
+  - bedarfsorientiert, vom Studiengangsleiter nach<br>Anmeldung (mit drei Wunschfächern)
+  - vor der ersten Vorlesungswoche
+- Absprachen mit Professoren/innen können<br>nur bedingt berücksichtigt werden.
+- Vorziehen ist mit einer Genehmigung des/r Vorsitzenden des Prüfungsausschusses möglich.<br>Voraussetzung: alle Leistungen aus den früheren Semestern müssen erfolgreich bestanden sein.
+
+---
+
 # Gruppenbetreuung Sem7
 
 <!-- Ersetzt den veralteten Screenshot. Quelle: E-Mail Emmanuel Winkler, 29.09.2026 (Methoden der Gruppenbetreuung). -->
@@ -165,17 +176,6 @@ th, td { padding: 8px 14px; }
 | Sa 10.10.2026 | Gruppe 2 (übrige VR) | 14:00–19:00 | 15:30–15:45, 17:15–17:30 | 6 |
 | Mo 12.10.2026 | Gruppe 1 (SE) | 08:00–10:30 | 09:30–09:45 | 3 |
 | Mo 12.10.2026 | Gruppe 2 (übrige VR) | 14:00–16:30 | 15:30–15:45 | 3 |
-
----
-
-# Gruppenbetreuung/Tutorium
-
-- Zuordnung von Studierenden zu Fächern
-  - aus den ersten drei Semestern im SG AIN
-  - bedarfsorientiert, vom Studiengangsleiter nach<br>Anmeldung (mit drei Wunschfächern)
-  - vor der ersten Vorlesungswoche
-- Absprachen mit Professoren/innen können<br>nur bedingt berücksichtigt werden.
-- Vorziehen ist mit einer Genehmigung des/r Vorsitzenden des Prüfungsausschusses möglich.<br>Voraussetzung: alle Leistungen aus den früheren Semestern müssen erfolgreich bestanden sein.
 
 ---
 
