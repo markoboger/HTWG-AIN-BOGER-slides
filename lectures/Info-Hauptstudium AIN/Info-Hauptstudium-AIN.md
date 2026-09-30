@@ -215,7 +215,7 @@ th, td { padding: 8px 14px; }
 
 - Die SPO4 ist gültig für alle Studienanfänger im Sommersemester 2024.
 - Alle Studierenden, die zum Wintersemester 2023/24 bereits eingeschrieben waren bleiben in der AIN SPO3.
-- Ein Wechsel in die SPO 4 ist mit Antrag beim Prüfungsausschussvorsitzenden (<del>Schoppa</del> / Stähle) möglich.
+- Ein Wechsel in die SPO 4 ist mit Antrag beim Prüfungsausschussvorsitzenden (Schoppa / Stähle) möglich.
 - Die Anerkennung einzelner Leistungen nach SPO4 in SPO3 ist ebenfalls möglich.
 
 ---
@@ -298,9 +298,9 @@ Lösungen:
 
 # Vertiefungsrichtung SE SPO3
 
-Die Vorlesung Mobile Anwendungen findet im SS26 nicht statt.
+Die Vorlesung Mobile Anwendungen findet im WS26/27 nicht statt.
 
-Evtl. wird diese im WS26/27 wieder angeboten.
+Evtl. wird diese im SS27 wieder angeboten.
 
 Statt dessen bieten wir die Vorlesung Anwendungen der KI, Jie Bai an.
 
