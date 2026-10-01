@@ -16,15 +16,6 @@ Type system, collections, control structures, pattern matching and new Scala 3 t
 
 ---
 
-# CodeTask
-
-- CodeTask is a learning platform for Scala, developed here at HTWG.
-- Please use it now! We need your feedback.
-- We will soon do an exam in CodeTask
-- [https://codetask.in.htwg-konstanz.de/](https://codetask.in.htwg-konstanz.de/)
-
----
-
 <style scoped>
 pre, code { font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
 pre { font-size: 20px; }
@@ -103,9 +94,73 @@ val (minors, adults) = people partition (_.age < 18)
 
 <style scoped>
 pre, code { font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
-pre { font-size: 18px; line-height: 1.3; margin: 0.2rem 0 0.4rem 0; }
+pre { font-size: 14px; line-height: 1.35; margin: 0.2rem 0; padding: 12px 14px; }
+section { font-size: 22px; padding-left: 50px; padding-right: 50px; }
+p { margin: 0.3rem 0; }
+.cmp { display: grid; grid-template-columns: 450px 1fr; gap: 0 0.8rem; align-items: start; margin-top: 0.4rem; }
+.cmp .lbl { font-size: 22px; color: #575e75; }
+.note { font-size: 20px; margin-top: 0.6rem; }
+.src { position: absolute; left: 50px; bottom: 82px; font-size: 14px; color: #888; }
+</style>
+
+# Another Example: Phone Mnemonics
+
+Encode a phone number as words on a phone keypad, e.g. `7225276257` → "Scala rocks"
+
+<div class="cmp">
+<div class="lbl">... in Scala 3:</div>
+<div class="lbl">... in Java 25:</div>
+<div>
+
+```scala
+// all ways to encode a number as a list of words
+def encode(number: String): Set[List[String]] =
+  if number.isEmpty then Set(Nil)
+  else
+    (for
+      split <- 1 to number.length
+      word  <- wordsForNum(number.take(split))
+      rest  <- encode(number.drop(split))
+    yield word :: rest).toSet
+```
+
+</div>
+<div>
+
+```java
+// all ways to encode a number as a list of words
+Set<List<String>> encode(String number) {
+  if (number.isEmpty()) return Set.of(List.of());
+  return IntStream.rangeClosed(1, number.length()).boxed()
+      .flatMap(split -> wordsForNum
+          .getOrDefault(number.substring(0, split), List.of()).stream()
+          .flatMap(word -> encode(number.substring(split)).stream()
+              .map(rest -> Stream.concat(Stream.of(word), rest.stream()).toList())))
+      .collect(toSet());
+}
+```
+
+</div>
+</div>
+
+<div class="note">Full program: 21 lines Scala vs. 37 lines Java (Java 25 with streams)</div>
+
+<div class="src">Martin Odersky, Scala at Work, JAOO 2010; task from L. Prechelt, IEEE Computer 2000</div>
+
+---
+
+<style scoped>
 section { font-size: 22px; }
 p { margin: 0.3rem 0; }
+.kwgrid { display: grid; grid-template-columns: 1fr 2.3fr 1.25fr 1.15fr; gap: 0.7rem; align-items: stretch; margin-top: 0.6rem; }
+.kwbox { background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 8px; padding: 0.5rem 0.8rem 0.6rem 0.8rem; }
+.kwh { font-weight: 700; font-size: 19px; color: #575e75; border-bottom: 1px solid #d0d7de; padding-bottom: 0.25rem; margin-bottom: 0.4rem; }
+.kwl { font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace); font-size: 19px; line-height: 1.45; column-gap: 1rem; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+.kwl span { display: block; break-inside: avoid; }
+.core .kwl span { font-weight: 700; color: #000; }
+.java .kwl span { color: #999; }
+.kwl .soft { font-style: italic; }
+.kwnote { font-size: 17px; color: #575e75; margin-top: 0.5rem; }
 </style>
 
 # Small Grammar
@@ -113,35 +168,28 @@ p { margin: 0.3rem 0; }
 - The grammar of Scala 3 is very small in comparison to other languages. It fits on [8 pages in A4 format](http://dotty.epfl.ch/docs/reference/syntax.html).
 - Here is a list of all keywords
 
-Regular keywords
+<div class="kwgrid">
+<div class="kwbox core"><div class="kwh">Core Scala</div><div class="kwl" style="columns: 1;"><span>case</span><span>def</span><span>enum</span><span class="soft">extension</span><span>given</span><span>match</span><span>object</span><span>sealed</span><span>trait</span><span class="soft">using</span><span>val</span><span>yield</span></div></div>
+<div class="kwbox every"><div class="kwh">Everyday &amp; Advanced</div><div class="kwl" style="columns: 3;"><span>abstract</span><span class="soft">as</span><span>class</span><span class="soft">derives</span><span>do</span><span>else</span><span class="soft">end</span><span>export</span><span>extends</span><span>false</span><span>final</span><span>for</span><span>if</span><span>import</span><span class="soft">infix</span><span class="soft">inline</span><span>lazy</span><span>new</span><span class="soft">opaque</span><span class="soft">open</span><span>override</span><span>package</span><span>private</span><span>protected</span><span>super</span><span>then</span><span class="soft">transparent</span><span>true</span><span>type</span><span>with</span></div></div>
+<div class="kwbox java"><div class="kwh">Java Compatibility (avoid)</div><div class="kwl" style="columns: 1;"><span>catch</span><span>finally</span><span>implicit</span><span>null</span><span>return</span><span>throw</span><span>try</span><span>var</span><span>while</span></div></div>
+<div class="kwbox sym"><div class="kwh">Symbols</div><div class="kwl" style="columns: 2;"><span>#</span><span class="soft">*</span><span class="soft">+</span><span class="soft">-</span><span>:</span><span>&lt;-</span><span>&lt;:</span><span>=</span><span>=&gt;</span><span>=&gt;&gt;</span><span>&gt;:</span><span>?=&gt;</span><span>@</span><span class="soft">|</span></div></div>
+</div>
 
-```text
-abstract  case      catch     class     def       do        else
-enum      export    extends   false     final     finally   for
-given     if        implicit  import    lazy      match     new
-null      object    override  package   private   protected return
-sealed    super     then      throw     trait     true      try
-type      val       var       while     with      yield
-:         =         <-        =>        <:        >:        #
-@         =>>       ?=>
-```
-
-Soft keywords
-
-```text
-as  derives  end  extension  infix  inline  opaque  open  transparent  using  |  *  +  -
-```
+<p class="kwnote"><i>italic</i> = soft keyword (a keyword only in certain positions, otherwise usable as a name)</p>
 
 ---
 
 <style scoped>
 pre, code { font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
-pre { font-size: 18px; line-height: 1.3; }
+pre { font-size: 18px; line-height: 1.3; margin-top: 0.2rem; }
+.nlbl { font-size: 22px; font-weight: 700; color: #575e75; margin-top: 0.6rem; }
 </style>
 
 # Significant Indentation
 
 - In Scala 2, blocks of code are formed by braces, Java style
+
+<div class="nlbl">Java-Style</div>
 
 ```scala
 case class Person(name:String, birthdate:Date) extends Ordered[Person]{
@@ -153,6 +201,8 @@ case class Person(name:String, birthdate:Date) extends Ordered[Person]{
 
 - Scala 3 also allows blocks by significant indentation, Python style
 
+<div class="nlbl">Python-Style</div>
+
 ```scala
 case class Person(name:String, birthdate:Date) extends Ordered[Person]:
  override def compare(that: Person) = this.age - that.age
@@ -163,24 +213,100 @@ case class Person(name:String, birthdate:Date) extends Ordered[Person]:
 ---
 
 <style scoped>
-pre, code { font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+section { font-size: 21px; }
+li { margin: 0.1rem 0; }
+.src { position: absolute; right: 70px; bottom: 78px; font-size: 14px; color: #888; }
 </style>
 
-# Scala Class Hierarchy
+# Scala Type Hierarchy
 
-- Scala has a closed type hierarchy with top and bottom types.
-  - The top class is `Any`.
-  - The bottom type is `Nothing`.
+- `Any` is the top type, the supertype of all types (`equals`, `hashCode`, `toString`)
+- `Matchable` (new in Scala 3): only values of a subtype of `Matchable` can be pattern matched
+- `AnyVal`: value types (`Int`, `Boolean`, `Unit`, …), non-nullable; `AnyRef` (= `java.lang.Object`): all reference types
+- `Null` is a subtype of all reference types, its only value is `null`; avoid it (Java interop only)
+- `Nothing` is the bottom type, a subtype of all types; there is no value of type `Nothing`
 
-<img src="assets/se04-class-hierarchy.png" alt="Scala class hierarchy: Any at the top, AnyVal and AnyRef below, Null and Nothing at the bottom" style="display: block; height: 330px; margin: 0.3rem auto 0 auto;">
+<svg viewBox="0 0 1000 345" style="display: block; width: 860px; margin: 0.2rem auto 0 auto; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;">
+<defs><marker id="th-arr" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555"/></marker></defs>
+<line x1="500" y1="67" x2="500" y2="37" stroke="#555" stroke-width="1.5" marker-end="url(#th-arr)"/>
+<line x1="294" y1="133" x2="440" y2="97" stroke="#555" stroke-width="1.5" marker-end="url(#th-arr)"/>
+<line x1="674" y1="129" x2="556" y2="97" stroke="#555" stroke-width="1.5" marker-end="url(#th-arr)"/>
+<line x1="90" y1="198" x2="206" y2="159" stroke="#555" stroke-width="1.5" marker-end="url(#th-arr)"/>
+<line x1="184" y1="195" x2="231" y2="159" stroke="#555" stroke-width="1.5" marker-end="url(#th-arr)"/>
+<line x1="265" y1="195" x2="255" y2="159" stroke="#555" stroke-width="1.5" marker-end="url(#th-arr)"/>
+<line x1="374" y1="195" x2="286" y2="159" stroke="#555" stroke-width="1.5" marker-end="url(#th-arr)"/>
+<line x1="622" y1="195" x2="698" y2="159" stroke="#555" stroke-width="1.5" marker-end="url(#th-arr)"/>
+<line x1="711" y1="195" x2="724" y2="159" stroke="#555" stroke-width="1.5" marker-end="url(#th-arr)"/>
+<line x1="846" y1="195" x2="764" y2="159" stroke="#555" stroke-width="1.5" marker-end="url(#th-arr)"/>
+<line x1="696" y1="257" x2="624" y2="225" stroke="#555" stroke-width="1.5" marker-end="url(#th-arr)"/>
+<line x1="724" y1="257" x2="711" y2="225" stroke="#555" stroke-width="1.5" marker-end="url(#th-arr)"/>
+<line x1="765" y1="258" x2="844" y2="225" stroke="#555" stroke-width="1.5" marker-end="url(#th-arr)"/>
+<line x1="371" y1="307" x2="90" y2="221" stroke="#555" stroke-width="1.5" marker-end="url(#th-arr)"/>
+<line x1="386" y1="307" x2="199" y2="225" stroke="#555" stroke-width="1.5" marker-end="url(#th-arr)"/>
+<line x1="400" y1="307" x2="290" y2="225" stroke="#555" stroke-width="1.5" marker-end="url(#th-arr)"/>
+<line x1="419" y1="307" x2="411" y2="225" stroke="#555" stroke-width="1.5" marker-end="url(#th-arr)"/>
+<line x1="470" y1="314" x2="695" y2="278" stroke="#555" stroke-width="1.5" marker-end="url(#th-arr)"/>
+<rect x="465" y="7" width="70" height="30" rx="8" fill="#e0f3f1" stroke="#009b91" stroke-width="1.5"/>
+<text x="500" y="28" text-anchor="middle" font-size="17" font-weight="700" fill="#222">Any</text>
+<rect x="440" y="67" width="120" height="30" rx="8" fill="#e0f3f1" stroke="#009b91" stroke-width="1.5"/>
+<text x="500" y="88" text-anchor="middle" font-size="17" font-weight="700" fill="#222">Matchable</text>
+<rect x="206" y="129" width="89" height="30" rx="8" fill="#f6f8fa" stroke="#9aa4ae" stroke-width="1.5"/>
+<text x="250" y="150" text-anchor="middle" font-size="17" font-weight="700" fill="#222">AnyVal</text>
+<rect x="638" y="129" width="184" height="30" rx="8" fill="#f6f8fa" stroke="#9aa4ae" stroke-width="1.5"/>
+<text x="730" y="150" text-anchor="middle" font-size="17" font-weight="700" fill="#222">AnyRef / Object</text>
+<rect x="20" y="195" width="70" height="30" rx="8" fill="#f6f8fa" stroke="#9aa4ae" stroke-width="1.5"/>
+<text x="55" y="216" text-anchor="middle" font-size="17" font-weight="400" fill="#222">Unit</text>
+<rect x="115" y="195" width="100" height="30" rx="8" fill="#f6f8fa" stroke="#9aa4ae" stroke-width="1.5"/>
+<text x="165" y="216" text-anchor="middle" font-size="17" font-weight="400" fill="#222">Boolean</text>
+<rect x="235" y="195" width="70" height="30" rx="8" fill="#f6f8fa" stroke="#9aa4ae" stroke-width="1.5"/>
+<text x="270" y="216" text-anchor="middle" font-size="17" font-weight="400" fill="#222">Int</text>
+<rect x="318" y="195" width="184" height="30" rx="8" fill="#f6f8fa" stroke="#9aa4ae" stroke-width="1.5"/>
+<text x="410" y="216" text-anchor="middle" font-size="17" font-weight="400" fill="#222">… (value types)</text>
+<rect x="546" y="195" width="89" height="30" rx="8" fill="#f6f8fa" stroke="#9aa4ae" stroke-width="1.5"/>
+<text x="590" y="216" text-anchor="middle" font-size="17" font-weight="400" fill="#222">String</text>
+<rect x="645" y="195" width="120" height="30" rx="8" fill="#f6f8fa" stroke="#9aa4ae" stroke-width="1.5"/>
+<text x="705" y="216" text-anchor="middle" font-size="17" font-weight="400" fill="#222">List[Int]</text>
+<rect x="767" y="195" width="226" height="30" rx="8" fill="#f6f8fa" stroke="#9aa4ae" stroke-width="1.5"/>
+<text x="880" y="216" text-anchor="middle" font-size="17" font-weight="400" fill="#222">… (reference types)</text>
+<rect x="695" y="257" width="70" height="30" rx="8" fill="#e0f3f1" stroke="#009b91" stroke-width="1.5"/>
+<text x="730" y="278" text-anchor="middle" font-size="17" font-weight="700" fill="#222">Null</text>
+<rect x="370" y="307" width="100" height="30" rx="8" fill="#e0f3f1" stroke="#009b91" stroke-width="1.5"/>
+<text x="420" y="328" text-anchor="middle" font-size="17" font-weight="700" fill="#222">Nothing</text>
+</svg>
+
+<div class="src">Source: Scala 3 Book, "A First Look at Types", docs.scala-lang.org/scala3/book/first-look-at-types.html</div>
 
 ---
+
+<style scoped>
+section { font-size: 21px; }
+.numtypes { display: grid; grid-template-columns: 1fr 1fr; gap: 0 2rem; margin-top: 1.2rem; }
+.numtypes ul { margin: 0; }
+.numtypes li { margin: 0.15rem 0; }
+</style>
 
 # Type Casting for Value Types
 
 - Value types can easily be converted into a suitable more complex value type.
 
 <img src="assets/se04-value-type-conversion.png" alt="Conversion chain of value types: Byte to Short to Int to Long to Float to Double, and Char to Int" style="display: block; width: 800px; margin: 2rem auto 0 auto;">
+
+<div class="numtypes">
+<div>
+
+- `Byte`: 8-bit signed integer, −128 to 127
+- `Short`: 16-bit signed integer, −32,768 to 32,767
+- `Int`: 32-bit signed integer, −2³¹ to 2³¹−1 (default for integer literals)
+
+</div>
+<div>
+
+- `Long`: 64-bit signed integer, −2⁶³ to 2⁶³−1 (suffix `L`)
+- `Float`: 32-bit IEEE 754 single-precision floating point (suffix `F`)
+- `Double`: 64-bit IEEE 754 double-precision floating point (default for decimal literals)
+
+</div>
+</div>
 
 ---
 
@@ -199,23 +325,30 @@ pre, code { font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt
 
 <style scoped>
 pre, code { font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
-pre { font-size: 20px; }
+pre { font-size: 19px; }
+section { font-size: 22px; }
+li { margin: 0.1rem 0; }
+.src { position: absolute; left: 70px; bottom: 82px; font-size: 14px; color: #888; }
 </style>
 
 # The Type Nothing
 
-- Nothing is a subtype of any type
-- i.e. is returned if a calculation is aborted with exception
+- `Nothing` is the bottom type: a subtype of every type, and there is no value of type `Nothing`
+- Expressions of type `Nothing` never return normally: `throw`, `sys.exit()`, `???`
+- So they fit wherever any type is expected:
 
 ```scala
-def error(message:String):Nothing =
-  throw new RuntimeException(message)
-def divide(x:Int, y:Int) : Int =
-  if (y!=0) x/y
-  else error("can not divide by zero")
+def fail(msg: String): Nothing = throw IllegalArgumentException(msg)
+
+def age(s: String): Int     = if s.nonEmpty then s.toInt else fail("no age")
+def name(s: String): String = if s.nonEmpty then s.trim  else fail("no name")
+
+def parse(s: String): Person = ???   // placeholder: compiles for any type
 ```
 
-- Both branches are compatible with type Int
+- `if … then Int else Nothing` has type `Int`; the same `fail` works for `String`, `Person`, …
+
+<div class="src">Sources: Scala 3 Book, "A First Look at Types"; scala.Nothing API docs; Rock the JVM, "Much Ado About Nothing in Scala"</div>
 
 ---
 
@@ -235,30 +368,53 @@ def divide(x:Int, y:Int) : Int =
 
 <style scoped>
 pre, code { font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
-pre { font-size: 18px; line-height: 1.3; margin: 0.2rem 0 0.3rem 0; }
-section { font-size: 22px; }
+pre { font-size: 17px; line-height: 1.3; margin: 0.2rem 0 0.3rem 0; }
+section { font-size: 21px; }
 li { margin: 0.1rem 0; }
+.cmp { display: grid; grid-template-columns: 1fr 1.25fr; gap: 0 1rem; align-items: start; }
+.src { position: absolute; left: 70px; bottom: 82px; font-size: 14px; color: #888; }
 </style>
 
 # The Type Option
 
-- In Java, a return value null can mean „no value found“ or dereferenced
-  - It forces to check for null pointer - > Defencive Programming
-- In Scala, return types that can have a value or not are modeled as Option
+- In Java, "no value" is often `null`: every caller has to remember a null check, otherwise `NullPointerException`
+- In Scala, a result that may be missing has the type `Option[A]`: either `Some(value)` or `None`
+
+<div class="cmp">
+<div>
 
 ```scala
-def search(something:Any): Option[Any] = …
+def makeInt(s: String): Option[Int] =
+  try
+    Some(Integer.parseInt(s.trim))
+  catch
+    case e: Exception => None
+
+val a = makeInt("1")     // Some(1)
+val b = makeInt("one")   // None
 ```
 
-- An Option can have the values `Some(x)` or `None`
-- Access this value i.e. with a match:
+</div>
+<div>
 
 ```scala
-search(something) match {
-  case Some(s) => println("found "+s)
-  case None => println("found nothing")
-}
+makeInt(x) match
+  case Some(i) => println(i)
+  case None    => println("That didn’t work.")
+
+makeInt("42").map(_ * 2)      // Some(84)
+makeInt("one").getOrElse(0)   // 0
+for a <- makeInt("1"); b <- makeInt("2")
+yield a + b                   // Some(3)
 ```
+
+</div>
+</div>
+
+- The type makes absence explicit: the compiler forces you to handle `None`, no null checks needed
+- The standard library already offers this, e.g. `"42".toIntOption` or `map.get(key)`
+
+<div class="src">Example: Scala 3 Book, "Functional Error Handling" (docs.scala-lang.org/scala3/book/fp-functional-error-handling.html)</div>
 
 ---
 
@@ -268,17 +424,72 @@ section { font-size: 22px; }
 
 # Extending the Type System
 
-- Java has inheritance from one class and realization from several Interfaces
-  - Interfaces can not have attributes or method implementations
-  - Abstract classes can only be inherited once
-    - Rich Interfaces are problematic because all methods must be provided by the user
+- Java has inheritance from one class and realization from several interfaces
+  - A class can extend only one (abstract) class
+  - Interfaces can have default methods (since Java 8), but no instance state
+    - Default methods allow rich interfaces, but without state they stay limited
 - Scala has
-  - Inheritance from a class OR a trait
-  - Mix-in using ‚with‘ from several traits
+  - Inheritance from at most one class, plus any number of traits
+  - Mix-in of several traits using `with` or, since Scala 3, commas (`extends A, B, C`)
   - Traits can have attributes and method implementations
     - Rich Traits are very convenient, they provide a lot
   - Since Scala 3, traits can also have parameters
-- This brings Scala very close to multiple Inheritance
+- This brings Scala very close to multiple inheritance: behavior and state, without the diamond problem (resolved by linearization)
+
+---
+
+<style scoped>
+pre, code { font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+pre { font-size: 15px; line-height: 1.4; margin: 0.2rem 0; padding: 12px 14px; }
+section { font-size: 22px; padding-left: 50px; padding-right: 50px; }
+.cmp { display: grid; grid-template-columns: 495px 1fr; gap: 0 0.8rem; align-items: start; margin-top: 0.6rem; }
+.src { position: absolute; left: 50px; bottom: 82px; font-size: 14px; color: #888; }
+</style>
+
+# Traits - a Simple Example
+
+- A trait defines behavior: abstract methods (`speak`) and concrete methods (`startTail`, …)
+- A class mixes in several traits (`extends A, B, C`) and implements or overrides their methods
+
+<div class="cmp">
+<div>
+
+```scala
+trait Speaker:
+  def speak(): String  // has no body, so it’s abstract
+
+trait TailWagger:
+  def startTail(): Unit = println("tail is wagging")
+  def stopTail(): Unit = println("tail is stopped")
+
+trait Runner:
+  def startRunning(): Unit = println("I’m running")
+  def stopRunning(): Unit = println("Stopped running")
+```
+
+</div>
+<div>
+
+```scala
+class Dog(name: String) extends Speaker, TailWagger, Runner:
+  def speak(): String = "Woof!"
+
+class Cat(name: String) extends Speaker, TailWagger, Runner:
+  def speak(): String = "Meow"
+  override def startRunning(): Unit = println("Yeah ... I don’t run")
+  override def stopRunning(): Unit = println("No need to stop")
+
+val d = Dog("Rover")
+println(d.speak())   // Woof!
+d.startTail()        // tail is wagging
+val c = Cat("Morris")
+c.startRunning()     // Yeah ... I don’t run
+```
+
+</div>
+</div>
+
+<div class="src">Example: Scala 3 Book, "Domain Modeling" in "A Taste of Scala" (docs.scala-lang.org/scala3/book/taste-modeling.html)</div>
 
 ---
 
@@ -360,37 +571,147 @@ Map("x" -> 24, "y" -> 25, "z" -> 26)
 
 <style scoped>
 pre, code { font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
-pre { font-size: 18px; line-height: 1.3; }
+pre { font-size: 16px; line-height: 1.25; margin: 0.15rem 0 0.4rem 0; padding: 10px 14px; }
+section { font-size: 21px; padding-left: 50px; padding-right: 50px; }
+li { margin: 0.05rem 0; }
+.cmp { display: grid; grid-template-columns: 1fr 1.12fr; gap: 0 1rem; align-items: start; margin-top: 0.4rem; }
+.lbl { font-size: 18px; font-weight: 700; color: #575e75; }
+.src { position: absolute; right: 50px; bottom: 82px; font-size: 14px; color: #888; }
 </style>
 
-# Examples for Iterator
+# Iterators
+
+- An `Iterator` delivers elements one at a time: `next()` returns the next one, `hasNext` tells if there are more
+- Unlike a collection, an iterator can be traversed **only once**
+
+<div class="cmp">
+<div>
+<div class="lbl">Step by step</div>
 
 ```scala
-scala> val xs = List(1, 2, 3, 4, 5)
-xs: List[Int] = List(1, 2, 3, 4, 5)
-scala> val git = xs grouped 3
-git: Iterator[List[Int]] = non-empty iterator
-scala> git.next()
-res3: List[Int] = List(1, 2, 3)
-scala> git.next()
-res4: List[Int] = List(4, 5)
-scala> val sit = xs sliding 3
-sit: Iterator[List[Int]] = non-empty iterator
-scala> sit.next()
-res5: List[Int] = List(1, 2, 3)
-scala> sit.next()
-res6: List[Int] = List(2, 3, 4)
-scala> sit.next()
-res7: List[Int] = List(3, 4, 5)
+scala> val it = List(1, 2, 3, 4, 5).iterator
+val it: Iterator[Int] = non-empty iterator
+scala> it.next()
+val res0: Int = 1
+scala> it.next()
+val res1: Int = 2
+scala> it.next()
+val res2: Int = 3
+scala> it.hasNext
+val res3: Boolean = true
+scala> it.next()
+val res4: Int = 4
+scala> it.next()
+val res5: Int = 5
+scala> it.hasNext
+val res6: Boolean = false
+scala> it.toList
+val res7: List[Int] = List()
 ```
 
+</div>
+<div>
+<div class="lbl">Used up after one pass</div>
+
+```scala
+scala> val words = List("one", "two", "three").iterator
+val words: Iterator[String] = non-empty iterator
+scala> words.map(_.length).toList
+val res8: List[Int] = List(3, 3, 5)
+scala> words.map(_.length).toList
+val res9: List[Int] = List()
+```
+
+</div>
+</div>
+
+<div class="src">Scala 3.9.0 REPL output · docs.scala-lang.org: Collections › Iterators</div>
+
 ---
+
+<style scoped>
+pre, code { font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+pre { font-size: 16px; line-height: 1.25; margin: 0.15rem 0 0.4rem 0; padding: 10px 14px; }
+section { font-size: 21px; padding-left: 50px; padding-right: 50px; }
+li { margin: 0.05rem 0; }
+.cmp { display: grid; grid-template-columns: 1.15fr 1fr; gap: 0 1rem; align-items: start; margin-top: 0.4rem; }
+.lbl { font-size: 18px; font-weight: 700; color: #575e75; }
+.src { position: absolute; right: 50px; bottom: 82px; font-size: 14px; color: #888; }
+</style>
+
+# Iterators: grouped and sliding
+
+- Many methods return an iterator: `Source.fromFile("data.txt").getLines()`, `"Hello".iterator`, …
+- `xs.grouped(n)`: chunks of `n` elements, the last chunk may be shorter
+- `xs.sliding(n)`: a window of `n` elements that moves one step at a time
+
+<div class="cmp">
+<div>
+<div class="lbl">grouped(3)</div>
+
+```scala
+scala> val xs = List(1, 2, 3, 4, 5, 6, 7)
+val xs: List[Int] = List(1, 2, 3, 4, 5, 6, 7)
+scala> val g = xs.grouped(3)
+val g: Iterator[List[Int]] = non-empty iterator
+scala> g.next()
+val res0: List[Int] = List(1, 2, 3)
+scala> g.next()
+val res1: List[Int] = List(4, 5, 6)
+scala> g.next()
+val res2: List[Int] = List(7)
+scala> g.hasNext
+val res3: Boolean = false
+```
+
+</div>
+<div>
+<div class="lbl">sliding(2)</div>
+
+```scala
+scala> xs.sliding(2).toList
+val res4: List[List[Int]] = List(
+  List(1, 2),
+  List(2, 3),
+  List(3, 4),
+  List(4, 5),
+  List(5, 6),
+  List(6, 7)
+)
+```
+
+</div>
+</div>
+
+<div class="src">Scala 3.9.0 REPL output · docs.scala-lang.org: Collections › Iterators</div>
+
+---
+
+<style scoped>
+table { font-size: 18px; margin: 0.4rem auto 0 auto; border-collapse: collapse; }
+th, td { padding: 3px 14px; line-height: 1.3; }
+td:first-child { white-space: nowrap; }
+td code { font-size: 17px; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+</style>
 
 # API of Set
 
 - A Set is a Traversable and an Iterator, and has specific operations for sets
 
-<img src="assets/se04-set-api.png" alt="Table of Set operations: contains, apply, subsetOf, +, ++, -, --, intersect, union, diff, empty with descriptions" style="display: block; height: 400px; margin: 0.3rem auto 0 auto;">
+| Operation | Description |
+|---|---|
+| `xs contains x`, `xs(x)` | Test whether `x` is an element of `xs`. |
+| `xs + x` | The set containing all elements of `xs` as well as `x`. |
+| `xs + (x, y, z)` | The set containing all elements of `xs` as well as with the given additional elements. |
+| `xs ++ ys` | The set containing all elements of `xs` as well as all elements of `ys`. |
+| `xs - x` | The set containing all elements of `xs` except for `x`. |
+| `xs - (x, y, z)` | The set containing all elements of `xs` except for the given elements. |
+| `xs -- ys` | The set containing all elements of `xs` except for the elements of `ys`. |
+| `xs & ys`, `xs intersect ys` | The set intersection of `xs` and `ys`. |
+| `xs \| ys`, `xs union ys` | The set union of `xs` and `ys`. |
+| `xs &~ ys`, `xs diff ys` | The set difference of `xs` and `ys`. |
+| `xs subsetOf ys` | Test whether `xs` is a subset of `ys`. |
+| `xs.empty` | An empty set of the same class as `xs`. |
 
 ---
 
@@ -523,12 +844,20 @@ var theForceIsStrong = true
 
 <style scoped>
 pre, code { font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
-pre { font-size: 21px; }
+pre { font-size: 21px; margin: 0.2rem 0 0.4rem 0; }
+.cmp { display: grid; grid-template-columns: 340px 1fr; gap: 0 1rem; align-items: start; }
+.cmp pre.repl, .cmp .repl pre { font-size: 15.5px; line-height: 1.3; }
+.lbl { font-size: 18px; font-weight: 700; color: #575e75; }
+ul.eq { font-size: 21px; margin-top: 0.3rem; }
 </style>
 
 # Equality
 
 - In programming, the equality is usually written with two equal signs (==) and is a boolean condition.
+
+<div class="cmp">
+<div>
+<div class="lbl">Conditions</div>
 
 ```scala
 x==21
@@ -539,12 +868,42 @@ theForceIsStrong==true
 theForceIsStrong==false
 ```
 
+</div>
+<div class="repl">
+<div class="lbl">Equality in an if (Scala 3.9.0 REPL)</div>
+
+```scala
+scala> var anakin = "Darth Vader"
+var anakin: String = "Darth Vader"
+scala> if anakin == "Darth Vader" then println("Welcome to the dark side!")
+Welcome to the dark side!
+scala> if anakin = "Darth Vader" then println("Welcome to the dark side!")
+-- [E007] Type Mismatch Error: -------------------------------------------------
+1 |if anakin = "Darth Vader" then println("Welcome to the dark side!")
+  |   ^^^^^^^^^^^^^^^^^^^^^^
+  |   Found:    Unit
+  |   Required: Boolean
+scala> val sith = "Darth " + "Vader"
+val sith: String = "Darth Vader"
+scala> sith == anakin
+val res1: Boolean = true
+```
+
+</div>
+</div>
+
+<ul class="eq">
+<li>An assignment <code>=</code> has type <code>Unit</code>, so it is no condition (in C, <code>if (x = 5)</code> is a classic bug)</li>
+<li><code>==</code> compares values (it calls <code>equals</code>): equal Strings are <code>==</code>, even as different objects</li>
+</ul>
+
 ---
 
 <style scoped>
 pre, code { font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
 pre { font-size: 19px; margin: 0.2rem 0 0.4rem 0; }
 section { font-size: 22px; }
+.nlbl { font-size: 22px; font-weight: 700; color: #575e75; }
 </style>
 
 # Types in Assignment
@@ -570,7 +929,8 @@ var age = 26
 ```
 
 </div>
-<div style="margin-top: 5.5rem;">
+<div style="margin-top: 4rem;">
+<div class="nlbl">Java</div>
 
 ```java
 String padme = "Padme Amidala";
@@ -800,7 +1160,7 @@ else statement
 
 <style scoped>
 pre, code { font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
-pre { font-size: 17px; margin: 0.2rem 0 0.4rem 0; }
+pre { font-size: 20px; margin: 0.2rem 0 0.4rem 0; }
 </style>
 
 # If as expression
@@ -818,7 +1178,8 @@ if boolean_expression then expression else expression
 val result = if (boolean_expression)
 then expression
 else expression
-(if boolean_expression then expression else expression) + (if boolean_expression then expression else expression)
+(if boolean_expression then expression else expression)
+  + (if boolean_expression then expression else expression)
 ```
 
 ---
@@ -888,28 +1249,36 @@ println(ageGroup)
 
 <style scoped>
 pre, code { font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
-pre { font-size: 14px; line-height: 1.3; margin: 0; }
+pre { font-size: 14px; line-height: 1.25; margin: 0; padding: 8px 12px; }
 section { font-size: 22px; }
+.nlbl { font-size: 18px; font-weight: 700; color: #575e75; margin: 0.45rem 0 0.1rem 0; }
+.nlbl.first { margin-top: 0; }
 .code3 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem 1rem; }
 </style>
 
 # If in Functional Programming
 
-<div class="columns" style="grid-template-columns: 0.9fr 1.1fr; align-items: start; gap: 1.2rem;">
+<div class="columns" style="grid-template-columns: 1fr 1fr; align-items: start; gap: 1.2rem;">
 <div>
 
-- Most programming languages only offer if as a statement. Java has if as an expression, but it is rarely used.
+- Most programming languages only offer if as a statement. Java has only the conditional operator `?:` as an expression, and it is rarely used.
 - In the functional programming style, the expression is preferred.
 - In general Scala is an expression-oriented language, Java is statement-oriented.
 
-```java
-String result = points > 21 ? "Busted!" :
-       points == 21 ? "Blackjack!" :
-       "Points: " + points;
+<div class="nlbl">Scala</div>
+
+```scala
+val points = 22
+val result =
+  if points > 21 then "Busted!"
+  else if points == 21 then "Blackjack!"
+  else s"Points: $points"
+println(result)
 ```
 
 </div>
 <div>
+<div class="nlbl first">C</div>
 
 ```c
 if (points > 21) {
@@ -921,6 +1290,8 @@ if (points > 21) {
 }
 ```
 
+<div class="nlbl">Java</div>
+
 ```java
 int points = 22;
 if (points > 21) {
@@ -930,6 +1301,14 @@ if (points > 21) {
 } else {
     System.out.println("Points: " + points);
 }
+```
+
+<div class="nlbl">Java (conditional operator ?:)</div>
+
+```java
+String result = points > 21 ? "Busted!" :
+       points == 21 ? "Blackjack!" :
+       "Points: " + points;
 ```
 
 </div>
@@ -1113,7 +1492,7 @@ val result5 = for (elem <- array) yield elem
 section { font-size: 22px; }
 </style>
 
-# Summary
+# Summary: Assignment, if and for
 
 - Assignment, if conditions and for loops are fundamental building blocks of programming languages.
 - **var allows re-assignment, val does not. val is preferred in FP.**
@@ -1137,8 +1516,14 @@ pre { font-size: 21px; }
 - All collections have the function foreach. It serves much like a for loop and is very common.
 
 ```scala
-val v = Vector((1,9), (2,8), (3,7), (4,6), (5,5))
-v.foreach{ case(i,j) => println(i, j) }
+scala> val v = Vector((1, 9), (2, 8), (3, 7), (4, 6), (5, 5))
+val v: Vector[(Int, Int)] = Vector((1, 9), (2, 8), (3, 7), (4, 6), (5, 5))
+scala> v.foreach((i, j) => println(s"$i, $j"))
+1, 9
+2, 8
+3, 7
+4, 6
+5, 5
 ```
 
 ---
@@ -1157,19 +1542,20 @@ li { margin: 0.1rem 0; }
   - Maps each element of a list to a new element of a list according to some function
 
 ```scala
-val n = (1 to 3).toList
-n.map(i => i*3)
-List[Int] = List(3, 6, 9))
-n.map(i => n.map(j => i * j))
-List[List[Int]] = List(List(1, 2, 3), List(2, 4, 6), List(3, 6, 9))
+scala> val n = (1 to 3).toList
+val n: List[Int] = List(1, 2, 3)
+scala> n.map(i => i * 3)
+val res0: List[Int] = List(3, 6, 9)
+scala> n.map(i => n.map(j => i * j))
+val res1: List[List[Int]] = List(List(1, 2, 3), List(2, 4, 6), List(3, 6, 9))
 ```
 
 - Flatmap
   - Produces a not-nested list (flat)
 
 ```scala
-n.flatMap(i => n.map(j => i * j))
-List[Int] = List(1, 2, 3, 2, 4, 6, 3, 6, 9)
+scala> n.flatMap(i => n.map(j => i * j))
+val res2: List[Int] = List(1, 2, 3, 2, 4, 6, 3, 6, 9)
 ```
 
 ---
@@ -1187,12 +1573,10 @@ pre { font-size: 19px; line-height: 1.3; margin: 0.2rem 0 0.4rem 0; }
 - Match is similar to switch but more general
 
 ```scala
-def describe(x: Int) =
-   x match {
-     case 1 => "one"
-     case 2 => "two"
-     case _ => "many"
-   }
+def describe(x: Int) = x match
+  case 1 => "one"
+  case 2 => "two"
+  case _ => "many"
 ```
 
 </div>
@@ -1201,12 +1585,10 @@ def describe(x: Int) =
 - Variable renaming and guards
 
 ```scala
-def describe(x: Int) =
-   x match {
-     case n:Int if (n < 0) => n + " is negative"
-     case z:Int if (z ==0) => z + " is zero"
-     case p:Int if (p > 0) => p + " is positive"
-   }
+def describe(x: Int) = x match
+  case n if n < 0  => s"$n is negative"
+  case z if z == 0 => s"$z is zero"
+  case p if p > 0  => s"$p is positive"
 ```
 
 </div>
@@ -1216,22 +1598,57 @@ def describe(x: Int) =
 
 <style scoped>
 pre, code { font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
-pre { font-size: 21px; }
+pre { font-size: 16px; line-height: 1.3; margin: 0.15rem 0 0.4rem 0; padding: 10px 14px; }
+section { font-size: 21px; padding-left: 50px; padding-right: 50px; }
+li { margin: 0.05rem 0; }
+.cmp { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem; align-items: start; margin-top: 0.4rem; }
+.lbl { font-size: 18px; font-weight: 700; color: #575e75; }
+.src { position: absolute; left: 50px; bottom: 82px; font-size: 14px; color: #888; }
 </style>
 
 # match on Types
 
-- The match can be used to cast types to new variables
+- A type pattern `case s: String` tests the type **and** binds a typed variable: inside the case, `s` already is a `String`, no cast needed (unlike Java's `instanceof` + cast)
+- `Matchable` is the root of all types that can be matched; with a union type, the compiler checks that all cases are covered
+
+<div class="cmp">
+<div>
+<div class="lbl">Type tests</div>
 
 ```scala
-def describe(x: Any) =
-    x match {
-      case i:Int     => i + " is an Integer"
-      case s:String  => s + " is a String"
-      case b:Boolean => b + " is a Boolean"
-      case _         => x + " has some other type"
-    }
+def getClassAsString(x: Matchable): String = x match
+  case s: String  => s"'$s' is a String"
+  case i: Int     => "Int"
+  case d: Double  => "Double"
+  case l: List[?] => "List"
+  case _          => "Unknown"
+
+getClassAsString(1)              // Int
+getClassAsString("hello")        // 'hello' is a String
+getClassAsString(List(1, 2, 3))  // List
 ```
+
+</div>
+<div>
+<div class="lbl">Exhaustive with a union type</div>
+
+```scala
+def describe(x: Int | String | Boolean): String =
+  x match
+    case i: Int    => s"Int, doubled: ${i * 2}"
+    case s: String => s"String of length ${s.length}"
+```
+
+```text
+[warn] match may not be exhaustive.
+[warn]
+[warn] It would fail on pattern case: true, false
+```
+
+</div>
+</div>
+
+<div class="src">Left: Scala 3 Book, "A Taste of Scala: Control Structures"; outputs and warning checked with Scala 3.9.0</div>
 
 ---
 
@@ -1245,22 +1662,23 @@ pre { font-size: 18px; line-height: 1.3; margin: 0.2rem 0 0.4rem 0; }
 - Lists can be taken apart by pattern matching
 
 ```scala
-elem::list = 2::5::1::Nil
-elem=2, list=5::1::Nil
+scala> val head :: tail = List(2, 5, 1).runtimeChecked
+val head: Int = 2
+val tail: List[Int] = List(5, 1)
 ```
 
 - Isort with pattern matching
 
 ```scala
-def isort(list: List[Int]): List[Int] = list match {
-   case Nil => Nil
-   case head :: tail => insert(head, isort(tail))
- }
- def insert(elem: Int, list: List[Int]): List[Int] = list match {
-   case Nil => List(elem)
-   case head :: tail => if (elem <= head) elem :: list
-     else head :: insert(elem, tail)
- }
+def isort(list: List[Int]): List[Int] = list match
+  case Nil          => Nil
+  case head :: tail => insert(head, isort(tail))
+
+def insert(elem: Int, list: List[Int]): List[Int] = list match
+  case Nil => List(elem)
+  case head :: tail =>
+    if elem <= head then elem :: list
+    else head :: insert(elem, tail)
 ```
 
 ---
@@ -1268,9 +1686,12 @@ def isort(list: List[Int]): List[Int] = list match {
 <style scoped>
 pre, code { font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
 pre { font-size: 14px; line-height: 1.25; margin: 0; }
+.nlbl { font-size: 18px; font-weight: 700; color: #575e75; margin: 0 0 0.15rem 0; }
 </style>
 
 # What does this Java code do?
+
+<div class="nlbl">Java</div>
 
 <div class="columns" style="align-items: start; gap: 1rem;">
 
@@ -1281,9 +1702,13 @@ public class Roman
     {
         char symbol;
         long value;
-        public SymTab(char s, long v) { this.symbol=s; this.value=v; }
+        public SymTab(char s, long v)
+        {
+            this.symbol=s; this.value=v;
+        }
    };
-   public static Roman.SymTab syms[]= {
+   public static Roman.SymTab syms[]=
+   {
         new Roman.SymTab('M',1000),
             new Roman.SymTab('D',500),
         new Roman.SymTab('C',100),
