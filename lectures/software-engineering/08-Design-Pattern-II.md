@@ -472,142 +472,160 @@ Monads use this structure and typically distinguish a “good” and a “bad”
 
 <style scoped>
 pre, code { font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
-pre { font-size: 16px; }
+section { padding-left: 40px; padding-right: 40px; }
+pre { font-size: 17px; margin: 0.2em 0; padding: 10px 12px; }
+.cap { font-size: 20px; font-weight: 600; color: #009b91; margin: 0 0 4px 0; }
+.task { font-size: 21px; margin: 0 0 8px 0; }
 </style>
 
 # An Example using Bottles
+<img src="assets/se08-icon-monad.png" alt="Monad icon" style="position: absolute; top: 60px; right: 60px; height: 70px;">
+
+<div class="task">
+
+**Task:** `totalVolume` sums the volume of all drinks in a crate of packs of bottles. Some bottles may be empty.
+
+</div>
+
+<div class="columns" style="grid-template-columns: 475px 1fr; gap: 16px; align-items: start;">
+<div>
+
+<div class="cap">The model (monad style)</div>
 
 ```scala
-class Bottle {
- var empty=false
-def consume = {
- println(" consuming... ")
- empty = true
- this
-}
-override def toString= if (empty) "b" else "B"
-}
-class Pack(val bottles:List[Bottle]) {
- def map(f:Bottle => Bottle) = bottles.map(bottle => f(bottle))
- override def toString="UUUU"
-}
-class Crate(val packs:List[Pack]) {
- def map(f:Pack => Pack) = packs.map(pack => f(pack))
- def flatMap(f:Pack => List[Bottle]) = packs.flatMap(pack => f(pack))
- override def toString="L_____J"
-}
+case class Drink(name: String, volumeMl: Int)
+
+val beer  = Drink("Beer", 500)
+val wine  = Drink("Wine", 750)
+val water = Drink("Water", 330)
+
+val pack1 = Pack(List(MonadBottle(Some(beer)),
+                      MonadBottle(Some(wine))))
+val pack2 = Pack(List(MonadBottle(None),
+                      MonadBottle(Some(water))))
+val crate = Crate(List(pack1, pack2))
+// totalVolume(crate) == 1580
 ```
+
+</div>
+<div>
+
+<div class="cap">Each style has its own bottle</div>
+
+```scala
+// Java style: empty bottle = null
+case class JavaBottle(drink: Drink | Null)
+class JavaPack(val bottles: List[JavaBottle])
+class JavaCrate(val packs: List[JavaPack])
+
+// Exception style: empty bottle throws
+case class ExceptionBottle(private val drinkOpt: Option[Drink]):
+  def drink: Drink // throws EmptyBottleException
+class ExceptionPack(val bottles: List[ExceptionBottle])
+class ExceptionCrate(val packs: List[ExceptionPack])
+
+// Monad style: empty bottle = None
+case class MonadBottle(content: Option[Drink])
+case class Pack[A](items: List[A])
+case class Crate[A](items: List[A])
+```
+
+</div>
+</div>
+
+
+---
+
+<style scoped>
+pre, code { font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+section { padding-left: 36px; padding-right: 36px; }
+pre { font-size: 15.5px; margin: 0.2em 0; padding: 10px 8px; }
+.cap { font-size: 19px; font-weight: 600; color: #009b91; margin: 0 0 4px 0; }
+</style>
+
+# Three ways to compute totalVolume
+<img src="assets/se08-icon-monad.png" alt="Monad icon" style="position: absolute; top: 60px; right: 60px; height: 70px;">
+
+<div class="columns" style="grid-template-columns: 366px 412px 1fr; gap: 10px; align-items: start;">
+<div>
+
+<div class="cap">Java style: null checks</div>
+
+```scala
+def totalVolume(crate: JavaCrate): Int =
+  var total = 0
+  for pack <- crate.packs do
+    for bottle <- pack.bottles do
+      val drink = bottle.drink
+      if drink != null then
+        total += drink.volumeMl
+  total
+```
+
+</div>
+<div>
+
+<div class="cap">Exceptions: try/catch per bottle</div>
+
+```scala
+def totalVolume(crate: ExceptionCrate): Int =
+  var total = 0
+  for pack <- crate.packs do
+    for bottle <- pack.bottles do
+      try
+        val drink = bottle.drink // may throw
+        total += drink.volumeMl
+      catch
+        case _: EmptyBottleException => ()
+  total
+```
+
+</div>
+<div>
+
+<div class="cap">Monad: one for</div>
+
+```scala
+def totalVolume(
+    crate: Crate[Pack[MonadBottle]]
+): Int =
+  val result = for
+    pack <- crate
+    bottle <- pack.toCrate
+    drink <- Crate.fromOption(bottle.content)
+  yield drink.volumeMl
+  result.items.sum
+```
+
+</div>
+</div>
+
 
 ---
 
 <style scoped>
 pre, code { font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
 section { padding-left: 40px; padding-right: 40px; }
-pre { font-size: 15.5px; margin: 0.2em 0; padding: 10px 12px; }
-.model { font-size: 19px; margin: 0 0 6px 0; }
-.model code { font-size: 18px; }
-.cap { font-size: 19px; font-weight: 600; color: #009b91; margin: 0 0 4px 0; }
-</style>
-
-# Three ways to navigate
-<img src="assets/se08-icon-monad.png" alt="Monad icon" style="position: absolute; top: 60px; right: 60px; height: 70px;">
-
-<div class="model">
-
-`case class Drink(name: String, volumeMl: Int)` · `case class Bottle(content: Option[Drink])`<br>
-crate → pack(i) → bottle(j) → drink.name — each step may be missing
-
-</div>
-
-<div class="columns" style="grid-template-columns: 390px 446px 1fr; gap: 12px; align-items: start;">
-<div>
-
-<div class="cap">Java style: null and nested ifs</div>
-
-```scala
-def getDrinkName(
-    crate: JavaCrate | Null,
-    packIdx: Int,
-    bottleIdx: Int
-): String | Null =
-  if crate != null then
-    val pack = crate.pack(packIdx)
-    if pack != null then
-      val bottle = pack.bottle(bottleIdx)
-      if bottle != null then
-        if bottle.content.isDefined then
-          bottle.content.get.name
-        else null
-      else null
-    else null
-  else null
-```
-
-</div>
-<div>
-
-<div class="cap">Exceptions: one try, domain exceptions</div>
-
-```scala
-def getDrinkName(
-    crate: ExceptionCrate,
-    packIdx: Int,
-    bottleIdx: Int
-): String | Null =
-  try
-    val pack = crate.pack(packIdx)
-    val bottle = pack.bottle(bottleIdx)
-    bottle.content.map(_.name)
-      .getOrElse(throw EmptyBottleException())
-  catch
-    case _: NoSuchPackException
-       | _: NoSuchBottleException
-       | _: EmptyBottleException => null
-```
-
-</div>
-<div>
-
-<div class="cap">Monad: Option and for</div>
-
-```scala
-def getDrinkName(
-    crate: MonadicCrate,
-    packIdx: Int,
-    bottleIdx: Int
-): Option[String] =
-  for
-    pack   <- crate.pack(packIdx)
-    bottle <- pack.bottle(bottleIdx)
-    drink  <- bottle.content
-  yield drink.name
-```
-
-</div>
-</div>
-
----
-
-<style scoped>
-pre, code { font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
-pre { font-size: 20px; margin: 0.2em 0; }
+pre { font-size: 18px; margin: 0.2em 0; padding: 10px 12px; }
 .cap { font-size: 21px; font-weight: 600; color: #009b91; margin: 0 0 4px 0; }
+.note { font-size: 20px; }
+.note p { margin: 0.35em 0; }
 </style>
 
 # The for-comprehension is flatMap and map
 <img src="assets/se08-icon-monad.png" alt="Monad icon" style="position: absolute; top: 60px; right: 60px; height: 70px;">
 
-<div class="columns" style="grid-template-columns: 0.85fr 1.15fr; align-items: start;">
+<div class="columns" style="grid-template-columns: 595px 1fr; gap: 16px; align-items: start;">
 <div>
 
 <div class="cap">What we write</div>
 
 ```scala
 for
-  pack   <- crate.pack(packIdx)
-  bottle <- pack.bottle(bottleIdx)
-  drink  <- bottle.content
-yield drink.name
+  pack <- crate            // Crate.flatMap
+  bottle <- pack.toCrate   // Crate.flatMap
+  drink <- Crate.fromOption(bottle.content) // Crate.map
+yield drink.volumeMl
 ```
 
 </div>
@@ -616,10 +634,10 @@ yield drink.name
 <div class="cap">What the compiler generates</div>
 
 ```scala
-crate.pack(packIdx).flatMap { pack =>
-  pack.bottle(bottleIdx).flatMap { bottle =>
-    bottle.content.map { drink =>
-      drink.name
+crate.flatMap { pack =>
+  pack.toCrate.flatMap { bottle =>
+    Crate.fromOption(bottle.content).map { drink =>
+      drink.volumeMl
     }
   }
 }
@@ -628,120 +646,69 @@ crate.pack(packIdx).flatMap { pack =>
 </div>
 </div>
 
-This genuinely calls `Option.flatMap` and `Option.map`: as soon as one step is `None`, the result is `None`.
+<div class="note">
+
+The `drink <-` line becomes `map` only because it is the **last** generator: every earlier generator becomes `flatMap`.
+
+The calls go to **our own** `Crate.flatMap` and `Crate.map`, not to `List` or `Option`. `Crate.fromOption` turns `None` into `Crate.empty`, so an empty bottle adds nothing. `result.items.sum` adds up the `Crate[Int]`: 500 + 750 + 330 = 1580.
+
+</div>
+
 
 ---
 
 <style scoped>
 pre, code { font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
 section { padding-left: 40px; padding-right: 40px; }
-pre { font-size: 16.5px; margin: 0.2em 0; padding: 10px 12px; }
-.cap { font-size: 19px; font-weight: 600; color: #009b91; margin: 0 0 4px 0; }
+pre { font-size: 17px; margin: 0.2em 0; padding: 10px 12px; }
+.cap { font-size: 20px; font-weight: 600; color: #009b91; margin: 0 0 4px 0; }
+.side { font-size: 20px; }
+.side li { margin: 0.15em 0; }
+.side p { margin: 0.3em 0 0.6em 0; }
 </style>
 
-# Aggregating: total volume of all full bottles
+# Build your own Monad: Pack[A] and Crate[A]
 <img src="assets/se08-icon-monad.png" alt="Monad icon" style="position: absolute; top: 60px; right: 60px; height: 70px;">
 
-<div class="columns" style="grid-template-columns: 690px 1fr; gap: 14px; align-items: start;">
+<div class="columns" style="grid-template-columns: 455px 1fr; gap: 20px; align-items: start;">
 <div>
 
-<div class="cap">Java style: nested while loops</div>
-
 ```scala
-def totalVolume(crate: JavaCrate | Null): Int =
-  var total = 0
-  if crate != null then
-    val packs = crate.allPacks
-    if packs != null then
-      var i = 0
-      while i < packs.length do
-        val pack = packs(i)
-        if pack != null then
-          val bottles = pack.allBottles
-          if bottles != null then
-            var j = 0
-            while j < bottles.length do
-              val bottle = bottles(j)
-              if bottle != null && bottle.content.isDefined then
-                total += bottle.content.get.volumeMl
-              j += 1
-        i += 1
-  total
+case class Pack[A](items: List[A]):
+
+  def map[B](f: A => B): Pack[B] =
+    Pack(items.map(f))
+
+  def flatMap[B](f: A => Pack[B]): Pack[B] =
+    Pack(items.flatMap(a => f(a).items))
+
+  def withFilter(p: A => Boolean): Pack[A] =
+    Pack(items.filter(p))
+
+  def toCrate: Crate[A] = Crate(items)
+
+object Pack:
+  def pure[A](a: A): Pack[A] = Pack(List(a))
+  def empty[A]: Pack[A] = Pack(List.empty)
 ```
 
 </div>
-<div>
+<div class="side">
 
-<div class="cap">Monad style: flatMap over collections</div>
+<div class="cap">Crate[A] is built the same way</div>
 
-```scala
-def totalVolume(crate: MonadicCrate): Int =
-  crate.allPacks
-    .flatMap(_.allBottles)  // List.flatMap
-    .flatMap(_.content)     // Option → List
-    .map(_.volumeMl)        // List.map
-    .sum
-```
+`map`, `flatMap`, `withFilter`, `pure` and `empty` are all a `for` needs. In addition, `Crate.fromOption` turns `Some(a)` into `pure(a)` and `None` into `empty`.
+
+<div class="cap">The monad laws</div>
+
+- Left identity:<br>`pure(a).flatMap(f) == f(a)`
+- Right identity:<br>`m.flatMap(pure) == m`
+- Associativity:<br>`m.flatMap(f).flatMap(g)`<br>`== m.flatMap(x => f(x).flatMap(g))`
+
+Checked for `Pack` and `Crate` with 6 ScalaCheck properties.
 
 </div>
 </div>
-
----
-
-<style scoped>
-pre, code { font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
-pre { font-size: 15px; }
-</style>
-
-# Bottle using Monads
-<img src="assets/se08-icon-monad.png" alt="Monad icon" style="position: absolute; top: 60px; right: 60px; height: 70px;">
-
-```scala
-class PackT[T](val bottles:List[T]) {
- def map(f:T => T) = bottles.map(bottle => f(bottle))
- override def toString="UUUU"
-}
-class CrateT[T](val packs:List[T]) {
- def map(f:T => T) = packs.map(pack => f(pack))
- def flatMap(f:T => List[Bottle]) = packs.flatMap(pack => f(pack))
- override def toString="L_____J"
-}
-// Option already exists. This is a sketch of an implementation.
-trait Option[Bottle] {
-def map(f:Bottle => Bottle):Option[Bottle]
-}
-case class Some[Bottle](val b:Bottle) extends Option[Bottle] {
-def map(f:Bottle => Bottle) = new Some(f(b))
-}
-case class None[Bottle]() extends Option[Bottle] {
-def map(f:Bottle => Bottle) = new None
-}
-```
-
----
-
-<style scoped>
-pre, code { font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
-pre { font-size: 16px; }
-</style>
-
-# Using For to unpack the Monad
-<img src="assets/se08-icon-monad.png" alt="Monad icon" style="position: absolute; top: 60px; right: 60px; height: 70px;">
-
-```scala
-val maybeBottle:Option[Bottle] = Some(new Bottle)
-val pack5= new PackT( List(Some(new Bottle), None, Some(new Bottle), Some(new Bottle)))
-val pack6= new PackT( List(Some(new Bottle), Some(new Bottle), None, Some(new Bottle)))
-val crate3 = new CrateT(List(Some(pack5),Some(pack6)))
-def consumeAllAssumeNoneWithFor(pack:PackT[Option[Bottle]]) = {
- for (
-    bottle <- pack.bottles) yield bottle match {
-  case Some(b) => b.consume
-  case None => println("Found None")
- }
-}
-consumeAllAssumeNoneWithFor(pack6)
-```
 
 ---
 
