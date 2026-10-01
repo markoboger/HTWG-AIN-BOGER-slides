@@ -153,7 +153,7 @@ Vorlesungen anderer Fachbereiche können ebenfalls genehmigt werden.
   - aus den ersten drei Semestern im SG AIN
   - bedarfsorientiert, vom Studiengangsleiter nach<br>Anmeldung (mit drei Wunschfächern)
   - in der letzten Woche des Vorsemesters
-- Absprachen mit Professoren/innen können<br>nur bedingt berücksichtigt werden.
+- Absprachen mit Professoren/innen können nur bedingt berücksichtigt werden.
 - Vorziehen ist mit einer Genehmigung des/r Vorsitzenden des Prüfungsausschusses möglich.<br>Voraussetzung: alle Leistungen aus den früheren Semestern müssen erfolgreich bestanden sein.
 - Referent „Methoden der Gruppenbetreuung“: Emmanuel Winkler
 
