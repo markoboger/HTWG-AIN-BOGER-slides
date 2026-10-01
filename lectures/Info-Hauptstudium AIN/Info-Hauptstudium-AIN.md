@@ -185,7 +185,7 @@ th, td { padding: 8px 14px; }
 <style scoped>section { font-size: 22px; }</style>
 
 - Projektarbeiten in kleinen Gruppen von 3 bis 7 Teilnehmern.
-- Themen und Gruppen werden in INdigit<br>verwaltet.
+- Themen und Gruppen werden in INdigit verwaltet.
 - gelegentlich interdisziplinäre Teamprojekte mit anderen Fakultäten.
 - studentische Projektthemen sind möglich, müssen aber von einem Professor anerkannt und betreut werden.
 - Teamprojekte werden in der ersten Woche des Semesters vorgestellt.
