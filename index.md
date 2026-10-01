@@ -49,6 +49,7 @@ Diese Folien werden mit **Marp** erstellt und sind nach jedem Push in der aktuel
 - **[04 More Scala](lectures/software-engineering/04-More-Scala.html)** ([HTML](lectures/software-engineering/04-More-Scala.html), [PDF](lectures/software-engineering/04-More-Scala.pdf))
 - **[05 Architecture](lectures/software-engineering/05-Architecture.html)** ([HTML](lectures/software-engineering/05-Architecture.html), [PDF](lectures/software-engineering/05-Architecture.pdf))
 - **[06 Continuous Deployment](lectures/software-engineering/06-Continuous-Deployment.html)** ([HTML](lectures/software-engineering/06-Continuous-Deployment.html), [PDF](lectures/software-engineering/06-Continuous-Deployment.pdf))
+- **[07 Design Pattern I](lectures/software-engineering/07-Design-Pattern-I.html)** ([HTML](lectures/software-engineering/07-Design-Pattern-I.html), [PDF](lectures/software-engineering/07-Design-Pattern-I.pdf))
 
 ---
 

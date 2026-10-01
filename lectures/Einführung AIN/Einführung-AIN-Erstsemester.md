@@ -134,20 +134,25 @@ Diagramme: diagrams/*.drawio.svg (editierbare Quellen: SVG mit eingebettetem Dra
 
 # Übungsgruppen
 
-Übungsgruppen im Moodle-Kurs **AINORGA**
+Übungsgruppen im Moodle-Kurs [**AINORGA**](https://moodle.htwg-konstanz.de/moodle/course/section.php?id=6495)
 
 | Gruppe | Programmiertechnik 1 | Digitaltechnik | Softwaremodellierung |
 |--------|----------------------|----------------|----------------------|
 | <span style="color: green;">●</span> Grüne Gruppe | Dienstag 14:00–15:30<br/>O 008 | Mittwoch 14:00–15:30<br/>F 023 | Mittwoch 15:45–17:15<br/>O 107 |
 | <span style="color: blue;">●</span> Blaue Gruppe | Dienstag 15:45–17:15<br/>O 008 | Mittwoch 15:45–17:15<br/>F 023 | Mittwoch 14:00–15:30<br/>O 107 |
 
+Bitte in Moodle für eine der Gruppen eintragen!
+
 ---
 
 # INdigit
 
-![bg right:40% contain](assets/indigit-home.png)
+INdigit ist das unsere Platform um eine Reihe von Dingen zu organisieren. Dazu gehören:
+ - Teamprojekte
+ - Abschlussarbeiten
+ - Das Modulhandbuch
 
-![h:420](diagrams/indigit.drawio.svg)
+![bg right:40% contain](assets/indigit-home.png)
 
 ---
 
