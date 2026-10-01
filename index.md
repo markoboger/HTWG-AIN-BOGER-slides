@@ -43,9 +43,12 @@ Diese Folien werden mit **Marp** erstellt und sind nach jedem Push in der aktuel
 
 ### Software Engineering
 
-- **[Introduction to Scala](lectures/software-engineering/01-Introduction-to-Scala.html)** ([HTML](lectures/software-engineering/01-Introduction-to-Scala.html), [PDF](lectures/software-engineering/01-Introduction-to-Scala.pdf))
-- **[Version Control System – Git](lectures/software-engineering/02-Version-Control-Systems.html)** ([HTML](lectures/software-engineering/02-Version-Control-Systems.html), [PDF](lectures/software-engineering/02-Version-Control-Systems.pdf))
-- **[Agile Development](lectures/software-engineering/03-Agile-Development.html)** ([HTML](lectures/software-engineering/03-Agile-Development.html), [PDF](lectures/software-engineering/03-Agile-Development.pdf))
+- **[01 Introduction to Scala](lectures/software-engineering/01-Introduction-to-Scala.html)** ([HTML](lectures/software-engineering/01-Introduction-to-Scala.html), [PDF](lectures/software-engineering/01-Introduction-to-Scala.pdf))
+- **[02 Version Control System – Git](lectures/software-engineering/02-Version-Control-Systems.html)** ([HTML](lectures/software-engineering/02-Version-Control-Systems.html), [PDF](lectures/software-engineering/02-Version-Control-Systems.pdf))
+- **[03 Agile Development](lectures/software-engineering/03-Agile-Development.html)** ([HTML](lectures/software-engineering/03-Agile-Development.html), [PDF](lectures/software-engineering/03-Agile-Development.pdf))
+- **[04 More Scala](lectures/software-engineering/04-More-Scala.html)** ([HTML](lectures/software-engineering/04-More-Scala.html), [PDF](lectures/software-engineering/04-More-Scala.pdf))
+- **[05 Architecture](lectures/software-engineering/05-Architecture.html)** ([HTML](lectures/software-engineering/05-Architecture.html), [PDF](lectures/software-engineering/05-Architecture.pdf))
+- **[06 Continuous Deployment](lectures/software-engineering/06-Continuous-Deployment.html)** ([HTML](lectures/software-engineering/06-Continuous-Deployment.html), [PDF](lectures/software-engineering/06-Continuous-Deployment.pdf))
 
 ---
 
