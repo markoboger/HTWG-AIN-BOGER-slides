@@ -303,6 +303,8 @@ Evtl. wird diese im SS27 wieder angeboten.
 
 Stattdessen bietet Pascal Laube die Vorlesung „Cloud Native AI“ an.
 
+Die Vorlesung Sprachkonzepte wird nicht weiter angeboten. Die Nachfolgevorlesung ist „Cloud Native AI“.
+
 ---
 
 # Vertiefungsrichtung ES SPO3
