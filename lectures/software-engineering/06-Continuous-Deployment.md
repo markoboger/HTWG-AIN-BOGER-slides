@@ -78,17 +78,20 @@ Cycle Time is a metric for Continuous Deployment
 
 # Value Delivered: Waterfall
 
-![h:440](assets/se06-value-delivery-waterfall.png)
+![h:540](assets/se06-value-delivery-waterfall.png)
 
 ---
 
 # Value Delivered: Agile
 
-![h:440](assets/se06-value-delivery-agile.png)
+![h:540](assets/se06-value-delivery-agile.png)
 
 ---
 
 # Build Automation Tools
+
+<div class="columns" style="grid-template-columns: 1fr 300px; align-items: center;">
+<div>
 
 So far you have built your software locally
 
@@ -102,9 +105,22 @@ Now, we want to automate that on a central server
   - Gradle
   - sbt
 
+</div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 28px;">
+
+![w:170](assets/se06-logo-ant.png)
+![w:240](assets/se06-logo-maven.png)
+![w:240](assets/se06-logo-gradle.png)
+![w:150](assets/se06-logo-sbt.png)
+
+</div>
+</div>
+
 ---
 
 # Ant
+
+<img src="assets/se06-logo-ant.png" alt="ant logo" style="position: absolute; top: 60px; right: 60px; height: 80px;">
 
 <style scoped>
 p { font-size: 0.9em; }
@@ -122,6 +138,8 @@ pre { font-size: 15px; }
 </style>
 
 # build.xml for Ant
+
+<img src="assets/se06-logo-ant.png" alt="ant logo" style="position: absolute; top: 60px; right: 60px; height: 80px;">
 
 <div class="columns" style="grid-template-columns: 1fr 230px; align-items: start;">
 <div>
@@ -162,6 +180,8 @@ pre { font-size: 15px; }
 
 # Maven
 
+<img src="assets/se06-logo-maven.png" alt="maven logo" style="position: absolute; top: 60px; right: 60px; height: 56px;">
+
 <style scoped>
 section { font-size: 26px; }
 </style>
@@ -184,6 +204,8 @@ pre, code { font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt
 
 # Project Creation
 
+<img src="assets/se06-logo-maven.png" alt="maven logo" style="position: absolute; top: 60px; right: 60px; height: 56px;">
+
 Maven allows the creation of a project from an archetype
 
 ```bash
@@ -202,6 +224,8 @@ pre { font-size: 17px; }
 </style>
 
 # The Pom.xml file
+
+<img src="assets/se06-logo-maven.png" alt="maven logo" style="position: absolute; top: 60px; right: 60px; height: 56px;">
 
 ```xml
 <project xmlns = "http://maven.apache.org/POM/4.0.0"
@@ -230,20 +254,21 @@ pre { font-size: 17px; }
 
 # Maven Standard Directory Structure
 
-<div class="columns" style="grid-template-columns: 0.6fr 1.4fr; align-items: start;">
+<img src="assets/se06-logo-maven.png" alt="maven logo" style="position: absolute; top: 60px; right: 60px; height: 56px;">
+
+<div class="columns" style="grid-template-columns: 1fr 1fr; align-items: start; gap: 40px;">
 <div>
 
-Eclipse
+Maven project (Scala)
 
-- src -> Normal Java classes
-- test -> JUnit Test classes
+![w:520](assets/se06-maven-structure-scala.png)
 
 </div>
 <div>
 
-Maven
+Larger project with mixed Java/Scala sources
 
-![w:640](assets/se06-maven-directory-structure.png)
+![h:410](assets/se06-mixed-project-structure.png)
 
 </div>
 </div>
@@ -258,6 +283,8 @@ li { margin: 0.05em 0; }
 </style>
 
 # Goals
+
+<img src="assets/se06-logo-maven.png" alt="maven logo" style="position: absolute; top: 60px; right: 60px; height: 56px;">
 
 - the default lifecycle has the following build phases
   - validate - validate the project is correct
@@ -280,6 +307,8 @@ mvn deploy
 
 # Gradle
 
+<img src="assets/se06-logo-gradle.png" alt="gradle logo" style="position: absolute; top: 60px; right: 60px; height: 60px;">
+
 <style scoped>
 section { font-size: 26px; }
 </style>
@@ -293,6 +322,8 @@ section { font-size: 26px; }
 ---
 
 # sbt
+
+<img src="assets/se06-logo-sbt.png" alt="sbt logo" style="position: absolute; top: 60px; right: 60px; height: 70px;">
 
 <style scoped>
 section { font-size: 26px; }
@@ -316,6 +347,8 @@ section { font-size: 26px; }
 
 # Using sbt
 
+<img src="assets/se06-logo-sbt.png" alt="sbt logo" style="position: absolute; top: 60px; right: 60px; height: 70px;">
+
 - sbt can be run with no configuration at all
   - Scala projects with no dependencies with maven folder structure
   - Purely based on conventions
@@ -336,6 +369,8 @@ table { font-size: 22px; }
 
 # sbt Commands
 
+<img src="assets/se06-logo-sbt.png" alt="sbt logo" style="position: absolute; top: 60px; right: 60px; height: 70px;">
+
 | Command | Description |
 |---|---|
 | `clean` | Deletes all generated files in the target directory. |
@@ -354,6 +389,8 @@ p { margin: 0.3em 0; }
 </style>
 
 # Dependencies
+
+<img src="assets/se06-logo-sbt.png" alt="sbt logo" style="position: absolute; top: 60px; right: 60px; height: 70px;">
 
 - Specifying multiple dependencies one by one in build.sbt:
 
@@ -386,6 +423,8 @@ pre { font-size: 20px; }
 
 # Plugins
 
+<img src="assets/se06-logo-sbt.png" alt="sbt logo" style="position: absolute; top: 60px; right: 60px; height: 70px;">
+
 - Sbt can be extended by plugins
   - Add these lines in file project/plugins.sbt
 
@@ -406,6 +445,9 @@ addSbtPlugin("org.scoverage" % "sbt-coveralls" % "1.3.15")
 section { font-size: 24px; }
 </style>
 
+<div class="columns" style="grid-template-columns: 1fr 280px; align-items: center;">
+<div>
+
 - Cruise Control
   - Developed by ThoughtWorks (Martin Fowler) for XP
 - Hudson
@@ -420,15 +462,31 @@ section { font-size: 24px; }
 - GitHub Actions
   - Integration of CI into GitHub
 
+</div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 26px;">
+
+![h:42](assets/se06-logo-cruisecontrol.png)
+![h:60](assets/se06-logo-hudson.png)
+![h:64](assets/se06-logo-jenkins.png)
+![h:60](assets/se06-logo-travis.png)
+![h:40](assets/se06-logo-github-actions.png)
+
+</div>
+</div>
+
 ---
 
 # GitHub Actions
+
+<img src="assets/se06-logo-github.png" alt="github logo" style="position: absolute; top: 60px; right: 60px; height: 70px;">
 
 GitHub Actions is a continuous integration and continuous delivery (CI/CD) platform that allows you to automate your build, test, and deployment pipeline. You can create workflows that build and test every pull request to your repository, or deploy merged pull requests to production.
 
 ---
 
 # GitHub Actions
+
+<img src="assets/se06-logo-github.png" alt="github logo" style="position: absolute; top: 60px; right: 60px; height: 70px;">
 
 GitHub allows you to configure workflows.
 
@@ -699,6 +757,8 @@ p { margin: 0.4em 0; }
 </style>
 
 # Stryker4s
+
+<img src="assets/se06-logo-stryker.png" alt="stryker logo" style="position: absolute; top: 60px; right: 60px; height: 80px;">
 
 For Scala, there is a very nice tool for mutation testing, called Stryker.
 

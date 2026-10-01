@@ -152,12 +152,21 @@ section { font-size: 26px; }
 
 ---
 
+# Resources
+
+Refactoring Guru: https://refactoring.guru/design-patterns
+
+![w:900](assets/se07-refactoring-guru-patterns.png)
+
+---
+
 <style scoped>
 pre, code { font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
 pre { font-size: 15px; }
 </style>
 
 # Observer Pattern
+<img src="assets/se07-icon-observer.png" alt="Observer icon" style="position: absolute; top: 60px; right: 60px; height: 70px;">
 
 <div class="columns" style="grid-template-columns: 790px 1fr; align-items: start;">
 <div>
@@ -243,17 +252,18 @@ A Storage Explorer
 
 # Structure of the Storage Explorer
 
-![h:500](assets/se07-storage-explorer-structure-1.png)
+![h:555](assets/se07-storage-explorer-structure-1.png)
 
 ---
 
 # Structure of the Storage Explorer
 
-![h:510](assets/se07-storage-explorer-structure-2.png)
+![h:555](assets/se07-storage-explorer-structure-2.png)
 
 ---
 
 # Singleton
+<img src="assets/se07-icon-singleton.png" alt="Singleton icon" style="position: absolute; top: 60px; right: 60px; height: 70px;">
 
 Singleton is a pattern to ensure there is only one instance of a class. If the singleton contains variable data, it should only be used if exactly one instance has to be enforced.
 
@@ -267,6 +277,7 @@ pre { font-size: 18px; }
 </style>
 
 # Singleton Java-style
+<img src="assets/se07-icon-singleton.png" alt="Singleton icon" style="position: absolute; top: 60px; right: 60px; height: 70px;">
 
 Singleton has a private instance (and a private constructor)
 
@@ -305,6 +316,7 @@ pre { font-size: 18px; }
 </style>
 
 # Singleton Scala-style
+<img src="assets/se07-icon-singleton.png" alt="Singleton icon" style="position: absolute; top: 60px; right: 60px; height: 70px;">
 
 - Scala has Singletons built in: Object
 
@@ -318,6 +330,7 @@ Singleton.singletonFunction
 ---
 
 # Factory Method
+<img src="assets/se07-icon-factory-method.png" alt="Factory Method icon" style="position: absolute; top: 60px; right: 60px; height: 70px;">
 
 A Factory Method is used to create an instance of an abstraction. The dependency to the concrete type is avoided.
 
@@ -332,6 +345,7 @@ p { margin: 0.2em 0; }
 </style>
 
 # Factory Method Java-style
+<img src="assets/se07-icon-factory-method.png" alt="Factory Method icon" style="position: absolute; top: 60px; right: 60px; height: 70px;">
 
 Get a specific instance of an abstraction from a factory
 
@@ -364,6 +378,7 @@ p { margin: 0.2em 0; }
 </style>
 
 # Factory Method Scala-style
+<img src="assets/se07-icon-factory-method.png" alt="Factory Method icon" style="position: absolute; top: 60px; right: 60px; height: 70px;">
 
 Scala has Factory Method built in: apply on companion object
 
@@ -390,6 +405,7 @@ animal.run
 ---
 
 # Strategy Pattern
+<img src="assets/se07-icon-strategy.png" alt="Strategy icon" style="position: absolute; top: 60px; right: 60px; height: 70px;">
 
 A Strategy allows switching between different algorithms.
 
@@ -403,6 +419,7 @@ pre { font-size: 15px; }
 </style>
 
 # Strategy Java-style
+<img src="assets/se07-icon-strategy.png" alt="Strategy icon" style="position: absolute; top: 60px; right: 60px; height: 70px;">
 
 Strategy with Inheritance
 
@@ -441,6 +458,7 @@ pre { font-size: 18px; }
 </style>
 
 # Strategy Scala-style
+<img src="assets/se07-icon-strategy.png" alt="Strategy icon" style="position: absolute; top: 60px; right: 60px; height: 70px;">
 
 Scala allows overriding the function value at runtime
 
@@ -461,6 +479,7 @@ pre { font-size: 18px; }
 </style>
 
 # State Pattern
+<img src="assets/se07-icon-state.png" alt="State icon" style="position: absolute; top: 60px; right: 60px; height: 70px;">
 
 <div class="columns" style="grid-template-columns: 0.75fr 1.25fr; align-items: start;">
 <div>
@@ -500,6 +519,7 @@ p { margin: 0.2em 0; }
 </style>
 
 # State Java-style
+<img src="assets/se07-icon-state.png" alt="State icon" style="position: absolute; top: 60px; right: 60px; height: 70px;">
 
 In Java the State is encapsulated in Instances of an Abstraction
 
@@ -550,6 +570,7 @@ pre { font-size: 18px; }
 </style>
 
 # State Scala-style
+<img src="assets/se07-icon-state.png" alt="State icon" style="position: absolute; top: 60px; right: 60px; height: 70px;">
 
 In Scala this can be encapsulated in a reassignable function.
 
@@ -567,14 +588,6 @@ object StateContext2 {
  def offState = println("I am off")
 }
 ```
-
----
-
-# Resources
-
-Refactoring Guru: https://refactoring.guru/design-patterns
-
-![w:900](assets/se07-refactoring-guru-patterns.png)
 
 ---
 
@@ -601,6 +614,18 @@ Law of least astonishment
 ---
 
 ![h:640](assets/se07-solid.png)
+
+---
+
+# Sources
+
+<style scoped>
+section { font-size: 22px; }
+</style>
+
+- Design pattern overview: Refactoring Guru, https://refactoring.guru/design-patterns
+- Pattern icons: self-drawn in the style of Refactoring Guru
+- E. Gamma, R. Helm, R. Johnson, J. Vlissides: Design Patterns – Elements of Reusable Object-Oriented Software, Addison-Wesley, 1994
 
 ---
 
