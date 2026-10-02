@@ -162,6 +162,32 @@ INdigit ist das unsere Platform um eine Reihe von Dingen zu organisieren. Dazu g
 
 ---
 
+# Team Gleich — Gleichstellung & Diversity
+
+<div class="columns" style="grid-template-columns: 3fr 1fr; align-items: start; gap: 1.5em;">
+<div>
+
+Zentrale Anlaufstelle für Gleichstellung, Chancengerechtigkeit und Vielfalt an der HTWG – Unterstützung unabhängig von Geschlecht, Herkunft, Religion, Alter, Behinderung oder sexueller Identität.
+
+- **Belästigung, Diskriminierung, Mobbing:** Ansprechpersonen sind Vera Maier-Tragmann, Prof. Dr. Georg Umlauf und Ilayda Zeller (Studentin, AStA)
+- **Familien-Servicestelle (Grit Roth):** Studieren mit familiärer Verpflichtung, mit Behinderung und/oder chronischer Erkrankung
+- **Angebote:** Coaching und Beratung, Begleitung in besonderen Lebenslagen, Mentoringprogramme, Workshops
+- **Fakultät Informatik:** Prof. Dr. Rebekka Axthelm<br/>rebekka.axthelm@htwg-konstanz.de
+
+</div>
+<div style="text-align: center; font-size: 16px;">
+
+![w:150](assets/teamgleich-qr-antidiskriminierung.png)
+[Antidiskriminierung](https://www.htwg-konstanz.de/hochschule/gleichstellung-und-diversity/antidiskriminierung)
+
+![w:150](assets/teamgleich-qr-vereinbarkeit.png)
+[Familien-Servicestelle](https://www.htwg-konstanz.de/hochschule/gleichstellung-und-diversity/vereinbarkeit)
+
+</div>
+</div>
+
+---
+
 <!-- _class: abschluss -->
 
 # Questions?
