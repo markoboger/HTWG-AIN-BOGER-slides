@@ -517,52 +517,54 @@ ul { margin: 0.2rem 0; }
 ---
 
 <style scoped>
-section { font-size: 22px; }
-pre { font-size: 16px; }
+section { font-size: 21px; }
+pre { font-size: 15px; }
 </style>
 
 # Install Scala
 
 <img src="assets/se01-scala-logo.png" alt="Scala logo" style="position: absolute; right: 80px; top: 60px; height: 90px;">
 
-- Java JDK: **JDK 25 (LTS) recommended**; the LTS versions 17 and 21 also work (Scala 3.8 needs at least JDK 17)
+<div class="columns" style="grid-template-columns: 1fr 1.1fr; align-items: start; gap: 1.4em;">
+<div>
+
+- Current version: **Scala 3.9.0**
+- Java JDK: **JDK 25 (LTS) recommended**; the LTS versions 17 and 21 also work (Scala 3 needs at least JDK 17)
 - Download Scala from [www.scala-lang.org](http://www.scala-lang.org/)
   - **Tip: use [Coursier](https://get-coursier.io/) as the standard installer**: `cs setup` installs a JDK, `scala`, `scala-cli` and `sbt` in one step (macOS: `brew install coursier && coursier setup`)
 - Scala can operate in an interpreted mode
   - in a shell, call `scala`, this starts a REPL (the interpreter).
   - The REPL is very good for first experiments.
 
-```
-scala> val a = List(10, 5, 8, 1, 7).sorted
-a: List[Int] = List(1, 5, 7, 8, 10)
-scala> val b = List("banana", "pear", "apple", "orange").sorted
-b: List[String] = List(apple, banana, orange, pear)
-```
-
----
-
-<style scoped>
-pre { font-size: 16px; }
-</style>
-
-# Scala Commandline Interpreter: REPL
+</div>
+<div>
 
 ```
-Markos-iMac:~ mboger$ scala
-Welcome to Scala 2.12.6 (Java HotSpot(TM) 64-Bit Server VM, Java 10.0.2).
+$ scala
+Welcome to Scala 3.9.0 (25.0.4, Java OpenJDK 64-Bit Server VM).
 Type in expressions for evaluation. Or try :help.
-scala> 17+4
-res0: Int = 21
-scala> def f(x:Int) = x+1
-f: (x: Int)Int
+
+scala> 17 + 4
+val res0: Int = 21
+
+scala> def f(x: Int) = x + 1
+def f(x: Int): Int
+
 scala> f(20)
-res1: Int = 21
+val res1: Int = 21
+
 scala> val x = 42
-x: Int = 42
+val x: Int = 42
+
 scala> f(x)
-res2: Int = 43
-scala>
+val res2: Int = 43
+
+scala> List(10, 5, 8, 1, 7).sorted
+val res3: List[Int] = List(1, 5, 7, 8, 10)
 ```
+
+</div>
+</div>
 
 ---
 
