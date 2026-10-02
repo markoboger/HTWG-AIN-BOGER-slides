@@ -570,7 +570,7 @@ val res3: List[Int] = List(1, 5, 7, 8, 10)
 
 # Scala in VS Code
 
-<div class="columns" style="grid-template-columns: 0.8fr 1.2fr; align-items: start;">
+<div class="columns" style="grid-template-columns: 0.62fr 1.38fr; align-items: start;">
 <div>
 
 MS VS Code is a good light weight tool to start out with.
@@ -582,7 +582,7 @@ To set up a project for Scala, use a template:
 `sbt new scala/scala3.g8`
 
 </div>
-<img src="assets/se01-vscode.png" alt="Screenshot of VS Code with the Scala (Metals) extension: PiggyBank.scala and sbt run output" style="height: 470px; margin-top: -0.8rem;">
+<img src="assets/se01-vscode.png" alt="Screenshot of VS Code with the Scala (Metals) extension: PiggyBank.scala and sbt run output" style="height: 540px; margin-top: -0.8rem;">
 </div>
 
 ---
@@ -632,12 +632,15 @@ pre { font-size: 16px; }
 ```scala
 package de.htwg.se
 import scala.io.StdIn._
+
 object Sudoku{
+
    def main(args:Array[String]) = {
        println("Welcome to Sudoku \n")
        val greeting = "Hello " + signUp(args)
        println(greeting)
    }
+
    def signUp(playerNames:Array[String]):String = {
        if (playerNames.length > 0)
            playerNames.head
@@ -879,10 +882,10 @@ pre { font-size: 17px; }
 
 ```scala
 def main(args: Array[String]) {
-      var n1 = 78.99
-      var n2 = 49
-      var s1 = "Hello, World!"
-      var f1 = printf("The value of the float variable is " +
+      val n1 = 78.99
+      val n2 = 49
+      val s1 = "Hello, World!"
+      val f1 = printf("The value of the float variable is " +
                    "%f, while the value of the integer " +
                    "variable is %d, and the string " +
                    "is %s", n1, n2, s1)
@@ -961,7 +964,16 @@ val speech = """Four score and
 
 ---
 
+<style scoped>
+section { font-size: 19px; }
+pre { font-size: 12.5px; margin: 0; }
+.ws-tab { display: inline-block; font-size: 12px; color: #575e75; background: #f3f3f3; border: 1px solid #ddd; border-bottom: none; border-radius: 6px 6px 0 0; padding: 0.1rem 0.7rem; }
+</style>
+
 # Worksheets
+
+<div class="columns" style="grid-template-columns: 0.75fr 1.25fr; align-items: start; gap: 1.2em;">
+<div>
 
 - A worksheet is a tool that provides instant feedback for your Scala code.
 - Code and test code are mixed in one file.
@@ -971,14 +983,8 @@ val speech = """Four score and
 - Only after you have learned enough, copy the code to a proper class file.
 - Use the test code to establish tests.
 
----
-
-<style scoped>
-pre { font-size: 17px; margin: 0; }
-.ws-tab { display: inline-block; font-size: 14px; color: #575e75; background: #f3f3f3; border: 1px solid #ddd; border-bottom: none; border-radius: 6px 6px 0 0; padding: 0.15rem 0.8rem; margin-top: 0.3rem; }
-</style>
-
-# Example Worksheet
+</div>
+<div>
 
 <div class="ws-tab">sudoku.worksheet.sc</div>
 
@@ -986,18 +992,21 @@ pre { font-size: 17px; margin: 0; }
 case class Cell(value: Int) {
   def isSet: Boolean = value != 0
 }
-val cell1 = Cell(2)                          // cell1: Cell = Cell(2)
-cell1.isSet                                  // res0: Boolean = true
-val cell2 = Cell(0)                          // cell2: Cell = Cell(0)
-cell2.isSet                                  // res1: Boolean = false
+val cell1 = Cell(2)                       // cell1: Cell = Cell(2)
+cell1.isSet                               // res0: Boolean = true
+val cell2 = Cell(0)                       // cell2: Cell = Cell(0)
+cell2.isSet                               // res1: Boolean = false
 case class Field(cells: Array[Cell])
-val field1 = Field(Array.ofDim[Cell](1))     // field1: Field = Field([LCell;@…)
+val field1 = Field(Array.ofDim[Cell](1))  // field1: Field = Field([LCell;@…)
 field1.cells(0) = cell1
 case class House(cells: Vector[Cell])
-val house = House(Vector(cell1, cell2))      // house: House = House(Vector(Cell(2), Cell(0)))
-house.cells(0).value                         // res2: Int = 2
-house.cells(0).isSet                         // res3: Boolean = true
+val house = House(Vector(cell1, cell2))   // house: House = House(Vector(Cell(2), Cell(0)))
+house.cells(0).value                      // res2: Int = 2
+house.cells(0).isSet                      // res3: Boolean = true
 ```
+
+</div>
+</div>
 
 ---
 
