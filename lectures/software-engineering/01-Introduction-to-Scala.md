@@ -527,7 +527,7 @@ pre { font-size: 16px; }
 
 - Java JDK: **JDK 25 (LTS) recommended**; the LTS versions 17 and 21 also work (Scala 3.8 needs at least JDK 17)
 - Download Scala from [www.scala-lang.org](http://www.scala-lang.org/)
-  - **Tip: install with [Coursier](https://get-coursier.io/)**, the Scala installer: `cs setup` installs a JDK, `scala`, `scala-cli` and `sbt` in one step (macOS: `brew install coursier && coursier setup`)
+  - **Tip: use [Coursier](https://get-coursier.io/) as the standard installer**: `cs setup` installs a JDK, `scala`, `scala-cli` and `sbt` in one step (macOS: `brew install coursier && coursier setup`)
 - Scala can operate in an interpreted mode
   - in a shell, call `scala`, this starts a REPL (the interpreter).
   - The REPL is very good for first experiments.
