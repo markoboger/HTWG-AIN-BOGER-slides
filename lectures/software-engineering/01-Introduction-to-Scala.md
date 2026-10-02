@@ -318,33 +318,6 @@ pre { font-size: 15px; margin: 0.2rem 0 0.5rem 0; }
 <div class="columns" style="align-items: start; gap: 1.4em;">
 <div>
 
-<div class="lbl">Your own higher-order function</div>
-
-```scala
-def calc(a: Int, b: Int, op: (Int, Int) => Int): Int =
-  op(a, b)
-
-def add(x: Int, y: Int) = x + y
-
-calc(3, 4, add)               // 7
-calc(3, 4, (x, y) => x * y)   // 12
-calc(3, 4, _ - _)             // -1
-```
-
-<div class="lbl">Piggy banks from the last slide</div>
-
-```scala
-case class PiggyBank(coins: Int)
-val pigs = List(PiggyBank(4), PiggyBank(0), PiggyBank(7))
-
-pigs.filter(_.coins > 0)   // List(PiggyBank(4), PiggyBank(7))
-pigs.map(_.coins).sum      // 11
-pigs.sortWith(_.coins > _.coins).head   // PiggyBank(7)
-```
-
-</div>
-<div>
-
 <div class="lbl">Named function &rarr; lambda &rarr; placeholder</div>
 
 ```scala
@@ -364,6 +337,22 @@ nums.map(_ * 2).sum       // 20
 nums.sortWith(_ > _)      // List(4, 3, 2, 1)
 ```
 
+</div>
+<div>
+
+<div class="lbl">Your own higher-order function</div>
+
+```scala
+def calc(a: Int, b: Int, op: (Int, Int) => Int): Int =
+  op(a, b)
+
+def add(x: Int, y: Int) = x + y
+
+calc(3, 4, add)               // 7
+calc(3, 4, (x, y) => x * y)   // 12
+calc(3, 4, _ - _)             // -1
+```
+
 A function is a value: it can be passed like an `Int` or a `String`.
 
 </div>
@@ -373,9 +362,15 @@ A function is a value: it can be passed like an `Int` or a `String`.
 
 # Why not Java?
 
-Java is also incorporating functional elements into its core language since version 8. Functional programming is possible in Java, but it is not easy. For example, creating an immutable object is hard, since the default data structures are mutable. The syntax for immutable structures is longer than for mutable, state change is so common, it is hard to get away from it.
-
-So, to become a good programmer with functional style available to you, it is easier to learn a language that makes functional programming easy and then switch back to Java and apply what you learned. If you ever go back...
+- Java has added functional elements since Java 8
+  - Functional programming is possible, but not easy
+- Mutability is the default
+  - Standard collections are mutable
+  - Immutable code is longer than mutable code
+  - State change is everywhere and hard to avoid
+- Better path
+  - Learn functional style in a language that makes it easy
+  - Then bring it back to Java (if you ever go back ...)
 
 ---
 
@@ -433,24 +428,47 @@ Scala combines these in an elegant way.
 ---
 
 <style scoped>
-section { font-size: 20px; }
+section { font-size: 19px; }
+.sc-row { display: grid; grid-template-columns: 1fr 340px; gap: 1.5rem; align-items: center; margin: 0.35rem 0; }
+.sc-row ul { margin: 0; }
+.sc-row p { margin: 0; }
 </style>
 
 # Scala = a SCAlable LAnguage
 
-- Scala is scalable in three dimensions
-  - Program size
-    - Interpreter, Scripts, Programs, Component Systems
-  - Language extension
-    - Java is a closed language
-      - No operator overloading, no additional operators
-    - Scala is open, it can be extended
-      - Operators are methods and can be added and extended
-      - Flexible syntax allows elegant extensions
-      - Libraries can feel like extensions
-  - Number of Processors
-    - Good Concurrency System
-    - Functional Programming is a good fit for concurrency
+Scala is scalable in three dimensions
+
+<div class="sc-row">
+<div>
+
+**Program size**
+- Interpreter, Scripts, Programs, Component Systems
+
+</div>
+<img src="assets/se01-scale-size.svg" alt="A small script and a large component system, connected by a double-headed arrow: same language" style="height: 95px;">
+</div>
+
+<div class="sc-row">
+<div>
+
+**Language extension**
+- Java is closed: no operator overloading, no additional operators
+- Scala is open: operators are methods, flexible syntax allows elegant extensions, libraries feel like extensions
+
+</div>
+<img src="assets/se01-scale-ext.svg" alt="Scala core language with plug-in extensions: operators as methods, new control structures, libraries and DSLs" style="height: 105px;">
+</div>
+
+<div class="sc-row">
+<div>
+
+**Number of processors**
+- Good concurrency system
+- Functional programming is a good fit for concurrency
+
+</div>
+<img src="assets/se01-scale-cpu.svg" alt="data.map(f) without shared state, fanned out to four cores" style="height: 105px;">
+</div>
 
 ---
 

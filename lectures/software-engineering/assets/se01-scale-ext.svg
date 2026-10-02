@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="340" height="120" viewBox="0 0 340 120" font-family="Inter, Helvetica, Arial, sans-serif">
+<rect x="10" y="10" width="120" height="100" rx="6" fill="#e6f4f2" stroke="#00968f" stroke-width="2"/>
+<text x="70" y="56" font-size="14" font-weight="bold" text-anchor="middle" fill="#00968f">Scala</text>
+<text x="70" y="74" font-size="12" text-anchor="middle" fill="#333">core language</text>
+<g font-size="12" fill="#fff" text-anchor="middle">
+<rect x="190" y="10" width="140" height="28" rx="4" fill="#00968f"/><text x="260" y="29">operators as methods</text>
+<rect x="190" y="46" width="140" height="28" rx="4" fill="#00968f"/><text x="260" y="65">new control structures</text>
+<rect x="190" y="82" width="140" height="28" rx="4" fill="#00968f"/><text x="260" y="101">libraries / DSLs</text>
+</g>
+<g stroke="#333" stroke-width="2" fill="none">
+<path d="M132,24 H186"/><path d="M132,60 H186"/><path d="M132,96 H186"/>
+</g>
+<g font-size="18" font-weight="bold" fill="#333" text-anchor="middle">
+<text x="159" y="20">+</text><text x="159" y="56">+</text><text x="159" y="92">+</text>
+</g>
+</svg>

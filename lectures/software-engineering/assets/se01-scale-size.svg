@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="340" height="110" viewBox="0 0 340 110" font-family="Inter, Helvetica, Arial, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker></defs>
+<rect x="10" y="40" width="40" height="34" rx="4" fill="#e6f4f2" stroke="#00968f" stroke-width="2"/>
+<text x="30" y="92" font-size="12" text-anchor="middle" fill="#333">Script</text>
+<line x1="62" y1="57" x2="208" y2="57" stroke="#333" stroke-width="2" marker-start="url(#a)" marker-end="url(#a)"/>
+<text x="135" y="48" font-size="12" text-anchor="middle" fill="#333">same language</text>
+<g fill="#e6f4f2" stroke="#00968f" stroke-width="2">
+<rect x="220" y="8" width="110" height="80" rx="5"/>
+</g>
+<g fill="#00968f" opacity="0.85">
+<rect x="230" y="18" width="40" height="26" rx="3"/><rect x="280" y="18" width="40" height="26" rx="3"/>
+<rect x="230" y="52" width="40" height="26" rx="3"/><rect x="280" y="52" width="40" height="26" rx="3"/>
+</g>
+<text x="275" y="104" font-size="12" text-anchor="middle" fill="#333">Component system</text>
+</svg>
