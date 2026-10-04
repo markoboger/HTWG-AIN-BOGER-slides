@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+<g fill="none" stroke="#334152" stroke-width="6">
+<circle cx="64" cy="64" r="56"/>
+<ellipse cx="64" cy="64" rx="24" ry="56"/>
+<line x1="64" y1="8" x2="64" y2="120"/>
+<line x1="8" y1="64" x2="120" y2="64"/>
+<path d="M17 34 Q64 50 111 34"/>
+<path d="M17 94 Q64 78 111 94"/>
+</g>
+</svg>
