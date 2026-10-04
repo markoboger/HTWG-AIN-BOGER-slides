@@ -38,6 +38,10 @@ Diese Folien werden mit **Marp** erstellt und sind nach jedem Push in der aktuel
 - **[01-Scratch](lectures/programmiertechnik-I/01-Scratch.html)** ([HTML](lectures/programmiertechnik-I/01-Scratch.html), [PDF](lectures/programmiertechnik-I/01-Scratch.pdf))
 - **[02-Scratch-II](lectures/programmiertechnik-I/02-Scratch-II.html)** ([HTML](lectures/programmiertechnik-I/02-Scratch-II.html), [PDF](lectures/programmiertechnik-I/02-Scratch-II.pdf))
 - **[03-ProgrammingLanguages](lectures/programmiertechnik-I/03-ProgrammingLanguages.html)** ([HTML](lectures/programmiertechnik-I/03-ProgrammingLanguages.html), [PDF](lectures/programmiertechnik-I/03-ProgrammingLanguages.pdf))
+- **[04-Scala-Strings-and-Int](lectures/programmiertechnik-I/04-Scala-Strings-and-Int.html)** ([HTML](lectures/programmiertechnik-I/04-Scala-Strings-and-Int.html), [PDF](lectures/programmiertechnik-I/04-Scala-Strings-and-Int.pdf))
+- **[05-Numbers-and-Data-Types](lectures/programmiertechnik-I/05-Numbers-and-Data-Types.html)** ([HTML](lectures/programmiertechnik-I/05-Numbers-and-Data-Types.html), [PDF](lectures/programmiertechnik-I/05-Numbers-and-Data-Types.pdf))
+- **[06-Arrays-and-Lists](lectures/programmiertechnik-I/06-Arrays-and-Lists.html)** ([HTML](lectures/programmiertechnik-I/06-Arrays-and-Lists.html), [PDF](lectures/programmiertechnik-I/06-Arrays-and-Lists.pdf))
+- **[07-Control-Structures](lectures/programmiertechnik-I/07-Control-Structures.html)** ([HTML](lectures/programmiertechnik-I/07-Control-Structures.html), [PDF](lectures/programmiertechnik-I/07-Control-Structures.pdf))
 
 ---
 

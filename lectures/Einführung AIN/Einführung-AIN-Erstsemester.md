@@ -59,9 +59,9 @@ Diagramme: diagrams/*.drawio.svg (editierbare Quellen: SVG mit eingebettetem Dra
 
 ---
 
-# Programmiersprachen — Zeitlinie
+# A Short Language History
 
-![h:560](diagrams/language-history.drawio.svg)
+<img src="../programmiertechnik-I/diagrams/language-history-pt03.drawio.svg"/>
 
 ---
 
@@ -74,6 +74,12 @@ Diagramme: diagrams/*.drawio.svg (editierbare Quellen: SVG mit eingebettetem Dra
 # Sprachen in AIN
 
 ![h:550](diagrams/sprachen-ain.drawio.svg)
+
+---
+
+# Programming Paradigms
+
+![h:520](diagrams/paradigms.drawio.svg)
 
 ---
 

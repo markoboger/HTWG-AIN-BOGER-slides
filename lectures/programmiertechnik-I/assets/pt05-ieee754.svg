@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 350" width="1000" height="350">
+<text x="0" y="63" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#222">Float</text><text x="0" y="85" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#555">32 bits</text>
+<rect x="150" y="30" width="13" height="50" fill="#c0392b" stroke="#fff" stroke-width="1.5"/>
+<text x="156.5" y="22" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#c0392b">sign</text>
+<text x="156.5" y="102" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#555">1</text>
+<rect x="163" y="30" width="104" height="50" fill="#00968f" stroke="#fff" stroke-width="1.5"/>
+<text x="215.0" y="62" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#fff">exponent</text>
+<text x="215.0" y="102" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#555">8 bits</text>
+<rect x="267" y="30" width="299" height="50" fill="#5b6b7a" stroke="#fff" stroke-width="1.5"/>
+<text x="416.5" y="62" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#fff">mantissa (fraction)</text>
+<text x="416.5" y="102" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#555">23 bits</text>
+<line x1="150" y1="112" x2="566" y2="112" stroke="#999" stroke-width="1"/>
+<line x1="150" y1="107" x2="150" y2="117" stroke="#999"/><line x1="566" y1="107" x2="566" y2="117" stroke="#999"/>
+
+<text x="0" y="193" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#222">Double</text><text x="0" y="215" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#555">64 bits</text>
+<rect x="150" y="160" width="13" height="50" fill="#c0392b" stroke="#fff" stroke-width="1.5"/>
+<text x="156.5" y="152" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#c0392b">sign</text>
+<text x="156.5" y="232" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#555">1</text>
+<rect x="163" y="160" width="143" height="50" fill="#00968f" stroke="#fff" stroke-width="1.5"/>
+<text x="234.5" y="192" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#fff">exponent</text>
+<text x="234.5" y="232" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#555">11 bits</text>
+<rect x="306" y="160" width="676" height="50" fill="#5b6b7a" stroke="#fff" stroke-width="1.5"/>
+<text x="644.0" y="192" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#fff">mantissa (fraction)</text>
+<text x="644.0" y="232" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#555">52 bits</text>
+<line x1="150" y1="242" x2="982" y2="242" stroke="#999" stroke-width="1"/>
+<line x1="150" y1="237" x2="150" y2="247" stroke="#999"/><line x1="982" y1="237" x2="982" y2="247" stroke="#999"/>
+
+<text x="150" y="268" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#555">drawn to scale (same width per bit): Float is exactly half as long as Double</text>
+<text x="500" y="312" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="26" fill="#222">value = (−1)<tspan dy="-10" font-size="17">s</tspan><tspan dy="10"> × 1.m × 2</tspan><tspan dy="-10" font-size="17">e − bias</tspan></text>
+<text x="500" y="342" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#555">bias = 127 for Float, 1023 for Double</text>
+</svg>

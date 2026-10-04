@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="40 0 660 640" width="660" height="640">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+<path d="M 360 120 A 190 190 0 0 1 360 500" fill="none" stroke="#00968f" stroke-width="14"/>
+<path d="M 360 500 A 190 190 0 0 1 360 120" fill="none" stroke="#9aa4ae" stroke-width="14"/>
+<circle cx="360.0" cy="120.0" r="8" fill="#222"/>
+<text x="360.0" y="70.0" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#222">0</text>
+<text x="360.0" y="92.0" text-anchor="middle" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="16" fill="#555">00000000</text>
+<circle cx="412.4" cy="127.4" r="8" fill="#222"/>
+<text x="430.4" y="97.4" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#222">1</text>
+<text x="430.4" y="119.4" text-anchor="start" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="16" fill="#555">00000001</text>
+<circle cx="307.6" cy="127.4" r="8" fill="#222"/>
+<text x="289.6" y="97.4" text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#222">-1</text>
+<text x="289.6" y="119.4" text-anchor="end" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="16" fill="#555">11111111</text>
+<circle cx="550.0" cy="310.0" r="8" fill="#222"/>
+<text x="578.0" y="306.0" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#222">64</text>
+<text x="578.0" y="328.0" text-anchor="start" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="16" fill="#555">01000000</text>
+<circle cx="170.0" cy="310.0" r="8" fill="#222"/>
+<text x="142.0" y="306.0" text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#222">-64</text>
+<text x="142.0" y="328.0" text-anchor="end" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="16" fill="#555">11000000</text>
+<circle cx="409.2" cy="493.5" r="8" fill="#222"/>
+<text x="429.2" y="523.5" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#222">127</text>
+<text x="429.2" y="545.5" text-anchor="start" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="16" fill="#555">01111111</text>
+<circle cx="310.8" cy="493.5" r="8" fill="#222"/>
+<text x="290.8" y="523.5" text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#222">-128</text>
+<text x="290.8" y="545.5" text-anchor="end" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="16" fill="#555">10000000</text>
+<text x="360" y="280" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="700" fill="#222">Byte</text>
+<text x="360" y="312" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#555">8 bits, 256 values</text>
+<text x="380" y="360" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#00968f" font-weight="700">0 … 127</text><text x="380" y="382" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#00968f">top bit 0</text>
+<text x="340" y="360" text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#6b7580" font-weight="700">-128 … -1</text><text x="340" y="382" text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#6b7580">top bit 1</text>
+<path d="M 420 580 Q 360 610 300 580" fill="none" stroke="#c0392b" stroke-width="3" marker-end="url(#a)"/>
+<text x="360" y="632" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#c0392b">127 + 1 wraps around to -128 (overflow)</text>
+</svg>
