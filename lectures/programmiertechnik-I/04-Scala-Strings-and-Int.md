@@ -32,6 +32,72 @@ First steps in Scala: setup, `Int` and `String` in the REPL, and a serial letter
 
 ---
 
+# Quick Intro: Scratch Concepts in Scala
+
+<style scoped>
+section { font-size: 16.5px; }
+p { margin: 0.15em 0; }
+table { font-size: 15px; width: 100%; border-collapse: collapse; margin: 0.2em 0 0.45em 0; }
+th, td { border: 1px solid #D9E5EC; padding: 0.22em 0.45em; vertical-align: top; }
+th { background: #F3F7FA; text-align: left; }
+pre { font-size: 12.5px; line-height: 1.25; margin: 0.1em 0; }
+code { font-size: 0.95em; }
+h3 { margin: 0.25em 0 0.1em 0; font-size: 1.02em; }
+</style>
+
+Same ideas as in Scratch — text instead of blocks. A fast side-by-side into Scala.
+
+| Concept | Scratch | Scala |
+|---|---|---|
+| **Arithmetic** | operator blocks `+ − × ÷` | expressions: `3 + 5 * 2` |
+| **Data types** | round / pointed block shapes | `Int`, `Double`, `String`, `Boolean` |
+| **Variables** | variable / list monitors | `val` (immutable), `var` (mutable) |
+| **Expressions** | nested reporter blocks | nested expressions, e.g. `(a + b) * 2` |
+| **Control** | `if`, `repeat`, `forever` | `if` / `else`, `for`, `while` |
+| **Routines** | command / reporter / My Blocks | `def` (procedures & functions) |
+| **Objects** | sprites with scripts & state | `object` / `class` with methods & fields |
+| **Events** | green flag, keys, messages | `@main` / program entry (and later callbacks) |
+
+<div class="columns" style="grid-template-columns: 1fr 1fr; align-items: start; column-gap: 1.2em;">
+<div markdown="1">
+
+### Tiny examples
+
+```scala
+val n: Int = 42
+val s: String = "hi"
+val ok: Boolean = n > 0
+
+if ok then println("yes") else println("no")
+for i <- 1 to 3 do println(i)
+
+def double(x: Int): Int = x * 2
+```
+
+</div>
+<div markdown="1">
+
+### Object ≈ sprite
+
+```scala
+object Ball:
+  var x = 0
+  def move(dx: Int): Unit =
+    x += dx
+
+@main def demo(): Unit =
+  Ball.move(10)
+  println(Ball.x)  // 10
+```
+
+**Takeaway:** sprites → objects, blocks → methods/functions, monitors → variables.
+
+</div>
+</div>
+
+
+---
+
 # Why not Java?
 
 Java is also incorporating functional elements into its core language since version 8. Functional programming is possible in Java, but it is not easy. For example, creating an immutable object is hard, since the default data structures are mutable. The syntax for immutable structures is longer than for mutable, state change is so common, it is hard to get away from it.
