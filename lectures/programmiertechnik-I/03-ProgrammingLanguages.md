@@ -120,6 +120,57 @@ Assembler is already more readable than pure bits, but it is still very close to
 
 ---
 
+# Example in Fortran II
+
+<style scoped>
+section { font-size: 17px; }
+p { margin: 0.25em 0; }
+pre { font-size: 12px; line-height: 1.25; margin: 0; }
+</style>
+
+Same even/odd counting task as the assembler example (and later the C example): read numbers until `0`, count even and odd.
+
+```fortran
+C     COUNT EVEN AND ODD, FORTRAN II STYLE
+C     SAME TASK AS C EXAMPLE (SLIDE 8)
+C
+C     VS MODERN FORTRAN:
+C     - FIXED FORMAT, NOT FREE-FORMAT SOURCE
+C     - STATEMENT NUMBERS IN COLS 1-5 (NOT LINE NOS)
+C     - COL 6 = CONTINUATION, COLS 7-72 = CODE
+C     - ARITHMETIC IF (NEG,ZERO,POS), NOT RELATIONAL IF
+C     - GO TO JUMPS, NOT STRUCTURED DO/IF/END IF
+C
+      DIMENSION N(7)
+      INTEGER N, I, IE, IO, M
+      N(1) = 4
+      N(2) = 7
+      N(3) = 2
+      N(4) = 9
+      N(5) = 1
+      N(6) = 6
+      N(7) = 0
+      IE = 0
+      IO = 0
+      I = 1
+   10 IF (N(I)) 20, 50, 20
+C     ZERO ENDS THE LIST (LIKE C)
+   20 M = N(I) - (N(I)/2)*2
+      IF (M) 40, 30, 40
+   30 IE = IE + 1
+      GO TO 45
+   40 IO = IO + 1
+   45 I = I + 1
+      GO TO 10
+   50 PRINT 100, IE, IO
+  100 FORMAT (1X, I5, I5)
+      STOP
+      END
+```
+
+
+---
+
 # Example in BASIC: Lunar Lander
 
 <style scoped>
