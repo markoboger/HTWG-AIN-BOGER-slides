@@ -35,62 +35,60 @@ First steps in Scala: setup, `Int` and `String` in the REPL, and a serial letter
 # Quick Intro: Scratch Concepts in Scala
 
 <style scoped>
-section { font-size: 16.5px; }
+section { font-size: 17px; }
 p { margin: 0.15em 0; }
-table { font-size: 15px; width: 100%; border-collapse: collapse; margin: 0.2em 0 0.45em 0; }
-th, td { border: 1px solid #D9E5EC; padding: 0.22em 0.45em; vertical-align: top; }
+table { font-size: 14.5px; width: 100%; border-collapse: collapse; margin: 0.15em 0 0.35em 0; }
+th, td { border: 1px solid #D9E5EC; padding: 0.18em 0.4em; vertical-align: top; }
 th { background: #F3F7FA; text-align: left; }
-pre { font-size: 12.5px; line-height: 1.25; margin: 0.1em 0; }
-code { font-size: 0.95em; }
-h3 { margin: 0.25em 0 0.1em 0; font-size: 1.02em; }
+pre { font-size: 13px; line-height: 1.28; margin: 0.15em 0; }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2em; align-items: start; margin-top: 0.2em; }
+.pair h3 { margin: 0 0 0.35em 0; font-size: 1.05em; text-align: center; }
+.scratch-script { display: flex; flex-direction: column; align-items: flex-start; gap: 0.15em; }
+.scratch-script img { display: block; height: auto; }
 </style>
 
-Same ideas as in Scratch — text instead of blocks. A fast side-by-side into Scala.
+Same concepts as in Scratch — text instead of blocks.
 
-| Concept | Scratch | Scala |
+| | Scratch | Scala |
 |---|---|---|
-| **Arithmetic** | operator blocks `+ − × ÷` | expressions: `3 + 5 * 2` |
-| **Data types** | round / pointed block shapes | `Int`, `Double`, `String`, `Boolean` |
-| **Variables** | variable / list monitors | `val` (immutable), `var` (mutable) |
-| **Expressions** | nested reporter blocks | nested expressions, e.g. `(a + b) * 2` |
-| **Control** | `if`, `repeat`, `forever` | `if` / `else`, `for`, `while` |
-| **Routines** | command / reporter / My Blocks | `def` (procedures & functions) |
-| **Objects** | sprites with scripts & state | `object` / `class` with methods & fields |
-| **Events** | green flag, keys, messages | `@main` / program entry (and later callbacks) |
+| Types / vars | round & pointed reporters, monitors | `Int`, `String`, `Boolean`, `val` / `var` |
+| Control | `if`, `repeat`, `forever` | `if` / `else`, `for`, `while` |
+| Objects | sprite + scripts | `object` / `class` + methods |
 
-<div class="columns" style="grid-template-columns: 1fr 1fr; align-items: start; column-gap: 1.2em;">
+<div class="pair">
 <div markdown="1">
 
-### Tiny examples
+### Scratch (sprite script)
 
-```scala
-val n: Int = 42
-val s: String = "hi"
-val ok: Boolean = n > 0
+<div class="scratch-script">
+<img src="assets/event-green-flag.png" alt="when green flag clicked" style="width: 200px;" />
+<img src="assets/control-forever.png" alt="forever" style="width: 220px;" />
+<img src="assets/motion-change-y.png" alt="change y by 8" style="width: 180px; margin-left: 18px;" />
+<img src="assets/control-if-then.png" alt="if then" style="width: 240px; margin-left: 18px;" />
+</div>
 
-if ok then println("yes") else println("no")
-for i <- 1 to 3 do println(i)
-
-def double(x: Int): Int = x * 2
-```
+Event → loop → motion → condition — one sprite script.
 
 </div>
 <div markdown="1">
 
-### Object ≈ sprite
+### Scala (same idea)
 
 ```scala
 object Ball:
-  var x = 0
-  def move(dx: Int): Unit =
-    x += dx
+  var y = 0
+  def onEdge: Boolean = y > 180 || y < -180
 
-@main def demo(): Unit =
-  Ball.move(10)
-  println(Ball.x)  // 10
+  def step(): Unit =
+    y += 8
+    if onEdge then y = -y   // "bounce"
+
+@main def run(): Unit =
+  while true do              // forever
+    Ball.step()
 ```
 
-**Takeaway:** sprites → objects, blocks → methods/functions, monitors → variables.
+Green flag ≈ `@main`, forever ≈ `while`, sprite ≈ `object`.
 
 </div>
 </div>
