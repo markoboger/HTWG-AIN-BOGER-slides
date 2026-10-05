@@ -125,7 +125,16 @@ li li { font-size: 1em; }
 
 <!-- _class: inhalt -->
 
+<style scoped>
+.cols { display: grid; grid-template-columns: 1fr 1fr; column-gap: 3em; align-items: start; }
+li { font-size: 0.9em; margin: 0; line-height: 1.35; }
+li li { font-size: 1em; }
+</style>
+
 # Content of this Lecture: Tools
+
+<div class="cols">
+<div>
 
 - Scratch Editor
 - Moodle
@@ -136,7 +145,15 @@ li li { font-size: 1em; }
 - Copilot
 - FMT
 - Cursor
+
+</div>
+<div>
+
 - Version Control
+  - Git
+
+</div>
+</div>
 
 
 ---
