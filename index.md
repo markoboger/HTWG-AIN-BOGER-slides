@@ -35,6 +35,10 @@ Diese Folien werden mit **Marp** erstellt und sind nach jedem Push in der aktuel
 
 ### Programmiertechnik I
 
+<div class="columns">
+
+<div>
+
 - **[01 Scratch](lectures/programmiertechnik-I/01-Scratch.html)** ([HTML](lectures/programmiertechnik-I/01-Scratch.html), [PDF](lectures/programmiertechnik-I/01-Scratch.pdf))
 - **[02 Scratch II](lectures/programmiertechnik-I/02-Scratch-II.html)** ([HTML](lectures/programmiertechnik-I/02-Scratch-II.html), [PDF](lectures/programmiertechnik-I/02-Scratch-II.pdf))
 - **[03 Programming Languages](lectures/programmiertechnik-I/03-ProgrammingLanguages.html)** ([HTML](lectures/programmiertechnik-I/03-ProgrammingLanguages.html), [PDF](lectures/programmiertechnik-I/03-ProgrammingLanguages.pdf))
@@ -46,7 +50,16 @@ Diese Folien werden mit **Marp** erstellt und sind nach jedem Push in der aktuel
 - **[09 Generic Types, Pattern Matching](lectures/programmiertechnik-I/09-Generic-Types-Pattern-Matching.html)** ([HTML](lectures/programmiertechnik-I/09-Generic-Types-Pattern-Matching.html), [PDF](lectures/programmiertechnik-I/09-Generic-Types-Pattern-Matching.pdf))
 - **[11 Version Control with Git](lectures/programmiertechnik-I/11-Version-Control-Git.html)** ([HTML](lectures/programmiertechnik-I/11-Version-Control-Git.html), [PDF](lectures/programmiertechnik-I/11-Version-Control-Git.pdf))
 - **[12 Collections](lectures/programmiertechnik-I/12-Collections.html)** ([HTML](lectures/programmiertechnik-I/12-Collections.html), [PDF](lectures/programmiertechnik-I/12-Collections.pdf))
+
+</div>
+
+<div>
+
 - **[21 File Formats](lectures/programmiertechnik-I/21-File-Formats.html)** ([HTML](lectures/programmiertechnik-I/21-File-Formats.html), [PDF](lectures/programmiertechnik-I/21-File-Formats.pdf))
+
+</div>
+
+</div>
 
 ---
 

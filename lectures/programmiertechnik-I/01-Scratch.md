@@ -18,7 +18,7 @@ Programming proficiency in the Age of AI
 
 - **Alternating lecturers**: this lecture is taught alternately by Prof. Dr. Marko Boger in the winter semester and Prof. Dr. Pascal Laube in the summer semester.
 - **Materials**: all slides, files, and course materials are provided in **Moodle**.
-- **Excercises**: Tutors (AIN Students 7. Semester) support and evaluate the excercises.
+- **Exercises**: Tutors (AIN Students 7. Semester) support and evaluate the exercises.
 - **CodeTask**: CodeTask is a learning platform to support excercises and exams
 - **Exams**: Exams are digital on the learning platform CodeTask
 - **Grades**: Grades will be a mix of points collected throughout the semester and the final exam
@@ -342,7 +342,10 @@ Routines, functions, types, variables and scope
 
 ---
 
-# Blocks Are Routines
+# Routines
+
+<div class="columns">
+<div markdown="1">
 
 We use several names for reusable behavior:
 
@@ -358,9 +361,8 @@ We use several names for reusable behavior:
 
 The common abstraction is a **routine**.
 
----
-
-# Scratch Blocks and Routines
+</div>
+<div markdown="1">
 
 What this means for Scratch:
 
@@ -371,6 +373,10 @@ What this means for Scratch:
 So when we work with Scratch blocks, we are already learning a more general programming idea:
 
 **Programs are built from reusable routines.**
+
+</div>
+</div>
+
 
 ---
 
