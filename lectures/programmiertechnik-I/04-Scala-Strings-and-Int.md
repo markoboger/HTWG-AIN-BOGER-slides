@@ -35,31 +35,30 @@ First steps in Scala: setup, `Int` and `String` in the REPL, and a serial letter
 # Quick Intro: Scratch Concepts in Scala
 
 <style scoped>
-section { font-size: 17px; }
-p { margin: 0.12em 0; }
-table { font-size: 14px; width: 100%; border-collapse: collapse; margin: 0.1em 0 0.3em 0; }
-th, td { border: 1px solid #D9E5EC; padding: 0.15em 0.35em; vertical-align: top; }
+section { font-size: 16.5px; }
+p { margin: 0.1em 0; }
+table { font-size: 13.5px; width: 100%; border-collapse: collapse; margin: 0.08em 0 0.25em 0; }
+th, td { border: 1px solid #D9E5EC; padding: 0.12em 0.32em; vertical-align: top; }
 th { background: #F3F7FA; text-align: left; }
-pre { font-size: 13.5px; line-height: 1.28; margin: 0.1em 0; }
-.pair { display: grid; grid-template-columns: 1.05fr 1fr; gap: 1em; align-items: start; }
-.pair h3 { margin: 0 0 0.3em 0; font-size: 1.02em; text-align: center; }
+pre { font-size: 13px; line-height: 1.26; margin: 0.08em 0; }
+.pair { display: grid; grid-template-columns: 1.05fr 1fr; gap: 0.9em; align-items: start; }
+.pair h3 { margin: 0 0 0.25em 0; font-size: 1.0em; text-align: center; }
 </style>
 
-Arithmetic with a list, a loop, an `if`, and a variable — Scratch blocks vs Scala.
+Same task as in Lecture 03 (Assembler / Fortran / C): count **even** and **odd** numbers until `0`.
 
 | Concept | Scratch | Scala |
 |---|---|---|
-| List / loop | list + `repeat` | `List` + `for` |
-| Condition | `if` + operators | `if` + `%` |
-| Variable | `set` / `change` | `var` / `+=` |
-| Object (later) | sprite | `object` / `class` |
+| List + loop | list + `repeat until` | `List` / array + `while` / `for` |
+| Even / odd | `mod 2 = 0` in an `if` | `n % 2 == 0` |
+| Two counters | `even_count`, `odd_count` | two `var`s |
 
 <div class="pair">
 <div markdown="1">
 
 ### Scratch
 
-<img src="assets/pt04-scratch-sum-evens.svg" alt="Scratch script: sum even numbers in a list with repeat and if" style="width: 100%; max-width: 340px; height: auto;" />
+<img src="assets/pt04-scratch-even-odd.svg" alt="Scratch: count even and odd until list item is 0" style="width: 100%; max-width: 360px; height: auto;" />
 
 </div>
 <div markdown="1">
@@ -67,17 +66,22 @@ Arithmetic with a list, a loop, an `if`, and a variable — Scratch blocks vs Sc
 ### Scala
 
 ```scala
-val numbers = List(4, 7, 2, 9, 1, 6)
-var sum = 0
+val numbers = List(4, 7, 2, 9, 1, 6, 0)
+var evenCount = 0
+var oddCount = 0
+var i = 0
 
-for n <- numbers do
-  if n % 2 == 0 then
-    sum += n
+while numbers(i) != 0 do
+  if numbers(i) % 2 == 0 then
+    evenCount += 1
+  else
+    oddCount += 1
+  i += 1
 
-println(sum)  // 12  (4+2+6)
+println(s"$evenCount $oddCount")  // 3 3
 ```
 
-Same task: walk the list, keep a running `sum`, add only even values.
+Even: 4, 2, 6 — odd: 7, 9, 1 — sentinel `0` ends the list.
 
 </div>
 </div>

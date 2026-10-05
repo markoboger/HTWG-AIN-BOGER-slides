@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="380" height="460" viewBox="0 0 380 460">
+  <defs>
+    <filter id="s" x="-5%" y="-5%" width="110%" height="120%">
+      <feDropShadow dx="0" dy="1" stdDeviation="1.2" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <style>
+    .lab { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 13px; fill: #fff; font-weight: 600; }
+    .num { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 12px; fill: #111; font-weight: 600; }
+    .dark { fill: #111; }
+  </style>
+
+  <!-- green flag -->
+  <path filter="url(#s)" d="M18 16 h210 a12 12 0 0 1 12 12 v22 H18 a12 12 0 0 1-12-12 V28 a12 12 0 0 1 12-12 z" fill="#FFBF00"/>
+  <text class="lab dark" x="34" y="40">when green flag clicked</text>
+
+  <!-- set even_count to 0 -->
+  <path filter="url(#s)" d="M18 56 h300 a10 10 0 0 1 10 10 v24 H18 a10 10 0 0 1-10-10 V66 a10 10 0 0 1 10-10 z" fill="#FF8C1A"/>
+  <text class="lab" x="32" y="74">set</text>
+  <rect x="60" y="62" width="92" height="20" rx="10" fill="#FFB366"/>
+  <text class="num" x="68" y="76">even_count</text>
+  <text class="lab" x="158" y="74">to</text>
+  <rect x="180" y="62" width="36" height="20" rx="10" fill="#fff"/>
+  <text class="num" x="192" y="76">0</text>
+
+  <!-- set odd_count to 0 -->
+  <path filter="url(#s)" d="M18 96 h300 a10 10 0 0 1 10 10 v24 H18 a10 10 0 0 1-10-10 V106 a10 10 0 0 1 10-10 z" fill="#FF8C1A"/>
+  <text class="lab" x="32" y="114">set</text>
+  <rect x="60" y="102" width="86" height="20" rx="10" fill="#FFB366"/>
+  <text class="num" x="70" y="116">odd_count</text>
+  <text class="lab" x="152" y="114">to</text>
+  <rect x="174" y="102" width="36" height="20" rx="10" fill="#fff"/>
+  <text class="num" x="186" y="116">0</text>
+
+  <!-- set i to 1 -->
+  <path filter="url(#s)" d="M18 136 h250 a10 10 0 0 1 10 10 v24 H18 a10 10 0 0 1-10-10 V146 a10 10 0 0 1 10-10 z" fill="#FF8C1A"/>
+  <text class="lab" x="32" y="154">set</text>
+  <rect x="60" y="142" width="36" height="20" rx="10" fill="#FFB366"/>
+  <text class="num" x="74" y="156">i</text>
+  <text class="lab" x="104" y="154">to</text>
+  <rect x="126" y="142" width="36" height="20" rx="10" fill="#fff"/>
+  <text class="num" x="138" y="156">1</text>
+
+  <!-- repeat until item i = 0  (C/Fortran sentinel) -->
+  <path filter="url(#s)" d="M18 176 h330 a10 10 0 0 1 10 10 v28 H38 v188 H18 a10 10 0 0 1-10-10 V186 a10 10 0 0 1 10-10 z" fill="#FFAB19"/>
+  <path d="M18 392 h40 v22 a10 10 0 0 0 10 10 h90 a10 10 0 0 0 10-10 v-8 H28 a10 10 0 0 1-10-10 z" fill="#FFAB19"/>
+  <text class="lab" x="32" y="198">repeat until</text>
+  <rect x="118" y="184" width="170" height="22" rx="11" fill="#59C059"/>
+  <text class="lab" x="128" y="199" style="font-size:12px">item i of numbers = 0</text>
+
+  <!-- if (item i) mod 2 = 0 -->
+  <path filter="url(#s)" d="M38 218 h300 a10 10 0 0 1 10 10 v26 H58 v70 H38 a10 10 0 0 1-10-10 V228 a10 10 0 0 1 10-10 z" fill="#FFAB19"/>
+  <path d="M38 314 h30 v16 a8 8 0 0 0 8 8 h70 a8 8 0 0 0 8-8 v-6 H48 a10 10 0 0 1-10-10 z" fill="#FFAB19"/>
+  <!-- else mouth hint -->
+  <text class="lab" x="50" y="238">if</text>
+  <rect x="70" y="224" width="230" height="22" rx="11" fill="#59C059"/>
+  <text class="lab" x="80" y="239" style="font-size:11px">(item i of numbers) mod 2 = 0</text>
+  <text class="lab" x="50" y="268" style="font-size:12px">then</text>
+  <path filter="url(#s)" d="M58 274 h200 a8 8 0 0 1 8 8 v18 H58 a8 8 0 0 1-8-8 V282 a8 8 0 0 1 8-8 z" fill="#FF8C1A"/>
+  <text class="lab" x="68" y="288" style="font-size:12px">change even_count by 1</text>
+  <text class="lab" x="50" y="322" style="font-size:12px">else</text>
+  <path filter="url(#s)" d="M58 328 h200 a8 8 0 0 1 8 8 v18 H58 a8 8 0 0 1-8-8 V336 a8 8 0 0 1 8-8 z" fill="#FF8C1A"/>
+  <text class="lab" x="68" y="342" style="font-size:12px">change odd_count by 1</text>
+
+  <!-- change i by 1 -->
+  <path filter="url(#s)" d="M38 358 h230 a10 10 0 0 1 10 10 v24 H38 a10 10 0 0 1-10-10 V368 a10 10 0 0 1 10-10 z" fill="#FF8C1A"/>
+  <text class="lab" x="50" y="376">change</text>
+  <rect x="106" y="364" width="36" height="20" rx="10" fill="#FFB366"/>
+  <text class="num" x="120" y="378">i</text>
+  <text class="lab" x="150" y="376">by</text>
+  <rect x="176" y="364" width="36" height="20" rx="10" fill="#fff"/>
+  <text class="num" x="188" y="378">1</text>
+
+  <!-- say both -->
+  <path filter="url(#s)" d="M18 424 h330 a10 10 0 0 1 10 10 v22 H18 a10 10 0 0 1-10-10 V434 a10 10 0 0 1 10-10 z" fill="#9966FF"/>
+  <text class="lab" x="32" y="440" style="font-size:12px">say join even_count odd_count</text>
+</svg>
