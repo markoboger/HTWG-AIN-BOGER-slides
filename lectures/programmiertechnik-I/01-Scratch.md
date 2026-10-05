@@ -133,6 +133,7 @@ li li { font-size: 1em; }
 - Scastie
 - Command Line
 - VS Code
+- Copilot
 - FMT
 - Cursor
 - Version Control
