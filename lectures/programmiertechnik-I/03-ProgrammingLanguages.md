@@ -17,6 +17,14 @@ How languages differ in abstraction level, paradigm, typing, execution model, an
 
 ---
 
+<!-- _class: inhalt -->
+
+# Goals
+
+(Goals to fill)
+
+---
+
 # Most Popular Programming Languages
 
 <div class="columns">
@@ -38,7 +46,6 @@ How languages differ in abstraction level, paradigm, typing, execution model, an
 
 </div>
 </div>
-
 
 ---
 
@@ -285,6 +292,15 @@ even: 4, 2, 6 – odd: 7, 9, 1
 # A Short Language History
 
 <img src="diagrams/language-history-pt03.drawio.svg"/>
+
+---
+
+<!-- _class: kapitel -->
+
+## 1
+# Programming Paradigms
+
+How languages organize computation
 
 ---
 
@@ -647,6 +663,15 @@ section { font-size: 21px; }
 
 </div>
 </div>
+
+---
+
+<!-- _class: kapitel -->
+
+## 2
+# Languages by Example
+
+The same problem in many languages
 
 ---
 
@@ -1400,7 +1425,25 @@ Console: `height 455, speed 40, fuel 220` – [open snippet](https://scastie.sca
 
 ---
 
-<!-- _class: aufgabe tools-page -->
+<!-- _class: inhalt -->
+
+<style scoped>
+section { font-size: 23px; }
+</style>
+
+# Summary
+
+- Languages differ by layer (machine/assembler → high level), history, and popularity
+- Programming paradigms and call structures; platforms and execution models
+- Typing: strong/weak and related trade-offs; GPL vs DSL; language families and VMs
+- Progress by leaving things out; one problem (Jump Game) across C, C++, Java, Swift, JS, Rust, Python, Scala
+- Where Scala sits; languages and Vertiefungen in AIN
+- Industry shifts: after Agile, Big Data, and AI
+- Tools: Scastie (Scala in the browser) and LeetCode for practice and comparison
+
+---
+
+<!-- _class: aufgabe -->
 
 # Tasks
 

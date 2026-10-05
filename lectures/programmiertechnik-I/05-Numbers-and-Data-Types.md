@@ -15,6 +15,8 @@ _footer: ""
 
 ---
 
+<!-- _class: inhalt -->
+
 # Goals
 
 <div class="columns" style="grid-template-columns: 1fr 260px; align-items: start;">
@@ -43,6 +45,15 @@ New Tools:
 
 </div>
 </div>
+
+---
+
+<!-- _class: kapitel -->
+
+## 1
+# Numbers and Bits
+
+Integer and floating-point representation
 
 ---
 
@@ -256,7 +267,6 @@ th, td { padding: 1px 9px !important; }
 
 Both give 296 = **100101000**₂ = 256 + 32 + 8
 
-
 ---
 
 # Binary in Scala
@@ -340,7 +350,6 @@ val res5: Int = 32058
 </div>
 </div>
 
-
 ---
 
 # Integer Types and Their Ranges
@@ -403,7 +412,6 @@ val res4: String = "11111011"
 
 </div>
 </div>
-
 
 ---
 
@@ -671,7 +679,6 @@ Use `BigInt` for whole numbers larger than `Long`. It is slower than `Int` and `
 
 <p class="small">Source: US Treasury, Debt to the Penny, 1 Oct 2026. BigInt for numbers larger than Long: Alvin Alexander, Learn Scala 3 the Fast Way, ch. 16.</p>
 
-
 ---
 
 # BigDecimal
@@ -724,7 +731,6 @@ val res4: BigDecimal = 0.3
 </div>
 
 <p class="small">π: first 50 decimal places. BigDecimal for currency: Alvin Alexander, Learn Scala 3 the Fast Way, ch. 16.</p>
-
 
 ---
 
@@ -786,7 +792,6 @@ val res5: Int = 2
 
 </div>
 </div>
-
 
 ---
 
@@ -1599,6 +1604,7 @@ Then check your answers in a worksheet.
 3. Do the number examples twice – in a worksheet `numbers.worksheet.sc` **and** in your Mill script: `51966.toBinaryString` and `.toHexString`, `Int.MaxValue + 1`, `0.1 + 0.2`, the factorial of 25 as `BigInt`, `(1 to 20 by 4).toList`. Do both give the same results?
 4. Turn the script into a project: a module `numbers` in `build.mill`, then `./mill numbers.run` (or a two-line `build.mill.yaml` with sources in `src/`, then `./mill run`)
 5. Optional: add a munit test in `numbers/test/src/` and run `./mill numbers.test`
+
 ---
 
 <!-- _class: abschluss -->

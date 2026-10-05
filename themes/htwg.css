@@ -276,10 +276,18 @@ section.tools::before,
 section.tools-page::before {
     /* Icon: Material Symbols Rounded "construction" (crossed hammer + wrench), Google,
        Apache License 2.0 – https://github.com/google/material-design-icons
-       recoloured to #009b91; source copy in themes/icons/tools.svg */
+       recoloured to #009b91; source copy in themes/icons/tools.svg
+       Embedded as base64 data-URI (not a relative path) so Marp HTML/PDF/preview resolve it.
+       viewBox normalized to 0 0 960 960 for WebView compatibility. */
     content: "";
+    display: block;
     position: absolute;
-    background: url("data:image/svg+xml,%3Csvg fill='%23009b91' xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960'%3E%3Cpath d='M714-162 537-339l84-84 177 177q17 17 17 42t-17 42q-17 17-42 17t-42-17Zm-552 0q-17-17-17-42t17-42l234-234-68-68q-11 11-28 11t-28-11l-23-23v90q0 14-12 19t-22-5L106-576q-10-10-5-22t19-12h90l-22-22q-12-12-12-28t12-28l114-114q20-20 43-29t47-9q20 0 37.5 6t34.5 18q8 5 8.5 14t-6.5 16l-76 76 22 22q11 11 11 28t-11 28l68 68 90-90q-4-11-6.5-23t-2.5-24q0-59 40.5-99.5T701-841q8 0 15 .5t14 2.5q9 3 11.5 12.5T737-809l-65 65q-6 6-6 14t6 14l44 44q6 6 14 6t14-6l65-65q7-7 16.5-5t12.5 12q2 7 2.5 14t.5 15q0 59-40.5 99.5T701-561q-12 0-24-2t-23-7L246-162q-17 17-42 17t-42-17Z'/%3E%3C/svg%3E") center / contain no-repeat;
+    z-index: 2;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5NjAgOTYwIiB3aWR0aD0iOTYwIiBoZWlnaHQ9Ijk2MCI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCA5NjApIj48cGF0aCBmaWxsPSIjMDA5YjkxIiBkPSJNNzE0LTE2MiA1MzctMzM5bDg0LTg0IDE3NyAxNzdxMTcgMTcgMTcgNDJ0LTE3IDQycS0xNyAxNy00MiAxN3QtNDItMTdabS01NTIgMHEtMTctMTctMTctNDJ0MTctNDJsMjM0LTIzNC02OC02OHEtMTEgMTEtMjggMTF0LTI4LTExbC0yMy0yM3Y5MHEwIDE0LTEyIDE5dC0yMi01TDEwNi01NzZxLTEwLTEwLTUtMjJ0MTktMTJoOTBsLTIyLTIycS0xMi0xMi0xMi0yOHQxMi0yOGwxMTQtMTE0cTIwLTIwIDQzLTI5dDQ3LTlxMjAgMCAzNy41IDZ0MzQuNSAxOHE4IDUgOC41IDE0dC02LjUgMTZsLTc2IDc2IDIyIDIycTExIDExIDExIDI4dC0xMSAyOGw2OCA2OCA5MC05MHEtNC0xMS02LjUtMjN0LTIuNS0yNHEwLTU5IDQwLjUtOTkuNVQ3MDEtODQxcTggMCAxNSAuNXQxNCAyLjVxOSAzIDExLjUgMTIuNVQ3MzctODA5bC02NSA2NXEtNiA2LTYgMTR0NiAxNGw0NCA0NHE2IDYgMTQgNnQxNC02bDY1LTY1cTctNyAxNi41LTV0MTIuNSAxMnEyIDcgMi41IDE0dC41IDE1cTAgNTktNDAuNSA5OS41VDcwMS01NjFxLTEyIDAtMjQtMnQtMjMtN0wyNDYtMTYycS0xNyAxNy00MiAxN3QtNDItMTdaIi8+PC9nPjwvc3ZnPg==");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 section.tools::before {
     top: 214px;

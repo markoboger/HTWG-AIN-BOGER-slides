@@ -17,6 +17,21 @@ _footer: ""
 
 ---
 
+<!-- _class: inhalt -->
+
+# Goals
+
+<style scoped>section { font-size: 23px; }</style>
+
+- Why Scala in PT1: hybrid OO + FP on the JVM
+- Install Scala with Coursier; use the REPL
+- First programs in VS Code / Metals, worksheets, and CodeTask
+- `Int`, `String`, `val` / `var`, and simple `def` in the REPL
+- Serial letter: interpolation, `stripMargin`, `Double` grades
+- Run `scala SerialLetter.scala` from Terminal
+
+---
+
 # Why not Java?
 
 Java is also incorporating functional elements into its core language since version 8. Functional programming is possible in Java, but it is not easy. For example, creating an immutable object is hard, since the default data structures are mutable. The syntax for immutable structures is longer than for mutable, state change is so common, it is hard to get away from it.
@@ -469,6 +484,8 @@ scala> val n: Int = "42"
 
 <style scoped>section { font-size: 20px; } p { margin: 0.3em 0; } ul, ol { margin: 0.2em 0; } li { margin: 0.1em 0; }</style>
 
+**Metals** is the Scala language server for VS Code (and other editors): completion, error checking, and code navigation.
+
 ![w:1000](assets/pt04-vscode-metals.png)
 
 <div class="columns" style="grid-template-columns: 1fr 1fr; align-items: start;">
@@ -490,6 +507,52 @@ scala> val n: Int = "42"
 </div>
 
 <p class="small">Screenshot: VS Code 1.140 with Metals 1.72.0 (server 1.6.9). Source: scalameta.org/metals/docs/editors/vscode.</p>
+
+---
+
+<!-- _class: tools-page -->
+
+# Running Scala from the Terminal
+
+Later we will start Scala programs from the terminal — not only in the REPL.
+
+<style scoped>
+section { font-size: 20px; }
+ul { margin: 0.2em 0; }
+li { margin: 0.15em 0; }
+pre { font-size: 15px; }
+</style>
+
+- In the folder with your `.scala` file: `scala MyProgram.scala`
+- Scala looks for a **`main`** entry point — without it, nothing to launch
+- We will use this soon (for example with `SerialLetter.scala`)
+
+Two ways to define `main`:
+
+<div class="columns" style="grid-template-columns: 1fr 1fr; align-items: start; gap: 1.2rem;">
+<div markdown="1">
+
+**1. `main` in an `object`**
+
+```scala
+object MyProgram:
+  def main(args: Array[String]): Unit =
+    println("hello")
+```
+
+</div>
+<div markdown="1">
+
+**2. `@main` annotation**
+
+```scala
+@main def run(): Unit =
+  println("hello")
+```
+
+</div>
+</div>
+
 
 ---
 
@@ -644,6 +707,135 @@ def nextAge(x: Int): Int
 scala> name + " will soon be " + nextAge(age)
 val res0: String = "Ada will soon be 21"
 ```
+
+---
+
+# Serial Letters (Form Letters)
+
+A **serial letter** is the same template filled with different data — here: exam results.
+
+This example builds a letter from `String`, `Int`, and `Double`, then prints one letter per student.
+
+<style scoped>
+section { font-size: 24px; }
+ul { margin: 0.35em 0; }
+li { margin: 0.28em 0; }
+</style>
+
+- **String interpolation:** `$name`, `$matriculationNumber`, `$result` inside an `s"""..."""` string
+- **`stripMargin`:** each content line starts with `|`; indentation before `|` is removed
+- **`Double` grades** and formatting: `f"$grade%.1f"` → one decimal place
+- **Pass / fail:** `passed` when `grade <= 4.0`
+
+Source: `SerialLetter.scala` in the Programming I workspace.
+
+Run it from that directory:
+
+```bash
+scala SerialLetter.scala
+```
+
+---
+
+# letterText: Build the Letter
+
+`letterText` returns the full letter as one `String`.
+
+<style scoped>
+section { font-size: 18px; }
+pre { font-size: 15px; }
+</style>
+
+```scala
+def letterText(name: String, matriculationNumber: Int, grade: Double): String =
+  val passed = grade <= 4.0
+  val result =
+    if passed then "passed"
+    else "failed"
+
+  s"""Subject: Result of the Programming I exam
+    |
+    |Dear $name,
+    |
+    |regarding your matriculation number $matriculationNumber we would like to inform you:
+    |
+    |  Grade: ${f"$grade%.1f"} ($result)
+    |
+    |Best regards
+    |Your Examination Office
+    |----------------------------------------""".stripMargin
+```
+
+---
+
+# writeLetter: One Student
+
+`writeLetter` prints the letter for **one** student (`Unit` = no return value, only a side effect).
+
+<style scoped>
+section { font-size: 22px; }
+pre { font-size: 18px; }
+</style>
+
+```scala
+def writeLetter(name: String, matriculationNumber: Int, grade: Double): Unit =
+  println(letterText(name, matriculationNumber, grade))
+```
+
+Call it with three arguments: name, matriculation number, and grade.
+
+```scala
+writeLetter("Anna Müller", 512341, 1.0)
+```
+
+---
+
+# main: Four Students from Lists
+
+`main` keeps three **parallel** `List`s and calls `writeLetter` with matching indices `0` … `3`.
+
+<style scoped>
+section { font-size: 18px; }
+pre { font-size: 15px; }
+</style>
+
+```scala
+def main(args: Array[String]): Unit =
+  val names =
+    List("Anna Müller", "Ben Schmidt", "Clara Weber", "David Braun")
+  val matriculationNumbers =
+    List(512341, 512342, 512343, 512344)
+  val grades =
+    List(1.0, 3.3, 5.0, 2.7)
+
+  writeLetter(names(0), matriculationNumbers(0), grades(0))
+  writeLetter(names(1), matriculationNumbers(1), grades(1))
+  writeLetter(names(2), matriculationNumbers(2), grades(2))
+  writeLetter(names(3), matriculationNumbers(3), grades(3))
+```
+
+Clara’s grade `5.0` is above `4.0` → letter says **failed**; the others **passed**.
+
+From `programmingI`: `scala SerialLetter.scala`
+
+---
+
+<!-- _class: inhalt -->
+
+<style scoped>
+section { font-size: 23px; }
+</style>
+
+# Summary
+
+- Why Scala (not only Java): hybrid OO + FP language on the JVM; designed to scale
+- Language properties and Scala’s inventors / “SCAlable LAnguage”
+- Tools: Coursier (`cs`) installs JDK and Scala; verify with `scala -version`
+- REPL: evaluate expressions, `resN`, help/quit, multi-line input, tab completion
+- VS Code + Metals; worksheets (`.worksheet.sc`) show results inline
+- CodeTask for online Scala practice
+- Core REPL topics: `Int`, `String`, `val`/`var`, simple `def`
+- Serial letters: `s"""...""".stripMargin`, interpolation, `Double` grades, parallel lists in `main`
 
 ---
 

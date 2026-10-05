@@ -35,13 +35,18 @@ Diese Folien werden mit **Marp** erstellt und sind nach jedem Push in der aktuel
 
 ### Programmiertechnik I
 
-- **[01-Scratch](lectures/programmiertechnik-I/01-Scratch.html)** ([HTML](lectures/programmiertechnik-I/01-Scratch.html), [PDF](lectures/programmiertechnik-I/01-Scratch.pdf))
-- **[02-Scratch-II](lectures/programmiertechnik-I/02-Scratch-II.html)** ([HTML](lectures/programmiertechnik-I/02-Scratch-II.html), [PDF](lectures/programmiertechnik-I/02-Scratch-II.pdf))
-- **[03-ProgrammingLanguages](lectures/programmiertechnik-I/03-ProgrammingLanguages.html)** ([HTML](lectures/programmiertechnik-I/03-ProgrammingLanguages.html), [PDF](lectures/programmiertechnik-I/03-ProgrammingLanguages.pdf))
-- **[04-Scala-Strings-and-Int](lectures/programmiertechnik-I/04-Scala-Strings-and-Int.html)** ([HTML](lectures/programmiertechnik-I/04-Scala-Strings-and-Int.html), [PDF](lectures/programmiertechnik-I/04-Scala-Strings-and-Int.pdf))
-- **[05-Numbers-and-Data-Types](lectures/programmiertechnik-I/05-Numbers-and-Data-Types.html)** ([HTML](lectures/programmiertechnik-I/05-Numbers-and-Data-Types.html), [PDF](lectures/programmiertechnik-I/05-Numbers-and-Data-Types.pdf))
-- **[06-Arrays-and-Lists](lectures/programmiertechnik-I/06-Arrays-and-Lists.html)** ([HTML](lectures/programmiertechnik-I/06-Arrays-and-Lists.html), [PDF](lectures/programmiertechnik-I/06-Arrays-and-Lists.pdf))
-- **[07-Control-Structures](lectures/programmiertechnik-I/07-Control-Structures.html)** ([HTML](lectures/programmiertechnik-I/07-Control-Structures.html), [PDF](lectures/programmiertechnik-I/07-Control-Structures.pdf))
+- **[01 Scratch](lectures/programmiertechnik-I/01-Scratch.html)** ([HTML](lectures/programmiertechnik-I/01-Scratch.html), [PDF](lectures/programmiertechnik-I/01-Scratch.pdf))
+- **[02 Scratch II](lectures/programmiertechnik-I/02-Scratch-II.html)** ([HTML](lectures/programmiertechnik-I/02-Scratch-II.html), [PDF](lectures/programmiertechnik-I/02-Scratch-II.pdf))
+- **[03 Programming Languages](lectures/programmiertechnik-I/03-ProgrammingLanguages.html)** ([HTML](lectures/programmiertechnik-I/03-ProgrammingLanguages.html), [PDF](lectures/programmiertechnik-I/03-ProgrammingLanguages.pdf))
+- **[04 Scala Strings and Int](lectures/programmiertechnik-I/04-Scala-Strings-and-Int.html)** ([HTML](lectures/programmiertechnik-I/04-Scala-Strings-and-Int.html), [PDF](lectures/programmiertechnik-I/04-Scala-Strings-and-Int.pdf))
+- **[05 Numbers, Binary and Data Types](lectures/programmiertechnik-I/05-Numbers-and-Data-Types.html)** ([HTML](lectures/programmiertechnik-I/05-Numbers-and-Data-Types.html), [PDF](lectures/programmiertechnik-I/05-Numbers-and-Data-Types.pdf))
+- **[06 Arrays and Lists](lectures/programmiertechnik-I/06-Arrays-and-Lists.html)** ([HTML](lectures/programmiertechnik-I/06-Arrays-and-Lists.html), [PDF](lectures/programmiertechnik-I/06-Arrays-and-Lists.pdf))
+- **[07 Control Structures](lectures/programmiertechnik-I/07-Control-Structures.html)** ([HTML](lectures/programmiertechnik-I/07-Control-Structures.html), [PDF](lectures/programmiertechnik-I/07-Control-Structures.pdf))
+- **[08 Tuples, Objects, Enums and Classes](lectures/programmiertechnik-I/08-Tuples-Objects-Enums-Classes.html)** ([HTML](lectures/programmiertechnik-I/08-Tuples-Objects-Enums-Classes.html), [PDF](lectures/programmiertechnik-I/08-Tuples-Objects-Enums-Classes.pdf))
+- **[09 Generic Types, Pattern Matching](lectures/programmiertechnik-I/09-Generic-Types-Pattern-Matching.html)** ([HTML](lectures/programmiertechnik-I/09-Generic-Types-Pattern-Matching.html), [PDF](lectures/programmiertechnik-I/09-Generic-Types-Pattern-Matching.pdf))
+- **[11 Version Control with Git](lectures/programmiertechnik-I/11-Version-Control-Git.html)** ([HTML](lectures/programmiertechnik-I/11-Version-Control-Git.html), [PDF](lectures/programmiertechnik-I/11-Version-Control-Git.pdf))
+- **[12 Collections](lectures/programmiertechnik-I/12-Collections.html)** ([HTML](lectures/programmiertechnik-I/12-Collections.html), [PDF](lectures/programmiertechnik-I/12-Collections.pdf))
+- **[21 File Formats](lectures/programmiertechnik-I/21-File-Formats.html)** ([HTML](lectures/programmiertechnik-I/21-File-Formats.html), [PDF](lectures/programmiertechnik-I/21-File-Formats.pdf))
 
 ---
 

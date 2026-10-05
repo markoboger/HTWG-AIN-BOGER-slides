@@ -59,6 +59,8 @@ Programming proficiency in the Age of AI
 
 ---
 
+<!-- _class: inhalt -->
+
 <style scoped>
 li { font-size: 0.8em; white-space: nowrap; }
 </style>
@@ -745,6 +747,24 @@ We will later introduce namespaces to define visibility and scope in a much more
 
 </div>
 </div>
+
+---
+
+<!-- _class: inhalt -->
+
+<style scoped>
+section { font-size: 23px; }
+</style>
+
+# Summary
+
+- Scratch is a block-based visual language (MIT) for learning core ideas without syntax noise
+- Stage, sprites, blocks; sprites behave like simple objects with code and state
+- Block categories, control structures, coordinates, events and parallel scripts
+- Abstraction: blocks as procedures/functions; types (number, string, boolean); expressions
+- Variables, algebra, and boolean algebra for conditions
+- Messages (broadcast), namespace, and visibility/scope (global vs local)
+- First game ideas (e.g. Pong) and classic arcade project suggestions
 
 ---
 

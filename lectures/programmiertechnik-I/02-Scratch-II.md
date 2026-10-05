@@ -50,6 +50,15 @@ Deepening the core programming concepts with Scratch.
 
 ---
 
+<!-- _class: kapitel -->
+
+## 1
+# Clones and Data
+
+Clones, lists, and custom blocks
+
+---
+
 # Clone Blocks
 
 Clones let one sprite create many temporary copies of itself at runtime.
@@ -264,6 +273,15 @@ Clones let one sprite create many temporary copies of itself at runtime.
 
 ---
 
+<!-- _class: kapitel -->
+
+## 2
+# Worked Example: Snake
+
+Applying clones, lists, and game state
+
+---
+
 # Worked Example: Snake
 
 <div class="columns" style="grid-template-columns: auto 1fr; gap: 1.6rem; align-items: start; margin-top: 0.3rem; font-size: 18px; color: #575e75;">
@@ -384,6 +402,17 @@ Clones let one sprite create many temporary copies of itself at runtime.
 
 ---
 
+<!-- _class: tools -->
+
+## New Tools
+# GitHub for Scratch
+
+Versioning and sharing Scratch projects
+
+---
+
+<!-- _class: tools-page -->
+
 # Why Versioning?
 
 <img src="assets/vcs-files.png" alt="Folder my-snake-game with snake-v1.sb3 (movement), snake-v2.sb3 (+ food), snake-v3.sb3 (+ game over)" style="display: block; width: 772px; margin: 2rem auto 0 auto;">
@@ -392,6 +421,8 @@ Clones let one sprite create many temporary copies of itself at runtime.
 
 ---
 
+<!-- _class: tools-page -->
+
 # Commits and Linear History
 
 <img src="assets/vcs-commits.png" alt="Commits c1 to c4, each pointing to its predecessor; HEAD on c4; dashed checkout arrow to c2" style="display: block; width: 832px; margin: 1.4rem auto 0 auto;">
@@ -399,6 +430,8 @@ Clones let one sprite create many temporary copies of itself at runtime.
 <p style="text-align: center; font-size: 24px; margin-top: 0.8rem;"><strong>Each commit points to its predecessor. HEAD is where you are.<br>Going back means checking out an older version.</strong></p>
 
 ---
+
+<!-- _class: tools-page -->
 
 # Versioning Your Scratch Project with GitHub
 
@@ -422,6 +455,8 @@ A history of milestones, going back to any older version, and one shared place f
 <p style="text-align: center; font-size: 22px; margin-top: 0.8rem;"><strong>Scratch itself does not use Git: GitHub stores the snapshots you save.</strong></p>
 
 ---
+
+<!-- _class: tools-page -->
 
 # Sharing and Remix
 
@@ -451,6 +486,22 @@ A remix is like a fork: a separate copy. Scratch keeps no commit history and has
 <img src="assets/roadmap-scratch-scala-unity.png" alt="Roadmap: Now Scratch (visual blocks, project 1 individual), next Scala (textual syntax and semantics, project 2 in teams of two), end of semester Unity and C# (GameObject is like a sprite, prefab and Instantiate like clones, C# scripts like block scripts; project 3 in teams of two)" style="display: block; width: 1000px; margin: 1.6rem auto 0 auto;">
 
 <p style="text-align: center; font-size: 22px; margin-top: 1.4rem;"><strong>Scratch has no textual syntax. To express more complex things we need a textual language:<br>we learn the concepts in Scala and bring them back to games in Unity with C#.</strong></p>
+
+---
+
+<!-- _class: inhalt -->
+
+# Summary
+
+<style scoped>section { font-size: 23px; }</style>
+
+- Clones: sprite as template, clones as objects — like classes and instances
+- Variables and lists store state; lists are Scratch's only data structure
+- Custom blocks structure larger projects
+- Control game flow with states (start, play, pause, game over) and broadcasts
+- Collision, timing, and randomness shape game feel and balance
+- Debug with monitors: make values visible instead of guessing
+- GitHub for Scratch: versions as commits, history, sharing and remix
 
 ---
 

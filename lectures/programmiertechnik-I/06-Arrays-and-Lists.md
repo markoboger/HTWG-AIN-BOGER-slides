@@ -355,122 +355,200 @@ Many operations on Lists return a new List. Here is an example for a filter on a
 <!-- _class: tools -->
 
 ## New Tools
-# scalafmt and GitHub Copilot
+# Scalafmt (FMT)
 
-Clean code automatically, help from an AI assistant
-
----
-
-<!-- _class: tools-page -->
-
-# scalafmt: Automatic Code Formatting
-
-<style scoped>section { font-size: 20px; } p { margin: 0.3em 0; } ul { margin: 0.2em 0; } li { margin: 0.1em 0; } pre { font-size: 14px; margin: 0.3em 0; }</style>
-
-<div class="columns" style="grid-template-columns: 1fr 1.1fr; align-items: start;">
-<div markdown="1">
-
-**What is it?**
-
-- **scalafmt** ("Scala format", often just "fmt") is *the* code formatter for Scala
-- it rewrites the *layout* of your code – indentation, spaces, line breaks, alignment – but never changes what the code does
-- the rules come from a file **`.scalafmt.conf`** in the project root
-
-**Why use it?**
-
-- everybody's code looks the same: easier to read, review and grade
-- no more discussions about style, no time spent aligning by hand
-- smaller, cleaner diffs in Git
-
-</div>
-<div markdown="1">
-
-**In VS Code with Metals** (no extra install – Metals includes scalafmt)
-
-- format a file: *Format Document* (⇧⌥F on Mac, Shift+Alt+F on Windows)
-- **format on save** – add to your VS Code settings:
-
-```json
-"editor.formatOnSave": true
-```
-
-- no `.scalafmt.conf` yet? On the first format Metals asks *"No .scalafmt.conf file detected"* – click **Create .scalafmt.conf**
-
-**On the command line** (optional)
-
-```bash
-cs install scalafmt     # install with Coursier
-scalafmt                # format all files in the folder
-scalafmt --test         # only check, change nothing
-```
-
-</div>
-</div>
-
-<p class="small">Sources: scalameta.org/scalafmt (Installation, Configuration), scalameta.org/metals; current version 3.11.5 (July 2026).</p>
+Automatic, consistent code formatting for Scala
 
 ---
 
 <!-- _class: tools-page -->
 
-# `.scalafmt.conf`: Configure the Formatter
+<!-- Scalafmt block (self-contained, movable) -->
+<style scoped>
+h3 { margin: 0.2rem 0 0.4rem 0; }
+</style>
 
-<style scoped>section { font-size: 19px; } p { margin: 0.25em 0; } pre { font-size: 13.5px; margin: 0.25em 0; }</style>
+# Scalafmt: Consistent Code Formatting
 
-<div class="columns" style="grid-template-columns: 1.15fr 1fr; align-items: start;">
-<div markdown="1">
+<div class="columns" style="align-items: start; gap: 2em;">
+<div>
 
-**`.scalafmt.conf`** – our configuration for this course:
+### What is it?
+- Code formatter for **Scala 2 and Scala 3**
+- Open source, part of the **scalameta** project: scalameta.org/scalafmt
+- Reformats whole files, driven by one config file **`.scalafmt.conf`** in the project root
+- The same result in the IDE, on the command line and in CI
+
+</div>
+<div>
+
+### Why does a team need it?
+- **Readable diffs:** commits show real changes, not moved spaces and braces
+- **No style debates** in code reviews: the formatter decides
+- **Fewer merge conflicts** from different editor settings
+- **CI check:** the build fails if code is not formatted
+
+</div>
+</div>
+
+---
+
+<!-- _class: tools-page -->
+
+<style scoped>
+section { padding-top: 30px; }
+h1 { margin-bottom: 0.3rem; }
+pre { font-size: 19px; line-height: 1.4; margin: 0; }
+table { font-size: 16px; width: 100%; }
+th, td { padding: 4px 7px; }
+td code { font-size: 14.5px; }
+.src { position: absolute; left: 80px; bottom: 58px; font-size: 13px; color: #8a94a0; }
+</style>
+
+# Scalafmt Configuration: `.scalafmt.conf`
+
+<div class="columns" style="grid-template-columns: 440px minmax(0, 1fr); align-items: start; gap: 1em;">
+<div>
 
 ```properties
-version = "3.11.5"             # scalafmt version to use
-runner.dialect = scala3        # parse as Scala 3 (required)
-maxColumn = 100                # max. line length
-indent.main = 2                # indent by 2 spaces
-align.preset = more            # align the = signs
-rewrite.scala3.convertToNewSyntax = true     # if (…) → if … then
-rewrite.scala3.optionalBraces.enabled = true # indentation, no { }
-rewrite.rules = [RedundantBraces]            # drop needless { }
+version = "3.11.5"
+runner.dialect = scala3
+maxColumn = 80
+align.preset = more
+indent.main = 2
+rewrite.rules = [RedundantBraces, SortModifiers]
+rewrite.scala3.convertToNewSyntax = true
+rewrite.scala3.optionalBraces.enabled = true
 ```
 
-- `version` and `runner.dialect` are required, everything else is optional
-- without the rewrite rules scalafmt only changes spaces and line breaks
-- all options: scalameta.org/scalafmt/docs/configuration.html
+</div>
+<div>
+
+| Setting | Meaning |
+|---|---|
+| `version` | scalafmt version (required) |
+| `runner.dialect` | Scala dialect (required) |
+| `maxColumn` | max. line length (default 80) |
+| `align.preset` | alignment: `none`, `some` (default), `more`, `most` |
+| `indent.main` | indentation (default 2) |
+| `RedundantBraces` | removes unnecessary `{ }` |
+| `SortModifiers` | fixed modifier order |
+| `convertToNewSyntax` | `if (…)` → `if … then`, `for … do` |
+| `optionalBraces` | indentation, no braces (was `removeOptionalBraces`) |
 
 </div>
-<div markdown="1">
+</div>
 
-**Before** (as typed)
+<div class="src">Latest release v3.11.5 (July 2026), github.com/scalameta/scalafmt · docs: scalameta.org/scalafmt/docs/configuration.html</div>
 
+---
+
+<!-- _class: tools-page -->
+
+<style scoped>
+section { padding-top: 30px; }
+h1 { margin-bottom: 0.3rem; }
+h3 { margin: 0.3rem 0 0.3rem 0; font-size: 23px; }
+pre { font-size: 18px; margin: 0.1rem 0 0.4rem 0; }
+table { font-size: 18px; }
+th, td { padding: 4px 10px; }
+td code { font-size: 17px; }
+ul { margin: 0; } li { margin: 0.15rem 0; }
+</style>
+
+# Running Scalafmt
+
+<div class="columns" style="grid-template-columns: 1.1fr 1fr; align-items: start; gap: 1.4em;">
+<div>
+
+### Command line (scala-cli or `scalafmt`)
+```zsh
+% scala-cli fmt .           # format
+% scala-cli fmt --check .   # CI check
+```
+
+Or install the standalone tool with Coursier:
+```zsh
+% cs install scalafmt
+% scalafmt                  # format
+% scalafmt --test           # check only
+```
+
+</div>
+<div>
+
+### IDE
+- **VS Code / Cursor with Metals:** uses `.scalafmt.conf`
+- run *Format Document* or set `"editor.formatOnSave": true`
+
+</div>
+</div>
+
+---
+
+<!-- _class: tools-page -->
+
+<style scoped>
+section { padding-top: 30px; }
+h1 { margin-bottom: 0.3rem; }
+h3 { margin: 0 0 0.25rem 0; font-size: 22px; }
+pre { font-size: 15.5px; line-height: 1.4; margin: 0; }
+.note { font-size: 17px; color: #575e75; margin-top: 0.6rem; }
+</style>
+
+# Scalafmt: Before and After
+
+<div class="columns" style="align-items: start; gap: 1.2em;">
+<div>
+
+### Before
 ```scala
-@main def robots(): Unit = {
-val robots = Array("R2D2","C3PO","Optimus")
-val nums = List(1,2,3)
-val prepended = 0::nums // List(0, 1, 2, 3)
-val appended = nums:+4 // List(1, 2, 3, 4)
-for (i <- 0 until robots.length) {
-       println(robots(i))
-}
-if (nums.length > 2) { println("long") } else { println("short") }
+object Shop {
+  case class Item(name:String,price:Double,qty:Int)
+  def total(items:List[Item]):Double = {
+    items.map(i=>i.price*i.qty).sum
+  }
+  def label(item:Item):String = {
+    if (item.qty>10) { "bulk" } else { "single" }
+  }
+  def main(args:Array[String]):Unit = {
+    val cart=List(Item("tea",4.5,12),Item("jam",3,1))
+    for (i <- cart) { println(s"${i.name}: ${label(i)}") }
+    println(total(cart))
+  }
 }
 ```
 
-**After** `scalafmt`
+</div>
+<div>
 
+### After `scalafmt Shop.scala`
 ```scala
-@main def robots(): Unit =
-  val robots    = Array("R2D2", "C3PO", "Optimus")
-  val nums      = List(1, 2, 3)
-  val prepended = 0 :: nums // List(0, 1, 2, 3)
-  val appended  = nums :+ 4 // List(1, 2, 3, 4)
-  for i <- 0 until robots.length do println(robots(i))
-  if nums.length > 2 then println("long") else println("short")
+object Shop:
+  case class Item(name: String, price: Double, qty: Int)
+  def total(items: List[Item]): Double =
+    items.map(i => i.price * i.qty).sum
+  def label(item: Item): String =
+    if item.qty > 10 then "bulk" else "single"
+  def main(args: Array[String]): Unit =
+    val cart = List(Item("tea", 4.5, 12), Item("jam", 3, 1))
+    for i <- cart do println(s"${i.name}: ${label(i)}")
+    println(total(cart))
 ```
 
 </div>
 </div>
 
-<p class="small">Output: scalafmt 3.11.5 with exactly this config, run on Linux. Source: scalameta.org/scalafmt/docs/configuration.html.</p>
+<div class="note">Real output of scalafmt 3.11.5 with the <code>.scalafmt.conf</code> shown before: spaces added, braces removed, <code>if … then</code> and <code>for … do</code>. A second run changes nothing (<code>scalafmt --test</code>: “All files are formatted”).</div>
+
+---
+
+<!-- _class: tools -->
+
+## New Tools
+# GitHub Copilot
+
+An AI assistant for coding in VS Code
 
 ---
 

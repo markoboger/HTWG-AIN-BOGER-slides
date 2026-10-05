@@ -17,6 +17,8 @@ _footer: ""
 
 ---
 
+<!-- _class: inhalt -->
+
 # Goals
 
 <div class="columns" style="grid-template-columns: 1fr 260px; align-items: start;">
@@ -30,9 +32,11 @@ In this lecture you will learn about
 
 Supporting literature:
 
-- Learn Scala 3 the Fast Way,chapters
+- Learn Scala 3 the Fast Way, chapters (to fill)
 
 New Tools:
+
+- (Tool name)
 
 </div>
 <div markdown="1">
@@ -70,6 +74,15 @@ We already saw them im Scratch.
 <div>Iterations<img src="assets/pt07-scratch-repeat-forever.png" alt="Scratch blocks: repeat 10 and forever" style="width: 120px;"><img src="assets/pt07-scratch-repeat-until.png" alt="Scratch block: repeat until" style="width: 120px;"></div>
 </div>
 </div>
+
+---
+
+<!-- _class: kapitel -->
+
+## 1
+# Control Structures
+
+Statements, conditionals, and iterations
 
 ---
 
@@ -629,6 +642,25 @@ Because we do not need an index anymore, but directly iterate over the elements 
 
 ---
 
+<!-- _class: tools -->
+
+## New Tools
+# (Tool name)
+
+(Tool details to fill)
+
+---
+
+<!-- _class: tools-page -->
+
+# (Tool name)
+
+(Tool details to fill)
+
+---
+
+<!-- _class: inhalt -->
+
 # Summary
 
 <style scoped>section { font-size: 23px; }</style>
@@ -650,6 +682,8 @@ Then the return type is the same as used in the generator.
 # Tasks
 
 In CodeTask:
+
+- (Task to fill)
 
 ---
 
