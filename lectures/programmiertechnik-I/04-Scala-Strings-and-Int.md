@@ -69,13 +69,11 @@ object EvenOdd:
       : (Int, Int) =
     var even_count = 0
     var odd_count = 0
-    var i = 0
-    while nums(i) != 0 do
-      if nums(i) % 2 == 0 then
+    for n <- nums.takeWhile(_ != 0) do
+      if n % 2 == 0 then
         even_count += 1
       else
         odd_count += 1
-      i += 1
     (even_count, odd_count)
 ```
 
