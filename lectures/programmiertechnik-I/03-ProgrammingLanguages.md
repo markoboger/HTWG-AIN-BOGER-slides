@@ -29,61 +29,50 @@ How languages differ in abstraction level, paradigm, typing, execution model, an
 
 <style scoped>
 section { font-size: 16.5px; }
-p { margin: 0.15em 0; }
-table { font-size: 15px; width: 100%; border-collapse: collapse; margin: 0.2em 0 0.45em 0; }
-th, td { border: 1px solid #D9E5EC; padding: 0.22em 0.45em; vertical-align: top; }
-th { background: #F3F7FA; text-align: left; }
+p { margin: 0.12em 0; }
 pre { font-size: 12.5px; line-height: 1.25; margin: 0.1em 0; }
-code { font-size: 0.95em; }
-h3 { margin: 0.25em 0 0.1em 0; font-size: 1.02em; }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9em; align-items: start; margin-top: 0.25em; }
+.pair h3 { margin: 0 0 0.3em 0; font-size: 1.02em; text-align: center; }
+.map { font-size: 14px; margin: 0.2em 0 0.4em 0; }
 </style>
 
-Same ideas as in Scratch — text instead of blocks. A fast side-by-side into Scala.
+Same even / odd task as in Lecture 03: list until `0`, two counters. Scratch sprite ↔ Scala `object`, custom block ↔ `def`.
 
-| Concept | Scratch | Scala |
-|---|---|---|
-| **Arithmetic** | operator blocks `+ − × ÷` | expressions: `3 + 5 * 2` |
-| **Data types** | round / pointed block shapes | `Int`, `Double`, `String`, `Boolean` |
-| **Variables** | variable / list monitors | `val` (immutable), `var` (mutable) |
-| **Expressions** | nested reporter blocks | nested expressions, e.g. `(a + b) * 2` |
-| **Control** | `if`, `repeat`, `forever` | `if` / `else`, `for`, `while` |
-| **Routines** | command / reporter / My Blocks | `def` (procedures & functions) |
-| **Objects** | sprites with scripts & state | `object` / `class` with methods & fields |
-| **Events** | green flag, keys, messages | `@main` / program entry (and later callbacks) |
+<p class="map"><strong>Mapping:</strong> sprite <code>EvenOdd</code> → <code>object EvenOdd</code> · custom block „Zähle Gerade und Ungerade“ → <code>def countOddEven</code> → <code>(Int, Int)</code></p>
 
-<div class="columns" style="grid-template-columns: 1fr 1fr; align-items: start; column-gap: 1.2em;">
+<div class="pair">
 <div markdown="1">
 
-### Tiny examples
+### Scratch
 
-```scala
-val n: Int = 42
-val s: String = "hi"
-val ok: Boolean = n > 0
-
-if ok then println("yes") else println("no")
-for i <- 1 to 3 do println(i)
-
-def double(x: Int): Int = x * 2
-```
+<img src="assets/pt04-scratch-even-odd.png" alt="Scratch EvenOdd: green flag, custom block Zähle Gerade und Ungerade, repeat until 0, mod 2" style="width: 100%; max-width: 420px; height: auto; border-radius: 6px;" />
 
 </div>
 <div markdown="1">
 
-### Object ≈ sprite
+### Scala
 
 ```scala
-object Ball:
-  var x = 0
-  def move(dx: Int): Unit =
-    x += dx
+object EvenOdd:
+  val numbers = List(4, 7, 2, 9, 1, 6, 0)
 
-@main def demo(): Unit =
-  Ball.move(10)
-  println(Ball.x)  // 10
+  def countOddEven(nums: List[Int] = numbers)
+      : (Int, Int) =
+    var even_count = 0
+    var odd_count = 0
+    var i = 0
+    while nums(i) != 0 do
+      if nums(i) % 2 == 0 then
+        even_count += 1
+      else
+        odd_count += 1
+      i += 1
+    (even_count, odd_count)
+
+  @main def runEvenOdd(): Unit =
+    val (e, o) = countOddEven()
+    println(s"$e $o")  // 3 3
 ```
-
-**Takeaway:** sprites → objects, blocks → methods/functions, monitors → variables.
 
 </div>
 </div>

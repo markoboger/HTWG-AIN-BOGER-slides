@@ -35,21 +35,24 @@ First steps in Scala: setup, `Int` and `String` in the REPL, and a serial letter
 # Quick Intro: Scratch Concepts in Scala
 
 <style scoped>
-section { font-size: 17px; }
-p { margin: 0.15em 0; }
-pre { font-size: 13.5px; line-height: 1.3; margin: 0.15em 0; }
-.pair { display: grid; grid-template-columns: 1.1fr 1fr; gap: 1em; align-items: start; margin-top: 0.3em; }
-.pair h3 { margin: 0 0 0.35em 0; font-size: 1.05em; text-align: center; }
+section { font-size: 16.5px; }
+p { margin: 0.12em 0; }
+pre { font-size: 12.5px; line-height: 1.25; margin: 0.1em 0; }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9em; align-items: start; margin-top: 0.25em; }
+.pair h3 { margin: 0 0 0.3em 0; font-size: 1.02em; text-align: center; }
+.map { font-size: 14px; margin: 0.2em 0 0.4em 0; }
 </style>
 
-Same even / odd counting task as in Lecture 03 (Assembler, Fortran, C): walk a list until `0`, count with two variables.
+Same even / odd task as in Lecture 03: list until `0`, two counters. Scratch sprite ↔ Scala `object`, custom block ↔ `def`.
+
+<p class="map"><strong>Mapping:</strong> sprite <code>EvenOdd</code> → <code>object EvenOdd</code> · custom block „Zähle Gerade und Ungerade“ → <code>def countOddEven</code> → <code>(Int, Int)</code></p>
 
 <div class="pair">
 <div markdown="1">
 
 ### Scratch
 
-<img src="assets/pt04-scratch-even-odd.svg" alt="Scratch script counting even and odd numbers until 0" style="width: 100%; max-width: 400px; height: auto; background: #fff; border-radius: 8px;" />
+<img src="assets/pt04-scratch-even-odd.png" alt="Scratch EvenOdd: green flag, custom block Zähle Gerade und Ungerade, repeat until 0, mod 2" style="width: 100%; max-width: 420px; height: auto; border-radius: 6px;" />
 
 </div>
 <div markdown="1">
@@ -57,22 +60,26 @@ Same even / odd counting task as in Lecture 03 (Assembler, Fortran, C): walk a l
 ### Scala
 
 ```scala
-val numbers = List(4, 7, 2, 9, 1, 6, 0)
-var evenCount = 0
-var oddCount = 0
-var i = 0
+object EvenOdd:
+  val numbers = List(4, 7, 2, 9, 1, 6, 0)
 
-while numbers(i) != 0 do
-  if numbers(i) % 2 == 0 then
-    evenCount += 1
-  else
-    oddCount += 1
-  i += 1
+  def countOddEven(nums: List[Int] = numbers)
+      : (Int, Int) =
+    var even_count = 0
+    var odd_count = 0
+    var i = 0
+    while nums(i) != 0 do
+      if nums(i) % 2 == 0 then
+        even_count += 1
+      else
+        odd_count += 1
+      i += 1
+    (even_count, odd_count)
 
-println(s"$evenCount $oddCount")  // 3 3
+  @main def runEvenOdd(): Unit =
+    val (e, o) = countOddEven()
+    println(s"$e $o")  // 3 3
 ```
-
-List + loop + `if` / `else` + two counters — Scratch ideas as Scala text.
 
 </div>
 </div>
