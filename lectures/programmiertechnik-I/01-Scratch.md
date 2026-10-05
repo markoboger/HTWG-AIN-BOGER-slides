@@ -112,6 +112,8 @@ li li { font-size: 1em; }
   - LazyList
   - Second project - teams of two
 
+- HTML, CSS
+
 - Unity
   - C#
   - Third project - teams of two
