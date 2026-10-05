@@ -629,17 +629,11 @@ This is how Scratch lets sprites coordinate behavior.
 
 <div class="scratch-block-stack">
   <div>
-    <div class="scratch-block">
-      <span>broadcast</span>
-      <span class="scratch-pill">start game</span>
-    </div>
+    <img src="assets/event-broadcast-block.png" alt="broadcast start game" style="width: 280px; margin: 0;">
     <div class="scratch-note">send a message to all sprites</div>
   </div>
   <div>
-    <div class="scratch-block hat">
-      <span>when I receive</span>
-      <span class="scratch-pill">start game</span>
-    </div>
+    <img src="assets/event-when-i-receive.png" alt="when I receive start game" style="width: 300px; margin: 0;">
     <div class="scratch-note">start this script when that message arrives</div>
   </div>
 </div>
