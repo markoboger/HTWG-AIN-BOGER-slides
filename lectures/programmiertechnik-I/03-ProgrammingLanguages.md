@@ -355,12 +355,6 @@ How languages organize computation
 
 ---
 
-# Programming Paradigms
-
-![h:520](../Einf%C3%BChrung%20AIN/diagrams/paradigms.drawio.svg)
-
----
-
 # Paradigm
 
 A **paradigm** is a typical way of thinking about programs.
@@ -373,6 +367,12 @@ The three big families in this lecture are:
   - programs are organized around objects with state and behavior
 - **Functional**
   - programs are organized around functions, expressions, and transformations
+
+---
+
+# Programming Paradigms
+
+![h:520](../Einf%C3%BChrung%20AIN/diagrams/paradigms.drawio.svg)
 
 ---
 
