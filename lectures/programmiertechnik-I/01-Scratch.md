@@ -145,6 +145,9 @@ li li { font-size: 1em; }
 - Copilot
 - FMT
 - Cursor
+- Build Tools
+  - Mill
+  - SBT
 
 </div>
 <div>
