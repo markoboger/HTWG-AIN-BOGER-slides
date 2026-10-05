@@ -67,7 +67,6 @@ object EvenOdd:
     (even_count, odd_count)
 ```
 
-List + loop + `if` / `else` + two counters — Scratch ideas as Scala text.
 
 </div>
 </div>
