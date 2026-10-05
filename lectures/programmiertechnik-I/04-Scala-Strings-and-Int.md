@@ -36,21 +36,18 @@ First steps in Scala: setup, `Int` and `String` in the REPL, and a serial letter
 
 <style scoped>
 section { font-size: 17px; }
-p { margin: 0.15em 0; }
-pre { font-size: 12.5px; line-height: 1.25; margin: 0.15em 0; }
-.pair { display: grid; grid-template-columns: 1.1fr 1fr; gap: 1em; align-items: start; margin-top: 0.3em; }
-.pair h3 { margin: 0 0 0.35em 0; font-size: 1.05em; text-align: center; }
+p { margin: 0.1em 0; }
+pre { font-size: 12px; line-height: 1.22; margin: 0.1em 0; }
+.pair { display: grid; grid-template-columns: 1.25fr 1fr; gap: 0.7em; align-items: start; margin-top: 0.15em; }
+.pair h3 { margin: 0 0 0.2em 0; font-size: 1.02em; text-align: center; }
 </style>
-
-Same even / odd counting task as in Lecture 03 (Assembler, Fortran, C): walk a list until `0`, count with two variables.
 
 <div class="pair">
 <div markdown="1">
 
 ### Scratch
 
-<img src="assets/pt04-scratch-even-odd.png" alt="Scratch EvenOdd: green flag, custom block Zähle Gerade und Ungerade, monitors 3/3" style="width: 100%; max-width: 400px; height: auto; background: #fff; border-radius: 8px;" />
-
+<img src="assets/pt04-scratch-even-odd.png" alt="Scratch EvenOdd: green flag, custom block Zähle Gerade und Ungerade, monitors 3/3" style="width: 100%; max-width: 560px; height: auto; background: #fff; border-radius: 8px;" />
 
 </div>
 <div markdown="1">
@@ -78,7 +75,6 @@ object EvenOdd:
 ```
 
 List + loop + `if` / `else` + two counters — Scratch ideas as Scala text.
-
 
 </div>
 </div>
