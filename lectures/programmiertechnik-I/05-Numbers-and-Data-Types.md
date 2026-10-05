@@ -996,6 +996,8 @@ From quick experiments to real projects – and editing code fast in VS Code
 
 # From Worksheets to a Build Tool
 
+<img src="assets/pt05-mill-logo.png" alt="Mill build tool logo" style="position: absolute; right: 100px; top: 28px; height: 88px;">
+
 <style scoped>section { font-size: 20px; } p { margin: 0.3em 0; } ul { margin: 0.2em 0; }</style>
 
 <div class="columns" style="grid-template-columns: 0.8fr 1.3fr; align-items: start;">
