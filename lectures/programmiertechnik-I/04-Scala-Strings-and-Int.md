@@ -80,14 +80,6 @@ List + loop + `if` / `else` + two counters — Scratch ideas as Scala text.
 
 ---
 
-# Why not Java?
-
-Java is also incorporating functional elements into its core language since version 8. Functional programming is possible in Java, but it is not easy. For example, creating an immutable object is hard, since the default data structures are mutable. The syntax for immutable structures is longer than for mutable, state change is so common, it is hard to get away from it.
-
-So, to become a good programmer with functional style available to you, it is easier to learn a language that makes functional programming easy and then switch back to Java and apply what you learned. If you ever go back...
-
----
-
 # Language Properties (Researched)
 
 <style scoped>
