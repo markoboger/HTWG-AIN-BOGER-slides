@@ -49,7 +49,7 @@ Same even / odd counting task as in Lecture 03 (Assembler, Fortran, C): walk a l
 
 ### Scratch
 
-<img src="assets/pt04-scratch-even-odd.svg" alt="Scratch script counting even and odd numbers until 0" style="width: 100%; max-width: 400px; height: auto; background: #fff; border-radius: 8px;" />
+<img src="assets/pt04-scratch-even-odd.png" alt="Scratch EvenOdd: green flag, custom block Zähle Gerade und Ungerade, monitors 3/3" style="width: 100%; max-width: 400px; height: auto; background: #fff; border-radius: 8px;" />
 
 
 </div>
