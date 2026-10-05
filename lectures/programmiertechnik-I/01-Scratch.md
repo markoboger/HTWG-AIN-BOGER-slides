@@ -128,6 +128,7 @@ li li { font-size: 1em; }
 - Scratch Editor
 - Moodle
 - CodeTask
+- Scastie
 - Command Line
 - VS Code
 - Cursor
