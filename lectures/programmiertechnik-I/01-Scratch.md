@@ -96,7 +96,6 @@ li li { font-size: 1em; }
   - First project - individual
 - Scala
   - Languages and Paradigms
-  - Scala in CLI
   - Number Types
   - Arrays and Lists
   - Control Structures
@@ -108,7 +107,6 @@ li li { font-size: 1em; }
 <div>
 
 - Scala (continued)
-  - Version Control
   - Collections
   - Namespaces
   - LazyList
@@ -123,7 +121,17 @@ li li { font-size: 1em; }
 
 ---
 
+<!-- _class: inhalt -->
+
 # Content of this Lecture: Tools
+
+- Scratch Editor
+- Moodle
+- CodeTask
+- Command Line
+- VS Code
+- Cursor
+- Version Control
 
 
 ---
