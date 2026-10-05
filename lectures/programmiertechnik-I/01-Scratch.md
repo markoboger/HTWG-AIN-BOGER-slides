@@ -131,6 +131,7 @@ li li { font-size: 1em; }
 - Scastie
 - Command Line
 - VS Code
+- FMT
 - Cursor
 - Version Control
 
