@@ -36,59 +36,48 @@ First steps in Scala: setup, `Int` and `String` in the REPL, and a serial letter
 
 <style scoped>
 section { font-size: 17px; }
-p { margin: 0.15em 0; }
-table { font-size: 14.5px; width: 100%; border-collapse: collapse; margin: 0.15em 0 0.35em 0; }
-th, td { border: 1px solid #D9E5EC; padding: 0.18em 0.4em; vertical-align: top; }
+p { margin: 0.12em 0; }
+table { font-size: 14px; width: 100%; border-collapse: collapse; margin: 0.1em 0 0.3em 0; }
+th, td { border: 1px solid #D9E5EC; padding: 0.15em 0.35em; vertical-align: top; }
 th { background: #F3F7FA; text-align: left; }
-pre { font-size: 13px; line-height: 1.28; margin: 0.15em 0; }
-.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2em; align-items: start; margin-top: 0.2em; }
-.pair h3 { margin: 0 0 0.35em 0; font-size: 1.05em; text-align: center; }
-.scratch-script { display: flex; flex-direction: column; align-items: flex-start; gap: 0.15em; }
-.scratch-script img { display: block; height: auto; }
+pre { font-size: 13.5px; line-height: 1.28; margin: 0.1em 0; }
+.pair { display: grid; grid-template-columns: 1.05fr 1fr; gap: 1em; align-items: start; }
+.pair h3 { margin: 0 0 0.3em 0; font-size: 1.02em; text-align: center; }
 </style>
 
-Same concepts as in Scratch — text instead of blocks.
+Arithmetic with a list, a loop, an `if`, and a variable — Scratch blocks vs Scala.
 
-| | Scratch | Scala |
+| Concept | Scratch | Scala |
 |---|---|---|
-| Types / vars | round & pointed reporters, monitors | `Int`, `String`, `Boolean`, `val` / `var` |
-| Control | `if`, `repeat`, `forever` | `if` / `else`, `for`, `while` |
-| Objects | sprite + scripts | `object` / `class` + methods |
+| List / loop | list + `repeat` | `List` + `for` |
+| Condition | `if` + operators | `if` + `%` |
+| Variable | `set` / `change` | `var` / `+=` |
+| Object (later) | sprite | `object` / `class` |
 
 <div class="pair">
 <div markdown="1">
 
-### Scratch (sprite script)
+### Scratch
 
-<div class="scratch-script">
-<img src="assets/event-green-flag.png" alt="when green flag clicked" style="width: 200px;" />
-<img src="assets/control-forever.png" alt="forever" style="width: 220px;" />
-<img src="assets/motion-change-y.png" alt="change y by 8" style="width: 180px; margin-left: 18px;" />
-<img src="assets/control-if-then.png" alt="if then" style="width: 240px; margin-left: 18px;" />
-</div>
-
-Event → loop → motion → condition — one sprite script.
+<img src="assets/pt04-scratch-sum-evens.svg" alt="Scratch script: sum even numbers in a list with repeat and if" style="width: 100%; max-width: 340px; height: auto;" />
 
 </div>
 <div markdown="1">
 
-### Scala (same idea)
+### Scala
 
 ```scala
-object Ball:
-  var y = 0
-  def onEdge: Boolean = y > 180 || y < -180
+val numbers = List(4, 7, 2, 9, 1, 6)
+var sum = 0
 
-  def step(): Unit =
-    y += 8
-    if onEdge then y = -y   // "bounce"
+for n <- numbers do
+  if n % 2 == 0 then
+    sum += n
 
-@main def run(): Unit =
-  while true do              // forever
-    Ball.step()
+println(sum)  // 12  (4+2+6)
 ```
 
-Green flag ≈ `@main`, forever ≈ `while`, sprite ≈ `object`.
+Same task: walk the list, keep a running `sum`, add only even values.
 
 </div>
 </div>
