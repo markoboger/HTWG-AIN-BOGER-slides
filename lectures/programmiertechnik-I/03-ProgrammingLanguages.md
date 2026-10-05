@@ -25,27 +25,84 @@ How languages differ in abstraction level, paradigm, typing, execution model, an
 
 ---
 
-# Most Popular Programming Languages
+# Quick Intro: Scratch Concepts in Scala
 
-<div class="columns">
+<style scoped>
+section { font-size: 18px; }
+p { margin: 0.2em 0; }
+ul { margin: 0.15em 0; }
+li { margin: 0.05em 0; }
+pre { font-size: 13px; line-height: 1.3; margin: 0.15em 0; }
+h3 { margin: 0.15em 0 0.1em 0; font-size: 1.05em; }
+</style>
+
+Scratch already taught the core ideas. Here is the same toolkit in Scala text.
+
+<div class="columns" style="grid-template-columns: 1fr 1fr; align-items: start; column-gap: 1.4em;">
 <div markdown="1">
 
-- Programming languages change with industry trends, platforms, and ecosystems.
-- Popularity is not the same as quality, but it often reflects demand and community size.
-- We use this slide as an entry point into a bigger question:
-  - Why are there so many languages?
-  - What trade-offs do they make?
-  - Which problems are they built for?
+### Arithmetic and expressions
+
+```scala
+val a = 3 + (5 * 2)   // 13
+val b = a - 1          // 12
+```
+
+### Simple data types
+
+| Scratch shape | Scala type |
+|---|---|
+| round number | `Int`, `Double` |
+| round text | `String` |
+| pointed (hex) | `Boolean` |
+
+```scala
+val n: Int = 42
+val s: String = "hi"
+val ok: Boolean = n > 0
+```
+
+### Control structures
+
+| Scratch | Scala |
+|---|---|
+| if / if-else | `if … then … else …` |
+| repeat / forever | `for`, `while` |
+
+```scala
+if ok then println("yes") else println("no")
+for i <- 1 to 3 do println(i)
+```
 
 </div>
 <div markdown="1">
 
-<a href="https://www.youtube.com/watch?v=ZTPrbAKmcdo"><img src="assets/pt03-popular-languages-video.jpg" alt="Video thumbnail: Most Popular Programming Languages: Data from 1958 to 2025 (click to open on YouTube)" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.15); margin-top: 30px;" /></a>
+### From Scratch blocks to Scala
 
-<p class="small" style="text-align: center; margin-top: 8px;">▶ <a href="https://www.youtube.com/watch?v=ZTPrbAKmcdo">Most Popular Programming Languages: Data from 1958 to 2025</a> – Data Is Beautiful, YouTube</p>
+| Scratch | Scala |
+|---|---|
+| sprite | object / class |
+| command block | procedure / method (`Unit`) |
+| reporter block | function (returns a value) |
+| variable / list | `var` / `val`, collections |
+| operators | expressions (`+`, `&&`, …) |
+| events (green flag) | `@main` / program entry |
+| My Blocks | `def` routines |
+
+```scala
+def double(x: Int): Int = x * 2
+
+@main def demo(): Unit =
+  var score = 0
+  score += double(3)
+  println(score)  // 6
+```
+
+**Idea:** same concepts, text instead of blocks — types and names become explicit.
 
 </div>
 </div>
+
 
 ---
 
