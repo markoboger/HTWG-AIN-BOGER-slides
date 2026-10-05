@@ -13,7 +13,7 @@ _footer: ""
 ## Programmiertechnik I
 # Lecture 04: Scala Strings and Int
 
-<p class="small">Migrated from the Google Slides deck "PR-04-Scala Strings and Int".</p>
+First steps in Scala: setup, `Int` and `String` in the REPL, and a serial letter.
 
 ---
 
