@@ -47,3 +47,6 @@ Thumbs.db
 
 # Marp-specific caches (if any)
 .marp/
+
+# Mill build output (local trials — do not commit)
+out/

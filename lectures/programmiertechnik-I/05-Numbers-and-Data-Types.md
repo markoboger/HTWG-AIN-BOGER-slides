@@ -1549,6 +1549,209 @@ Case modifiers in the replacement: `\u` / `\l` change the next letter, `\U` / `\
 
 ---
 
+<!-- _class: kapitel -->
+
+## 2
+# Example: Energy Bill
+
+Number types, top-level defs, Mill project
+
+---
+
+# Goal
+
+<style scoped>section { font-size: 24px; }</style>
+
+Build a small **energy bill** program that uses several number types:
+
+- `Int`, `Float`, `Double`, `Range`
+- `BigDecimal` for money (exact cents)
+- `BigInt` helper `toCents`
+- one ASCII table as a multiline `s"""…""".stripMargin` string
+
+**Scala 3 style for this example:**
+
+- **no** `object` wrappers for the bill logic
+- **no** `case class`
+- only **top-level** `val`s and **top-level** `def`s in several files
+
+---
+
+# Project Structure
+
+<style scoped>section { font-size: 20px; } pre { font-size: 16px; margin: 0.3em 0; } p { margin: 0.3em 0; }</style>
+
+<div class="columns" style="grid-template-columns: 1fr 1fr; align-items: start;">
+<div markdown="1">
+
+The `programmingI` repo, Mill module `energyBill`:
+
+```text
+programmingI/
+  build.mill
+  src/main/scala/
+    lecture05-Number Types/
+      Energy.scala           # inputs
+      EnergyBillCalc.scala   # BigDecimal math, money
+      EnergyBillTable.scala  # ASCII table
+      EnergyBill.scala       # top-level main
+```
+
+Sources live only under `lecture05-Number Types/` — no `energyBill/src`, no symlinks.
+
+</div>
+<div markdown="1">
+
+`build.mill` (Mill 1.1.10):
+
+```scala
+package build
+import mill.*, scalalib.*
+
+object energyBill extends ScalaModule {
+  def scalaVersion = "3.9.0"
+  def mainClass = Some("EnergyBill$package")
+  override def moduleDir =
+    super.moduleDir / os.up / "src" / "main" /
+      "scala" / "lecture05-Number Types"
+  def sources = Task.Sources(moduleDir)
+}
+```
+
+Top-level `main` compiles to class `EnergyBill$package`.
+
+</div>
+</div>
+
+---
+
+# Energy.scala — Input Values
+
+<style scoped>section { font-size: 22px; } pre { font-size: 18px; }</style>
+
+Top-level vals (different number types):
+
+```scala
+val consumptionKwh: Int = 350
+val pricePerKwh: Float = 0.32f
+val standingChargePerMonth: Float = 3.0f
+val taxRate: Double = 0.19
+val billingPeriod: Range = 1 to 12
+
+val months: Int = billingPeriod.size
+```
+
+- `Float` for unit prices (demo type; money math uses `BigDecimal`)
+- `Range` for the billing period; `months` is derived
+
+---
+
+# EnergyBillCalc.scala — Money Math
+
+<style scoped>section { font-size: 18px; } pre { font-size: 15px; margin: 0.3em 0; } p { margin: 0.3em 0; }</style>
+
+Promote inputs to `BigDecimal`, then compute:
+
+```scala
+val hundred: BigDecimal = BigDecimal(100)
+val consumptionBd: BigDecimal = BigDecimal(consumptionKwh)
+val priceBd: BigDecimal = BigDecimal(pricePerKwh.toString)
+// … standingBd, taxRateBd, monthsBd in the same way
+val energyNet: BigDecimal = consumptionBd * priceBd
+val standingNet: BigDecimal = monthsBd * standingBd
+val subtotalNet: BigDecimal = energyNet + standingNet
+val taxAmount: BigDecimal = subtotalNet * taxRateBd
+val totalGross: BigDecimal = subtotalNet + taxAmount   // 176.12
+```
+
+Helpers:
+
+```scala
+def toCents(amount: BigDecimal): BigInt =
+  (amount * hundred)
+    .setScale(0, BigDecimal.RoundingMode.HALF_UP)
+    .toBigInt
+
+def money(amount: BigDecimal): String =
+  String.format(java.util.Locale.GERMANY, "%8.2f €", amount.bigDecimal)
+```
+
+Example: `money(totalGross)` → `176,12 €`
+
+---
+
+# EnergyBillTable.scala — ASCII Table
+
+<style scoped>section { font-size: 18px; } pre { font-size: 14px; margin: 0.3em 0; }</style>
+
+One top-level multiline string, printed once:
+
+```scala
+def billTable: String =
+  val taxLabel =
+    f"VAT (${(taxRate * 100).toInt}%%)".padTo(16, ' ')
+  val blankQty = f"${""}%8s"
+  val consumptionText = f"$consumptionKwh%8d"
+  val monthsText = f"$months%8d"
+  val averageText =
+    String.format(java.util.Locale.US, "%8.1f", averageKwhPerMonth)
+  val blankAmount = f"${""}%10s"
+
+  s"""|+------------------+----------+--------+------------+
+     || Item             | Quantity | Unit   | Amount     |
+     |+------------------+----------+--------+------------+
+     || Energy (net)     | $consumptionText | kWh    | ${money(energyNet)} |
+     || Standing (net)   | $monthsText | months | ${money(standingNet)} |
+     || Subtotal (net)   | $blankQty |        | ${money(subtotalNet)} |
+     || $taxLabel | $blankQty |        | ${money(taxAmount)} |
+     || Avg. consumption | $averageText | kWh/mo | $blankAmount |
+     |+------------------+----------+--------+------------+
+     || Total (gross)    | $blankQty |        | ${money(totalGross)} |
+     |+------------------+----------+--------+------------+""".stripMargin
+```
+
+---
+
+# EnergyBill.scala — Top-Level main
+
+<style scoped>section { font-size: 24px; } pre { font-size: 20px; }</style>
+
+```scala
+def main(args: Array[String]): Unit =
+  println(billTable)
+```
+
+No surrounding `object`. The JVM entry point is the generated class `EnergyBill$package`.
+
+---
+
+<!-- _class: tools-page -->
+
+# Live Demo: Run with Mill
+
+<style scoped>section { font-size: 22px; } pre { font-size: 17px; margin: 0.3em 0; } p { margin: 0.3em 0; }</style>
+
+From the `programmingI` repo root:
+
+```bash
+mill energyBill.run
++------------------+----------+--------+------------+
+| Item             | Quantity | Unit   | Amount     |
++------------------+----------+--------+------------+
+| Energy (net)     |      350 | kWh    |   112,00 € |
+| Standing (net)   |       12 | months |    36,00 € |
+| Subtotal (net)   |          |        |   148,00 € |
+| VAT (19%)        |          |        |    28,12 € |
+| Avg. consumption |     29.2 | kWh/mo |            |
++------------------+----------+--------+------------+
+| Total (gross)    |          |        |   176,12 € |
++------------------+----------+--------+------------+
+```
+
+<p class="small">Mill 1.1.10 via Homebrew (<code>/opt/homebrew/bin/mill</code>), output on macOS.</p>
+
+---
+
 <!-- _class: inhalt -->
 
 # Summary
@@ -1563,7 +1766,7 @@ Case modifiers in the replacement: `\u` / `\l` change the next letter, `\U` / `\
 - `BigInt` and `BigDecimal` for very large numbers and money
 - `Char` is a 16-bit number, `Boolean` is `true` or `false`
 - `Range`: `1 to 10`, `1 until 10`, `1 to 10 by 2`
-- Mill: `./mill Foo.scala` runs a script, `build.mill` describes a project
+- Mill: `./mill Foo.scala` runs a script, `build.mill` describes a project; example: `mill energyBill.run` (energy bill, `176,12 €`)
 
 ---
 
