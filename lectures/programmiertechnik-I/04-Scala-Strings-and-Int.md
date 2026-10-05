@@ -58,6 +58,10 @@ Same even / odd counting task as in Lecture 03 (Assembler, Fortran, C): walk a l
 ### Scala
 
 ```scala
+@main def runEvenOdd(): Unit =
+  val (e, o) = EvenOdd.countOddEven()
+  println(s"$e $o")  // 3 3
+
 object EvenOdd:
   val numbers = List(4, 7, 2, 9, 1, 6, 0)
 
@@ -73,10 +77,6 @@ object EvenOdd:
         odd_count += 1
       i += 1
     (even_count, odd_count)
-
-  @main def runEvenOdd(): Unit =
-    val (e, o) = countOddEven()
-    println(s"$e $o")  // 3 3
 ```
 
 List + loop + `if` / `else` + two counters — Scratch ideas as Scala text.
