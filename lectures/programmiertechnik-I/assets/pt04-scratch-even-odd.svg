@@ -1,78 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="380" height="460" viewBox="0 0 380 460">
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="500" viewBox="0 0 440 500">
   <defs>
-    <filter id="s" x="-5%" y="-5%" width="110%" height="120%">
-      <feDropShadow dx="0" dy="1" stdDeviation="1.2" flood-opacity="0.25"/>
+    <filter id="s" x="-6%" y="-6%" width="112%" height="120%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="1.2" flood-opacity="0.2"/>
     </filter>
   </defs>
-  <style>
-    .lab { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 13px; fill: #fff; font-weight: 600; }
-    .num { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 12px; fill: #111; font-weight: 600; }
-    .dark { fill: #111; }
-  </style>
+  <rect width="440" height="500" fill="#FFFFFF"/>
 
-  <!-- green flag -->
-  <path filter="url(#s)" d="M18 16 h210 a12 12 0 0 1 12 12 v22 H18 a12 12 0 0 1-12-12 V28 a12 12 0 0 1 12-12 z" fill="#FFBF00"/>
-  <text class="lab dark" x="34" y="40">when green flag clicked</text>
+  <!-- when green flag clicked -->
+  <g filter="url(#s)">
+    <path fill="#FFBF00" d="M28 18h30v10c0 6 4 10 10 10h210c8 0 14 6 14 14v18H28c-8 0-14-6-14-14V32c0-8 6-14 14-14z"/>
+  </g>
+  <circle cx="52" cy="46" r="9" fill="#4CBF56"/>
+  <polygon points="49,41 49,51 58,46" fill="#fff"/>
+  <text x="70" y="51" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#1a1a1a">when green flag clicked</text>
 
-  <!-- set even_count to 0 -->
-  <path filter="url(#s)" d="M18 56 h300 a10 10 0 0 1 10 10 v24 H18 a10 10 0 0 1-10-10 V66 a10 10 0 0 1 10-10 z" fill="#FF8C1A"/>
-  <text class="lab" x="32" y="74">set</text>
-  <rect x="60" y="62" width="92" height="20" rx="10" fill="#FFB366"/>
-  <text class="num" x="68" y="76">even_count</text>
-  <text class="lab" x="158" y="74">to</text>
-  <rect x="180" y="62" width="36" height="20" rx="10" fill="#fff"/>
-  <text class="num" x="192" y="76">0</text>
+  <!-- set evenCount to 0 -->
+  <g filter="url(#s)"><rect x="28" y="78" width="360" height="36" rx="10" fill="#FF8C1A"/></g>
+  <text x="44" y="101" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#fff">set</text>
+  <rect x="78" y="86" width="102" height="22" rx="11" fill="#FFB366"/>
+  <text x="90" y="102" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#1a1a1a">evenCount</text>
+  <text x="190" y="101" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#fff">to</text>
+  <rect x="220" y="86" width="36" height="22" rx="11" fill="#fff"/>
+  <text x="232" y="102" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#1a1a1a">0</text>
 
-  <!-- set odd_count to 0 -->
-  <path filter="url(#s)" d="M18 96 h300 a10 10 0 0 1 10 10 v24 H18 a10 10 0 0 1-10-10 V106 a10 10 0 0 1 10-10 z" fill="#FF8C1A"/>
-  <text class="lab" x="32" y="114">set</text>
-  <rect x="60" y="102" width="86" height="20" rx="10" fill="#FFB366"/>
-  <text class="num" x="70" y="116">odd_count</text>
-  <text class="lab" x="152" y="114">to</text>
-  <rect x="174" y="102" width="36" height="20" rx="10" fill="#fff"/>
-  <text class="num" x="186" y="116">0</text>
+  <!-- set oddCount to 0 -->
+  <g filter="url(#s)"><rect x="28" y="120" width="360" height="36" rx="10" fill="#FF8C1A"/></g>
+  <text x="44" y="143" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#fff">set</text>
+  <rect x="78" y="128" width="92" height="22" rx="11" fill="#FFB366"/>
+  <text x="92" y="144" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#1a1a1a">oddCount</text>
+  <text x="182" y="143" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#fff">to</text>
+  <rect x="212" y="128" width="36" height="22" rx="11" fill="#fff"/>
+  <text x="224" y="144" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#1a1a1a">0</text>
 
-  <!-- set i to 1 -->
-  <path filter="url(#s)" d="M18 136 h250 a10 10 0 0 1 10 10 v24 H18 a10 10 0 0 1-10-10 V146 a10 10 0 0 1 10-10 z" fill="#FF8C1A"/>
-  <text class="lab" x="32" y="154">set</text>
-  <rect x="60" y="142" width="36" height="20" rx="10" fill="#FFB366"/>
-  <text class="num" x="74" y="156">i</text>
-  <text class="lab" x="104" y="154">to</text>
-  <rect x="126" y="142" width="36" height="20" rx="10" fill="#fff"/>
-  <text class="num" x="138" y="156">1</text>
+  <!-- for each n in numbers — C block body -->
+  <g filter="url(#s)">
+    <path fill="#FFAB19" d="M28 164h370c8 0 14 6 14 14v28H52v220H28c-8 0-14-6-14-14V178c0-8 6-14 14-14z"/>
+    <path fill="#FFAB19" d="M28 426h48v20c0 8 6 14 14 14h110c8 0 14-6 14-14v-8H42c-8 0-14-6-14-14z"/>
+  </g>
+  <text x="44" y="188" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#fff">for each</text>
+  <rect x="118" y="172" width="34" height="22" rx="11" fill="#FFB366"/>
+  <text x="128" y="188" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#1a1a1a">n</text>
+  <text x="160" y="188" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#fff">in</text>
+  <rect x="188" y="172" width="100" height="22" rx="11" fill="#CF63CF"/>
+  <text x="202" y="188" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#fff">numbers</text>
 
-  <!-- repeat until item i = 0  (C/Fortran sentinel) -->
-  <path filter="url(#s)" d="M18 176 h330 a10 10 0 0 1 10 10 v28 H38 v188 H18 a10 10 0 0 1-10-10 V186 a10 10 0 0 1 10-10 z" fill="#FFAB19"/>
-  <path d="M18 392 h40 v22 a10 10 0 0 0 10 10 h90 a10 10 0 0 0 10-10 v-8 H28 a10 10 0 0 1-10-10 z" fill="#FFAB19"/>
-  <text class="lab" x="32" y="198">repeat until</text>
-  <rect x="118" y="184" width="170" height="22" rx="11" fill="#59C059"/>
-  <text class="lab" x="128" y="199" style="font-size:12px">item i of numbers = 0</text>
+  <!-- if n = 0 then stop -->
+  <g filter="url(#s)">
+    <path fill="#FFAB19" d="M52 212h330c8 0 14 6 14 14v26H76v44H52c-8 0-14-6-14-14V226c0-8 6-14 14-14z"/>
+    <path fill="#FFAB19" d="M52 296h30v14c0 6 4 10 10 10h86c6 0 10-4 10-10v-6H66c-8 0-14-6-14-14z"/>
+  </g>
+  <text x="68" y="236" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#fff">if</text>
+  <rect x="92" y="220" width="88" height="22" rx="11" fill="#59C059"/>
+  <text x="112" y="236" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#fff">n = 0</text>
+  <text x="192" y="236" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#fff">then</text>
+  <g filter="url(#s)"><rect x="76" y="254" width="170" height="30" rx="8" fill="#FF661A"/></g>
+  <text x="96" y="274" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#fff">stop this script</text>
 
-  <!-- if (item i) mod 2 = 0 -->
-  <path filter="url(#s)" d="M38 218 h300 a10 10 0 0 1 10 10 v26 H58 v70 H38 a10 10 0 0 1-10-10 V228 a10 10 0 0 1 10-10 z" fill="#FFAB19"/>
-  <path d="M38 314 h30 v16 a8 8 0 0 0 8 8 h70 a8 8 0 0 0 8-8 v-6 H48 a10 10 0 0 1-10-10 z" fill="#FFAB19"/>
-  <!-- else mouth hint -->
-  <text class="lab" x="50" y="238">if</text>
-  <rect x="70" y="224" width="230" height="22" rx="11" fill="#59C059"/>
-  <text class="lab" x="80" y="239" style="font-size:11px">(item i of numbers) mod 2 = 0</text>
-  <text class="lab" x="50" y="268" style="font-size:12px">then</text>
-  <path filter="url(#s)" d="M58 274 h200 a8 8 0 0 1 8 8 v18 H58 a8 8 0 0 1-8-8 V282 a8 8 0 0 1 8-8 z" fill="#FF8C1A"/>
-  <text class="lab" x="68" y="288" style="font-size:12px">change even_count by 1</text>
-  <text class="lab" x="50" y="322" style="font-size:12px">else</text>
-  <path filter="url(#s)" d="M58 328 h200 a8 8 0 0 1 8 8 v18 H58 a8 8 0 0 1-8-8 V336 a8 8 0 0 1 8-8 z" fill="#FF8C1A"/>
-  <text class="lab" x="68" y="342" style="font-size:12px">change odd_count by 1</text>
+  <!-- if-else even / odd -->
+  <g filter="url(#s)">
+    <!-- if head -->
+    <path fill="#FFAB19" d="M52 320h330c8 0 14 6 14 14v26H76v40H52c-8 0-14-6-14-14V334c0-8 6-14 14-14z"/>
+    <!-- else bridge -->
+    <path fill="#FFAB19" d="M52 400h24v10h306v26H76v36H52c-8 0-14-6-14-14v-48c0-8 6-10 14-10z"/>
+    <!-- bottom notch -->
+    <path fill="#FFAB19" d="M52 472h30v10c0 6 4 10 10 10h90c6 0 10-4 10-10v-6H66c-8 0-14-4-14-10z"/>
+  </g>
+  <text x="68" y="344" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#fff">if</text>
+  <rect x="92" y="328" width="140" height="22" rx="11" fill="#59C059"/>
+  <text x="104" y="344" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#fff">n mod 2 = 0</text>
+  <text x="244" y="344" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#fff">then</text>
+  <g filter="url(#s)"><rect x="76" y="360" width="220" height="30" rx="8" fill="#FF8C1A"/></g>
+  <text x="90" y="380" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#fff">change evenCount by 1</text>
+  <text x="68" y="424" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#fff">else</text>
+  <g filter="url(#s)"><rect x="76" y="434" width="210" height="30" rx="8" fill="#FF8C1A"/></g>
+  <text x="90" y="454" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#fff">change oddCount by 1</text>
 
-  <!-- change i by 1 -->
-  <path filter="url(#s)" d="M38 358 h230 a10 10 0 0 1 10 10 v24 H38 a10 10 0 0 1-10-10 V368 a10 10 0 0 1 10-10 z" fill="#FF8C1A"/>
-  <text class="lab" x="50" y="376">change</text>
-  <rect x="106" y="364" width="36" height="20" rx="10" fill="#FFB366"/>
-  <text class="num" x="120" y="378">i</text>
-  <text class="lab" x="150" y="376">by</text>
-  <rect x="176" y="364" width="36" height="20" rx="10" fill="#fff"/>
-  <text class="num" x="188" y="378">1</text>
-
-  <!-- say both -->
-  <path filter="url(#s)" d="M18 424 h330 a10 10 0 0 1 10 10 v22 H18 a10 10 0 0 1-10-10 V434 a10 10 0 0 1 10-10 z" fill="#9966FF"/>
-  <text class="lab" x="32" y="440" style="font-size:12px">say join even_count odd_count</text>
+  <!-- list caption -->
+  <text x="28" y="496" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#575e75">numbers = [4, 7, 2, 9, 1, 6, 0]   →   even 3, odd 3</text>
 </svg>

@@ -35,30 +35,21 @@ First steps in Scala: setup, `Int` and `String` in the REPL, and a serial letter
 # Quick Intro: Scratch Concepts in Scala
 
 <style scoped>
-section { font-size: 16.5px; }
-p { margin: 0.1em 0; }
-table { font-size: 13.5px; width: 100%; border-collapse: collapse; margin: 0.08em 0 0.25em 0; }
-th, td { border: 1px solid #D9E5EC; padding: 0.12em 0.32em; vertical-align: top; }
-th { background: #F3F7FA; text-align: left; }
-pre { font-size: 13px; line-height: 1.26; margin: 0.08em 0; }
-.pair { display: grid; grid-template-columns: 1.05fr 1fr; gap: 0.9em; align-items: start; }
-.pair h3 { margin: 0 0 0.25em 0; font-size: 1.0em; text-align: center; }
+section { font-size: 17px; }
+p { margin: 0.15em 0; }
+pre { font-size: 13.5px; line-height: 1.3; margin: 0.15em 0; }
+.pair { display: grid; grid-template-columns: 1.1fr 1fr; gap: 1em; align-items: start; margin-top: 0.3em; }
+.pair h3 { margin: 0 0 0.35em 0; font-size: 1.05em; text-align: center; }
 </style>
 
-Same task as in Lecture 03 (Assembler / Fortran / C): count **even** and **odd** numbers until `0`.
-
-| Concept | Scratch | Scala |
-|---|---|---|
-| List + loop | list + `repeat until` | `List` / array + `while` / `for` |
-| Even / odd | `mod 2 = 0` in an `if` | `n % 2 == 0` |
-| Two counters | `even_count`, `odd_count` | two `var`s |
+Same even / odd counting task as in Lecture 03 (Assembler, Fortran, C): walk a list until `0`, count with two variables.
 
 <div class="pair">
 <div markdown="1">
 
 ### Scratch
 
-<img src="assets/pt04-scratch-even-odd.svg" alt="Scratch: count even and odd until list item is 0" style="width: 100%; max-width: 360px; height: auto;" />
+<img src="assets/pt04-scratch-even-odd.svg" alt="Scratch script counting even and odd numbers until 0" style="width: 100%; max-width: 400px; height: auto; background: #fff; border-radius: 8px;" />
 
 </div>
 <div markdown="1">
@@ -81,7 +72,7 @@ while numbers(i) != 0 do
 println(s"$evenCount $oddCount")  // 3 3
 ```
 
-Even: 4, 2, 6 — odd: 7, 9, 1 — sentinel `0` ends the list.
+List + loop + `if` / `else` + two counters — Scratch ideas as Scala text.
 
 </div>
 </div>
