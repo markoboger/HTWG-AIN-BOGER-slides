@@ -25,6 +25,7 @@ Deepening the core programming concepts with Scratch.
 - Organize larger projects with custom blocks and clear responsibilities.
 - Model game flow with states such as start, play, pause, and game over.
 - Debug clones, variables, broadcasts, and timing systematically, for example with variable monitors, instead of guessing.
+- Connect Scratch numbers, text, and conditions to Scala's `Int`, `String`, and `Boolean`.
 
 ---
 
@@ -451,6 +452,341 @@ object EvenOdd:
 
 ---
 
+# Three Basic Data Types: Int, String, Boolean
+
+<style scoped>
+section { font-size: 20px; }
+.cols { display:grid; grid-template-columns:1fr 1fr; column-gap:2em; align-items:start; }
+pre { font-size: 15px; line-height: 1.3; }
+.typerow { display: grid; grid-template-columns: 200px 1fr; gap: 0.5rem 1rem; align-items: center; }
+.typerow img { margin: 0; }
+</style>
+
+Every value in a program has a **type**. Scratch shows it by the **shape** of a block, Scala by a **type name**.
+
+<div class="cols">
+<div>
+
+<div class="typerow">
+<img src="assets/var-reporter.png" alt="score reporter" style="width: 77px;">
+<div><strong>Int</strong>: whole numbers<br><span style="font-size: 17px;">round reporter, e.g. <code>score</code>, <code>length</code></span></div>
+<img src="assets/types-string-say-game-over.png" alt="say Game over!" style="width: 165px;">
+<div><strong>String</strong>: text<br><span style="font-size: 17px;">round input, e.g. <code>Game over!</code></span></div>
+<img src="assets/types-bool-state-equals-play.png" alt="state = play" style="width: 184px;">
+<div><strong>Boolean</strong>: <code>true</code> or <code>false</code><br><span style="font-size: 17px;">hexagonal block, fits into <code>if</code></span></div>
+</div>
+
+</div>
+<div>
+
+```scala
+var score: Int = 0
+val message: String = "Game over!"
+var state: String = "play"
+val playing: Boolean = state == "play"
+
+// Scala infers the type for you:
+var length = 3        // Int
+val name = "Snake"    // String
+val hit = length > 5  // Boolean
+```
+
+</div>
+</div>
+
+<p style="text-align: center; font-size: 22px; margin-top: 0.6rem;"><strong>Scratch converts silently; Scala checks types before the program runs.</strong></p>
+
+---
+
+# Int: Variables and Arithmetic
+
+<style scoped>
+section { font-size: 20px; }
+.cols { display:grid; grid-template-columns:1fr 1fr; column-gap:2em; align-items:start; }
+pre { font-size: 15px; line-height: 1.3; }
+.blocks { display: grid; grid-template-columns: auto 1fr; gap: 0.5rem 1rem; align-items: center; font-size: 17px; }
+.blocks img { margin: 0; }
+</style>
+
+<div class="cols">
+<div>
+
+<div class="blocks">
+<img src="assets/var-set.png" alt="set score to 0" style="width: 222px;">
+<div><code>var score = 0</code></div>
+<img src="assets/var-change.png" alt="change score by 1" style="width: 248px;">
+<div><code>score += 1</code></div>
+<img src="assets/function-example-reporter.png" alt="operator blocks + - * /" style="width: 150px;">
+<div><code>+ - * /</code><br>Scratch: <code>7 / 2</code> = 3.5<br>Scala Int: <code>7 / 2</code> = 3</div>
+<img src="assets/types-int-mod-condition.png" alt="item i of numbers mod 2 = 0" style="width: 317px;">
+<div><code>mod</code> is <code>%</code> in Scala<br>(EvenOdd, Quick Intro)</div>
+</div>
+
+</div>
+<div>
+
+```scala
+var score = 0       // set score to 0
+score += 1          // change score by 1
+score = score + 1   // the same, written out
+
+val lives = 3       // val: can never change
+// lives = 2        // error: reassignment to val
+
+7 + 2               // 9
+7 - 2               // 5
+7 * 20              // 140: 7 cells of 20 px
+7 / 2               // 3: integer division!
+7 % 2               // 1: remainder (mod)
+
+val n = 6
+n % 2 == 0          // true: n is even
+```
+
+</div>
+</div>
+
+---
+
+# String: Text, join, and Letters
+
+<style scoped>
+section { font-size: 20px; }
+.cols { display:grid; grid-template-columns:1fr 1fr; column-gap:2em; align-items:start; }
+pre { font-size: 15px; line-height: 1.3; }
+.blocks { display: flex; flex-direction: column; gap: 0.45rem; font-size: 17px; }
+.blocks img { margin: 0; }
+.op { display: inline-flex; align-items: center; gap: 0.4rem; background: #59c059; border: 1px solid #389438; color: #fff; border-radius: 999px; padding: 0.2rem 0.6rem; font-weight: 700; font-size: 16px; width: fit-content; }
+.op .pill { background: #fff; color: #575e75; border-radius: 999px; padding: 0.05rem 0.55rem; }
+</style>
+
+<div class="cols">
+<div>
+
+<div class="blocks">
+<img src="assets/types-string-say-game-over.png" alt="say Game over!" style="width: 165px;">
+<div>Snake: a fixed text</div>
+<img src="assets/types-string-say-join.png" alt="say join join join Even: even_count odd odd_count for 2 seconds" style="width: 500px;">
+<div>EvenOdd: <code>join</code> glues text and numbers</div>
+<span class="op">length of <span class="pill">apple</span></span>
+<span class="op">letter <span class="pill">1</span> of <span class="pill">apple</span></span>
+<div style="font-size: 15px; color: #575e75;">(Operators category, drawn here; Scratch counts letters from <strong>1</strong>, Scala from <strong>0</strong>)</div>
+</div>
+
+</div>
+<div>
+
+```scala
+println("Game over!")      // say Game over!
+
+val even_count = 3
+val odd_count = 3
+// join with +
+println("Even: " + even_count + " odd " + odd_count)
+// or with string interpolation s"..."
+println(s"Even: $even_count odd $odd_count")
+
+val fruit = "apple"
+fruit.length               // 5    length of
+fruit(0)                   // 'a'  letter 1 of
+fruit.charAt(0)            // 'a'  the same
+fruit + "pie"              // "applepie"
+```
+
+</div>
+</div>
+
+---
+
+# Boolean: Comparisons
+
+<style scoped>
+section { font-size: 20px; }
+.cols { display:grid; grid-template-columns:1fr 1fr; column-gap:2em; align-items:start; }
+pre { font-size: 15px; line-height: 1.3; }
+.blocks { display: grid; grid-template-columns: auto 1fr; gap: 0.6rem 1rem; align-items: center; font-size: 17px; }
+.blocks img { margin: 0; }
+</style>
+
+<div class="cols">
+<div>
+
+<div class="blocks">
+<img src="assets/function-example-boolean.png" alt="comparison blocks: greater than, less than, equals" style="width: 150px;">
+<div>Scratch has only <code>&gt;</code>, <code>&lt;</code>, <code>=</code></div>
+<img src="assets/types-bool-state-equals-play.png" alt="state = play" style="width: 184px;">
+<div>Snake: game states</div>
+<img src="assets/types-bool-direction-greater-0.png" alt="direction > 0" style="width: 199px;">
+<div>Pong: ball moves right</div>
+<img src="assets/types-bool-direction-equals-180.png" alt="direction = 180" style="width: 208px;">
+<div>Snake: moving down</div>
+</div>
+
+</div>
+<div>
+
+```scala
+val state = "play"
+val direction = 45
+
+state == "play"     // true   state = play
+direction > 0       // true   direction > 0
+direction < 0       // false
+direction == 180    // false  direction = 180
+direction != 180    // true   not equal
+direction >= 90     // false  no block in Scratch
+```
+
+- `=` assigns a value, `==` compares.
+- Scratch's `=` ignores case (`Play` = `play`), Scala's `==` does not.
+
+</div>
+</div>
+
+---
+
+# Boolean: and, or, not
+
+<style scoped>
+section { font-size: 20px; }
+.cols { display:grid; grid-template-columns:1fr 1fr; column-gap:2em; align-items:start; }
+pre { font-size: 14px; line-height: 1.28; }
+.blocks { display: flex; flex-direction: column; gap: 0.35rem; font-size: 17px; }
+.blocks img { margin: 0; }
+</style>
+
+<div class="cols">
+<div>
+
+<div class="blocks">
+<div><strong>and</strong> &rarr; <code>&amp;&amp;</code>: Pong, hit the right paddle</div>
+<img src="assets/types-bool-and-pong.png" alt="touching Paddle Right? and direction > 0" style="width: 480px;">
+<div style="margin-top: 0.5rem;"><strong>or</strong> &rarr; <code>||</code>: Snake, game over</div>
+<img src="assets/types-bool-or-snake.png" alt="touching edge? or touching Snake Body?" style="width: 470px;">
+<div style="margin-top: 0.5rem;"><strong>not</strong> &rarr; <code>!</code>: Snake, no U-turn</div>
+<img src="assets/types-bool-not-snake.png" alt="not direction = 180" style="width: 268px;">
+</div>
+
+</div>
+<div>
+
+```scala
+var direction = 45
+var nextDirection = 90
+val touchingPaddleRight = true
+val touchingEdge = false
+val touchingBody = false
+
+if touchingPaddleRight && direction > 0 then
+  direction = 0 - direction
+
+if touchingEdge || touchingBody then
+  println("Game over!")
+
+if !(direction == 180) then
+  nextDirection = 0
+```
+
+</div>
+</div>
+
+---
+
+# Putting It Together: Pong
+
+<style scoped>
+section { font-size: 20px; }
+.cols { display:grid; grid-template-columns:1fr 1fr; column-gap:2em; align-items:start; }
+pre { font-size: 15px; line-height: 1.3; }
+</style>
+
+<div class="cols">
+<div>
+
+<img src="assets/pong-game-hit.png" alt="if touching Paddle Right and direction greater than 0 then point in direction 0 minus direction, change speed by 0.5" style="width: 500px; margin: 0.5rem 0 0 0;">
+
+- **Int:** `direction`, `scoreLeft`, `scoreRight`
+- **Boolean:** `touching ... and direction > 0`
+- **String:** the score text on the screen
+- `speed` changes by 0.5: a decimal number, type `Double` (next lectures)
+
+</div>
+<div>
+
+```scala
+var direction = 45            // Int
+var speed = 8.0               // Double
+var scoreLeft = 0             // Int
+var scoreRight = 0            // Int
+val touchingPaddleRight = true   // Boolean
+
+if touchingPaddleRight && direction > 0 then
+  direction = 0 - direction
+  speed += 0.5
+
+val scoreText = s"$scoreLeft : $scoreRight"
+println(scoreText)            // 0 : 0
+```
+
+</div>
+</div>
+
+<p style="text-align: center; font-size: 22px; margin-top: 0.4rem;"><strong>Same blocks, same logic: Scala just writes them as text.</strong></p>
+
+---
+
+# EnergyBill: main and calculate bill
+
+<style scoped>
+section { font-size: 18px; padding-top: 40px; }
+h1 { margin-bottom: 0.3em; }
+.cols { display:grid; grid-template-columns:470px 1fr; column-gap:1.5em; align-items:start; }
+pre { font-size: 13px; line-height: 1.5; white-space: pre-wrap; margin: 0; }
+.cols h3 { margin: 0 0 0.25em 0; font-size: 1em; }
+</style>
+
+<div class="cols">
+<div>
+
+### Scratch
+
+<img src="assets/energybill-scratch-main-calculate-bill.png" alt="Scratch EnergyBill: when green flag clicked, set pricePerKwh to 0.32, set standingChargeCents to 300, set vatPercent to 19, calculate bill, broadcast bill calculated. define calculate bill: set consumptionKwh, highMonths to 0, months to 12, month to 1; repeat months: set kwh to item month of monthlyKwh, change consumptionKwh by kwh, if kwh > 30 then change highMonths by 1, change month by 1; then set priceCents to round(pricePerKwh * 100), energyCents, standingCents, netCents, vatCents to round(netCents * vatPercent / 100), grossCents" style="width: 470px; margin: 0; border-radius: 8px; border: 2px solid #d9e3f2;">
+
+</div>
+<div>
+
+### Scala
+
+```scala
+// custom block "calculate bill"
+def calculateBill(): Bill =
+  var consumptionKwh: Int = 0
+  var highMonths: Int = 0
+  val months: Int = billingPeriod.size
+  for month <- billingPeriod do
+    val kwh = monthlyKwh(month - 1)
+    consumptionKwh = consumptionKwh + kwh
+    if kwh > 30 then
+      highMonths = highMonths + 1
+  val priceCents: BigInt = math.round(pricePerKwh * 100)
+  val energyCents: BigInt = consumptionKwh * priceCents
+  val standingCents: BigInt = standingChargeCents * months
+  val netCents: BigInt = energyCents + standingCents
+  val vatCents: BigInt = (netCents * vatPercent + 50) / 100 // = round(net * 19 / 100)
+  val grossCents: BigInt = netCents + vatCents
+  Bill(months, consumptionKwh, highMonths, energyCents, standingCents, netCents, vatCents, grossCents)
+
+// when green flag clicked
+def main(args: Array[String]): Unit =
+  val bill = calculateBill()
+  BillPrinter.billCalculated(bill) // broadcast [bill calculated]
+```
+
+</div>
+</div>
+
+---
+
 # The Road Ahead: Scratch → Scala → Unity
 
 <img src="assets/roadmap-scratch-scala-unity.png" alt="Roadmap: Now Scratch (visual blocks, project 1 individual), next Scala (textual syntax and semantics, project 2 in teams of two), end of semester Unity and C# (GameObject is like a sprite, prefab and Instantiate like clones, C# scripts like block scripts; project 3 in teams of two)" style="display: block; width: 1000px; margin: 1.6rem auto 0 auto;">
@@ -471,6 +807,7 @@ object EvenOdd:
 - Control game flow with states (start, play, pause, game over) and broadcasts
 - Collision, timing, and randomness shape game feel and balance
 - Debug with monitors: make values visible instead of guessing
+- Int, String, Boolean: the same values and operators in Scratch blocks and in Scala
 
 ---
 
