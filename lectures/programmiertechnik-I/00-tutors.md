@@ -154,11 +154,10 @@ How to assess exercises and give useful feedback.
 
 <div style="font-size: 21px;">
 
-- Students version their Scratch project as `.sb3` files in a **GitHub repository** (lecture 02, "Versioning Your Scratch Project with GitHub").
-- Each saved version is one commit; the commit list shows how the project grew.
-- **Platform and access:** <span class="tbd">[TBD: GitHub Classroom or own repos? organization / URL? how tutors get access?]</span>
-- **Naming:** <span class="tbd">[TBD: repository and file naming scheme, one repo per team or per student?]</span>
-- **What counts as "submitted":** <span class="tbd">[TBD: last commit before the deadline? a tag? a release?]</span>
+- Students submit their Scratch project as an `.sb3` file (File → Save to your computer).
+- **Platform and access:** <span class="tbd">[TBD: where students upload the file and how tutors get access?]</span>
+- **Naming:** <span class="tbd">[TBD: file naming scheme, one file per team or per student?]</span>
+- **What counts as "submitted":** <span class="tbd">[TBD: last upload before the deadline?]</span>
 
 </div>
 
@@ -185,7 +184,6 @@ Lectures 01 and 02
 | **Appropriate blocks** | Fitting blocks for the job (e.g. `forever` + `if` instead of copy-pasted steps, `broadcast` instead of timing tricks). |
 | **Readable scripts** | Meaningful sprite and variable names, custom blocks for repeated parts, no duplicated code, scripts tidy. |
 | **Lecture concepts used** | 01: events, variables, expressions, messages. 02: clones, lists, custom blocks, game states. |
-| **Versioning** | Several meaningful commits with clear messages, not one upload at the end. |
 
 </div>
 
@@ -419,7 +417,6 @@ h2 { font-size: 22px; margin-bottom: 0.3rem; }
 - Control game flow with states (start, play, pause, game over) and broadcasts
 - Collision, timing, and randomness shape game feel and balance
 - Debug with monitors: make values visible instead of guessing
-- GitHub for Scratch: versions as commits, history, sharing and remix
 
 ---
 
