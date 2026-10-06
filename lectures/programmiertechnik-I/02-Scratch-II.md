@@ -774,7 +774,10 @@ def calculateBill(): Bill =
   val netCents: BigInt = energyCents + standingCents
   val vatCents: BigInt = (netCents * vatPercent + 50) / 100 // = round(net * 19 / 100)
   val grossCents: BigInt = netCents + vatCents
-  Bill(months, consumptionKwh, highMonths, energyCents, standingCents, netCents, vatCents, grossCents)
+  Bill(
+    months, consumptionKwh, highMonths,
+    energyCents, standingCents, netCents, vatCents, grossCents
+  )
 
 // when green flag clicked
 def main(args: Array[String]): Unit =
