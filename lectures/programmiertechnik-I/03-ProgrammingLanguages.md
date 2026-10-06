@@ -25,55 +25,6 @@ How languages differ in abstraction level, paradigm, typing, execution model, an
 
 ---
 
-# Quick Intro: Scratch Concepts in Scala
-
-<style scoped>
-section { font-size: 17px; }
-p { margin: 0.1em 0; }
-pre { font-size: 12px; line-height: 1.22; margin: 0.1em 0; }
-.pair { display: grid; grid-template-columns: 1.25fr 1fr; gap: 0.7em; align-items: start; margin-top: 0.15em; }
-.pair h3 { margin: 0 0 0.2em 0; font-size: 1.02em; text-align: center; }
-</style>
-
-<div class="pair">
-<div markdown="1">
-
-### Scratch
-
-<img src="assets/pt04-scratch-even-odd.png" alt="Scratch EvenOdd: green flag, custom block Zähle Gerade und Ungerade, monitors 3/3" style="width: 100%; max-width: 560px; height: auto; background: #fff; border-radius: 8px;" />
-
-</div>
-<div markdown="1">
-
-### Scala
-
-```scala
-@main def runEvenOdd(): Unit =
-  val (e, o) = EvenOdd.countOddEven()
-  println(s"$e $o")  // 3 3
-
-object EvenOdd:
-  val numbers = List(4, 7, 2, 9, 1, 6, 0)
-
-  def countOddEven(nums: List[Int] = numbers)
-      : (Int, Int) =
-    var even_count = 0
-    var odd_count = 0
-    for n <- nums.takeWhile(_ != 0) do
-      if n % 2 == 0 then
-        even_count += 1
-      else
-        odd_count += 1
-    (even_count, odd_count)
-```
-
-
-</div>
-</div>
-
-
----
-
 # Layer
 
 <img src="diagrams/slide-03-layer.drawio.svg"/>
