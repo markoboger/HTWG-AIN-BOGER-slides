@@ -109,9 +109,9 @@ Clones let one sprite create many temporary copies of itself at runtime.
 | `when I start as a clone` | Constructor / initialization |
 | Position, costume, "for this sprite only" variables per clone | Object state (fields) |
 | Scripts shared by all clones | Methods |
-| `delete this clone` | End of lifecycle (in Java: garbage collection once unreferenced) |
+| `delete this clone` | End of lifecycle (in Scala: garbage collection once unreferenced) |
 
-**Differences:** A clone copies the current state of its parent (prototype-style), while `new` builds a fresh object from the class. Scratch deletes clones explicitly; Java collects unreferenced objects automatically.
+**Differences:** A clone copies the current state of its parent (prototype-style), while `new` builds a fresh object from the class. Scratch deletes clones explicitly; Scala collects unreferenced objects automatically.
 
 </div>
 
