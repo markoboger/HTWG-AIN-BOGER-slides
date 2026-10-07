@@ -101,7 +101,7 @@ Clones let one sprite create many temporary copies of itself at runtime.
 
 <div style="font-size: 19px;">
 
-| Scratch | Java |
+| Scratch | Scala |
 |---|---|
 | Sprite (template with costumes, scripts, variables) | Class |
 | Clone | Object (instance) |
