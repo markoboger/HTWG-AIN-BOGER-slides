@@ -751,29 +751,30 @@ section { font-size: 19px; }
 
 <style scoped>
 section { font-size: 18px; }
-.tl { position: relative; margin: 0.2rem 0 0 0.4rem; padding-left: 1.4rem; border-left: 4px solid #009B91; }
-.tl > div { position: relative; margin: 0 0 0.5rem 0; }
-.tl > div::before { content: ""; position: absolute; left: -1.95rem; top: 0.25rem; width: 14px; height: 14px; border-radius: 50%; background: #fff; border: 3px solid #009B91; }
-.tl b.y { display: inline-block; min-width: 5.2em; color: #009B91; }
-.tl ul { margin: 0.1rem 0 0 5.4em; padding-left: 1em; }
+.tl { position: relative; margin: 0.2rem 0 0 0.4rem; padding-left: 28px; border-left: 4px solid #009B91; }
+.tl > div { position: relative; display: grid; grid-template-columns: 3.4em 1fr; column-gap: 1em; align-items: start; line-height: 1.4; margin: 0 0 0.45rem 0; }
+.tl > div::before { content: ""; position: absolute; box-sizing: border-box; left: -39px; top: calc(0.7em - 9px); width: 18px; height: 18px; border-radius: 50%; background: #fff; border: 3px solid #009B91; }
+.tl b.y { color: #009B91; font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tl ul { margin: 0.15rem 0 0 0; padding-left: 1.2em; }
+.tl li { margin: 0; line-height: 1.35; }
 .src { position: absolute; left: 70px; right: 70px; bottom: 58px; font-size: 12px; color: #575e75; }
 </style>
 
 # History of Git (1): 2005–2018
 
 <div class="tl">
-<div><b class="y">2002</b> The Linux kernel project starts using the proprietary DVCS BitKeeper.</div>
-<div><b class="y">2005</b> The free BitKeeper license is revoked. <strong>Linus Torvalds</strong> writes his own tool: <strong>Git</strong>. Design goals:
+<div><b class="y">2002</b><div>The Linux kernel project starts using the proprietary DVCS BitKeeper.</div></div>
+<div><b class="y">2005</b><div>The free BitKeeper license is revoked. <strong>Linus Torvalds</strong> writes his own tool: <strong>Git</strong>. Design goals:
 <ul>
 <li>speed, simple design, fully distributed</li>
 <li>strong support for non-linear development (thousands of parallel branches)</li>
 <li>able to handle large projects like the Linux kernel</li>
 <li>integrity: every object is identified by the SHA-1 hash of its content</li>
-</ul></div>
-<div><b class="y">Jul 2005</b> Torvalds hands over maintenance to <strong>Junio Hamano</strong>, who releases Git 1.0 in December 2005.</div>
-<div><b class="y">2008</b> <strong>GitHub</strong> launches: hosting plus forks and pull requests make contributing easy. Bitbucket also starts in 2008 (Atlassian from 2010), <strong>GitLab</strong> follows in 2011.</div>
-<div><b class="y">2014</b> Git 2.0, the last breaking release so far.</div>
-<div><b class="y">2018</b> <strong>Microsoft</strong> acquires GitHub for $7.5 billion.</div>
+</ul></div></div>
+<div><b class="y">2005</b><div>In July 2005, Torvalds hands over maintenance to <strong>Junio Hamano</strong>, who releases Git 1.0 in December 2005.</div></div>
+<div><b class="y">2008</b><div><strong>GitHub</strong> launches: hosting plus forks and pull requests make contributing easy. Bitbucket also starts in 2008 (Atlassian from 2010), <strong>GitLab</strong> follows in 2011.</div></div>
+<div><b class="y">2014</b><div>Git 2.0, the last breaking release so far.</div></div>
+<div><b class="y">2018</b><div><strong>Microsoft</strong> acquires GitHub for $7.5 billion.</div></div>
 </div>
 
 <div class="src">Sources: Pro Git, ch. 1.2 "A Short History of Git" and 1.3 (git-scm.com, CC BY-NC-SA 3.0); L. Torvalds, "Meet the new maintainer..", git mailing list, 27 Jul 2005; Git Documentation/BreakingChanges; github.blog (10 Apr 2008, 4 Jun 2018); about.gitlab.com/company/history; Wikipedia "Bitbucket".</div>
@@ -782,22 +783,23 @@ section { font-size: 18px; }
 
 <style scoped>
 section { font-size: 18px; }
-.tl { position: relative; margin: 0.2rem 0 0 0.4rem; padding-left: 1.4rem; border-left: 4px solid #009B91; }
-.tl > div { position: relative; margin: 0 0 0.5rem 0; }
-.tl > div::before { content: ""; position: absolute; left: -1.95rem; top: 0.25rem; width: 14px; height: 14px; border-radius: 50%; background: #fff; border: 3px solid #009B91; }
-.tl b.y { display: inline-block; min-width: 5.2em; color: #009B91; }
-.tl ul { margin: 0.1rem 0 0 5.4em; padding-left: 1em; }
+.tl { position: relative; margin: 0.2rem 0 0 0.4rem; padding-left: 28px; border-left: 4px solid #009B91; }
+.tl > div { position: relative; display: grid; grid-template-columns: 3.8em 1fr; column-gap: 1em; align-items: start; line-height: 1.4; margin: 0 0 0.45rem 0; }
+.tl > div::before { content: ""; position: absolute; box-sizing: border-box; left: -39px; top: calc(0.7em - 9px); width: 18px; height: 18px; border-radius: 50%; background: #fff; border: 3px solid #009B91; }
+.tl b.y { color: #009B91; font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tl ul { margin: 0.15rem 0 0 0; padding-left: 1.2em; }
+.tl li { margin: 0; line-height: 1.35; }
 .src { position: absolute; left: 70px; right: 70px; bottom: 58px; font-size: 12px; color: #575e75; }
 </style>
 
 # History of Git (2): 2020 until Today
 
 <div class="tl">
-<div><b class="y">2020</b> <code>master</code> &rarr; <code>main</code>: Git 2.28 makes the default branch name configurable (<code>init.defaultBranch</code>); new GitHub repositories use <code>main</code> since 1 Oct 2020.</div>
-<div><b class="y">2020</b> Git 2.29 adds <strong>SHA-256</strong> repositories (experimental); since Git 2.42 (2023) they are no longer called an experimental curiosity. There is no interoperability with SHA-1 repositories yet.</div>
-<div><b class="y">2022</b> Stack Overflow Developer Survey: <strong>93 %</strong> of all respondents and <strong>96.65 %</strong> of professional developers use Git; second place SVN with 5.96 %.</div>
-<div><b class="y">2022&ndash;</b> AI enters the Git workflow: GitHub Copilot is generally available (June 2022). Since 2025 coding agents work on their own branches and deliver pull requests: Copilot's coding agent pushes commits to a draft PR (May 2025), Cursor's cloud agents create a branch and open a PR.</div>
-<div><b class="y">Git 3.0</b> Planned, <strong>no release date yet</strong>. For new repositories: SHA-256 as default hash, <code>main</code> as default branch, the "reftable" reference format; Rust becomes mandatory for building Git. Current release: Git 2.56.</div>
+<div><b class="y">2020</b><div><code>master</code> &rarr; <code>main</code>: Git 2.28 makes the default branch name configurable (<code>init.defaultBranch</code>); new GitHub repositories use <code>main</code> since 1 Oct 2020.</div></div>
+<div><b class="y">2020</b><div>Git 2.29 adds <strong>SHA-256</strong> repositories (experimental); since Git 2.42 (2023) they are no longer called an experimental curiosity. There is no interoperability with SHA-1 repositories yet.</div></div>
+<div><b class="y">2022</b><div>Stack Overflow Developer Survey: <strong>93 %</strong> of all respondents and <strong>96.65 %</strong> of professional developers use Git; second place SVN with 5.96 %.</div></div>
+<div><b class="y">2022&ndash;</b><div>AI enters the Git workflow: GitHub Copilot is generally available (June 2022). Since 2025 coding agents work on their own branches and deliver pull requests: Copilot's coding agent pushes commits to a draft PR (May 2025), Cursor's cloud agents create a branch and open a PR.</div></div>
+<div><b class="y">Git 3.0</b><div>Planned, <strong>no release date yet</strong>. For new repositories: SHA-256 as default hash, <code>main</code> as default branch, the "reftable" reference format; Rust becomes mandatory for building Git. Current release: Git 2.56.</div></div>
 </div>
 
 <div class="src">Sources: Git RelNotes 2.28, 2.29, 2.42; github.com/github/renaming and github.blog changelog 2020-10-01; stackoverflow.blog (22 Jun 2022, 9 Jan 2023) and survey.stackoverflow.co/2022; github.blog (21 Jun 2022, 19 May 2025); cursor.com/docs/agent/review; Git Documentation/BreakingChanges; git-scm.com (latest source release, Sep 2026).</div>
@@ -815,18 +817,18 @@ ul { margin: 0; }
 <div>
 
 - Git has 4 different main data types
-  - Blob - Binary Large OBjects, the content of a file
-  - Tree - similar to a directory, links to blobs
-  - Commit - links to a snapshot (a tree)
+  1. Blob - Binary Large OBjects, the content of a file
+  2. Tree - similar to a directory, links to blobs
+  3. Commit - links to a snapshot (a tree)
 
 </div>
 <div>
 
-- References to Commits
-  - Branches
-  - Tags
-  - References
-  - HEAD
+4. References to Commits
+   - Branches
+   - Tags
+   - References
+   - HEAD
 
 </div>
 </div>
@@ -969,9 +971,9 @@ h1 { margin-bottom: 0.2rem; }
 </div>
 <div>
 
-**Loading dock** (German: *Laderampe*)
+**Stage** (German: *Laderampe*)
 
-<img src="assets/se02-stage-laderampe.jpg" alt="Trucks at the loading docks of a warehouse" style="width: 100%; margin-top: 0.4rem;">
+<img src="assets/se02-stage-laderampe.jpg" alt="Trucks at the stages of a warehouse" style="width: 100%; margin-top: 0.4rem;">
 </div>
 </div>
 
@@ -986,7 +988,7 @@ h1 { margin-bottom: 0.1rem; }
 .src { position: absolute; left: 80px; bottom: 58px; font-size: 13px; color: #8a94a0; }
 </style>
 
-# Step 1: A Git Desktop App – GitHub Desktop
+# A Git Desktop App – GitHub Desktop
 
 <div class="facts">Free, open-source Git GUI by GitHub &nbsp;·&nbsp; macOS 12+ and Windows 10 (64-bit), no Linux &nbsp;·&nbsp; also works with other Git hosts</div>
 
@@ -1134,7 +1136,7 @@ pre { font-size: 18px; margin: 0; }
 .note { font-size: 18px; color: #575e75; margin-top: 0.7rem; }
 </style>
 
-# Step 2: The Same Steps on the Command Line
+# The Same Steps on the Command Line
 
 <div class="columns" style="grid-template-columns: 1.15fr 1fr; gap: 1.2em; align-items: start;">
 <div>
