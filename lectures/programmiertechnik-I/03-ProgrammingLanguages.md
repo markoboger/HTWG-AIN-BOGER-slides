@@ -17,6 +17,17 @@ How languages differ in abstraction level, paradigm, typing, execution model, an
 
 ---
 
+# Prof. Dr. Marko Boger
+
+- Room O205
+- marko.boger@htwg-konstanz.de
+- Office hours: Thursdays 9:45–11:15
+- Dean of AIN, Software Engineering, Software Architecture
+
+![bg right:40% contain](../../assets/marko-boger.jpg)
+
+---
+
 <!-- _class: inhalt -->
 
 # Goals
@@ -108,7 +119,7 @@ Same even/odd counting task as the assembler example (and later the C example): 
 
 ```fortran
 C     COUNT EVEN AND ODD, FORTRAN II STYLE
-C     SAME TASK AS C EXAMPLE (SLIDE 8)
+C     SAME TASK AS C EXAMPLE (SLIDE 9)
 C
 C     VS MODERN FORTRAN:
 C     - FIXED FORMAT, NOT FREE-FORMAT SOURCE
