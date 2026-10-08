@@ -27,7 +27,7 @@ Room O205
 
 marko.boger@htwg-konstanz.de
 
-Office hours: Thursdays 11:30–13:00
+Office hours: Thursdays 9:45–11:15
 
 </div>
 <img src="assets/se01-boger.png" alt="Portrait of Prof. Dr. Marko Boger" style="width: 320px;">

@@ -29,7 +29,7 @@ Programming proficiency in the Age of AI
 
 - Room O205
 - marko.boger@htwg-konstanz.de
-- Office hours: Thursdays 11:30–13:00
+- Office hours: Thursdays 9:45–11:15
 - Dean of AIN, Software Engineering, Software Architecture
 
 ![bg right:40% contain](../../assets/marko-boger.jpg)
