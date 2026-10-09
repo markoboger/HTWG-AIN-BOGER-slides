@@ -27,6 +27,10 @@ jobs:
           # Optional: limit to lectures folder only
           # input-dir: lectures
 
+      - name: Add HTWG favicon to all generated HTML files
+        # marp-cli-action runs in Docker, so the generated HTML files are owned by root
+        run: sudo python3 themes/tools/add_favicon.py .
+
       - name: Upload artifact for GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
