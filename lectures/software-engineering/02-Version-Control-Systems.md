@@ -809,6 +809,7 @@ section { font-size: 18px; }
 <style scoped>
 section { font-size: 22px; }
 ul { margin: 0; }
+ol, ul ol { list-style-type: decimal !important; }
 </style>
 
 # Git Object Types
