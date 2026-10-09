@@ -10,7 +10,7 @@ _footer: ""
 ![bg](../../themes/htwgin-titel.png)
 ### Prof. Dr. Marko Boger
 ## Software Engineering
-# Lecture 02: Version Control System – Git
+# Lecture 02: Scala Structures, Git
 
 Tuples, objects, enums and classes; version control with Git.
 
