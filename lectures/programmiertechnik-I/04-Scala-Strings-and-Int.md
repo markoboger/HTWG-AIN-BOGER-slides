@@ -92,30 +92,6 @@ object EvenOdd:
 
 ---
 
-# Language Properties (Researched)
-
-<style scoped>
-table { font-size: 0.95em; margin-top: 0.6em; }
-th, td { text-align: center; padding: 0.25em 0.6em; }
-td:first-child, th:first-child { text-align: left; }
-.ok { color: #2E9E44; font-weight: 700; }
-.no { color: #D32F2F; font-weight: 700; }
-.mid { color: #E0A800; font-weight: 700; }
-</style>
-
-Legend: <span class="ok">✓</span> = core feature, <span class="mid">△</span> = mixed or limited, <span class="no">✗</span> = absent.
-Type inference = earlier "implicit type system". Pure OOP* ≈ "everything is an object".
-
-|                    | Scala | C | Java | JavaScript | Python | Haskell | Kotlin |
-|--------------------|:-----:|:-:|:----:|:----------:|:------:|:-------:|:------:|
-| Static typing      | <span class="ok">✓</span> | <span class="ok">✓</span> | <span class="ok">✓</span> | <span class="no">✗</span> | <span class="no">✗</span> | <span class="ok">✓</span> | <span class="ok">✓</span> |
-| Strong typing      | <span class="ok">✓</span> | <span class="no">✗</span> | <span class="ok">✓</span> | <span class="no">✗</span> | <span class="ok">✓</span> | <span class="ok">✓</span> | <span class="ok">✓</span> |
-| Type inference     | <span class="ok">✓</span> | <span class="no">✗</span> | <span class="mid">△</span> | <span class="no">✗</span> | <span class="no">✗</span> | <span class="ok">✓</span> | <span class="ok">✓</span> |
-| Pure OOP*          | <span class="ok">✓</span> | <span class="no">✗</span> | <span class="no">✗</span> | <span class="mid">△</span> | <span class="ok">✓</span> | <span class="no">✗</span> | <span class="mid">△</span> |
-| Functional support | <span class="ok">✓</span> | <span class="no">✗</span> | <span class="mid">△</span> | <span class="ok">✓</span> | <span class="mid">△</span> | <span class="ok">✓</span> | <span class="ok">✓</span> |
-
----
-
 # Who invented Scala?
 
 <div class="columns">

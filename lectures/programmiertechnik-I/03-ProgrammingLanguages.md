@@ -30,9 +30,48 @@ How languages differ in abstraction level, paradigm, typing, execution model, an
 
 <!-- _class: inhalt -->
 
+<style scoped>
+section { font-size: 26px; }
+</style>
+
 # Goals
 
-(Goals to fill)
+- Popularity and history of languages
+- Layers: machine code to high level (Assembler, Fortran, BASIC, C)
+- Paradigms, platform, typing, execution
+- Comparing languages: Jump Game
+- Where Scala sits, languages in AIN, programming after Agile, Big Data, AI
+- New tools: Scastie and LeetCode
+
+---
+
+# Most Popular Programming Languages
+
+<div class="columns">
+<div markdown="1">
+
+- Programming languages change with industry trends, platforms, and ecosystems.
+- Popularity is not the same as quality, but it often reflects demand and community size.
+- We use this slide as an entry point into a bigger question:
+  - Why are there so many languages?
+  - What trade-offs do they make?
+  - Which problems are they built for?
+
+</div>
+<div markdown="1">
+
+<a href="https://www.youtube.com/watch?v=ZTPrbAKmcdo"><img src="assets/pt03-popular-languages-video.jpg" alt="Video thumbnail: Most Popular Programming Languages: Data from 1958 to 2025 (click to open on YouTube)" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.15); margin-top: 30px;" /></a>
+
+<p class="small" style="text-align: center; margin-top: 8px;">▶ <a href="https://www.youtube.com/watch?v=ZTPrbAKmcdo">Most Popular Programming Languages: Data from 1958 to 2025</a> – Data Is Beautiful, YouTube</p>
+
+</div>
+</div>
+
+---
+
+# A Short Language History
+
+<img src="diagrams/language-history-pt03.drawio.svg"/>
 
 ---
 
@@ -324,12 +363,6 @@ even: 4, 2, 6 – odd: 7, 9, 1
 
 </div>
 </div>
-
----
-
-# A Short Language History
-
-<img src="diagrams/language-history-pt03.drawio.svg"/>
 
 ---
 
@@ -1256,8 +1289,31 @@ object Solution {
 
 ---
 
-# Sprachen in AIN
+# Language Properties (Researched)
 
+<style scoped>
+table { font-size: 0.95em; margin-top: 0.6em; }
+th, td { text-align: center; padding: 0.25em 0.6em; }
+td:first-child, th:first-child { text-align: left; }
+.ok { color: #2E9E44; font-weight: 700; }
+.no { color: #D32F2F; font-weight: 700; }
+.mid { color: #E0A800; font-weight: 700; }
+</style>
+
+Legend: <span class="ok">✓</span> = core feature, <span class="mid">△</span> = mixed or limited, <span class="no">✗</span> = absent.
+Type inference = earlier "implicit type system". Pure OOP* ≈ "everything is an object".
+
+|                    | Scala | C | Java | JavaScript | Python | Haskell | Kotlin |
+|--------------------|:-----:|:-:|:----:|:----------:|:------:|:-------:|:------:|
+| Static typing      | <span class="ok">✓</span> | <span class="ok">✓</span> | <span class="ok">✓</span> | <span class="no">✗</span> | <span class="no">✗</span> | <span class="ok">✓</span> | <span class="ok">✓</span> |
+| Strong typing      | <span class="ok">✓</span> | <span class="no">✗</span> | <span class="ok">✓</span> | <span class="no">✗</span> | <span class="ok">✓</span> | <span class="ok">✓</span> | <span class="ok">✓</span> |
+| Type inference     | <span class="ok">✓</span> | <span class="no">✗</span> | <span class="mid">△</span> | <span class="no">✗</span> | <span class="no">✗</span> | <span class="ok">✓</span> | <span class="ok">✓</span> |
+| Pure OOP*          | <span class="ok">✓</span> | <span class="no">✗</span> | <span class="no">✗</span> | <span class="mid">△</span> | <span class="ok">✓</span> | <span class="no">✗</span> | <span class="mid">△</span> |
+| Functional support | <span class="ok">✓</span> | <span class="no">✗</span> | <span class="mid">△</span> | <span class="ok">✓</span> | <span class="mid">△</span> | <span class="ok">✓</span> | <span class="ok">✓</span> |
+
+---
+
+# Programming Languages in IN
 ![h:550](diagrams/sprachen-ain-pt03.drawio.svg)
 
 ---
@@ -1284,7 +1340,7 @@ Strengthens the case for functional ideas:
 - reduce hidden state
 - prefer explicit effects
 
-Scala is a language that combines functional techniques with object orientation.
+Scala is a language that supports agile development.
 
 ---
 
@@ -1298,7 +1354,7 @@ Big data systems need:
 
 That pushes us toward:
 
-- associative operations
+- associative operations, higher-order functions
 - algebraic thinking
 - immutable data and pure transformations where possible
 
