@@ -60,7 +60,6 @@ Diese Folien werden mit **Marp** erstellt und sind nach jedem Push in der aktuel
 
 <div>
 
-- **[21 File Formats](lectures/programmiertechnik-I/21-File-Formats.html)** ([HTML](lectures/programmiertechnik-I/21-File-Formats.html), [PDF](lectures/programmiertechnik-I/21-File-Formats.pdf))
 
 </div>
 
