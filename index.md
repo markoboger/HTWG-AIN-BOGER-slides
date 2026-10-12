@@ -35,6 +35,8 @@ Diese Folien werden mit **Marp** erstellt und sind nach jedem Push in der aktuel
 
 ### Programmiertechnik I
 
+<style scoped>ul { font-size: 0.85em; line-height: 1.3; } li { margin: 0.1em 0; }</style>
+
 <div class="columns">
 
 <div>
