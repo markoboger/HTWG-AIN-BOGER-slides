@@ -48,7 +48,7 @@ One example, six lectures
 
 # saillog: What We Build
 
-- A **logbook** for sailing trips (German: *Törns*) on Lake Constance
+- A **logbook** for the trips (*Törns*) of HTWG's training boats on Lake Constance: the motorboat **Dock** and the keelboat **X99 Expresso**
 - Boats, crew, trips – and for every trip a **GPS track**
 - Six steps, one per lecture:
 
@@ -102,7 +102,7 @@ sbt "runMain saillog.lecture19"
 
 ```scala
 enum BoatKind derives ReadWriter:
-  case Dinghy, Keelboat, Catamaran
+  case Motorboat, Keelboat, Catamaran
 
 enum Role derives ReadWriter:
   case Skipper, Crew
@@ -317,10 +317,10 @@ object Csv:
 ```yaml
 boats:
   - id: 1
-    name: Pirat
-    kind: Dinghy
+    name: Dock
+    kind: Motorboat
   - id: 2
-    name: Lacustre
+    name: X99 Expresso
     kind: Keelboat
 # a comment
 season: 2026
@@ -367,8 +367,8 @@ season: 2026
 <?xml version="1.0" encoding="UTF-8"?>
 <boats>
   <boat id="1">
-    <name>Pirat</name>
-    <kind>Dinghy</kind>
+    <name>Dock</name>
+    <kind>Motorboat</kind>
   </boat>
 </boats>
 ```
@@ -492,11 +492,11 @@ import upickle.default.*
 
 case class Boat(id: Int, name: String, kind: BoatKind) derives ReadWriter
 
-write(Boat(1, "Pirat", BoatKind.Dinghy))
-// {"id":1,"name":"Pirat","kind":"Dinghy"}
+write(Boat(1, "Dock", BoatKind.Motorboat))
+// {"id":1,"name":"Dock","kind":"Motorboat"}
 
-read[Boat]("""{"id":1,"name":"Pirat","kind":"Dinghy"}""")
-// Boat(1,Pirat,Dinghy)
+read[Boat]("""{"id":1,"name":"Dock","kind":"Motorboat"}""")
+// Boat(1,Dock,Motorboat)
 ```
 
 - `derives ReadWriter` as introduced in Lecture 17 – here it pays off: no conversion code by hand

@@ -193,8 +193,8 @@ Tables, keys and SQL
 
 | id | name | kind |
 |---|---|---|
-| 1 | Pirat | Dinghy |
-| 2 | Lacustre | Keelboat |
+| 1 | Dock | Motorboat |
+| 2 | X99 Expresso | Keelboat |
 
 **trip_row**
 
@@ -243,9 +243,9 @@ CREATE TABLE IF NOT EXISTS crew_row (trip_id INTEGER, name TEXT, role TEXT)
 # SQL: Queries
 
 ```sql
-INSERT INTO boat_row (id, name, kind) VALUES (1, 'Pirat', 'Dinghy');
+INSERT INTO boat_row (id, name, kind) VALUES (1, 'Dock', 'Motorboat');
 
-SELECT name FROM boat_row WHERE kind = 'Dinghy';
+SELECT name FROM boat_row WHERE kind = 'Motorboat';
 
 SELECT boat_row.name, SUM(trip_row.distance_nm)
 FROM trip_row JOIN boat_row ON trip_row.boat_id = boat_row.id
@@ -345,7 +345,7 @@ def addBoat(b: Boat): Unit = client.transaction { db =>
 - `BoatRow.insert.columns(...)` builds an `INSERT` statement
 - `_.name := b.name`: column gets a value – wrong type → compile error
 - Values are passed as **parameters** – no SQL injection possible
-- The enum is stored as text: `Dinghy`
+- The enum is stored as text: `Motorboat`
 
 ---
 
@@ -358,7 +358,7 @@ def boats: List[Boat] = client.transaction { db =>
 ```
 
 ```scala
-db.run(BoatRow.select.filter(_.kind === "Dinghy").map(_.name))
+db.run(BoatRow.select.filter(_.kind === "Motorboat").map(_.name))
 ```
 
 - Looks like collection code (Lecture 12): `select`, `filter`, `map`, `sortBy`
@@ -458,12 +458,12 @@ for (name, repo) <- repos do
 
 ```text
 JSON file
-  boats: List(Pirat, Lacustre)
-  nm per boat: Map(Pirat -> 8.786607357403177, Lacustre -> 4.753595337995797)
+  boats: List(Dock, X99 Expresso)
+  nm per boat: Map(Dock -> 8.786607357403177, X99 Expresso -> 4.753595337995797)
   trip 2 crew: Some(List(Marko, Anna))
 SQLite
-  boats: List(Pirat, Lacustre)
-  nm per boat: Map(Lacustre -> 4.753595337995797, Pirat -> 8.786607357403177)
+  boats: List(Dock, X99 Expresso)
+  nm per boat: Map(Dock -> 8.786607357403177, X99 Expresso -> 4.753595337995797)
   trip 2 crew: Some(List(Marko, Anna))
 same trips in both: true
 ```

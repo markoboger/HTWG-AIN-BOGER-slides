@@ -84,7 +84,7 @@ Documents for people
 ```html
 <a href="/trips/1">Konstanz – Meersburg</a>
 <input id="title" name="title" required>
-<img src="boat.jpg" alt="Our dinghy">
+<img src="boat.jpg" alt="Our motorboat Dock">
 ```
 
 - An element: opening tag, content, closing tag
@@ -96,6 +96,8 @@ Documents for people
 
 # Text Elements
 
+<style scoped>table { font-size: 0.8em; }</style>
+
 | Element | Meaning |
 |---|---|
 | `<h1>` … `<h6>` | headings, `h1` is the most important |
@@ -104,6 +106,9 @@ Documents for people
 | `<ul>`, `<ol>`, `<li>` | unordered / ordered list, list item |
 | `<strong>`, `<em>` | important, emphasised |
 | `<img src="…" alt="…">` | image with a text alternative |
+| `<nav>` | navigation area: the main links of a page |
+| `<main>` | the central content of the page, once per page |
+| `<article>` | self-contained content, e.g. a blog post, a comment – or a trip |
 
 - Choose elements by **meaning**, not by looks – the looks come in Lecture 23
 
@@ -125,7 +130,7 @@ Documents for people
 </body>
 ```
 
-- `header`, `nav`, `main`, `article`, `section`, `footer` describe the **role** of a part
+- `nav`, `main` and `article` from the previous slide build the page frame
 - Screen readers, search engines and CSS all use this structure
 
 ---
@@ -167,7 +172,7 @@ def page(title: String, body: String): String =
   <thead><tr><th>Date</th><th>Trip</th><th>Boat</th><th>nm</th></tr></thead>
   <tbody>
     <tr><td>2025-06-14</td><td><a href="/trips/1">Konstanz – Meersburg</a></td>
-        <td>Pirat</td><td>4.4</td></tr>
+        <td>Dock</td><td>4.4</td></tr>
   </tbody>
 </table>
 ```

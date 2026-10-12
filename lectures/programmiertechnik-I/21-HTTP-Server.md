@@ -303,7 +303,7 @@ initialize()
 
 ```text
 $ curl localhost:8080/api/stats/nm-per-boat
-{"Lacustre":9.146899016697386,"Pirat":13.540202695398975}
+{"Dock":13.540202695398975,"X99 Expresso":9.146899016697386}
 ```
 
 - With SQLite behind it, the `JOIN … GROUP BY` from Lecture 20 runs in the database
@@ -317,9 +317,9 @@ $ curl localhost:8080/api/stats/nm-per-boat
 $ curl -i localhost:8080/api/boats
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 86
+Content-Length: 92
 
-[{"id":1,"name":"Pirat","kind":"Dinghy"},{"id":2,"name":"Lacustre","kind":"Keelboat"}]
+[{"id":1,"name":"Dock","kind":"Motorboat"},{"id":2,"name":"X99 Expresso","kind":"Keelboat"}]
 ```
 
 - `writeJs` produces a `ujson.Value` – Cask sends it with `Content-Type: application/json`
@@ -355,7 +355,7 @@ sbt "runMain saillog.web.LogbookServer"
 
 ```text
 $ curl localhost:8080/api/boats
-[{"id":1,"name":"Pirat","kind":"Dinghy"},{"id":2,"name":"Lacustre","kind":"Keelboat"}]
+[{"id":1,"name":"Dock","kind":"Motorboat"},{"id":2,"name":"X99 Expresso","kind":"Keelboat"}]
 
 $ curl "localhost:8080/api/trips?season=2026"
 [{"id":2,"boatId":2,"date":"2026-07-02","title":"Evening round","crew":[...
