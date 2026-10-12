@@ -17,16 +17,6 @@ First steps in Scala: setup, `Int` and `String` in the REPL, and a serial letter
 
 ---
 
-# Prof. Dr. Marko Boger
-
-- Room O205
-- marko.boger@htwg-konstanz.de
-- Office hours: Thursdays 9:45–11:15
-- Dean of AIN, Software Engineering, Software Architecture
-
-![bg right:40% contain](../../assets/marko-boger.jpg)
-
----
 
 <!-- _class: inhalt -->
 
@@ -877,6 +867,8 @@ Create one String value and combine it with another String.
 Define one val and one var.
 Write one one-line function with def.
 Finally, combine String and Int in one expression and explain the result.
+
+- Reading: Learn Scala 3, Chapters 5–15, 53 and 55
 
 ---
 

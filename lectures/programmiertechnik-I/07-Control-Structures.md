@@ -685,6 +685,8 @@ In CodeTask:
 
 - (Task to fill)
 
+- Reading: Learn Scala 3, Chapters 24–30
+
 ---
 
 <!-- _class: abschluss -->

@@ -810,6 +810,8 @@ section { font-size: 23px; }
 
 (Task to fill)
 
+- Reading: Learn Scala 3, Chapters 31–35, 37–50 and 52
+
 ---
 
 <!-- _class: abschluss -->

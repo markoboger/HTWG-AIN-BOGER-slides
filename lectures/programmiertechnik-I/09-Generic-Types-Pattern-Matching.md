@@ -511,6 +511,8 @@ for (jedi <- jedis) jedi match {
 
 (Task to fill)
 
+- Reading: Learn Scala 3, Chapters 76–77
+
 ---
 
 <!-- _class: abschluss -->

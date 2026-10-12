@@ -1780,6 +1780,8 @@ In CodeTask:
 
 Install the Metals extension in VS Code and try the examples of this lecture in a worksheet
 
+- Reading: Learn Scala 3, Chapters 16–19 and 51
+
 ---
 
 <!-- _class: aufgabe -->

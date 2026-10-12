@@ -663,6 +663,8 @@ Configure fmt
 
 Sign up for Co-Pilot and add the plugin to VS Code
 
+- Reading: Learn Scala 3, Chapters 21–23
+
 ---
 
 <!-- _class: abschluss -->

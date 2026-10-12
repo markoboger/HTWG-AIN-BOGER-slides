@@ -17,16 +17,6 @@ Functions that call themselves: recurrence equations, the call stack, tail recur
 
 ---
 
-# Prof. Dr. Marko Boger
-
-- Room O205
-- marko.boger@htwg-konstanz.de
-- Office hours: Thursdays 9:45–11:15
-- Dean of AIN, Software Engineering, Software Architecture
-
-![bg right:40% contain](../../assets/marko-boger.jpg)
-
----
 
 <!-- _class: inhalt -->
 

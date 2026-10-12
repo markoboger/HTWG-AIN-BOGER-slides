@@ -615,6 +615,32 @@ section { font-size: 20px; }
 - Make the CSV parser accept `;` as separator as well
 - Bonus: print the top speed between two neighbouring track points
 
+
+---
+
+<style scoped>
+table { font-size: 0.72em; }
+th, td { padding: 4px 12px; white-space: nowrap; }
+</style>
+
+# Project Ideas in This Style
+
+Examples for your own project. Your own idea in the same style is just as welcome:
+
+| # | Project | Domain model | File format |
+|---|---|---|---|
+| 1 | Calendar (recurring events) | `Calendar`, `Event`, `Recurrence` (enum) | iCalendar `.ics` |
+| 2 | Appointments (consultation hours) | `Slot`, `Booking`, `Person` | CSV |
+| 3 | CD collection | `Album`, `Artist`, `Track` | XML |
+| 4 | Shared flat expenses (who owes whom) | `Flatmate`, `Expense`, `Share` | CSV |
+| 5 | Gym log (machines, sets, reps) | `Machine`, `Exercise`, `WorkoutSet` | JSON |
+| 6 | Recipe book | `Recipe`, `Ingredient`, `Unit` (enum) | YAML |
+| 7 | Library (lending) | `Book`, `Member`, `Loan` | JSON |
+| 8 | Vehicle logbook (rides, fuel) | `Vehicle`, `Ride`, `Refuel` | CSV |
+| 9 | Phone book | `Contact`, `PhoneNumber`, `Address` | vCard `.vcf` or CSV |
+
+- Same size for your own idea: 2–3 case classes, one import and one storage format
+
 ---
 
 <!-- _class: abschluss -->
