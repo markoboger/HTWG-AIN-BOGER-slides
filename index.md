@@ -37,7 +37,7 @@ Diese Folien werden mit **Marp** erstellt und sind nach jedem Push in der aktuel
 
 <style scoped>ul { font-size: 0.85em; line-height: 1.3; } li { margin: 0.1em 0; }</style>
 
-<div class="columns">
+<div class="columns" style="align-items:start">
 
 <div>
 
@@ -60,6 +60,16 @@ Diese Folien werden mit **Marp** erstellt und sind nach jedem Push in der aktuel
 
 <div>
 
+- **[15 Option and Try](lectures/programmiertechnik-I/15-Option-and-Try.html)** ([HTML](lectures/programmiertechnik-I/15-Option-and-Try.html), [PDF](lectures/programmiertechnik-I/15-Option-and-Try.pdf))
+- **[16 Debugging and Logging](lectures/programmiertechnik-I/16-Debugging-and-Logging.html)** ([HTML](lectures/programmiertechnik-I/16-Debugging-and-Logging.html), [PDF](lectures/programmiertechnik-I/16-Debugging-and-Logging.pdf))
+- **[17 Domain-Driven Design](lectures/programmiertechnik-I/17-Domain-Driven-Design.html)** ([HTML](lectures/programmiertechnik-I/17-Domain-Driven-Design.html), [PDF](lectures/programmiertechnik-I/17-Domain-Driven-Design.pdf))
+- **[18 Algebra](lectures/programmiertechnik-I/18-Algebra.html)** ([HTML](lectures/programmiertechnik-I/18-Algebra.html), [PDF](lectures/programmiertechnik-I/18-Algebra.pdf))
+- **[19 Files and File Formats](lectures/programmiertechnik-I/19-Files-and-File-Formats.html)** ([HTML](lectures/programmiertechnik-I/19-Files-and-File-Formats.html), [PDF](lectures/programmiertechnik-I/19-Files-and-File-Formats.pdf))
+- **[20 Databases](lectures/programmiertechnik-I/20-Databases.html)** ([HTML](lectures/programmiertechnik-I/20-Databases.html), [PDF](lectures/programmiertechnik-I/20-Databases.pdf))
+- **[21 HTTP Server](lectures/programmiertechnik-I/21-HTTP-Server.html)** ([HTML](lectures/programmiertechnik-I/21-HTTP-Server.html), [PDF](lectures/programmiertechnik-I/21-HTTP-Server.pdf))
+- **[22 HTML](lectures/programmiertechnik-I/22-HTML.html)** ([HTML](lectures/programmiertechnik-I/22-HTML.html), [PDF](lectures/programmiertechnik-I/22-HTML.pdf))
+- **[23 CSS](lectures/programmiertechnik-I/23-CSS.html)** ([HTML](lectures/programmiertechnik-I/23-CSS.html), [PDF](lectures/programmiertechnik-I/23-CSS.pdf))
+- **[24 HTML Templates](lectures/programmiertechnik-I/24-HTML-Templates.html)** ([HTML](lectures/programmiertechnik-I/24-HTML-Templates.html), [PDF](lectures/programmiertechnik-I/24-HTML-Templates.pdf))
 
 </div>
 
