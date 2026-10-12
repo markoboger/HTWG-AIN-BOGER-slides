@@ -70,6 +70,10 @@ Diese Folien werden mit **Marp** erstellt und sind nach jedem Push in der aktuel
 - **[22 HTML](lectures/programmiertechnik-I/22-HTML.html)** ([HTML](lectures/programmiertechnik-I/22-HTML.html), [PDF](lectures/programmiertechnik-I/22-HTML.pdf))
 - **[23 CSS](lectures/programmiertechnik-I/23-CSS.html)** ([HTML](lectures/programmiertechnik-I/23-CSS.html), [PDF](lectures/programmiertechnik-I/23-CSS.pdf))
 - **[24 HTML Templates](lectures/programmiertechnik-I/24-HTML-Templates.html)** ([HTML](lectures/programmiertechnik-I/24-HTML-Templates.html), [PDF](lectures/programmiertechnik-I/24-HTML-Templates.pdf))
+- **[25 LeetCode I: Easy Problems](lectures/programmiertechnik-I/25-LeetCode-Easy.html)** ([HTML](lectures/programmiertechnik-I/25-LeetCode-Easy.html), [PDF](lectures/programmiertechnik-I/25-LeetCode-Easy.pdf))
+- **[26 LeetCode II: Medium and Hard](lectures/programmiertechnik-I/26-LeetCode-Medium-and-Hard.html)** ([HTML](lectures/programmiertechnik-I/26-LeetCode-Medium-and-Hard.html), [PDF](lectures/programmiertechnik-I/26-LeetCode-Medium-and-Hard.pdf))
+- **[27 Unity and C# I](lectures/programmiertechnik-I/27-Unity-and-CSharp-I.html)** ([HTML](lectures/programmiertechnik-I/27-Unity-and-CSharp-I.html), [PDF](lectures/programmiertechnik-I/27-Unity-and-CSharp-I.pdf))
+- **[28 Unity and C# II](lectures/programmiertechnik-I/28-Unity-and-CSharp-II.html)** ([HTML](lectures/programmiertechnik-I/28-Unity-and-CSharp-II.html), [PDF](lectures/programmiertechnik-I/28-Unity-and-CSharp-II.pdf))
 
 </div>
 
