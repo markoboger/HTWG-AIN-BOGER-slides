@@ -365,11 +365,425 @@ API documentation for the Scala standard library
 
 ---
 
-<!-- _class: tools-page -->
+<!-- _class: kapitel -->
 
-# ScalaDoc
+## 2
+# Documentation Comments
 
-(Tool details to fill)
+From JavaDoc to ScalaDoc
+
+---
+
+# Why Documentation Comments?
+
+Code tells the compiler **how** something works. Users of your code need to know **what** it does.
+
+- A *documentation comment* sits directly before a class, method or field
+- It starts with `/**` (two stars!) and ends with `*/`
+- A tool extracts these comments and generates **HTML API documentation**
+- The Java and Scala standard library docs you use every day are generated exactly this way
+
+Rule of thumb: document every **public** class, method and field — the *contract*, not the implementation.
+
+---
+
+# Structure of a Doc Comment
+
+```java
+/**
+ * Adds money to this account.            <- summary sentence
+ *
+ * <p>The amount is given in cents. A      <- description
+ * negative amount is rejected.
+ *
+ * @param amount the amount in cents      <- block tags
+ * @return the new balance
+ */
+public long deposit(long amount) { ... }
+```
+
+- The **first sentence** is the summary — it appears in the overview tables
+- Then an optional longer description (in JavaDoc: HTML, e.g. `<p>`, `<em>`)
+- At the end: **block tags**, each on its own line starting with `@`
+
+---
+
+<style scoped>
+table { font-size: 20px; }
+</style>
+
+# JavaDoc Block Tags
+
+| Tag | Used on | Meaning |
+|---|---|---|
+| `@param name text` | method, constructor | one per parameter |
+| `@return text` | method | the result (not for `void`) |
+| `@throws Type text` | method, constructor | exception and when it is thrown (`@exception` is an old synonym) |
+| `@author name` | class | who wrote it |
+| `@version text` | class | current version |
+| `@since text` | any | version in which it first appeared |
+| `@see reference` | any | "See Also" link to a class, method or URL |
+| `@deprecated text` | any | do not use anymore — say what to use instead |
+
+---
+
+# JavaDoc Inline Tags
+
+Inline tags appear **inside** text, in curly braces:
+
+- `{@code x <= 0}` — source code in monospace font, no HTML interpretation
+- `{@link Account#deposit(long)}` — link to another element, shown in code font
+- `{@linkplain Account the account}` — same link, shown in plain font
+- `{@inheritDoc}` — copy the documentation from the overridden method
+
+```java
+/**
+ * Returns the balance. Use {@link #deposit(long)} to add money.
+ *
+ * @throws IllegalStateException if {@code closed} is true
+ */
+```
+
+---
+
+# Conventions
+
+**Classes:** what the class represents, how to use it, `@author`, `@version`, `@since`
+
+**Methods:** start with a verb in third person — *"Returns …"*, *"Adds …"* (not *"This method returns …"*). Document every parameter, the result and every exception.
+
+**Fields:** a single sentence: what the value means and its constraints (*"Balance in cents, never negative."*)
+
+General:
+- Be concise — the summary sentence must stand on its own
+- Do not repeat the method name or the type signature
+- Document **pre- and postconditions**, not the algorithm
+
+---
+
+<style scoped>
+pre { font-size: 14px; }
+</style>
+
+# A Complete Java Example
+
+<div class="columns" style="grid-template-columns: 1fr 1fr; align-items: start;">
+<div markdown="1">
+
+```java
+/**
+ * A simple bank account with a balance in cents.
+ *
+ * <p>Instances are <em>mutable</em>; use
+ * {@link #deposit(long)} to add money.
+ *
+ * @author  Marko Boger
+ * @version 1.2
+ * @since   1.0
+ * @see     java.math.BigDecimal
+ */
+public class Account {
+
+  /** Current balance in cents, never negative. */
+  private long balance;
+```
+
+</div>
+<div markdown="1">
+
+```java
+  /**
+   * Adds money to this account.
+   *
+   * @param amount the amount in cents, must be positive
+   * @return the new balance
+   * @throws IllegalArgumentException if {@code amount <= 0}
+   */
+  public long deposit(long amount) {
+    if (amount <= 0)
+      throw new IllegalArgumentException("amount <= 0");
+    balance += amount;
+    return balance;
+  }
+
+  /**
+   * Returns the balance.
+   *
+   * @return the balance in cents
+   * @deprecated use {@link #balance()} instead
+   */
+  @Deprecated
+  public long getBalance() { return balance; }
+}
+```
+
+</div>
+</div>
+
+---
+
+# Generating JavaDoc
+
+```bash
+javadoc -d docs Account.java
+```
+
+<div class="columns" style="grid-template-columns: 1fr 1.6fr; align-items: start;">
+<div markdown="1">
+
+- `-d docs` — output directory
+- `-author -version` — include those tags
+- `-private` — also document private members
+- Result: `docs/index.html`, one page per class, plus index, tree, search and a *Deprecated* list
+
+</div>
+<div markdown="1">
+
+![w:600](assets/pt12-javadoc-output.png)
+
+</div>
+</div>
+
+---
+
+# ScalaDoc: JavaDoc for Scala
+
+ScalaDoc uses the same `/** ... */` comments and most of the same tags. Differences:
+
+- Text is written in **Markdown** (default in Scala 3), not HTML
+- The old Scala 2 **wiki syntax** (`''italic''`, `'''bold'''`) still works with `@syntax wiki`, but is not recommended
+- Links to API elements: `[[scala.collection.immutable.List]]` or `[[Circle]]`
+- External links as Markdown: `[Scala](https://scala-lang.org)`
+- Code blocks with Markdown backticks or `{{{ ... }}}`
+- Convention: the `*` on each line is aligned with the **second** `*` of `/**`
+
+```scala
+/** Calculate the square of the given number.
+  *
+  * @param d the Double to square
+  * @return the result of squaring `d`
+  */
+def square(d: Double): Double = d * d
+```
+
+---
+
+<style scoped>
+table { font-size: 19px; }
+</style>
+
+# Additional ScalaDoc Tags
+
+| Tag | Meaning |
+|---|---|
+| `@tparam T text` | a type parameter (one per type parameter) |
+| `@constructor text` | in the class comment: describes the primary constructor |
+| `@note text` | pre-/postconditions or other notable restrictions |
+| `@example text` | example code |
+| `@group name` | puts a member into a group |
+| `@groupname name Title` | display title of a group |
+| `@groupdesc name text` | description shown under the group title |
+| `@groupprio name n` | order of the groups (low first, ungrouped = 1000) |
+| `@define name text` | macro: `$name` is replaced in comments of the same file |
+| `@inheritdoc` | explicitly inherit the doc of the overridden member |
+
+`@param`, `@return`, `@throws`, `@see`, `@author`, `@version`, `@since`, `@deprecated` work as in JavaDoc.
+
+---
+
+<style scoped>
+pre { font-size: 15px; }
+</style>
+
+# Documenting a Trait
+
+```scala
+/** A geometric shape in the plane.
+  *
+  * Every shape knows its [[area]] and can be compared by size.
+  * See also [[Circle]] and [[Rect]].
+  *
+  * @groupname Measure Measurements
+  * @groupprio Measure 10
+  * @groupname Compare Comparisons
+  * @groupprio Compare 20
+  */
+trait Shape:
+  /** The area of this shape.
+    * @group Measure
+    */
+  def area: Double
+
+  /** `true` if this shape is larger than `that`.
+    *
+    * @param that the shape to compare with
+    * @return whether `area > that.area`
+    * @group Compare
+    */
+  def largerThan(that: Shape): Boolean = area > that.area
+```
+
+Groups are only shown if scaladoc is called with **`-groups`**.
+
+---
+
+<style scoped>
+pre { font-size: 15px; }
+</style>
+
+# Documenting Case Classes
+
+The class parameters **are** the constructor parameters — and the fields. Document them with `@param` in the class comment; `@constructor` describes the primary constructor.
+
+```scala
+/** A circle around the origin.
+  *
+  * @constructor creates a circle with the given radius
+  * @param radius the radius, must be positive
+  * @throws IllegalArgumentException if `radius <= 0`
+  */
+case class Circle(radius: Double) extends Shape:
+  require(radius > 0, "radius must be positive")
+  def area: Double = math.Pi * radius * radius
+
+/** An axis-parallel rectangle.
+  *
+  * @param width  the width
+  * @param height the height
+  * @note width and height are not checked
+  */
+case class Rect(width: Double, height: Double) extends Shape:
+  def area: Double = width * height
+```
+
+---
+
+<style scoped>
+pre { font-size: 15px; }
+</style>
+
+# Documenting Objects and Companions
+
+A companion object gets its **own** comment. ScalaDoc links class and companion on both pages.
+
+```scala
+/** Factory methods for [[Circle]]. */
+object Circle:
+  /** Creates a circle from its diameter.
+    *
+    * @param d the diameter
+    * @return a new [[Circle]] with radius `d / 2`
+    * @example {{{
+    * Circle.fromDiameter(4.0).radius  // 2.0
+    * }}}
+    */
+  def fromDiameter(d: Double): Circle = Circle(d / 2)
+```
+
+A standalone `object` (a singleton) is documented exactly like a class.
+
+---
+
+<style scoped>
+pre { font-size: 15px; }
+</style>
+
+# @throws, @deprecated and Macros
+
+In Scala, `@throws` and `@deprecated` exist **twice**: as doc tag *and* as annotation.
+
+```scala
+/** Utility functions on shapes.
+  *
+  * @define shapes a non-empty list of shapes
+  */
+object Shapes:
+  /** Returns the largest of $shapes.
+    *
+    * @param xs $shapes
+    * @tparam S the concrete shape type
+    * @return the shape with the largest area
+    */
+  @throws[NoSuchElementException]("if xs is empty")
+  def largest[S <: Shape](xs: List[S]): S = xs.maxBy(_.area)
+
+  /** Old name of [[largest]]. */
+  @deprecated("use largest instead", "1.1")
+  def biggest(xs: List[Shape]): Shape = largest(xs)
+```
+
+- The **annotation** `@throws[E]` is seen by the compiler (and by Java callers); `@deprecated(...)` makes the compiler **warn** on every use
+- The **doc tags** `@throws E text` / `@deprecated text` only go into the documentation
+
+---
+
+# Generating ScalaDoc
+
+<div class="columns" style="grid-template-columns: 1fr 1.4fr; align-items: start;">
+<div markdown="1">
+
+With **scala-cli**:
+
+```bash
+scala-cli doc Shapes.scala -o docs \
+  --scalac-option -groups
+```
+
+With **sbt**:
+
+```bash
+sbt doc
+```
+
+Output: `target/scala-3.x.y/api/index.html`
+
+</div>
+<div markdown="1">
+
+![w:640](assets/pt12-scaladoc-output.png)
+
+</div>
+</div>
+
+---
+
+<style scoped>
+pre { font-size: 17px; }
+</style>
+
+# ScalaDoc Settings in sbt
+
+Options are passed to the `doc` task in `build.sbt`:
+
+```scala
+Compile / doc / scalacOptions ++= Seq(
+  "-groups",                          // enable @group tags
+  "-project", "Shapes",               // project name in the header
+  "-project-version", version.value,
+  "-siteroot", "docs",                // static pages (guides, blog)
+  "-source-links:github://markoboger/shapes"  // link to sources
+)
+```
+
+- `-siteroot` adds hand-written Markdown pages next to the API
+- `-source-links` puts a *source* link on every member
+- `-comment-syntax wiki` switches all comments to the Scala 2 wiki syntax
+- Scala 3 scaladoc can even **type-check code snippets** in comments (`-snippet-compiler:compile`)
+
+---
+
+# Summary: JavaDoc vs. ScalaDoc
+
+| | JavaDoc | ScalaDoc (Scala 3) |
+|---|---|---|
+| Comment | `/** ... */` | `/** ... */`, `*` aligned under 2nd `*` |
+| Markup | HTML | Markdown (wiki syntax optional) |
+| Links | `{@link Type#member}` | `[[Type.member]]` |
+| Code | `{@code ...}` | `` `...` `` or `{{{ ... }}}` |
+| Extra tags | — | `@tparam`¹, `@constructor`, `@note`, `@example`, `@group…`, `@define` |
+| Tool | `javadoc -d docs` | `scaladoc`, `scala-cli doc`, `sbt doc` |
+
+<p class="small">¹ JavaDoc documents type parameters as <code>@param &lt;T&gt;</code>.</p>
 
 ---
 
