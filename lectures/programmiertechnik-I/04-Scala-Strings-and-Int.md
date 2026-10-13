@@ -627,6 +627,27 @@ object MyProgram:
 </div>
 
 <p class="small">Screenshot: CodeTask sign-in page, Oct 2026.</p>
+<p class="small">Note: string answers must be written in quotation marks, e.g. <code>"Hello"</code>.</p>
+
+---
+
+<!-- _class: tools-page -->
+
+# CodeTask: Chapters of Learn Scala 3
+
+![h:480](assets/pt04-codetask-chapters.png)
+
+<p class="small">Screenshot: CodeTask, module "Learn Scala 3 The Fast Way" expanded (Ch08–Ch39), Oct 2026.</p>
+
+---
+
+<!-- _class: tools-page -->
+
+# CodeTask: A Solved Task
+
+![h:480](assets/pt04-codetask-task.png)
+
+<p class="small">Screenshot: solved multiple-choice task with the green success banner, Oct 2026.</p>
 
 ---
 

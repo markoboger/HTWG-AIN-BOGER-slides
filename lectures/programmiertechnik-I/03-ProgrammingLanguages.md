@@ -1102,7 +1102,7 @@ impl Solution {
 - by Graydon Hoare @ Mozilla
 - hardware-near
 - functional & object-oriented
-- interpreted
+- compiled
 - statically typed
 - strongly typed
 - no garbage collector
