@@ -686,6 +686,7 @@ In CodeTask:
 - (Task to fill)
 
 - Reading: Learn Scala 3, Chapters 24–30
+- CodeTask: Chapters 24 to 30
 
 ---
 

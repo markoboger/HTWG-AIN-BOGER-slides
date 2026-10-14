@@ -449,6 +449,7 @@ Tuples, Objects, Enums and Classes all define **Types** – like `Int`, `String`
 (Task to fill)
 
 - Reading: Learn Scala 3, Chapters 20, 67 and 54
+- CodeTask: Chapters 20, 54 and 67
 
 ---
 

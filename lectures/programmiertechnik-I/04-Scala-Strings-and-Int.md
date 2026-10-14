@@ -670,6 +670,28 @@ val res2: Int = 2
 
 ---
 
+# Double in the REPL
+
+Double is used for decimal numbers (floating point).
+Write a decimal point: `1.0`, `3.3`, `2.7`.
+Mixing Int and Double gives a Double.
+
+```scala
+scala> 1.7 + 2.0
+val res0: Double = 3.7
+
+scala> val grade = 2.3
+val grade: Double = 2.3
+
+scala> grade <= 4.0
+val res1: Boolean = true
+
+scala> 7 / 2.0
+val res2: Double = 3.5
+```
+
+---
+
 # String in the REPL
 
 String is used for text.
@@ -687,6 +709,49 @@ val res0: Int = 5
 scala> s + " 3"
 val res1: String = "Scala 3"
 ```
+
+---
+
+# String Interpolation
+
+Put an `s` before the quotes to insert values with `$name` or `${expression}`.
+With `f` you can also format numbers, e.g. `%.1f` = one decimal place.
+
+```scala
+scala> val name = "Ada"
+scala> val age = 20
+
+scala> s"$name is $age years old"
+val res0: String = "Ada is 20 years old"
+
+scala> s"Next year: ${age + 1}"
+val res1: String = "Next year: 21"
+
+scala> val grade = 1.25
+scala> f"Grade: $grade%.1f"
+val res2: String = "Grade: 1.3"
+```
+
+---
+
+# Multiline Strings
+
+Triple quotes `"""..."""` allow text over several lines.
+With `stripMargin`, each line starts with `|`; everything before `|` is removed.
+
+<style scoped>
+pre { font-size: 20px; }
+</style>
+
+```scala
+val text =
+  """Dear Ada,
+    |
+    |welcome to Programming I!
+    |Best regards""".stripMargin
+```
+
+Combine both: `s"""Dear $name, ...""".stripMargin`
 
 ---
 
@@ -749,6 +814,27 @@ val res0: String = "Ada will soon be 21"
 
 ---
 
+# for with Indices over a List
+
+A `List` holds several values of the same type; `list(i)` gets element `i` (starting at `0`).
+`0 until n` counts `0, 1, …, n-1` — so we can visit every index.
+
+```scala
+scala> val grades = List(1.0, 3.3, 5.0)
+val grades: List[Double] = List(1.0, 3.3, 5.0)
+
+scala> grades(1)
+val res0: Double = 3.3
+
+scala> for i <- 0 until grades.length do
+     |   println(s"Student $i: ${grades(i)}")
+Student 0: 1.0
+Student 1: 3.3
+Student 2: 5.0
+```
+
+---
+
 # Serial Letters (Form Letters)
 
 A **serial letter** is the same template filled with different data — here: exam results.
@@ -761,9 +847,9 @@ ul { margin: 0.35em 0; }
 li { margin: 0.28em 0; }
 </style>
 
-- **String interpolation:** `$name`, `$matriculationNumber`, `$result` inside an `s"""..."""` string
-- **`stripMargin`:** each content line starts with `|`; indentation before `|` is removed
-- **`Double` grades** and formatting: `f"$grade%.1f"` → one decimal place
+- **Multiline string with interpolation:** `s"""...""".stripMargin` (see previous slides)
+- **`Double` grades**, formatted with `f"$grade%.1f"`
+- **for with indices** over three parallel `List`s
 - **Pass / fail:** `passed` when `grade <= 4.0`
 
 Source: `SerialLetter.scala` in the Programming I workspace.
@@ -831,7 +917,7 @@ writeLetter("Anna Müller", 512341, 1.0)
 
 # main: Four Students from Lists
 
-`main` keeps three **parallel** `List`s and calls `writeLetter` with matching indices `0` … `3`.
+`main` keeps three **parallel** `List`s and calls `writeLetter` for every index with a `for` loop.
 
 <style scoped>
 section { font-size: 18px; }
@@ -847,10 +933,8 @@ def main(args: Array[String]): Unit =
   val grades =
     List(1.0, 3.3, 5.0, 2.7)
 
-  writeLetter(names(0), matriculationNumbers(0), grades(0))
-  writeLetter(names(1), matriculationNumbers(1), grades(1))
-  writeLetter(names(2), matriculationNumbers(2), grades(2))
-  writeLetter(names(3), matriculationNumbers(3), grades(3))
+  for i <- 0 until names.length do
+    writeLetter(names(i), matriculationNumbers(i), grades(i))
 ```
 
 Clara’s grade `5.0` is above `4.0` → letter says **failed**; the others **passed**.
@@ -873,8 +957,8 @@ section { font-size: 23px; }
 - REPL: evaluate expressions, `resN`, help/quit, multi-line input, tab completion
 - VS Code + Metals; worksheets (`.worksheet.sc`) show results inline
 - CodeTask for online Scala practice
-- Core REPL topics: `Int`, `String`, `val`/`var`, simple `def`
-- Serial letters: `s"""...""".stripMargin`, interpolation, `Double` grades, parallel lists in `main`
+- Core REPL topics: `Int`, `Double`, `String`, interpolation, multiline strings, `val`/`var`, simple `def`
+- Serial letters: `s"""...""".stripMargin`, interpolation, `Double` grades, `for` with indices over parallel lists
 
 ---
 
@@ -890,6 +974,7 @@ Write one one-line function with def.
 Finally, combine String and Int in one expression and explain the result.
 
 - Reading: Learn Scala 3, Chapters 5–15, 53 and 55
+- CodeTask: Chapters 8 to 15, 53 and 55
 
 ---
 

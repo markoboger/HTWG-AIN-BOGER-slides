@@ -664,6 +664,7 @@ Configure fmt
 Sign up for Co-Pilot and add the plugin to VS Code
 
 - Reading: Learn Scala 3, Chapters 21–23
+- CodeTask: Chapters 21 to 23
 
 ---
 
