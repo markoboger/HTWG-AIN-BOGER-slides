@@ -188,6 +188,50 @@ x -= 3.0         // 8.5
 
 ---
 
+# Operator Precedence
+
+<style scoped>section { font-size: 23px; } pre { font-size: 19px; }</style>
+
+<div class="columns" style="grid-template-columns: 1fr 1fr; align-items: start;">
+<div markdown="1">
+
+Parentheses first, then `*` `/` `%` before `+` `-`:
+
+```scala
+2 + 3 * 4        // 14
+(2 + 3) * 4      // 20
+```
+
+Comparisons after arithmetic, then `&&` before `||`:
+
+```scala
+1 + 2 < 4 && false || true   // true
+// ((1 + 2) < 4 && false) || true
+```
+
+</div>
+<div markdown="1">
+
+Same precedence: evaluated left to right:
+
+```scala
+10 - 4 - 3       // 3  = (10 - 4) - 3
+20 / 4 / 5       // 1  = (20 / 4) / 5
+```
+
+Watch out for `Int` division:
+
+```scala
+7 / 2 * 2        // 6, not 7: (7 / 2) = 3
+```
+
+</div>
+</div>
+
+In Scala, an operator's precedence is determined by its **first character**.
+
+---
+
 # Everything is Bits
 
 <style scoped>section { font-size: 24px; }</style>
