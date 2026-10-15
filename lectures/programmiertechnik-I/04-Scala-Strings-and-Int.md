@@ -167,6 +167,38 @@ From `cs setup` to your first worksheet
 
 <!-- _class: tools-page -->
 
+# The Shell
+
+<style scoped>section { font-size: 20px; } table { font-size: 16px; } th, td { padding: 0.12em 0.5em; } p { margin: 0.3em 0; }</style>
+
+<div class="columns" style="grid-template-columns: 1fr 1fr; align-items: start;">
+<div markdown="1">
+
+The shell is the standard tool to talk to your computer: type a command, press Enter.
+Standard on the Mac: **zsh**. Alternatives: **bash** (Linux), **PowerShell** (Windows).
+
+| Command | Meaning |
+|---|---|
+| `pwd` | where am I? |
+| `ls` / `ls -al` | list files / all, with details |
+| `cd dir` / `cd ..` | change folder / one level up |
+| `mkdir name` | make a new directory |
+| `touch file` | create an empty file |
+| `cp a b` / `mv a b` | copy / move or rename |
+| `rm file` / `rm -r dir` | remove (no trash bin!) |
+
+</div>
+<div markdown="1">
+
+![w:520](assets/pt04-shell-session.png)
+
+</div>
+</div>
+
+---
+
+<!-- _class: tools-page -->
+
 # Coursier (`cs`) – the Scala Installer
 
 <style scoped>section { font-size: 20px; } p { margin: 0.3em 0; } ul { margin: 0.2em 0; } li { margin: 0.1em 0; }</style>
