@@ -92,7 +92,7 @@ Software development processes, Scrum, XP, TDD and BDD with ScalaTest.
 <div class="columns" style="grid-template-columns: 0.8fr 1.2fr;">
 <div>
 
-- Developed by Barry Böhme in 1985
+- Developed by Barry Boehm in 1985
 - It is the first to stress the importance of iterations
 - Main goal was to reduce risk as early as possible
 
@@ -230,7 +230,7 @@ Software development processes, Scrum, XP, TDD and BDD with ScalaTest.
 
 # The Agile Manifesto
 
-- Developed at a „Think Tank“ meeting in 2001
+- Developed at a “Think Tank” meeting in 2001
 - Describes the core ideas of Agile Methods
 
 <img src="assets/se03-agile-manifesto-authors.png" alt="Portraits of the authors of the Agile Manifesto" style="display: block; height: 330px; margin: 0.3rem auto 0 auto;">
@@ -320,10 +320,10 @@ li { margin: 0.15rem 0; }
 
 - Whiteboard
 - Google Spread Sheet
-- PivotalTracker
-  - Webtool, almost no setup or config, free for Universities
 - Ontime
   - Powerfull webtool, great Scrum support, github integration
+- GitHub Issues & Projects
+- GitLab Issue Boards
 
 </div>
 <div>
@@ -332,9 +332,9 @@ li { margin: 0.15rem 0; }
   - Full integration in Eclipse, Combines SCM and PM
 - Scrumwise
   - Excellent web-based tool for Scrum
-- Waffle.io
-  - Based on issues on Github
-- Github Issues
+- Jira
+- Linear
+- Trello
 
 </div>
 </div>
@@ -423,7 +423,7 @@ li { margin: 0.15rem 0; }
 - Developed by Kent Beck
 - C3 Project at Chrysler: Salary payment system
 - 1998 first Articles
-- 1999 Book „Extreme Programming explained“ published
+- 1999 Book “Extreme Programming Explained” published
 - 2000 first XP-Conference
 
 ---
@@ -702,22 +702,25 @@ pre { font-size: 17px; line-height: 1.3; }
 
 # Matchers
 
-ScalaTest provides a domain specific language (DSL) for expressing assertions in tests using the word should. Just mix in [Matchers](http://doc.scalatest.org/3.0.1/#org.scalatest.Matchers), like this:
+ScalaTest provides a domain specific language (DSL) for expressing assertions in tests using the word should. Just mix in [Matchers](https://www.scalatest.org/user_guide/using_matchers), like this:
 
 ```scala
-import org.scalatest._
+import org.scalatest.wordspec.AnyWordSpec
+import org.scalatest.matchers.should.Matchers
 
-class ExampleSpec extends WordSpec with Matchers {
-"A Cell" when {
-   "not set to any value " should {
-     val emptyCell = Cell(0)
-     "have value 0" in {
-       emptyCell.value should be(0)
-     }
-     "not be set" in {
-       emptyCell.isSet should be(false)
-     }
-   }
+class ExampleSpec extends AnyWordSpec with Matchers {
+  "A Cell" when {
+    "not set to any value" should {
+      val emptyCell = Cell(0)
+      "have value 0" in {
+        emptyCell.value should be(0)
+      }
+      "not be set" in {
+        emptyCell.isSet should be(false)
+      }
+    }
+  }
+}
 ```
 
 ---
@@ -746,9 +749,9 @@ Or should it be …?
 ScalaTest makes clear which is the result and what it is expected
 
 ```scala
- result === expected // will provide both values on failure
- expect(true){ some_Bool_Function }
- result should equal (3)
+assert(result === expected) // will provide both values on failure
+assertResult(true) { someBoolFunction }
+result should equal (3)
 ```
 
 And it offers alternatives with slightly different meaning
@@ -934,20 +937,18 @@ pre { font-size: 18px; }
 
 # Running Coverage Reports
 
-- For Scala 3.2 a code coverage a good code coverage tool is available. It is called scoverage.
-- For earlier Scala 3-versions, use jacoco
+- [scoverage](https://github.com/scoverage/sbt-scoverage) is the code coverage tool for Scala 2 and Scala 3 (sbt-scoverage 2.x)
 
 Add this to the file project/plugins.sbt
 
 ```scala
-addSbtPlugin("org.scoverage" % "sbt-scoverage" % "x.x.x")
+addSbtPlugin("org.scoverage" % "sbt-scoverage" % "2.4.4")
 ```
 
 Then run
 
 ```bash
-$ sbt clean coverage test
-$ sbt coverageReport
+$ sbt clean coverage test coverageReport
 ```
 
 ---
