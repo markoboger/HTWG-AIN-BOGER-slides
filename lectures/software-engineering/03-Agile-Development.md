@@ -22,8 +22,8 @@ Software development processes, Scrum, XP, TDD and BDD with ScalaTest.
 
 - Get to know several generations of software development processes
 - Distinguish between heavy weight and agile processes
-- Learn some lessons from XP
 - Understand the core of Scrum
+- Learn some lessons from XP
 - Understand Test Driven Development and Behaviour Driven Development (TDD / BDD)
 - Write Unit Tests and testable code
 
