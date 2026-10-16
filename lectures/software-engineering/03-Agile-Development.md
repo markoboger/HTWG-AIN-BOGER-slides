@@ -12,7 +12,7 @@ _footer: ""
 ## Software Engineering
 # Lecture 03: Agile Development
 
-Software development processes, Scrum, XP, TDD and BDD with ScalaTest.
+Software development processes, Scrum, XP (Extreme Programming), TDD and BDD with ScalaTest.
 
 ---
 
@@ -23,7 +23,7 @@ Software development processes, Scrum, XP, TDD and BDD with ScalaTest.
 - Get to know several generations of software development processes
 - Distinguish between heavy weight and agile processes
 - Understand the core of Scrum
-- Learn some lessons from XP
+- Learn some lessons from XP (Extreme Programming)
 - Understand Test Driven Development and Behaviour Driven Development (TDD / BDD)
 - Write Unit Tests and testable code
 
@@ -35,8 +35,8 @@ Software development processes, Scrum, XP, TDD and BDD with ScalaTest.
 - Spiral-Model
 - V-Model
 - Rational Unified Process (RUP)
-- XP
 - Scrum
+- XP
 
 ---
 
