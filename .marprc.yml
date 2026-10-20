@@ -1,5 +1,6 @@
 themeSet:
   - ./themes/htwg.css
+  - ./themes/htwg-pt1.css
 
 html: true                  # needed for .columns and advanced HTML
 markdown:

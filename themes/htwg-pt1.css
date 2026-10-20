@@ -1,0 +1,12 @@
+/* @theme htwg-pt1 */
+/* Programmiertechnik I: HTWG theme + page number "current/total" bottom-right on every slide */
+@import 'htwg';
+
+section::after,
+section.kapitel::after,
+section.kapitel-dunkel::after,
+section.abschluss::after,
+section.tools::after {
+    content: attr(data-marpit-pagination) '/' attr(data-marpit-pagination-total);
+    display: block;
+}
