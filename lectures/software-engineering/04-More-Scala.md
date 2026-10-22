@@ -187,27 +187,27 @@ pre { font-size: 18px; line-height: 1.3; margin-top: 0.2rem; }
 
 # Significant Indentation
 
-- In Scala 2, blocks of code are formed by braces, Java style
+- Scala offers two forms: blocks formed by braces, Java style
 
 <div class="nlbl">Java-Style</div>
 
 ```scala
 case class Person(name:String, birthdate:Date) extends Ordered[Person]{
- override def compare(that: Person) = this.age - that.age
- def age = birthdate.fullYearsSince
- def age(date:Date) = birthdate.fullYearsSince(date)
+    override def compare(that: Person) = this.age - that.age
+    def age = birthdate.fullYearsSince
+    def age(date:Date) = birthdate.fullYearsSince(date)
 }
 ```
 
-- Scala 3 also allows blocks by significant indentation, Python style
+- or blocks formed by significant indentation, Python style
 
 <div class="nlbl">Python-Style</div>
 
 ```scala
 case class Person(name:String, birthdate:Date) extends Ordered[Person]:
- override def compare(that: Person) = this.age - that.age
- def age = birthdate.fullYearsSince
- def age(date:Date) = birthdate.fullYearsSince(date)
+    override def compare(that: Person) = this.age - that.age
+    def age = birthdate.fullYearsSince
+    def age(date:Date) = birthdate.fullYearsSince(date)
 ```
 
 ---

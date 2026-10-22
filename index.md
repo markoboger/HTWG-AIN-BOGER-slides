@@ -91,6 +91,12 @@ Diese Folien werden mit **Marp** erstellt und sind nach jedem Push in der aktuel
 - **[06 Continuous Deployment](lectures/software-engineering/06-Continuous-Deployment.html)** ([HTML](lectures/software-engineering/06-Continuous-Deployment.html), [PDF](lectures/software-engineering/06-Continuous-Deployment.pdf))
 - **[07 Design Pattern I](lectures/software-engineering/07-Design-Pattern-I.html)** ([HTML](lectures/software-engineering/07-Design-Pattern-I.html), [PDF](lectures/software-engineering/07-Design-Pattern-I.pdf))
 - **[08 Design Pattern II](lectures/software-engineering/08-Design-Pattern-II.html)** ([HTML](lectures/software-engineering/08-Design-Pattern-II.html), [PDF](lectures/software-engineering/08-Design-Pattern-II.pdf))
+- **[09 GUI Libraries](lectures/software-engineering/09-GUI-Libraries.html)** ([HTML](lectures/software-engineering/09-GUI-Libraries.html), [PDF](lectures/software-engineering/09-GUI-Libraries.pdf))
+- **[10 Components](lectures/software-engineering/10-Components.html)** ([HTML](lectures/software-engineering/10-Components.html), [PDF](lectures/software-engineering/10-Components.pdf))
+- **[11 Dependency Injection](lectures/software-engineering/11-Dependency-Injection.html)** ([HTML](lectures/software-engineering/11-Dependency-Injection.html), [PDF](lectures/software-engineering/11-Dependency-Injection.pdf))
+- **[12 File IO](lectures/software-engineering/12-File-IO.html)** ([HTML](lectures/software-engineering/12-File-IO.html), [PDF](lectures/software-engineering/12-File-IO.pdf))
+- **[13 Docker](lectures/software-engineering/13-Docker.html)** ([HTML](lectures/software-engineering/13-Docker.html), [PDF](lectures/software-engineering/13-Docker.pdf))
+- **[14 Logging](lectures/software-engineering/14-Logging.html)** ([HTML](lectures/software-engineering/14-Logging.html), [PDF](lectures/software-engineering/14-Logging.pdf))
 
 ---
 
