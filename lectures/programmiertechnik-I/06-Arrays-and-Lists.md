@@ -12,7 +12,7 @@ _footer: ""
 ## Programmiertechnik I
 # Lecture 06: Arrays and Lists
 
-<p class="small">Migrated from the Google Slides deck "PR-06-Arrays and Lists".</p>
+Mutable and Immutable Data Structures
 
 ---
 
