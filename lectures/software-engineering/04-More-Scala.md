@@ -95,14 +95,15 @@ val (minors, adults) = people partition (_.age < 18)
 <style scoped>
 section { font-size: 22px; }
 p { margin: 0.3rem 0; }
-.kwgrid { display: grid; grid-template-columns: 1fr 2.3fr 1.25fr 1.15fr; gap: 0.7rem; align-items: stretch; margin-top: 0.6rem; }
-.kwbox { background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 8px; padding: 0.5rem 0.8rem 0.6rem 0.8rem; }
-.kwh { font-weight: 700; font-size: 19px; color: #575e75; border-bottom: 1px solid #d0d7de; padding-bottom: 0.25rem; margin-bottom: 0.4rem; }
-.kwl { font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace); font-size: 19px; line-height: 1.45; column-gap: 1rem; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+.kwgrid { display: grid; grid-template-columns: 1.15fr 1.55fr 0.75fr; gap: 0.5rem; align-items: stretch; margin-top: 0.6rem; }
+.kwbox { min-width: 0; background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 8px; padding: 0.5rem 0.8rem 0.6rem 0.8rem; }
+.kwh { font-weight: 700; font-size: 17px; color: #575e75; border-bottom: 1px solid #d0d7de; padding-bottom: 0.25rem; margin-bottom: 0.4rem; }
+.kwl { font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace); font-size: 17px; line-height: 1.3; column-gap: 0.8rem; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
 .kwl span { display: block; break-inside: avoid; }
 .core .kwl span { font-weight: 700; color: #000; }
 .java .kwl span { color: #999; }
 .kwl .soft { font-style: italic; }
+.kwgrid .sym { grid-column: span 2; }
 .kwnote { font-size: 17px; color: #575e75; margin-top: 0.5rem; }
 </style>
 
@@ -112,10 +113,11 @@ p { margin: 0.3rem 0; }
 - Here is a list of all keywords
 
 <div class="kwgrid">
-<div class="kwbox core"><div class="kwh">Core Scala</div><div class="kwl" style="columns: 1;"><span>case</span><span>def</span><span>enum</span><span class="soft">extension</span><span>given</span><span>match</span><span>object</span><span>sealed</span><span>trait</span><span class="soft">using</span><span>val</span><span>yield</span></div></div>
-<div class="kwbox every"><div class="kwh">Everyday &amp; Advanced</div><div class="kwl" style="columns: 3;"><span>abstract</span><span class="soft">as</span><span>class</span><span class="soft">derives</span><span>do</span><span>else</span><span class="soft">end</span><span>export</span><span>extends</span><span>false</span><span>final</span><span>for</span><span>if</span><span>import</span><span class="soft">infix</span><span class="soft">inline</span><span>lazy</span><span>new</span><span class="soft">opaque</span><span class="soft">open</span><span>override</span><span>package</span><span>private</span><span>protected</span><span>super</span><span>then</span><span class="soft">transparent</span><span>true</span><span>type</span><span>with</span></div></div>
-<div class="kwbox java"><div class="kwh">Java Compatibility (avoid)</div><div class="kwl" style="columns: 1;"><span>catch</span><span>finally</span><span>implicit</span><span>null</span><span>return</span><span>throw</span><span>try</span><span>var</span><span>while</span></div></div>
-<div class="kwbox sym"><div class="kwh">Symbols</div><div class="kwl" style="columns: 2;"><span>#</span><span class="soft">*</span><span class="soft">+</span><span class="soft">-</span><span>:</span><span>&lt;-</span><span>&lt;:</span><span>=</span><span>=&gt;</span><span>=&gt;&gt;</span><span>&gt;:</span><span>?=&gt;</span><span>@</span><span class="soft">|</span></div></div>
+<div class="kwbox core"><div class="kwh">Core Scala</div><div class="kwl" style="display: grid; grid-auto-flow: column; grid-template-rows: repeat(7, auto); grid-auto-columns: auto;"><span>case</span><span>class</span><span>def</span><span>do</span><span>else</span><span>enum</span><span class="soft">extension</span><span>false</span><span>for</span><span>given</span><span>if</span><span>match</span><span>object</span><span>sealed</span><span>trait</span><span>true</span><span class="soft">using</span><span>val</span><span>yield</span></div></div>
+<div class="kwbox every"><div class="kwh">Everyday</div><div class="kwl" style="display: grid; grid-auto-flow: column; grid-template-rows: repeat(6, auto); grid-auto-columns: auto;"><span>abstract</span><span class="soft">as</span><span class="soft">derives</span><span class="soft">end</span><span>export</span><span>extends</span><span>final</span><span>import</span><span>new</span><span class="soft">open</span><span>override</span><span>package</span><span>private</span><span>protected</span><span>super</span><span>then</span><span>type</span><span>with</span></div></div>
+<div class="kwbox adv"><div class="kwh">Advanced</div><div class="kwl" style="display: grid; grid-auto-flow: column; grid-template-rows: repeat(5, auto); grid-auto-columns: auto;"><span class="soft">infix</span><span class="soft">inline</span><span>lazy</span><span class="soft">opaque</span><span class="soft">transparent</span></div></div>
+<div class="kwbox java"><div class="kwh">Java Compatibility (avoid)</div><div class="kwl" style="display: grid; grid-auto-flow: column; grid-template-rows: repeat(5, auto); grid-auto-columns: auto;"><span>catch</span><span>finally</span><span>implicit</span><span>null</span><span>return</span><span>throw</span><span>try</span><span>var</span><span>while</span></div></div>
+<div class="kwbox sym"><div class="kwh">Symbols</div><div class="kwl" style="display: grid; grid-auto-flow: column; grid-template-rows: repeat(3, auto); grid-auto-columns: auto;"><span>#</span><span class="soft">*</span><span class="soft">+</span><span class="soft">-</span><span>:</span><span>&lt;-</span><span>&lt;:</span><span>=</span><span>=&gt;</span><span>=&gt;&gt;</span><span>&gt;:</span><span>?=&gt;</span><span>@</span><span class="soft">|</span></div></div>
 </div>
 
 <p class="kwnote"><i>italic</i> = soft keyword (a keyword only in certain positions, otherwise usable as a name)</p>
