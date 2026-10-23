@@ -126,8 +126,9 @@ p { margin: 0.3rem 0; }
 
 <style scoped>
 pre, code { font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
-pre { font-size: 18px; line-height: 1.3; margin-top: 0.2rem; }
-.nlbl { font-size: 22px; font-weight: 700; color: #575e75; margin-top: 0.6rem; }
+pre { font-size: 15px; line-height: 1.2; margin: 0.1rem 0; padding: 0.4rem 0.8rem; }
+.nlbl { font-size: 20px; font-weight: 700; color: #575e75; margin-top: 0.2rem; }
+li { margin: 0; }
 </style>
 
 # Significant Indentation
@@ -138,9 +139,14 @@ pre { font-size: 18px; line-height: 1.3; margin-top: 0.2rem; }
 
 ```scala
 case class Person(name:String, birthdate:Date) extends Ordered[Person]{
-    override def compare(that: Person) = this.age - that.age
-    def age = birthdate.fullYearsSince
-    def age(date:Date) = birthdate.fullYearsSince(date)
+    def compare(that: Person): Int = {
+        if (this.age < that.age) -1 else if (this.age > that.age) 1 else 0
+    }
+    def printAdults(people: List[Person]) = {
+        for (p <- people) {
+            if (p.age >= 18) println(p.name)
+        }
+    }
 }
 ```
 
@@ -150,9 +156,11 @@ case class Person(name:String, birthdate:Date) extends Ordered[Person]{
 
 ```scala
 case class Person(name:String, birthdate:Date) extends Ordered[Person]:
-    override def compare(that: Person) = this.age - that.age
-    def age = birthdate.fullYearsSince
-    def age(date:Date) = birthdate.fullYearsSince(date)
+    def compare(that: Person): Int =
+        if this.age < that.age then -1 else if this.age > that.age then 1 else 0
+    def printAdults(people: List[Person]) =
+        for p <- people do
+            if p.age >= 18 then println(p.name)
 ```
 
 ---
