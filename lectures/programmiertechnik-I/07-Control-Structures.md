@@ -31,7 +31,7 @@ In this lecture you will learn about
 
 Supporting literature:
 
-- Learn Scala 3 the Fast Way, chapters 24 bis 30
+- Learn Scala 3 the Fast Way, chapters 18, 19 and 24–30
 
 New Tools:
 
@@ -137,7 +137,45 @@ theForceIsStrong == false
 
 # Types in Assignment
 
-<style scoped>section { font-size: 23px; } p { margin: 0.25rem 0; } pre { margin: 0.25rem 0; } .lbl { font-size: 18px; font-weight: 700; color: #575e75; }</style>
+<style scoped>
+section { font-size: 23px; }
+p { margin: 0.25rem 0; }
+pre { margin: 0.25rem 0; }
+section pre:has(> code.language-java),
+section pre:has(> code.language-c),
+section pre:has(> code.language-python),
+section pre:has(> code.language-csharp),
+section pre:has(> code.language-cpp),
+section pre:has(> code.language-javascript),
+section pre:has(> code.language-kotlin) {
+  position: relative;
+}
+section pre:has(> code.language-java)::after,
+section pre:has(> code.language-c)::after,
+section pre:has(> code.language-python)::after,
+section pre:has(> code.language-csharp)::after,
+section pre:has(> code.language-cpp)::after,
+section pre:has(> code.language-javascript)::after,
+section pre:has(> code.language-kotlin)::after {
+  position: absolute;
+  top: 0.35em;
+  right: 0.65em;
+  font-family: system-ui, sans-serif;
+  font-size: 0.72em;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  opacity: 0.85;
+  line-height: 1;
+  pointer-events: none;
+}
+section pre:has(> code.language-java)::after { content: "Java"; }
+section pre:has(> code.language-c)::after { content: "C"; }
+section pre:has(> code.language-python)::after { content: "Python"; }
+section pre:has(> code.language-csharp)::after { content: "C#"; }
+section pre:has(> code.language-cpp)::after { content: "C++"; }
+section pre:has(> code.language-javascript)::after { content: "JavaScript"; }
+section pre:has(> code.language-kotlin)::after { content: "Kotlin"; }
+</style>
 
 <div class="columns" style="grid-template-columns: 1.25fr 0.75fr; align-items: start;">
 <div markdown="1">
@@ -165,8 +203,6 @@ var age = 26
 
 </div>
 <div markdown="1" style="margin-top: 5rem;">
-
-<div class="lbl">Java</div>
 
 ```java
 String padme = "Padme Amidala";
@@ -477,8 +513,40 @@ So, in general it is advisable to always use an else branch when if is used as e
 <style scoped>
 section { font-size: 21px; }
 pre { font-size: 14px; line-height: 1.25; margin: 0; }
-.lbl { font-size: 16px; font-weight: 700; color: #575e75; margin: 0.35rem 0 0.1rem 0; }
-.lbl.first { margin-top: 0; }
+section pre:has(> code.language-java),
+section pre:has(> code.language-c),
+section pre:has(> code.language-python),
+section pre:has(> code.language-csharp),
+section pre:has(> code.language-cpp),
+section pre:has(> code.language-javascript),
+section pre:has(> code.language-kotlin) {
+  position: relative;
+}
+section pre:has(> code.language-java)::after,
+section pre:has(> code.language-c)::after,
+section pre:has(> code.language-python)::after,
+section pre:has(> code.language-csharp)::after,
+section pre:has(> code.language-cpp)::after,
+section pre:has(> code.language-javascript)::after,
+section pre:has(> code.language-kotlin)::after {
+  position: absolute;
+  top: 0.35em;
+  right: 0.65em;
+  font-family: system-ui, sans-serif;
+  font-size: 0.72em;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  opacity: 0.85;
+  line-height: 1;
+  pointer-events: none;
+}
+section pre:has(> code.language-java)::after { content: "Java"; }
+section pre:has(> code.language-c)::after { content: "C"; }
+section pre:has(> code.language-python)::after { content: "Python"; }
+section pre:has(> code.language-csharp)::after { content: "C#"; }
+section pre:has(> code.language-cpp)::after { content: "C++"; }
+section pre:has(> code.language-javascript)::after { content: "JavaScript"; }
+section pre:has(> code.language-kotlin)::after { content: "Kotlin"; }
 </style>
 
 <div class="columns" style="grid-template-columns: 1fr 1fr; align-items: start; gap: 1.2rem;">
@@ -489,16 +557,12 @@ Most programming languages only offer if as a statement. Java has if as an expre
 In the functional programming style, the expression is preferred.
 In general Scala is an expression-oriented language, Java is statement-oriented.
 
-<div class="lbl first">Scala (if as expression)</div>
-
 ```scala
 val result =
   if points > 21 then "Busted!"
   else if points == 21 then "Blackjack!"
   else "Points: " + points
 ```
-
-<div class="lbl">Java (ternary)</div>
 
 ```java
 String result = points > 21 ? "Busted!" :
@@ -509,8 +573,6 @@ String result = points > 21 ? "Busted!" :
 </div>
 <div markdown="1">
 
-<div class="lbl first">C</div>
-
 ```c
 if (points > 21) {
     printf("Busted!\n");
@@ -520,8 +582,6 @@ if (points > 21) {
     printf("Points: %d\n", points);
 }
 ```
-
-<div class="lbl">Java</div>
 
 ```java
 int points = 22;
@@ -536,6 +596,7 @@ if (points > 21) {
 
 </div>
 </div>
+
 ---
 
 # For with steps and conditions
@@ -753,12 +814,24 @@ Then the return type is the same as used in the generator.
 
 # Tasks
 
-In CodeTask:
+<style scoped>section { font-size: 22px; }</style>
 
-- (Task to fill)
+**1. CodeTask** — keep working on the exercises for this lecture.
 
-- Reading: Learn Scala 3, Chapters 24–30
-- CodeTask: Chapters 24 to 30
+- Reading: Learn Scala 3 the Fast Way, Chapters 18, 19 and 24–30
+- CodeTask: Chapters 18, 19 and 24 to 30
+
+**2. Grades in the University** (Mill) — just logic.
+
+No data structures — just control structures (`if` and `for`) over arrays and lists.
+
+In a small University setup, compute:
+
+- the grade average (**Notendurchschnitt**)
+- the best grade
+- the worst grade
+
+Print the results.
 
 ---
 

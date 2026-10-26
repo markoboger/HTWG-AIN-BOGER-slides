@@ -12,7 +12,7 @@ _footer: ""
 ## Programmiertechnik I
 # Lecture 08: Tuples, Objects, Enums and Classes
 
-<p class="small">Migrated from the Google Slides deck "PR-08-Tuple, Object, Enums" ("08 - Tuples, Objects, Enums and Classes").</p>
+<p class="small">the type system in Scala</p>
 
 ---
 
@@ -29,14 +29,11 @@ In this lecture you will learn about
 - Objects, a first encapsulation of data and functions with a single instance
 - Enums, an abstraction with a fixed set of instances
 - Classes, an abstraction with a variable set of instances
+- Case Classes, compact classes for immutable data
 
 Supporting literature:
 
-- Learn Scala 3 the Fast Way, chapters 20, 67
-
-New Tools:
-
-- Cursor, Windsurf
+- Learn Scala 3 the Fast Way, chapters 20, 62–68, 71–73 and 75
 
 </div>
 <div markdown="1">
@@ -51,7 +48,7 @@ New Tools:
 <!-- _class: kapitel -->
 
 ## 1
-# Types: Tuples, Objects, Enums, Classes
+# Types: Tuples, Objects, Enums, Classes, Case Classes
 
 From single values to structured types
 
@@ -62,18 +59,13 @@ From single values to structured types
 A **Type** is the formal description of what form a parameter to a function can be, or a function can return, or a variable can have.
 
 In Scratch, we only have the types Number, String and Boolean.
-In Scala, simple examples are `Int`, `Boolean`, or `String`. But also `Array` and `List`.
+In Scala: `Int`, `Boolean`, `String`, but also `Array`, `List` and mappings between types.
 
 ```scala
 val x: Int = 42
 var name: String = "Luke"
 def f(x: Int): Int = x + 1
 def sum(xs: List[Int]): Int = { … }
-```
-
-But also mappings between types:
-
-```scala
 def f1(x: Int): Int => Int = x => x + 1
 def f2(x: Int): Int = x + 2
 def f3(x: Int) = x + 3
@@ -103,6 +95,25 @@ tuple._3  // : true
 - Their fields can be accessed with `_1`, `_2`, …
 
 ---
+
+<style scoped>
+section pre {
+  position: relative;
+}
+section pre::after {
+  content: "C";
+  position: absolute;
+  top: 0.35em;
+  right: 0.65em;
+  font-family: system-ui, sans-serif;
+  font-size: 0.72em;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  opacity: 0.85;
+  line-height: 1;
+  pointer-events: none;
+}
+</style>
 
 # Tuples compared to Struct
 
@@ -221,7 +232,8 @@ enum CardType {
 
 # Console Colors
 
-A nice example for an Enum are the colors of the console:
+A nice example for an Enum is **Colors**.
+Each `case` can **extend** the enum’s constructor and pass its own arguments — here an ANSI escape code for the console:
 
 ```scala
 enum ConsoleColors(val code: String) {
@@ -424,6 +436,94 @@ println(earth.circumference())
 
 ---
 
+# Case Classes
+
+A **case class** is a compact form of a class for immutable data.
+Scala generates useful methods for you: `equals`, `hashCode`, `toString`, and a companion `apply` so you usually omit `new`.
+Parameters are `val` by default, and you get **pattern matching** for free — similar in spirit to destructuring a Tuple.
+
+```scala
+case class Person(name: String, age: Int)
+case class Planet(name: String, radius: Double)
+
+val luke = Person("Luke", 42)
+val earth = Planet("Earth", 6371.0)
+
+println(luke)                 // Person(Luke,42)
+val Person(n, a) = luke       // n = "Luke", a = 42
+luke == Person("Luke", 42)    // true
+```
+
+Use a normal `class` when you need mutable state, custom construction, or heavier encapsulation.
+Prefer a `case class` for plain data records — the sweet spot between Tuples (anonymous fields) and full Classes.
+
+---
+<!-- _class: inhalt -->
+
+# New Tools: Cursor and AI Coding Agents
+
+---
+
+# Why AI coding tools?
+
+<style scoped>section { font-size: 24px; }</style>
+
+Coding is no longer only typing alone in an editor.
+
+- Large language models can **read**, **edit**, and **run** code with you
+- New products wrap that into IDEs, terminals, and agent workflows
+- As a student (and later at work) you will meet these tools every week
+
+Short overview next: what **Cursor** is, then a comparison with **Codex** and **Google Antigravity**.
+
+---
+
+# Cursor (SpaceX SI)
+
+<style scoped>section { font-size: 22px; }</style>
+
+**Cursor** is an AI-first code editor from **SpaceX SI** (SpaceX Super Intelligence): a full IDE built on the **Visual Studio Code** codebase, with AI in the editing loop — not only a side chat.
+
+- Familiar VS Code look: files, terminal, many extensions
+- You open a folder / git repo; Cursor **indexes** it for context
+- Ask in **Chat** or **Agent**, or accept **Tab** while typing; review diffs before you keep them
+- Runs on macOS, Windows, and Linux
+
+Think: “VS Code where the AI can see your project and change files with you.”
+
+---
+
+# Cursor: main features (compact)
+
+<style scoped>section { font-size: 21px; }</style>
+
+- **Tab** — next-edit completions (ghost text); strong for boilerplate and the obvious next line
+- **Chat** — side panel with `@` files / folders / symbols; good for “where is X?” and explanations
+- **Inline edits** — select code, ask for a change (Cmd/Ctrl+K style), accept a **diff**
+- **Agent** — multi-step, multi-file tasks; can run terminal commands under your control
+- **Codebase awareness** — repo search + open files guide the model (no secrets / exam content in prompts)
+
+**Do:** clear goals, review every diff, small commits, run tests yourself.
+**Don’t:** blind-accept large refactors; paste secrets or exam solutions into the model.
+
+---
+
+# Comparison: Cursor vs Codex vs Antigravity
+
+<style scoped>section { font-size: 17px; }</style>
+
+| | **Cursor** | **Codex** | **Google Antigravity** |
+|---|---|---|---|
+| **Strengths** | Full AI IDE; Tab + Chat + Agent in one app; deep codebase UX | Strong OpenAI agent in your current editor; cloud delegation | Gemini agents; multi-surface / mission-control style |
+| **IDE integration** | *Is* the IDE (VS Code fork) | Extension in VS Code / forks | Own IDE / platform + extensions |
+| **Agent** | Built-in Agent (multi-file, terminal) | Chat / Agent / Full Access; optional cloud | Editor agent + Manager; browser control |
+| **Pricing model** | Cursor plans (Hobby / Pro — check site) | Often via ChatGPT plans or API usage | Free tier with rate limits; Google AI Pro/Ultra raise quotas |
+| **Best if…** | You want to switch editor to an AI-first IDE | You keep VS Code (or Cursor) and add OpenAI’s agent | You want Google’s Gemini-centric agent workflow |
+
+Pricing and model names change often — verify on the vendor site before recommending a plan.
+
+---
+
 <!-- _class: inhalt -->
 
 # Summary
@@ -437,7 +537,9 @@ Tuples, Objects, Enums and Classes all define **Types** – like `Int`, `String`
 - **Objects** are used for a single instance of a data structure of mixed data types
 - **Enums** are used for a small and fixed number of data structures
 - **Classes** are used for a variable number of data structures
-- Objects, Enums and Classes can have functions, then called **methods**
+- **Case Classes** are compact classes for immutable data records (with equals, toString, and pattern matching)
+
+Objects, Enums and Classes can have functions, then called **methods**.
 
 ---
 
@@ -445,10 +547,23 @@ Tuples, Objects, Enums and Classes all define **Types** – like `Int`, `String`
 
 # Task
 
-(Task to fill)
+<style scoped>section { font-size: 22px; }</style>
 
-- Reading: Learn Scala 3, Chapters 20, 67 and 54
-- CodeTask: Chapters 20, 54 and 67
+**1. CodeTask** — keep working on the exercises for this lecture.
+
+- Reading: Learn Scala 3 the Fast Way, Chapters 20, 62–68, 71–73 and 75
+- CodeTask: Chapters 20, 62–68, 71–73 and 75
+
+**2. Model a small Hochschule** (Mill) — data modeling only.
+
+No inheritance, no generic types, and **no logic yet** — just the types:
+
+- `Professor`, `Student`, `Course`, `Room` as classes or case classes
+- an `enum` (e.g. `DegreeProgram`, `RoomType`, or `Weekday`)
+- an `object` as registry / companion (e.g. hold a few instances)
+- a **tuple** where a lightweight pair fits (e.g. `(Course, Room)` for a booking)
+
+Create a few instances and print them; no methods beyond that for now.
 
 ---
 
