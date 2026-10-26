@@ -12,7 +12,7 @@ _footer: ""
 ## Programmiertechnik I
 # Lecture 07: Control Structures
 
-<p class="small">Migrated from the Google Slides deck "PR-07-Control Structures".</p>
+<p class="small">Control structures in Scala: assignment, equality, scope, statements vs expressions, conditionals and iterations — plus the FMT tool (Scalafmt) for consistent code formatting.</p>
 
 ---
 
@@ -31,11 +31,11 @@ In this lecture you will learn about
 
 Supporting literature:
 
-- Learn Scala 3 the Fast Way, chapters (to fill)
+- Learn Scala 3 the Fast Way, chapters 24 bis 30
 
 New Tools:
 
-- (Tool name)
+- FMT (Scalafmt)
 
 </div>
 <div markdown="1">
@@ -89,14 +89,21 @@ Statements, conditionals, and iterations
 
 An assignment stores a data value into a variable, usually written with the equals sign (=)
 
+What the worksheet shows:
+
 ```scala
 var x = 42
+// x: Int = 42
 x = 21
+// x: Int = 21
 
 var anakin: String = "Anakin Skywalker"
+// anakin: String = Anakin Skywalker
 anakin = "Darth Vader"
+// anakin: String = Darth Vader
 
 var theForceIsStrong = true
+// theForceIsStrong: Boolean = true
 ```
 
 This differs from Math, were = denotes an equality relationship, not assignment.
@@ -107,15 +114,23 @@ This differs from Math, were = denotes an equality relationship, not assignment.
 
 In programming, the equality is usually written with two equal signs (==) and is a boolean condition.
 
+What the worksheet shows (each `==` evaluates to a Boolean):
+
 ```scala
-x==21
-x==42
+x == 21
+// val res0: Boolean = true
+x == 42
+// val res1: Boolean = false
 
-anakin=="Anakin Skywalker"
-anakin=="Darth Vader"
+anakin == "Anakin Skywalker"
+// val res2: Boolean = false
+anakin == "Darth Vader"
+// val res3: Boolean = true
 
-theForceIsStrong==true
-theForceIsStrong==false
+theForceIsStrong == true
+// val res4: Boolean = true
+theForceIsStrong == false
+// val res5: Boolean = false
 ```
 
 ---
@@ -133,7 +148,9 @@ In some programming languages, like Java, this type needs to be declared before 
 
 ```scala
 var padme: String = "Padme Amidala"
+// padme: String = Padme Amidala
 var age: Int = 26
+// age: Int = 26
 ```
 
 In Scala, this type is often inferred by the compiler
@@ -141,7 +158,9 @@ and can be omitted
 
 ```scala
 var padme = "Padme Amidala"
+// padme: String = Padme Amidala
 var age = 26
+// age: Int = 26
 ```
 
 </div>
@@ -183,28 +202,51 @@ In functional programming, the re-assignment is avoided. It is regarded as a sid
 
 # Scope
 
-<style scoped>section { font-size: 22px; } p { margin: 0.2rem 0; } pre { margin: 0.2rem 0; font-size: 18px; line-height: 1.25; }</style>
+<style scoped>
+section { font-size: 20px; }
+p { margin: 0.15rem 0; }
+pre { margin: 0.1rem 0; font-size: 14px; line-height: 1.22; }
+.lbl { font-size: 16px; font-weight: 700; color: #575e75; margin: 0 0 0.1rem 0; }
+</style>
 
-The declaration of a variable is only visible within the block of code it is defined in. This is called the scope of a variable.
-A block of code is usually defined by brackets { … }
+The declaration of a variable is only visible within the block of code it is defined in. This is called the **scope** of a variable.
+
+A block can be written with **braces** or with **indentation** after a colon. Braces work as a stand-alone block; colon + indentation needs a construct like `def` or `if`.
+
+<div class="columns" style="grid-template-columns: 1fr 1fr; align-items: start; gap: 1.2rem;">
+<div markdown="1">
+
+<p class="lbl">Braces</p>
 
 ```scala
 {
-   val anakin = "Anakin Skywalker"
+  val anakin = "Anakin Skywalker"
 }
 {
-   val anakin = "Darth Vader"
+  val anakin = "Darth Vader"
 }
 ```
 
-Variables on the top-most block are visible everywhere, this is called global scope.
+</div>
+<div markdown="1">
+
+<p class="lbl">Indentation (colon)</p>
+
+```scala
+def theForce:
+  val anakin = "Anakin Skywalker"
+def theDarkForce:
+  val anakin = "Darth Vader"
+```
+
+</div>
+</div>
+
+Variables on the top-most block are visible everywhere — **global scope**. Be careful: they can interfere with other code, like libraries.
 
 ```scala
 val pi = 3.14159
 ```
-
-We should usually be very careful with global scope. It can interfere with other code, like libraries.
-
 ---
 
 # Shadowing
@@ -433,9 +475,9 @@ So, in general it is advisable to always use an else branch when if is used as e
 # If in Functional Programming
 
 <style scoped>
-section { font-size: 22px; }
-pre { font-size: 15px; line-height: 1.25; margin: 0; }
-.lbl { font-size: 17px; font-weight: 700; color: #575e75; margin: 0.4rem 0 0.1rem 0; }
+section { font-size: 21px; }
+pre { font-size: 14px; line-height: 1.25; margin: 0; }
+.lbl { font-size: 16px; font-weight: 700; color: #575e75; margin: 0.35rem 0 0.1rem 0; }
 .lbl.first { margin-top: 0; }
 </style>
 
@@ -447,7 +489,16 @@ Most programming languages only offer if as a statement. Java has if as an expre
 In the functional programming style, the expression is preferred.
 In general Scala is an expression-oriented language, Java is statement-oriented.
 
-<div class="lbl">Java</div>
+<div class="lbl first">Scala (if as expression)</div>
+
+```scala
+val result =
+  if points > 21 then "Busted!"
+  else if points == 21 then "Blackjack!"
+  else "Points: " + points
+```
+
+<div class="lbl">Java (ternary)</div>
 
 ```java
 String result = points > 21 ? "Busted!" :
@@ -485,17 +536,16 @@ if (points > 21) {
 
 </div>
 </div>
-
 ---
 
-# for loop
+# For with steps and conditions
 
 <style scoped>section { font-size: 23px; } p { margin: 0.25rem 0; } pre { margin: 0.25rem 0; font-size: 20px; }</style>
 
 <div class="columns" style="grid-template-columns: 1.6fr 0.4fr; align-items: start;">
 <div markdown="1">
 
-Another fundamental control structure in all programming languages is the for loop.
+The bool condition of the for is called a **generator**. It has more tricks up its sleeve. The generator can also have a condition, called **guard**.
 
 ```scala
 for (i <- 0 until 10) println(i)
@@ -559,18 +609,17 @@ for (i <- 0 until array.length by 3 if array(i) % 2 == 0) println(array(i))
 
 <style scoped>section { font-size: 22px; } p { margin: 0.25rem 0; } pre { margin: 0.25rem 0; font-size: 20px; }</style>
 
-The for loop can also be used as an Expression. For this to work, every iteration has to return a single result. This is expressed with the keyword yield.
+The for loop can also be used as an Expression. For this to work, every iteration has to return a single result. This is expressed with the keyword **yield**.
 The general form is
 
 ```scala
 for (generator) yield expression
 ```
 
-The return type of the for loop now is a collection. The type of the collection depends on the collection used in the generator. If the generator does not have a suitable collection, the type is IndexedSeq or more specifically a Vector.
+The return type of the for loop now is a collection. The type of the collection depends on the collection used in the generator. If the generator does not have a suitable collection, the type is Vector[Int].
 
 ```scala
-var vector: IndexedSeq[Int] = Vector()
-vector = for (i <- 0 until array.length) yield i
+val vector: Vector[Int] = for (i <- 0 until array.length) yield i
 ```
 
 ---
@@ -644,17 +693,41 @@ Because we do not need an index anymore, but directly iterate over the elements 
 <!-- _class: tools -->
 
 ## New Tools
-# (Tool name)
+# Scalafmt (FMT)
 
-(Tool details to fill)
+Automatic, consistent code formatting for Scala
 
 ---
 
 <!-- _class: tools-page -->
 
-# (Tool name)
+<!-- Scalafmt block (moved from Deck 6) -->
+<style scoped>
+h3 { margin: 0.2rem 0 0.4rem 0; }
+</style>
 
-(Tool details to fill)
+# Scalafmt: Consistent Code Formatting
+
+<div class="columns" style="align-items: start; gap: 2em;">
+<div>
+
+### What is it?
+- Code formatter for **Scala 2 and Scala 3**
+- Open source, part of the **scalameta** project: scalameta.org/scalafmt
+- Reformats whole files, driven by one config file **`.scalafmt.conf`** in the project root
+- The same result in the IDE, on the command line and in CI
+
+</div>
+<div>
+
+### Why does a team need it?
+- **Readable diffs:** commits show real changes, not moved spaces and braces
+- **No style debates** in code reviews: the formatter decides
+- **Fewer merge conflicts** from different editor settings
+- **CI check:** the build fails if code is not formatted
+
+</div>
+</div>
 
 ---
 
