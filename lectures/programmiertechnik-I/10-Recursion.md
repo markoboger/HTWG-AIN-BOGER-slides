@@ -24,88 +24,10 @@ Functions that call themselves: recurrence equations, the call stack, tail recur
 <style scoped>section { font-size: 23px; }</style>
 
 - Read and write recurrence equations: base case and recursive step
-- Beautiful examples from mathematics – first as equation, then in Scala
-- Beautiful examples from computer science: Hanoi, binary search, lists, permutations
+- Examples from mathematics – first as equation, then in Scala
+- Examples from computer science: Hanoi, binary search, lists, Roman numbers, merge sort
 - Understand what recursion does to memory: stack, heap, `StackOverflowError`
-- Write tail recursive functions with `@tailrec` and an accumulator
-
----
-
-<!-- _class: kapitel -->
-
-## 1
-# Motivation
-
-Things that contain themselves
-
----
-
-# Recursion Everywhere
-
-<style scoped>
-section { font-size: 24px; }
-.row { display: flex; gap: 28px; margin-top: 0.6em; }
-.card { flex: 1; border: 2px solid #0f6e85; border-radius: 10px; padding: 14px 18px; }
-.card h3 { margin: 0 0 0.3em; color: #0f6e85; }
-</style>
-
-<div class="row">
-<div class="card">
-
-### Nature
-A tree: a trunk with branches – and every branch is again a small tree. Ferns, Romanesco, river deltas.
-
-</div>
-<div class="card">
-
-### Art
-The **Droste effect**: a picture that contains itself, which contains itself, which …
-
-</div>
-<div class="card">
-
-### Language
-"A sentence may contain a sub-sentence that contains a sub-sentence …"
-
-</div>
-</div>
-
-A structure is **recursive** if it is defined in terms of a smaller version of itself.
-
----
-
-# Recursion in Scratch: a Fractal Tree
-
-<style scoped>
-section { font-size: 22px; }
-.blk { display: inline-block; padding: 6px 14px; border-radius: 8px; color: white; font-family: sans-serif; margin: 3px 0; }
-.def { background: #ff6680; } .ctl { background: #ffab19; } .mot { background: #4c97ff; } .call { background: #ff6680; }
-.cols { display: flex; gap: 40px; align-items: flex-start; }
-</style>
-
-<div class="cols">
-<div>
-
-<div class="blk def">define <b>tree</b> (length)</div><br>
-<div class="blk ctl">if length &gt; 5 then</div><br>
-&nbsp;&nbsp;&nbsp;<div class="blk mot">move (length) steps</div><br>
-&nbsp;&nbsp;&nbsp;<div class="blk mot">turn ↺ 25 degrees</div><br>
-&nbsp;&nbsp;&nbsp;<div class="blk call"><b>tree</b> (length × 0.7)</div><br>
-&nbsp;&nbsp;&nbsp;<div class="blk mot">turn ↻ 50 degrees</div><br>
-&nbsp;&nbsp;&nbsp;<div class="blk call"><b>tree</b> (length × 0.7)</div><br>
-&nbsp;&nbsp;&nbsp;<div class="blk mot">turn ↺ 25 degrees</div><br>
-&nbsp;&nbsp;&nbsp;<div class="blk mot">move (−length) steps</div>
-
-</div>
-<div>
-
-- The custom block **calls itself**
-- Each call draws a *smaller* tree
-- `length > 5` stops the recursion
-- Two calls per level → a branching tree
-
-</div>
-</div>
+- Write tail recursive functions with `@tailrec` and an accumulator – and recognise the same pattern in `foldLeft`
 
 ---
 
@@ -126,8 +48,8 @@ If the input gets smaller in every step and always reaches the base case, the re
 
 <!-- _class: kapitel -->
 
-## 2
-# Beautiful Mathematics
+## 1
+# Recursion in Mathematics
 
 Recurrence equations – mathematics is the type system of computer science
 
@@ -186,42 +108,6 @@ factorial(5)   // 120
 
 ---
 
-# Sum: Little Gauss
-
-<style scoped>
-section { font-size: 21px; }
-pre { font-size: 16px; line-height: 1.3; margin: 0.2em 0; }
-.cols { display: flex; gap: 30px; align-items: flex-start; } .cols > div { flex: 1; }
-.eq { background: #f3f7f8; border-radius: 8px; padding: 4px 16px; }
-</style>
-
-Gauss (aged 9) found $1 + 2 + \dots + n = \frac{n(n+1)}{2}$. Recursively:
-
-<div class="cols">
-<div class="eq">
-
-$$
-\text{sum}(n) = \begin{cases} 0 & n = 0 \\ n + \text{sum}(n-1) & n > 0 \end{cases}
-$$
-
-</div>
-<div>
-
-```scala
-def sumTo(n: Int): Int =
-  if n == 0 then 0
-  else n + sumTo(n - 1)
-
-sumTo(100)   // 5050
-```
-
-</div>
-</div>
-
-Exercise: prove by induction that both definitions agree.
-
----
-
 # Fibonacci
 
 <style scoped>
@@ -255,45 +141,6 @@ fib(10)   // 55
 </div>
 
 Two base cases, two recursive calls – beautiful, but slow (see tail recursion).
-
----
-
-# Power
-
-<style scoped>
-section { font-size: 21px; }
-pre { font-size: 16px; line-height: 1.3; margin: 0.2em 0; }
-.cols { display: flex; gap: 30px; align-items: flex-start; } .cols > div { flex: 1; }
-.eq { background: #f3f7f8; border-radius: 8px; padding: 4px 16px; }
-</style>
-
-Exponentiation is repeated multiplication – and it can be done much faster:
-
-<div class="cols">
-<div class="eq">
-
-$$
-x^n = \begin{cases} 1 & n = 0 \\ (x^{n/2})^2 & n \text{ even} \\ x \cdot x^{n-1} & n \text{ odd} \end{cases}
-$$
-
-</div>
-<div>
-
-```scala
-def power(x: Double, n: Int): Double =
-  if n == 0 then 1.0
-  else if n % 2 == 0 then
-    val h = power(x, n / 2)
-    h * h
-  else x * power(x, n - 1)
-
-power(2, 10)   // 1024.0
-```
-
-</div>
-</div>
-
-Halving $n$: only about $2 \log_2 n$ calls instead of $n$.
 
 ---
 
@@ -334,45 +181,9 @@ $b$ gets smaller in every step – so it terminates.
 
 ---
 
-# Pascal's Triangle
-
-<style scoped>
-section { font-size: 21px; }
-pre { font-size: 16px; line-height: 1.3; margin: 0.2em 0; }
-.cols { display: flex; gap: 30px; align-items: flex-start; } .cols > div { flex: 1; }
-.eq { background: #f3f7f8; border-radius: 8px; padding: 4px 16px; }
-</style>
-
-Binomial coefficients $\binom{n}{k}$: each number is the sum of the two above it.
-
-<div class="cols">
-<div class="eq">
-
-$$
-\binom{n}{k} = \begin{cases} 1 & k = 0 \text{ or } k = n \\ \binom{n-1}{k-1} + \binom{n-1}{k} & \text{otherwise} \end{cases}
-$$
-
-</div>
-<div>
-
-```scala
-def binom(n: Int, k: Int): Long =
-  if k == 0 || k == n then 1
-  else binom(n - 1, k - 1) + binom(n - 1, k)
-
-binom(4, 2)   // 6
-```
-
-</div>
-</div>
-
-`(0 to 4).map(k => binom(4, k))` gives row 4: `1 4 6 4 1`.
-
----
-
 <!-- _class: kapitel -->
 
-## 3
+## 2
 # Beautiful Computer Science
 
 Divide, conquer and follow the structure
@@ -521,6 +332,56 @@ Pattern matching (Lecture 09) and recursion belong together.
 
 ---
 
+# Roman Numbers with Recursion
+
+A simple structural recursion: `match` on the list of chars, recurse on the `tail`.
+
+```scala
+def romanToNumber(roman: List[Char]): Int = roman match
+  case 'I' :: 'V' :: tail => 4 + romanToNumber(tail)
+  case 'I' :: 'X' :: tail => 9 + romanToNumber(tail)
+  case 'X' :: 'L' :: tail => 40 + romanToNumber(tail)
+  case 'X' :: 'C' :: tail => 90 + romanToNumber(tail)
+  case 'C' :: 'D' :: tail => 400 + romanToNumber(tail)
+  case 'C' :: 'M' :: tail => 900 + romanToNumber(tail)
+  case 'I' :: tail => 1 + romanToNumber(tail)
+  case 'V' :: tail => 5 + romanToNumber(tail)
+  case 'X' :: tail => 10 + romanToNumber(tail)
+  case 'L' :: tail => 50 + romanToNumber(tail)
+  case 'C' :: tail => 100 + romanToNumber(tail)
+  case 'D' :: tail => 500 + romanToNumber(tail)
+  case 'M' :: tail => 1000 + romanToNumber(tail)
+  case Nil => 0
+
+romanToNumber("XVI".toList)     // 16
+romanToNumber("MCMXCIV".toList) // 1994
+```
+
+---
+
+# Merge Sort with Match and Recursion
+
+Split the list in halves, sort both halves recursively, then `merge` them.
+
+```scala
+def merge(xs: List[Int], ys: List[Int]): List[Int] = (xs, ys) match
+  case (Nil, _) => ys
+  case (_, Nil) => xs
+  case (x :: xt, y :: yt) =>
+    if x <= y then x :: merge(xt, ys)
+    else y :: merge(xs, yt)
+
+def mergeSort(xs: List[Int]): List[Int] = xs match
+  case Nil | _ :: Nil => xs
+  case _ =>
+    val (left, right) = xs.splitAt(xs.length / 2)
+    merge(mergeSort(left), mergeSort(right))
+
+mergeSort(List(5, 2, 8, 1, 9, 3)) // List(1, 2, 3, 5, 8, 9)
+```
+
+---
+
 # LeetCode 21: Merge Two Sorted Lists
 
 <style scoped>
@@ -562,132 +423,9 @@ Structural recursion on **two** lists – and the heart of merge sort. (LeetCode
 
 ---
 
-# LeetCode 22: Generate Parentheses
-
-<style scoped>
-section { font-size: 20px; }
-pre { font-size: 15px; line-height: 1.3; margin: 0.2em 0; }
-.cols { display: flex; gap: 30px; } .cols > div { flex: 1; }
-.cand { position: absolute; top: 30px; right: 60px; background: #ffab19; color: white; padding: 2px 10px; border-radius: 6px; font-size: 16px; }
-</style>
-<span class="cand">Candidate</span>
-
-<div class="cols">
-<div>
-
-All well-formed strings with $n$ pairs of parentheses.
-
-- Add `(` while fewer than $n$ are open
-- Add `)` while it closes an open one
-- Base case: length $2n$ reached
-
-</div>
-<div>
-
-```scala
-def generateParenthesis(n: Int): List[String] =
-  def go(s: String, open: Int,
-         close: Int): List[String] =
-    if s.length == 2 * n then List(s)
-    else
-      (if open < n then
-         go(s + "(", open + 1, close) else Nil) ++
-      (if close < open then
-         go(s + ")", open, close + 1) else Nil)
-  go("", 0, 0)
-```
-
-</div>
-</div>
-
-`generateParenthesis(3)` → `((())) (()()) (())() ()(()) ()()()` – a recursion **tree** that explores choices (backtracking).
-
----
-
-# LeetCode 779: K-th Symbol in Grammar
-
-<style scoped>
-section { font-size: 20px; }
-pre { font-size: 15px; line-height: 1.3; margin: 0.2em 0; }
-.cols { display: flex; gap: 30px; } .cols > div { flex: 1; }
-.cand { position: absolute; top: 30px; right: 60px; background: #ffab19; color: white; padding: 2px 10px; border-radius: 6px; font-size: 16px; }
-</style>
-<span class="cand">Candidate</span>
-
-<div class="cols">
-<div>
-
-Row 1 is `0`; each row replaces `0 → 01`, `1 → 10`.
-
-$$
-sym(n,k) = \begin{cases} 0 & n = 1 \\ sym(n{-}1, \lceil k/2 \rceil) & k \text{ odd} \\ 1 - sym(n{-}1, \lceil k/2 \rceil) & k \text{ even} \end{cases}
-$$
-
-</div>
-<div>
-
-```scala
-def kthGrammar(n: Int, k: Int): Int =
-  if n == 1 then 0
-  else
-    val parent = kthGrammar(n - 1, (k + 1) / 2)
-    if k % 2 == 1 then parent
-    else 1 - parent
-
-(1 to 8).map(kthGrammar(4, _))
-// 0 1 1 0 1 0 0 1
-```
-
-</div>
-</div>
-
-Never build the row ($2^{n-1}$ symbols) – just ask the parent. A recurrence equation in disguise.
-
----
-
-# Permutations
-
-<style scoped>
-section { font-size: 21px; }
-pre { font-size: 16px; line-height: 1.3; margin: 0.2em 0; }
-.cols { display: flex; gap: 30px; align-items: flex-start; } .cols > div { flex: 1; }
-.eq { background: #f3f7f8; border-radius: 8px; padding: 4px 16px; }
-</style>
-
-All orderings of a list: pick each element as the first, permute the rest.
-
-<div class="cols">
-<div class="eq">
-
-$$
-\begin{aligned} \text{perms}(\text{Nil}) &= [\,\text{Nil}\,] \\ \text{perms}(xs) &= [\, x :: p \mid x \in xs,\ p \in \text{perms}(xs \setminus x) \,] \end{aligned}
-$$
-
-</div>
-<div>
-
-```scala
-def perms[A](xs: List[A]): List[List[A]] =
-  if xs.isEmpty then List(Nil)
-  else
-    for
-      x <- xs
-      p <- perms(xs.filterNot(_ == x))
-    yield x :: p
-
-perms(List(1, 2, 3)).size   // 6 = 3!
-```
-
-</div>
-</div>
-
-The number of permutations is $n!$ – our first example again.
-
----
-
 <!-- _class: kapitel -->
 
-## 4
+## 3
 # Recursion and Memory
 
 Stack and heap
@@ -793,7 +531,7 @@ java.lang.StackOverflowError
 
 <!-- _class: kapitel -->
 
-## 5
+## 4
 # Tail Recursion
 
 Recursion without a growing stack
@@ -977,98 +715,66 @@ Rule of thumb: **linear** recursion → accumulator; **tree** recursion → keep
 
 ---
 
-# Remember the Jump Game?
-
-<style scoped>
-section { font-size: 21px; }
-pre { font-size: 15px; line-height: 1.35; margin: 0.2em 0; }
-.shot { position: absolute; top: 40px; right: 70px; height: 110px; border-radius: 6px; }
-</style>
-
-<img class="shot" src="assets/pt03-shogun.jpg" alt="Shogun" />
-
-Lecture 03, LeetCode 55: each number is the maximum jump length – can you reach the last index?
-`[2, 3, 1, 1, 4]` → `true`, `[3, 2, 1, 0, 4]` → `false`
-
-```scala
-object Solution {
-  def canJump(nums: Array[Int]): Boolean = {
-    @annotation.tailrec
-    def isPossible(max: Int = 0, idx: Int = 0): Boolean =
-      if (idx == nums.size - 1) true
-      else if (nums(idx) == 0 && max == idx) false
-      else isPossible(math.max(max, idx + nums(idx)), idx + 1)
-
-    isPossible()
-  }
-}
-```
-
-Now we can read it with the vocabulary of this lecture.
-
----
-
-# Jump Game: Analysis
-
-<style scoped>
-section { font-size: 21px; }
-table { font-size: 18px; }
-</style>
-
-| Concept | In `isPossible(max, idx)` |
-|---|---|
-| **Base case 1** | `idx == nums.size - 1` → `true` (arrived) |
-| **Base case 2** | `nums(idx) == 0 && max == idx` → `false` (stuck) |
-| **Recursive step** | `isPossible(math.max(max, idx + nums(idx)), idx + 1)` |
-| **What gets smaller?** | the remaining distance `nums.size - 1 - idx` |
-| **Accumulator** | `max` – the furthest reachable index so far |
-| **Tail recursive?** | ✅ yes – the call is the last action, `@tailrec` confirms it |
-| **Call stack** | one frame, reused; even 10⁵ elements are fine |
-
-Compare *Scala with For* and *Scala with Fold* in Lecture 03: the same accumulator, written as a loop and as `foldLeft`.
-
----
-
-# Lisp: Recursion from the Start
+# Fold: Accumulator as a Library Method
 
 <style scoped>
 section { font-size: 22px; }
 pre { font-size: 17px; line-height: 1.35; }
-.cols { display: flex; gap: 30px; } .cols > div { flex: 1; }
-.cicon { position: absolute; top: 40px; right: 70px; height: 90px; }
 </style>
 
-<img class="cicon" src="assets/pt03-lang-lisp.svg" alt="Lisp" />
+`foldLeft` is the **same pattern** as tail recursion on a list: start with an accumulator, walk the list, update the accumulator, return it at the end.
+
+```scala
+xs.foldLeft(z)(f)
+```
+
+- `z` – the initial accumulator (base case)
+- `f(acc, elem)` – combine accumulator and next element (recursive step)
+- Result: one value built left-to-right, like `loop(rest, acc)`
+
+So: if you can write a tail-recursive list walk, you can usually write a `foldLeft`.
+
+---
+
+# Fold Examples
+
+<style scoped>
+section { font-size: 21px; }
+pre { font-size: 16px; line-height: 1.3; }
+.cols { display: flex; gap: 28px; } .cols > div { flex: 1; }
+</style>
 
 <div class="cols">
 <div>
 
-**Scheme (Lisp family, 1975)**
+```scala
+def sum(xs: List[Int]) =
+  xs.foldLeft(0)(_ + _)
 
-```scheme
-(define (factorial n)
-  (if (= n 0)
-      1
-      (* n (factorial (- n 1)))))
+def product(xs: List[Int]) =
+  xs.foldLeft(1)(_ * _)
+
+def length(xs: List[Int]) =
+  xs.foldLeft(0)((n, _) => n + 1)
 ```
 
 </div>
 <div>
 
-**Scala 3**
-
 ```scala
-def factorial(n: Int): BigInt =
-  if n == 0 then 1
-  else n * factorial(n - 1)
+def reverse[A](xs: List[A]) =
+  xs.foldLeft(List.empty[A])((acc, x) => x :: acc)
+
+sum(List(1, 2, 3, 4))      // 10
+product(List(2, 3, 4))     // 24
+length(List(1, 2, 3))      // 3
+reverse(List(1, 2, 3))     // List(3, 2, 1)
 ```
 
 </div>
 </div>
 
-- Lisp (1958) has no loops in its core – recursion and **lambda** are everything
-- Based on Church's lambda calculus; Scheme *requires* tail-call optimisation
-- Scala inherits these ideas: functions as values, recursion, pattern matching
+Same accumulator idea as `sumTail` – only the boilerplate is gone.
 
 ---
 
@@ -1119,7 +825,6 @@ def sumFold(xs: List[Int]) =
 
 - Every loop can be written as recursion – and vice versa
 - Tail recursion ≈ loop; `foldLeft` packages the pattern "accumulator + recursion"
-- Recall Lecture 03, Jump Game: *Scala with Recursion* and *Scala with Fold*
 
 ---
 
@@ -1133,23 +838,26 @@ section { font-size: 23px; }
 
 - Recursion: a function that calls itself on a smaller problem
 - Every recursion needs a **base case** and a **recursive step** – write the recurrence first
-- Mathematics: factorial, Gauss sum, Fibonacci, power, Euclid, Pascal's triangle
-- Computer science: Hanoi, binary search, structural recursion on lists, permutations
+- Mathematics: factorial, Fibonacci, Euclid
+- Computer science: Hanoi, binary search, structural recursion on lists, Roman numbers, merge sort, LeetCode 21
 - Each call gets a stack frame; objects live on the heap; too deep → `StackOverflowError`
 - Tail recursion with accumulators runs in constant stack space; check with `@tailrec`
+- `foldLeft` is that accumulator pattern as a library method
 - Linear recursion can be made tail recursive; tree recursion usually not
 
 ---
 
 # Further Reading
 
-<style scoped>section { font-size: 22px; }</style>
+<style scoped>section { font-size: 20px; }</style>
 
-- **Mark C. Lewis, Lisa Lacher:** *Introduction to Programming and Problem-Solving Using Scala* (2nd ed., CRC Press; 1st ed.: *Introduction to the Art of Programming Using Scala*)
-  - Ch. 6 *Recursion for Iteration*: basics of recursion, writing recursive functions, matching
-  - Ch. 15 *Recursion*: memory layout, power of recursion, Fibonacci, Towers of Hanoi, permutations, mazes, merge sort / quicksort
+- **Mark C. Lewis, Lisa Lacher:** *Introduction to Programming and Problem-Solving Using Scala* (2nd ed.)
+  - Ch. 6 *Recursion for Iteration* – base case, recursive step, matching on lists
+  - Ch. 15 *Recursion* (skim): stack, Fibonacci, Hanoi, merge sort
   - Videos: programmingusingscala.net
-- **Alvin Alexander:** *Learn Scala 3 The Fast Way!* – `match` expressions, `List`; recursion in depth in his free booklet *Learning Recursion* (from *Functional Programming, Simplified*)
+- **Alvin Alexander:** *Learning Recursion* (free booklet) – and *Learn Scala 3 The Fast Way!* on `match` / `List`
+
+**Reading task:** After Ch. 6 (and a short look at *Learning Recursion*), implement `product(xs: List[Int]): Int` in **three** ways: (1) recursion with `match`, (2) `@tailrec` with an accumulator, (3) `foldLeft`. Compare which version is easiest to read.
 
 ---
 
@@ -1157,16 +865,17 @@ section { font-size: 23px; }
 
 # Tasks
 
-<style scoped>section { font-size: 21px; }</style>
+<style scoped>section { font-size: 20px; }</style>
 
-For each task: **first write the recurrence equation**, then the Scala code.
+For each coding task: **first write the recurrence equation**, then the Scala code.
 
 1. `digitSum(n: Int): Int` – `digitSum(1234) == 10`
 2. `max(xs: List[Int]): Int` with pattern matching
-3. `pascalRow(n: Int): List[Long]` using `binom`
+3. `power(x: Double, n: Int): Double` and `sumTo(n: Int): Int` (little Gauss)
 4. Make `sumTo` and `length` tail recursive with `@tailrec`
 5. `isPalindrome(s: String): Boolean`; `flatten(xs: List[List[Int]]): List[Int]`
-6. LeetCode: *Pow(x, n)* (50), *Climbing Stairs* (70), *Binary Search* (704), *Permutations* (46)
+6. LeetCode: *Pow(x, n)* (50), *Climbing Stairs* (70), *Binary Search* (704), *Permutations* (46); optional: *Generate Parentheses* (22), *K-th Symbol in Grammar* (779), *Jump Game* (55)
+7. **Further Reading** — Lewis/Lacher Ch. 6 (and skim Ch. 15 / Alexander *Learning Recursion*). Then write `product(xs: List[Int]): Int` three ways: recursive `match`, `@tailrec` accumulator, and `foldLeft`. Which is clearest?
 
 ---
 
