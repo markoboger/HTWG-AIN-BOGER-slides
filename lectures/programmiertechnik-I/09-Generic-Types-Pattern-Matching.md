@@ -12,7 +12,7 @@ _footer: ""
 ## Programmiertechnik I
 # Lecture 09: Generic Types, Pattern Matching
 
-<p class="small">Migrated from the Google Slides deck "PR-09-Generic Types, Pattern Matching".</p>
+<p class="small">Generic lists, list methods, <code>foreach</code> and <code>map</code>, <code>while</code>, the <code>match</code> expression, and pattern matching on lists and case classes.</p>
 
 ---
 
@@ -33,7 +33,7 @@ In this lecture you will learn about
 
 Supporting literature:
 
-- Learn Scala 3 the Fast Way, chapter
+- Learn Scala 3 the Fast Way, chapters 29–31 and 75–77
 
 New Tools:
 
@@ -286,16 +286,27 @@ for (character <- characterList) character match {
 # match as Expression
 
 `match` can also be used as an Expression. In FP it usually is.
+Instead of printing, each case returns a **String** — the list of things that are said.
 
 ```scala
-for (character <- characterList) {
-  val theForceIsStrong = character match {
-    case "Luke"   => true
-    case "Anakin" => true
-    case "Padme"  => false
-    case _        => false
-  }
+val characterList = List("Luke", "Anakin", "Padme")
+val messages = for (character <- characterList) yield character match {
+  case "Luke"   => "The power of the Force is strong with you."
+  case "Anakin" => "I am your father."
+  case "Padme"  => "I am your mother."
+  case _        => "Do or do not. There is no try."
 }
+```
+
+The result of the expression is a `List[String]`:
+
+```scala
+messages
+// List(
+//   "The power of the Force is strong with you.",
+//   "I am your father.",
+//   "I am your mother."
+// )
 ```
 
 ---
@@ -455,14 +466,17 @@ romanToNumber("MCMXCIV".toList)
 
 # Pattern Matching on Classes
 
-Pattern Matching works for all classes that are declared as `case class`:
+In Scala 3 you can `match` on any **Matchable** value (`AnyVal` and `AnyRef` are Matchable).
+
+A **case class** is an immutable data structure that Scala equips automatically with
+`equals`, `hashCode`, `toString`, `copy`, and an **extractor** for pattern matching:
 
 ```scala
 case class Person(name: String, age: Int)
 ```
 
-Case classes provide additional magic to enable pattern matching.
-They can be used as types in the case clause. Thus the name.
+That is why case classes can be used as types in the case clause — thus the name.
+Enums and types with a custom `unapply` can also be matched this way.
 
 ```scala
 val person = Person("Anakin", 30)
@@ -479,10 +493,10 @@ In the case statement we can use place holders.
 In this case we are looking for any person that matches the template.
 
 ```scala
-val jedis = List(Person("Anakin", "Skywalker"), Person("Luke", "Skywalker"))
+val jedis = List(Person("Anakin", 30), Person("Luke", 19), Person("Yoda", 900))
 for (jedi <- jedis) jedi match {
-  case Person(_, "Skywalker") => println("The Force is strong with you.")
-  case _                      => println("Do or do not. There is no try.")
+  case Person("Luke", _) | Person("Anakin", _) => println("The Force is strong with you.")
+  case _                                       => println("Do or do not. There is no try.")
 }
 ```
 
@@ -499,7 +513,7 @@ for (jedi <- jedis) jedi match {
 - `while` is also a control structure but rarely used in FP
 - `match` is a powerful control statement or expression
 - Pattern matching works on Tuple and Lists
-- It actually works on classes defined as `case class`
+- Pattern matching works on **Matchable** values; a **case class** is an immutable data type with `equals`/`hashCode`/`toString`/`copy` and an extractor
 - Pattern matching even works with templates
 
 ---
@@ -508,10 +522,33 @@ for (jedi <- jedis) jedi match {
 
 # Task
 
-(Task to fill)
+<style scoped>section { font-size: 20px; }</style>
 
-- Reading: Learn Scala 3, Chapters 76–77
-- CodeTask: Chapters 76 to 77
+**1. CodeTask** — keep working on the exercises for this lecture.
+
+- Reading: Learn Scala 3 the Fast Way, Chapters 29–31 and 75–77 (for `match`: also 78–79)
+- CodeTask: Chapters 29 to 31 and 75 to 77
+
+**2. Event invitation** (Mill) — a generic type plus pattern matching.
+
+Write a serial letter that **is** the invitation to an event.
+
+- Recipients are a generic `List[T]`, where each `T` is either a `Student` or a `Professor`
+- `match` on the element: is it a professor or a student?
+- Phrase the invitation with **Sie** for a professor and **du** for a student
+- Print one invitation per recipient
+
+```scala
+def greeting(person: Matchable): String = person match {
+  case p: Professor => s"Sehr geehrte/r Frau/Herr ${p.name},"  // Sie
+  case s: Student   => s"Hallo ${s.name},"                     // du
+  case _            => "Hello,"
+}
+
+def writeAll[T](recipients: List[T]): Unit =
+  for (person <- recipients)
+    println(letterText(greeting(person), event))
+```
 
 ---
 
