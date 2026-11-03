@@ -1,6 +1,6 @@
 ---
 marp: true
-theme: htwg-pt1
+theme: htwg
 paginate: true
 _paginate: false
 footer: "![](../../themes/htwgin40.png)&nbsp;&nbsp;Prof. Dr. Marko Boger"
@@ -93,12 +93,84 @@ h1 { color: white; text-shadow: 0 0 12px rgba(0,0,0,0.8); }
 
 ---
 
+# High Cyclomatic Complexity
+
+Same behaviour as the next slide — many branches, high complexity:
+
+```scala
+def scoreMove(piece: String, captured: String,
+              check: Boolean, mate: Boolean): Int = {
+  var score = 0
+  if (piece == "P") score = 1
+  else if (piece == "N" || piece == "B") score = 3
+  else if (piece == "R") score = 5
+  else if (piece == "Q") score = 9
+  else score = 0
+
+  if (captured == "P") score += 1
+  else if (captured == "N" || captured == "B") score += 3
+  else if (captured == "R") score += 5
+  else if (captured == "Q") score += 9
+
+  if (check) score += 2
+  if (mate)  score += 10
+  score
+}
+```
+
+---
+
+# Low Cyclomatic Complexity
+
+Same behaviour — lookup table, almost no branches:
+
+```scala
+val pieceValue = Map(
+  "P" -> 1, "N" -> 3, "B" -> 3, "R" -> 5, "Q" -> 9
+).withDefaultValue(0)
+
+def scoreMove(piece: String, captured: String,
+              check: Boolean, mate: Boolean): Int =
+  pieceValue(piece) + pieceValue(captured) +
+    (if (check) 2 else 0) +
+    (if (mate) 10 else 0)
+```
+
+---
+
 # Technical Debt
 
 - Technical debt is an aggregated metric for code quality.
 - It sums up the time necessary to fix the problems from static code analysis, based on heuristics.
 - It can be expressed in hours, money or as percent. In percent it is the relation of time needed to invest to clean up the code to time already invested in the code.
 - Technical debt in percent can be compared to an interest rate on a bank loan.
+
+---
+
+# Quality Gate and Issue Types
+
+- A **Quality Gate** is a pass/fail check on analysis results (Sonar way: no new Bugs or Vulnerabilities, Maintainability A, coverage and duplication thresholds on new code).
+- Three issue types feed the ratings:
+  - **Bugs** → Reliability (does it crash or behave wrong?)
+  - **Vulnerabilities** → Security (can it be exploited?)
+  - **Code Smells** → Maintainability (hard to change; drives Technical Debt)
+- Ratings A–E summarise Reliability, Security and Maintainability; **Duplications** are measured separately and can also fail the gate.
+
+---
+
+# Getting Code Coverage into SonarQube
+
+SonarQube does **not** compute coverage itself — and **Automatic Analysis** cannot import it. Pushing twice is not enough.
+
+For Scala projects (Tic-Tac-Toe, Sudoku, …):
+
+1. Turn off Automatic Analysis; analyse via **CI** (e.g. GitHub Actions) with a `SONAR_TOKEN`.
+2. Add **sbt-scoverage**; write unit tests (ScalaTest / Specs2).
+3. In CI run: `sbt clean coverage test coverageAggregate` → produces `scoverage.xml`.
+4. Set `sonar.scala.coverage.reportPaths` to your `scoverage.xml` (in `sonar-project.properties`).
+5. Run the **SonarScanner** *after* the coverage step (see the chess workflow).
+
+Then Measures shows coverage — and the Risk bubble chart can appear.
 
 ---
 
