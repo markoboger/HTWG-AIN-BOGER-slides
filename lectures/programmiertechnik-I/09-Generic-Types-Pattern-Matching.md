@@ -33,7 +33,7 @@ In this lecture you will learn about
 
 Supporting literature:
 
-- Learn Scala 3 the Fast Way, chapters 29–31 and 75–77
+- Learn Scala 3 the Fast Way, chapters 29–31 and 75–79
 
 New Tools:
 
@@ -112,21 +112,20 @@ Here are the most commonly used methods of `List`:
 
 ```scala
 val list = List(5, 2, 3, 2)
-list.head
-list.tail
-list.length
-list.reverse
-list.sorted
-list.distinct
-list.toString
-list.mkString("|", " - ", "|")
-list.sum
-list.product
-list.max
-list.min
-list.contains(2)
-list.zipWithIndex
-list.zip(list2)
+
+list.head                        // 5
+list.tail                        // List(2, 3, 2)
+list.length                      // 4
+list.reverse                     // List(2, 3, 2, 5)
+list.sorted                      // List(2, 2, 3, 5)
+list.distinct                    // List(5, 2, 3)
+list.toString                    // List(5, 2, 3, 2)
+list.mkString("|", " - ", "|")   // |5 - 2 - 3 - 2|
+list.sum                         // 12
+list.product                     // 60
+list.max                         // 5
+list.min                         // 2
+list.contains(2)                 // true
 ```
 
 ---
@@ -137,13 +136,16 @@ Here are some less known methods:
 
 ```scala
 val list = List(5, 2, 3, 2)
+val list2 = List("a", "b", "c", "d", "e")
 
-list.take(2)
-list.drop(2)
-list.takeRight(2)
-list.dropRight(2)
-list.slice(1, 3)
-list.patch(1, List(6, 7), 2)
+list.take(2)                 // List(5, 2)
+list.drop(2)                 // List(3, 2)
+list.takeRight(2)            // List(3, 2)
+list.dropRight(2)            // List(5, 2)
+list.slice(1, 3)             // List(2, 3)
+list.patch(1, List(6, 7), 2) // List(5, 6, 7, 2)
+list.zipWithIndex            // List((5, 0), (2, 1), (3, 2), (2, 3))
+list.zip(list2)              // List((5, "a"), (2, "b"), (3, "c"), (2, "d"))
 ```
 
 ---
@@ -156,11 +158,11 @@ Some methods return an **iterator**.
 val list = List(5, 2, 3, 2)
 
 val iterator1 = list.sliding(2)
-iterator1.next
-iterator1.next
+iterator1.next // List(5, 2)
+iterator1.next // List(2, 3)
 val iterator2 = list.grouped(2)
-iterator2.next
-iterator2.next
+iterator2.next // List(5, 2)
+iterator2.next // List(3, 2)
 ```
 
 ---
@@ -301,12 +303,7 @@ val messages = for (character <- characterList) yield character match {
 The result of the expression is a `List[String]`:
 
 ```scala
-messages
-// List(
-//   "The power of the Force is strong with you.",
-//   "I am your father.",
-//   "I am your mother."
-// )
+messages // List("The power of the Force is strong with you.", "I am your father.", "I am your mother.")
 ```
 
 ---
@@ -404,7 +401,7 @@ def romanCharToNumber(romanChar: Char): Int = {
     case _   => 0
   }
 }
-romanCharToNumber('X')
+romanCharToNumber('X') // 10
 ```
 
 ---
@@ -430,14 +427,42 @@ List(1, 2, 3) match {
 
 This is called **pattern matching**.
 
+<div style="margin-top: 0.6rem; padding: 0.35rem 0.7rem; border: 1px solid #9aa8b8; border-radius: 8px; background: #f4f7fb; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 18px; width: fit-content;">
+Head: 1 Tail: List(2, 3)
+</div>
+
+---
+
+# Match on a List of Chars
+
+A Roman numeral is a `List[Char]`. Pattern matching can take that list apart —
+still **without recursion**:
+
+```scala
+"IV".toList match {
+  case 'I' :: 'V' :: Nil => 4
+  case 'I' :: 'X' :: Nil => 9
+  case 'X' :: Nil        => 10
+  case _                 => 0
+} // 4
+
+"XVI".toList match {
+  case 'X' :: 'V' :: 'I' :: Nil => 16
+  case _                        => 0
+} // 16
+```
+
+The patterns read characters from the front of the list.
+Longer numbers need a recursive definition — next slide.
+
 ---
 
 <style scoped>
 section { font-size: 20px; }
-pre { font-size: 14px; }
+pre { font-size: 17px; }
 </style>
 
-# Roman Numbers
+# Roman Numbers with Recursion
 
 ```scala
 def romanToNumber(roman: List[Char]): Int = {
@@ -458,8 +483,8 @@ def romanToNumber(roman: List[Char]): Int = {
     case Nil => 0
   }
 }
-romanToNumber("XVI".toList)
-romanToNumber("MCMXCIV".toList)
+romanToNumber("XVI".toList)     // 16
+romanToNumber("MCMXCIV".toList) // 1994
 ```
 
 ---
@@ -502,6 +527,89 @@ for (jedi <- jedis) jedi match {
 
 ---
 
+# LeetCode 2011: Final Value After Operations
+
+Easy · [leetcode.com/problems/final-value-of-variable-after-performing-operations](https://leetcode.com/problems/final-value-of-variable-after-performing-operations/)
+
+There is one variable `X`, starting at `0`, and four operations:
+
+- `"++X"` and `"X++"` increment `X` by 1
+- `"--X"` and `"X--"` decrement `X` by 1
+
+Given a list of these operations, return the final value of `X`.
+
+**Example:** `List("--X", "X++", "X++")` → `1`
+
+No recursion needed: walk the list once and `match` on each operation.
+
+---
+
+# LeetCode 2011: Solution with `match`
+
+```scala
+def delta(op: String): Int = op match {
+  case "++X" | "X++" => 1
+  case "--X" | "X--" => -1
+}
+
+def finalValueAfterOperations(operations: List[String]): Int =
+  operations.map(delta).sum
+
+finalValueAfterOperations(List("--X", "X++", "X++"))           // 1
+finalValueAfterOperations(List("++X", "++X", "X++"))            // 3
+finalValueAfterOperations(List("X++", "++X", "--X", "X--"))     // 0
+```
+
+`"|"` in a case means **or**: both increment forms share one branch.
+`map` and `sum` you already know — no recursion. On LeetCode the type is `Array[String]`.
+
+---
+
+# LeetCode 682: Baseball Game
+
+Easy · [leetcode.com/problems/baseball-game](https://leetcode.com/problems/baseball-game/)
+
+You keep a record of scores. Start with an empty record. Each operation is one of:
+
+- an integer `x` — record a new score of `x`
+- `"+"` — record the sum of the previous two scores
+- `"D"` — record double the previous score
+- `"C"` — invalidate (remove) the previous score
+
+Return the sum of all scores left on the record.
+
+**Example:** `List("5", "2", "C", "D", "+")` → `30`  
+(`[5]` → `[5, 2]` → `[5]` → `[5, 10]` → `[5, 10, 15]` → sum `30`)
+
+No recursion: keep a list of scores and `match` on each operation.
+
+---
+
+# LeetCode 682: Solution with `match`
+
+```scala
+def calPoints(operations: List[String]): Int =
+  val scores = scala.collection.mutable.ListBuffer[Int]()
+  for (op <- operations) {
+    op match {
+      case "+" => scores += scores(scores.length - 1) + scores(scores.length - 2)
+      case "D" => scores += scores.last * 2
+      case "C" => scores.remove(scores.length - 1)
+      case _   => scores += op.toInt
+    }
+  }
+  scores.sum
+
+calPoints(List("5", "2", "C", "D", "+"))                 // 30
+calPoints(List("5", "-2", "4", "C", "D", "9", "+", "+")) // 27
+calPoints(List("1", "C"))                                // 0
+```
+
+A mutable list acts as a stack. `match` chooses the branch; `_` catches integer scores.
+Same idea as a Python `match` solution — no recursion. On LeetCode the type is `Array[String]`.
+
+---
+
 <!-- _class: inhalt -->
 
 # Summary
@@ -526,8 +634,8 @@ for (jedi <- jedis) jedi match {
 
 **1. CodeTask** — keep working on the exercises for this lecture.
 
-- Reading: Learn Scala 3 the Fast Way, Chapters 29–31 and 75–77 (for `match`: also 78–79)
-- CodeTask: Chapters 29 to 31 and 75 to 77
+- Reading: Learn Scala 3 the Fast Way, Chapters 29–31 and 75–79
+- CodeTask: Chapters 29 to 31 and 75 to 79
 
 **2. Event invitation** (Mill) — a generic type plus pattern matching.
 
@@ -537,18 +645,6 @@ Write a serial letter that **is** the invitation to an event.
 - `match` on the element: is it a professor or a student?
 - Phrase the invitation with **Sie** for a professor and **du** for a student
 - Print one invitation per recipient
-
-```scala
-def greeting(person: Matchable): String = person match {
-  case p: Professor => s"Sehr geehrte/r Frau/Herr ${p.name},"  // Sie
-  case s: Student   => s"Hallo ${s.name},"                     // du
-  case _            => "Hello,"
-}
-
-def writeAll[T](recipients: List[T]): Unit =
-  for (person <- recipients)
-    println(letterText(greeting(person), event))
-```
 
 ---
 
