@@ -515,7 +515,9 @@ li { font-size: 0.9em; }
 - However, it does not contain logic across the model, but only local logic.
 - All state should be in the model. The model will eventually be written to a database, only the model layer is saved. All layers above are stateless or have transient state.
 
-## Enforcing Architecture with ArchUnit
+---
+
+# Enforcing Architecture with ArchUnit
 
 **ArchUnit** (by TNG Technology Consulting, `com.tngtech.archunit`) is a Java library for testing architecture rules. It can be used from Scala with ScalaTest to automatically verify that your code follows MVC constraints.
 
@@ -524,16 +526,17 @@ li { font-size: 0.9em; }
 libraryDependencies += "com.tngtech.archunit" % "archunit" % "1.0.1" % Test
 ```
 
-**Example: MVC Architecture Tests with ScalaTest WordSpec**
+---
+
+# MVC Architecture Tests with ScalaTest WordSpec
 
 ```scala
 import com.tngtech.archunit.core.domain.JavaClasses
 import com.tngtech.archunit.core.importer.ClassFileImporter
 import com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses
 import org.scalatest.wordspec.AnyWordSpec
-import org.scalatest.matchers.should.Matchers
 
-class ArchitectureSpec extends AnyWordSpec with Matchers {
+class ArchitectureSpec extends AnyWordSpec {
   val classes: JavaClasses = new ClassFileImporter()
     .importPackages("de.htwg.se.chess")
 
@@ -551,12 +554,7 @@ class ArchitectureSpec extends AnyWordSpec with Matchers {
   }
 
   "The View layer" should {
-    "not depend on the Model directly" in {
-      noClasses().that().resideInAPackage("..view..")
-        .should().dependOnClassesThat().resideInAPackage("..model..")
-        .check(classes)
-    }
-    "only call the Controller" in {
+    "not depend on the Model (gets data via Controller)" in {
       noClasses().that().resideInAPackage("..view..")
         .should().dependOnClassesThat().resideInAPackage("..model..")
         .check(classes)
@@ -573,7 +571,7 @@ class ArchitectureSpec extends AnyWordSpec with Matchers {
 }
 ```
 
-These tests fail at compile time if your architecture violates MVC layering rules, preventing architectural erosion.
+These tests fail when you run `sbt test` if your architecture violates MVC layering rules, preventing architectural erosion.
 
 ---
 
