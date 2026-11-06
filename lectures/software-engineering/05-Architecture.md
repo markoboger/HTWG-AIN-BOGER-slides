@@ -517,6 +517,64 @@ li { font-size: 0.9em; }
 
 ---
 
+# Enforcing Architecture with ArchUnit
+
+**ArchUnit** (by TNG Technology Consulting, `com.tngtech.archunit`) is a Java library for testing architecture rules. It can be used from Scala with ScalaTest to automatically verify that your code follows MVC constraints.
+
+**Build dependency** (`build.sbt`):
+```scala
+libraryDependencies += "com.tngtech.archunit" % "archunit" % "1.0.1" % Test
+```
+
+---
+
+# MVC Architecture Tests with ScalaTest WordSpec
+
+```scala
+import com.tngtech.archunit.core.domain.JavaClasses
+import com.tngtech.archunit.core.importer.ClassFileImporter
+import com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses
+import org.scalatest.wordspec.AnyWordSpec
+
+class ArchitectureSpec extends AnyWordSpec {
+  val classes: JavaClasses = new ClassFileImporter()
+    .importPackages("de.htwg.se.chess")
+
+  "The Model layer" should {
+    "not depend on the Controller" in {
+      noClasses().that().resideInAPackage("..model..")
+        .should().dependOnClassesThat().resideInAPackage("..controller..")
+        .check(classes)
+    }
+    "not depend on the View" in {
+      noClasses().that().resideInAPackage("..model..")
+        .should().dependOnClassesThat().resideInAPackage("..view..")
+        .check(classes)
+    }
+  }
+
+  "The View layer" should {
+    "not depend on the Model (gets data via Controller)" in {
+      noClasses().that().resideInAPackage("..view..")
+        .should().dependOnClassesThat().resideInAPackage("..model..")
+        .check(classes)
+    }
+  }
+
+  "The Controller layer" should {
+    "not create upward dependencies" in {
+      noClasses().that().resideInAPackage("..controller..")
+        .should().dependOnClassesThat().resideInAPackage("..view..")
+        .check(classes)
+    }
+  }
+}
+```
+
+These tests fail when you run `sbt test` if your architecture violates MVC layering rules, preventing architectural erosion.
+
+---
+
 <!-- _class: aufgabe -->
 
 # Task 5: Build a MVC Architecture
