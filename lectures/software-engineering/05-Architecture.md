@@ -515,6 +515,66 @@ li { font-size: 0.9em; }
 - However, it does not contain logic across the model, but only local logic.
 - All state should be in the model. The model will eventually be written to a database, only the model layer is saved. All layers above are stateless or have transient state.
 
+## Enforcing Architecture with ArchUnit
+
+**ArchUnit** (by TNG Technology Consulting, `com.tngtech.archunit`) is a Java library for testing architecture rules. It can be used from Scala with ScalaTest to automatically verify that your code follows MVC constraints.
+
+**Build dependency** (`build.sbt`):
+```scala
+libraryDependencies += "com.tngtech.archunit" % "archunit" % "1.0.1" % Test
+```
+
+**Example: MVC Architecture Tests with ScalaTest WordSpec**
+
+```scala
+import com.tngtech.archunit.core.domain.JavaClasses
+import com.tngtech.archunit.core.importer.ClassFileImporter
+import com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses
+import org.scalatest.wordspec.AnyWordSpec
+import org.scalatest.matchers.should.Matchers
+
+class ArchitectureSpec extends AnyWordSpec with Matchers {
+  val classes: JavaClasses = new ClassFileImporter()
+    .importPackages("de.htwg.se.chess")
+
+  "The Model layer" should {
+    "not depend on the Controller" in {
+      noClasses().that().resideInAPackage("..model..")
+        .should().dependOnClassesThat().resideInAPackage("..controller..")
+        .check(classes)
+    }
+    "not depend on the View" in {
+      noClasses().that().resideInAPackage("..model..")
+        .should().dependOnClassesThat().resideInAPackage("..view..")
+        .check(classes)
+    }
+  }
+
+  "The View layer" should {
+    "not depend on the Model directly" in {
+      noClasses().that().resideInAPackage("..view..")
+        .should().dependOnClassesThat().resideInAPackage("..model..")
+        .check(classes)
+    }
+    "only call the Controller" in {
+      noClasses().that().resideInAPackage("..view..")
+        .should().dependOnClassesThat().resideInAPackage("..model..")
+        .check(classes)
+    }
+  }
+
+  "The Controller layer" should {
+    "not create upward dependencies" in {
+      noClasses().that().resideInAPackage("..controller..")
+        .should().dependOnClassesThat().resideInAPackage("..view..")
+        .check(classes)
+    }
+  }
+}
+```
+
+These tests fail at compile time if your architecture violates MVC layering rules, preventing architectural erosion.
+
 ---
 
 <!-- _class: aufgabe -->
