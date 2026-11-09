@@ -12,7 +12,7 @@ _footer: ""
 ## Programmiertechnik I
 # Lecture 12: Collections
 
-<p class="small">Migrated from the Google Slides deck "PR-12-Collections" ("12 - Collections").</p>
+<p class="small">How Scala organizes Seq, Set and Map in one type hierarchy, how higher-order functions like filter, map and fold work on them, and how to document your code with ScalaDoc.</p>
 
 ---
 
@@ -31,7 +31,7 @@ In this lecture you will learn about
 
 Supporting literature:
 
-- Learn Scala 3 the Fast Way, chapter (to fill)
+- Learn Scala 3 the Fast Way, chapters 31–35, 37–50 and 52
 
 New Tools:
 
@@ -105,7 +105,9 @@ In the Scala documentation we find this image to represent the fundamental colle
 </div>
 <div markdown="1">
 
-<img src="assets/pt12-collections-hierarchy.png" alt="Scala collections hierarchy: Iterable, Seq, Set, Map" style="width:480px" />
+<img src="assets/pt12-collections-hierarchy.svg" alt="Scala collections hierarchy: Iterable, Seq, Set, Map" style="width:480px; background:white;" />
+
+<p class="small">Source: <a href="https://docs.scala-lang.org/overviews/collections-2.13/overview.html">docs.scala-lang.org</a></p>
 
 </div>
 </div>
@@ -125,7 +127,9 @@ Traits only describe common behavior. The full implementation is provided in **c
 - Default Set → `HashSet` · Default Iterable → `Seq` · Default Seq → `LinearSeq` → `List` · Default Map → `HashMap`
 - We can create any of these – focus on **Set**, **Seq** and **Map**
 
-<img src="assets/pt12-traits-classes.png" alt="Scala collections: traits and concrete classes" style="height:420px; display:block; margin:0.3em auto;" />
+<img src="assets/pt12-traits-classes.svg" alt="Scala immutable collections: traits and concrete classes" style="height:420px; display:block; margin:0.3em auto; background:white;" />
+
+<p class="small" style="text-align:center;">Source: <a href="https://docs.scala-lang.org/overviews/collections-2.13/overview.html">docs.scala-lang.org</a></p>
 
 ---
 
@@ -786,6 +790,192 @@ Compile / doc / scalacOptions ++= Seq(
 
 ---
 
+<style scoped>
+pre { font-size: 16px; }
+li { font-size: 21px; }
+</style>
+
+# ScalaDoc in the Standard Library: `Set.concat`
+
+From [`scala/collection/Set.scala`](https://github.com/scala/scala/blob/2.13.x/src/library/scala/collection/Set.scala) (trait `SetOps`):
+
+```scala
+/** Creates a new $ccoll by adding all elements contained in another collection to this $coll, omitting duplicates.
+  *
+  * Example:
+  *  {{{
+  *    scala> val a = Set(1, 2) concat Set(2, 3)
+  *    a: scala.collection.immutable.Set[Int] = Set(1, 2, 3)
+  *  }}}
+  *
+  *  @param that     the collection containing the elements to add.
+  *  @return a new $coll with the given elements added, omitting duplicates.
+  */
+def concat(that: collection.IterableOnce[A]): C
+```
+
+- First sentence = **summary** shown in the member list
+- `{{{ ... }}}` = **code example**, here in REPL style: the `2` appears only once
+- `@param` and `@return` describe parameter and result
+- `$coll` and `$ccoll` are **macros**: each collection fills them in with `@define coll …`, e.g. *"set"* in `SetOps`
+
+---
+
+<style scoped>
+pre { font-size: 18px; }
+</style>
+
+# Sets in Practice
+
+<div class="columns" style="grid-template-columns: 1fr 1fr; align-items: start;">
+<div markdown="1">
+
+```scala
+val a = Set(1, 2, 3)
+
+a + 3                  // Set(1, 2, 3)
+a concat Set(2, 4)     // Set(1, 2, 3, 4)
+a.contains(2)          // true
+a(5)                   // false
+
+a intersect Set(2, 9)  // Set(2)
+a union Set(7)         // Set(1, 2, 3, 7)
+a diff Set(1)          // Set(2, 3)
+
+a.map(_ % 2)           // Set(1, 0)
+```
+
+</div>
+<div markdown="1">
+
+- Every element appears **at most once**
+- Adding an existing element changes nothing
+- A `Set` is also a function `A => Boolean`: `a(5)` asks *"is 5 in the set?"*
+- Set operations return a **new** set; `a` is never changed
+- `map` can **shrink** a set: duplicates in the result disappear
+
+</div>
+</div>
+
+---
+
+# `Set.concat` as Rendered by ScalaDoc
+
+The comment from slide 35 on the [`immutable.Set` API page](https://www.scala-lang.org/api/current/scala/collection/immutable/Set.html#concat-fffff87d):
+
+<img src="assets/pt12-scaladoc-set-concat.png" alt="ScalaDoc page entry for Set.concat with example, parameter and return value" style="width:740px; display:block; margin:0.3em auto; border:1px solid #ddd;" />
+
+<p class="small">The macros are filled in: <code>$coll</code> becomes <em>"immutable set"</em>; <code>@param</code> becomes <em>Value parameters</em>, <code>@return</code> becomes <em>Returns</em>.</p>
+
+---
+
+<style scoped>
+pre { font-size: 19px; }
+</style>
+
+# Maps: Getting Started
+
+A `Map` stores **key → value** pairs, like a telephone book.
+
+<div class="columns" style="grid-template-columns: 1.25fr 1fr; align-items: start;">
+<div markdown="1">
+
+```scala
+val capitals = Map(
+  "DE" -> "Berlin",
+  "CH" -> "Bern",
+  "AT" -> "Wien"
+)
+
+capitals("CH")      // Bern
+capitals.get("DE")  // Some(Berlin)
+capitals.get("FR")  // None
+capitals.keys       // Set(DE, CH, AT)
+capitals.values     // Iterable(Berlin, Bern, Wien)
+```
+
+</div>
+<div markdown="1">
+
+- `"DE" -> "Berlin"` is just a **tuple** `("DE", "Berlin")`
+- Keys are **unique**: the keys of a map form a `Set`
+- `capitals(key)` looks up a value, but throws `NoSuchElementException` for a missing key
+- `get` is safe: it returns `Some(value)` or `None`
+
+</div>
+</div>
+
+---
+
+<style scoped>
+pre { font-size: 17px; }
+li { font-size: 22px; }
+</style>
+
+# ScalaDoc in the Standard Library: `Map.getOrElse`
+
+From [`scala/collection/Map.scala`](https://github.com/scala/scala/blob/2.13.x/src/library/scala/collection/Map.scala) (trait `MapOps`):
+
+```scala
+/**  Returns the value associated with a key, or a default value if the key is not contained in the map.
+ *   @param   key      the key.
+ *   @param   default  a computation that yields a default value in case no binding for `key` is
+ *                     found in the map.
+ *   @tparam  V1       the result type of the default computation.
+ *   @return  the value associated with `key` if it exists,
+ *            otherwise the result of the `default` computation.
+ */
+def getOrElse[V1 >: V](key: K, default: => V1): V1
+```
+
+- Two `@param` tags, one per parameter, plus `@return`
+- `@tparam` documents the **type parameter** `V1`
+- `default: => V1` is a *by-name* parameter: the default is only **computed if the key is missing**
+- No `@example` and no macros here: not every comment uses every feature
+
+---
+
+<style scoped>
+pre { font-size: 16px; }
+li { font-size: 20px; }
+</style>
+
+# Maps in Practice
+
+<div class="columns" style="grid-template-columns: 1.2fr 1fr; align-items: start;">
+<div markdown="1">
+
+```scala
+val stock = Map("apple" -> 3, "pear" -> 0)
+
+stock + ("plum" -> 5)   // Map(apple -> 3, pear -> 0, plum -> 5)
+stock + ("apple" -> 4)  // Map(apple -> 4, pear -> 0)
+stock - "pear"          // Map(apple -> 3)
+stock.getOrElse("kiwi", 0)       // 0
+
+stock.filter((k, v) => v > 0)    // Map(apple -> 3)
+stock.map((k, v) => k -> v * 2)  // Map(apple -> 6, pear -> 0)
+for (k, v) <- stock do println(s"$k: $v")
+
+List("a", "bb", "cc").groupBy(_.length)
+  // HashMap(1 -> List(a), 2 -> List(bb, cc))
+```
+
+</div>
+<div markdown="1">
+
+- `+` **adds** a pair, or **replaces** the value if the key exists
+- `-` removes a key
+- Prefer `getOrElse` or `get` over `map(key)`
+- `filter`, `map` and `for` work on **(key, value)** pairs
+- `groupBy` builds a map from any collection
+- Every operation returns a **new** map; for in-place changes use `mutable.Map`
+
+</div>
+</div>
+
+---
+
 <!-- _class: inhalt -->
 
 <style scoped>
@@ -807,9 +997,21 @@ section { font-size: 23px; }
 
 # Task
 
-(Task to fill)
+<style scoped>section { font-size: 18px; } ul { margin: 0.1em 0; } li { margin: 0; } p { margin: 0.35em 0; }</style>
+
+**1. CodeTask:** keep working on the exercises for this lecture.
 
 - Reading: Learn Scala 3, Chapters 31–35, 37–50 and 52
+
+**2. Write a documented collection class** (in your Mill project from Lecture 08)
+
+Write a class that keeps its data in a `Set`, a `Map` or a `Seq`, for example `class CourseRegistry(enrollments: Map[Course, Set[Student]])`. Give it at least three methods that use the collection methods from this lecture, for example:
+
+- `enroll(student, course)`: returns a **new** registry with the student added
+- `studentsIn(course)`: all students of a course (`getOrElse` with an empty `Set`)
+- `inBoth(c1, c2)`: students enrolled in both courses (`intersect`)
+
+Then document the class and every public method with **ScalaDoc** (a summary sentence, `@param`, `@return`, one `@example`), generate the documentation with `mill __.docJar` and open the HTML pages in your browser.
 
 ---
 
