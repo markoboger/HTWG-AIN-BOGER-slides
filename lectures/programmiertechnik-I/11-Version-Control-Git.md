@@ -12,7 +12,7 @@ _footer: ""
 ## Programmiertechnik I
 # Lecture 11: Version Control with Git
 
-<p class="small">Adapted from Software Engineering Lecture 02 (Git and GitHub sections).</p>
+<p class="small">How to track every change to your code, work together on GitHub, and get from your first commit to branches, merges and conflicts.</p>
 
 ---
 
@@ -53,6 +53,8 @@ History, objects, workflow, and the command line
 - This requires a coordination strategy and tooling:
   - To synchronise access
   - To avoid loss of changes
+
+> **With AI it matters even more:** when AI assistants and coding agents change your code, version control lets you review every change, compare it, and roll it back.
 
 ---
 
@@ -120,11 +122,11 @@ section { font-size: 19px; }
 
 <style scoped>
 section { font-size: 18px; }
-.tl { position: relative; margin: 0.2rem 0 0 0.4rem; padding-left: 1.4rem; border-left: 4px solid #009B91; }
-.tl > div { position: relative; margin: 0 0 0.5rem 0; }
-.tl > div::before { content: ""; position: absolute; left: -1.95rem; top: 0.25rem; width: 14px; height: 14px; border-radius: 50%; background: #fff; border: 3px solid #009B91; }
-.tl b.y { display: inline-block; min-width: 5.2em; color: #009B91; }
-.tl ul { margin: 0.1rem 0 0 5.4em; padding-left: 1em; }
+.tl { position: relative; margin: 0.2rem 0 0 0.4rem; padding-left: 24px; border-left: 4px solid #009B91; }
+.tl > div { position: relative; margin: 0 0 0.5rem 0; padding-left: 6em; }
+.tl > div::before { content: ""; position: absolute; left: -36px; top: 0.2em; width: 14px; height: 14px; border-radius: 50%; background: #fff; border: 3px solid #009B91; }
+.tl b.y { position: absolute; left: 0; top: 0; width: 5.6em; color: #009B91; }
+.tl ul { margin: 0.1rem 0 0 0; padding-left: 1.2em; }
 .src { position: absolute; left: 70px; right: 70px; bottom: 58px; font-size: 12px; color: #575e75; }
 </style>
 
@@ -151,11 +153,11 @@ section { font-size: 18px; }
 
 <style scoped>
 section { font-size: 18px; }
-.tl { position: relative; margin: 0.2rem 0 0 0.4rem; padding-left: 1.4rem; border-left: 4px solid #009B91; }
-.tl > div { position: relative; margin: 0 0 0.5rem 0; }
-.tl > div::before { content: ""; position: absolute; left: -1.95rem; top: 0.25rem; width: 14px; height: 14px; border-radius: 50%; background: #fff; border: 3px solid #009B91; }
-.tl b.y { display: inline-block; min-width: 5.2em; color: #009B91; }
-.tl ul { margin: 0.1rem 0 0 5.4em; padding-left: 1em; }
+.tl { position: relative; margin: 0.2rem 0 0 0.4rem; padding-left: 24px; border-left: 4px solid #009B91; }
+.tl > div { position: relative; margin: 0 0 0.5rem 0; padding-left: 6em; }
+.tl > div::before { content: ""; position: absolute; left: -36px; top: 0.2em; width: 14px; height: 14px; border-radius: 50%; background: #fff; border: 3px solid #009B91; }
+.tl b.y { position: absolute; left: 0; top: 0; width: 5.6em; color: #009B91; }
+.tl ul { margin: 0.1rem 0 0 0; padding-left: 1.2em; }
 .src { position: absolute; left: 70px; right: 70px; bottom: 58px; font-size: 12px; color: #575e75; }
 </style>
 
@@ -338,7 +340,7 @@ h1 { margin-bottom: 0.2rem; }
 </div>
 <div>
 
-**Loading dock** (German: *Laderampe*)
+**Stage** (German: *Laderampe*)
 
 <img src="assets/pt11-stage-laderampe.jpg" alt="Trucks at the loading docks of a warehouse" style="width: 100%; margin-top: 0.4rem;">
 </div>
