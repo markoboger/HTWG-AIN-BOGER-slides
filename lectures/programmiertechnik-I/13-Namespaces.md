@@ -12,6 +12,8 @@ _footer: ""
 ## Programmiertechnik I
 # Lecture 13: Namespaces, Packages and Visibility
 
+<p class="small">How packages and imports prevent name clashes in Java and Scala, how visibility modifiers, objects, opaque types and export clauses control what other code can see, and how the library Squants applies these ideas.</p>
+
 ---
 
 <!-- _class: inhalt -->
@@ -31,7 +33,7 @@ In this lecture you will learn about
 - imports: single, wildcard, static, renaming, hiding
 - visibility: public, protected, package-private, private
 - objects as modules, opaque types and export clauses
-- nested classes, inner classes and nested objects
+- an example library: Squants (quantities, units and money)
 
 Supporting literature:
 
@@ -70,7 +72,7 @@ A **namespace** is a named scope that makes names unique:
 - the **simple name** `List` is short, but ambiguous
 - the **fully qualified name** `java.util.List` is unique
 
-In Java and Scala, namespaces are called **packages**.
+In Java and Scala, namespaces are created by **packages**.
 
 ---
 
@@ -201,7 +203,7 @@ class Account(val owner: String)
 Differences to Java:
 
 - The directory structure **should** match, but the compiler does not enforce it
-- Many public classes per file are allowed
+- Several public classes per file are allowed
 - `java.lang.*`, `scala.*` and `Predef` are imported automatically
 
 <p class="small">Scala 3 Book, "Packaging and Imports".</p>
@@ -226,13 +228,12 @@ package app:
 ```
 
 - Inner packages see the members of outer packages
-- Useful for small examples – in projects: one package per file
 
 ---
 
 # Top-Level Definitions
 
-Scala 3: `def`, `val`, `given`, ... can live **directly in a package**:
+Scala 3: `def`, `val`, `var`, ... can live **directly in a package**:
 
 ```scala
 package de.htwg.bank
@@ -296,28 +297,9 @@ def area(r: Double): Double =
 
 - Keep imports close to where they are used
 - Scope of an import = the enclosing block
+- Still good practice: declare imports used by the whole file **at the top**, right after the `package` clause
 
 <p class="small">Lewis, ch. 17 / 2nd ed. 3.8 "import Options".</p>
-
----
-
-# Importing givens
-
-A wildcard `*` does **not** import `given` instances:
-
-```scala
-object Codes:
-  given Ordering[Account] = Ordering.by(_.getBalance)
-
-import Codes.*         // all non-given members
-import Codes.given     // only the givens
-import Codes.{given Ordering[?]}  // givens of a given type
-
-List(a, b).max         // uses the imported Ordering
-```
-
-- Makes it explicit **where** implicit values come from
-- `_root_.pkg` refers to a package from the root if a name is shadowed
 
 ---
 
@@ -432,7 +414,6 @@ package de.htwg.bank:
 - `private[bank]` ≈ Java's package-private, but **you choose** the boundary
 - `private[Account]` – visible in the class and its nested definitions
 - `protected[pkg]` exists as well
-- `private[this]` (object-private) is deprecated in Scala 3 – the compiler infers it
 
 ---
 
@@ -445,10 +426,12 @@ class Account(val owner: String):
   private var balance = 0
 
 object Account:
-  def withBonus(owner: String): Account =
+  def apply(owner: String, initialBalance: Int = 0): Account =
     val a = new Account(owner)
-    a.balance = 10          // companion may access private members
+    a.balance = initialBalance  // companion may access private members
     a
+
+val acc = Account("Ada", 100)   // calls Account.apply
 ```
 
 - Companions see each other's `private` members
@@ -539,112 +522,359 @@ class Copier:
 
 ---
 
-# Delegation vs. Inheritance
-
-| | Inheritance (`extends`) | Composition + `export` |
-|---|---|---|
-| Relation | *is-a* | *has-a* |
-| What is visible | everything inherited | only what is exported |
-| Combine several | one class only | any number of parts |
-| Coupling | tight | loose, parts are `private` |
-
-- "Prefer composition over inheritance" – without writing forwarders by hand
-- Java: delegation needs one hand-written method per forwarded member
-- `import` makes names usable *here*; `export` makes them **members** for others
-
-<p class="small">Scala 3 Reference, "Export Clauses".</p>
-
----
-
 <!-- _class: kapitel -->
 
 ## 8
-# Nesting
+# Example Library: Squants
+
+Namespaces in a real library
 
 ---
 
-# Nested Classes in Java
+# What Is Squants?
 
-```java
-public class Account {
-    private int balance;
-    public static class Statement {          // static nested class
-        public final int value;
-        public Statement(int value) { this.value = value; }
-    }
-    public class Card {                      // inner class
-        public int balance() { return balance; }
-    }
+A Scala library for **quantities with units** (Typelevel project):
+
+```scala
+//> using dep org.typelevel::squants:1.8.3
+
+import squants.energy.{Energy, KilowattHours, Kilowatts}
+import squants.market.{EUR, Money, Price}
+```
+
+- `Energy` in `KilowattHours`, `Power` in `Kilowatts`, `Time` in `Hours`
+- `Money` in `EUR`, `CHF`, ... and `Price[A]` = money per quantity
+- The compiler rejects nonsense like *kWh + EUR*
+- Version 1.8.3 is built for Scala 2.12, 2.13 and 3 – its source is **Scala 2 style**
+
+<p class="small">Outputs in this chapter were produced with Scala 3.9.0 and an English locale; on a German system Squants prints <code>3500,0 kWh</code>.</p>
+
+---
+
+<style scoped>
+pre { font-size: 19px; }
+</style>
+
+# The Electricity Bill in a Few Lines
+
+```scala
+import squants.energy.{Energy, KilowattHours}
+import squants.market.{EUR, Money, Price}
+
+val consumption: Energy      = KilowattHours(3500)     // 3500.0 kWh
+val workPrice: Price[Energy] = EUR(0.32) / KilowattHours(1)
+                                                       // 0.32 EUR/1.0 kWh
+val baseFee: Money           = EUR(12) * 12            // 144 EUR
+val total: Money             = workPrice * consumption + baseFee
+total.toFormattedString                                // €1264.00
+```
+
+- `Money / Energy` gives a `Price[Energy]`
+- `Price * Energy` gives `Money`, and `Money + Money` gives `Money`
+- Units and currencies are checked by the compiler
+
+---
+
+<style scoped>
+pre { font-size: 19px; }
+</style>
+
+# Squants' Packages and Imports
+
+One package per physical domain, the directories match the packages:
+
+```
+squants/energy/   Energy.scala, Power.scala, ..., package.scala
+squants/market/   Money.scala, Price.scala, MoneyContext.scala, package.scala
+squants/time/     Time.scala, TimeDerivative.scala, ...
+squants/          electro, mass, motion, space, thermal, ...
+```
+
+The head of `squants/energy/Energy.scala`:
+
+```scala
+package squants.energy
+
+import squants._
+import squants.electro.{Coulombs, ElectricCharge, ElectricPotential, Volts}
+import squants.time.{Time, _}
+```
+
+- Fully qualified name: `squants.energy.KilowattHours`
+- `_` is the **Scala 2 wildcard** – in Scala 3 we write `*`
+
+---
+
+<style scoped>
+pre { font-size: 19px; }
+</style>
+
+# Units Are Singleton Objects
+
+From `squants/energy/Energy.scala`:
+
+```scala
+object KilowattHours extends EnergyUnit {
+  val conversionFactor = Watts.conversionFactor * MetricSystem.Kilo
+  val symbol = "kWh"
 }
-
-Account.Statement s = new Account.Statement(42);
-Account.Card c = a.new Card();               // needs an Account
 ```
-
-- **static nested:** just a namespace, no outer instance
-- **inner:** each object belongs to one outer object, sees its `private` fields
-
----
-
-# Nested Classes in Scala
-
-Scala has no `static` – a nested class is always **inner**:
 
 ```scala
-class Account(val owner: String):
-  private var balance = 0
-  class Card:
-    def show: Int = balance
-
-val a = Account("Ada")
-val b = Account("Bob")
-val c1 = new a.Card
-val c2: b.Card = new b.Card   // a.Card and b.Card are different types
+KilowattHours.symbol                     // kWh
+KilowattHours(3500)                      // 3500.0 kWh
+KilowattHours(3500).in(WattHours)        // 3500000.0 Wh
 ```
 
-- `a.Card` is a **path-dependent type**
-- Java's static nested class → put it into the **companion object**
+- Exactly **one** `KilowattHours` exists – a unit needs no instances
+- The object is a **namespace** for the unit's symbol and conversion factor
+
+<p class="small"><b>Not covered yet:</b> <code>extends EnergyUnit</code> (traits and inheritance). <code>KilowattHours(3500)</code> calls an <code>apply</code> inherited from the trait <code>EnergyUnit</code>.</p>
 
 ---
 
-# Nested Objects and Functions
+<style scoped>
+pre { font-size: 17px; }
+li { font-size: 21px; }
+</style>
 
-Everything can be nested in Scala:
+# Private Constructors and Companion Factories
 
 ```scala
-object Codes:
-  object Limits:
-    val Max = 1000          // Codes.Limits.Max
-
-def total(xs: List[Int]): Int =
-  def go(rest: List[Int], acc: Int): Int =   // local function
-    if rest.isEmpty then acc else go(rest.tail, acc + rest.head)
-  go(xs, 0)
+// squants/market/Money.scala (excerpt)
+final class Money private (val amount: BigDecimal)(val currency: Currency) ...
+object Money extends Dimension[Money] {
+  def apply(value: BigDecimal, currency: Currency) = new Money(value)(currency)
+// squants/energy/Energy.scala (excerpt)
+final class Energy private (val value: Double, val unit: EnergyUnit) ...
+  def apply(load: Power, time: Time): Energy = load * time    // in object Energy
 ```
 
-- Objects act as **namespaces** for related constants and functions
-- Local functions hide helpers – nobody outside can call `go`
-- Java: local classes and lambdas, but no local methods
+```scala
+new Energy(3500, KilowattHours)
+// error: private constructor Energy can only be accessed
+//        from class Energy in package squants.energy.
+Money(BigDecimal("12.00"), EUR)                     // 12 EUR
+Energy(Kilowatts(2), Hours(3)).in(KilowattHours)    // 6.0 kWh
+```
+
+- `private` before the parameter list makes the **constructor** private
+- Only the **companion object** may call `new Money(...)` – clients use `apply`
+- The library decides how objects are created – encapsulation
 
 ---
 
-<!-- _class: kapitel -->
+<style scoped>
+pre { font-size: 19px; }
+</style>
 
-## 9
-# Encapsulation
+# Opaque Type: Meter Readings
+
+Squants has no opaque types – so we add one for **meter readings**:
+
+```scala
+import squants.energy.{Energy, KilowattHours}
+
+object Metering:
+  opaque type Reading = Energy         // inside Metering: Reading == Energy
+  object Reading:
+    def apply(kWh: Double): Reading =
+      require(kWh >= 0, "a meter reading is never negative")
+      KilowattHours(kWh)
+  extension (r: Reading)
+    def since(earlier: Reading): Energy = r - earlier
+
+import Metering.*
+val jan = Reading(12_400)
+val dec = Reading(15_900)
+dec.since(jan)                         // 3500.0 kWh
+```
 
 ---
 
-# Encapsulation: Best Practices
+# Opaque Types: What the Compiler Prevents
 
-**Separate interface from implementation** (Lewis, 16.1.3):
+```scala
+val r: Reading = KilowattHours(5)
+// error: Found: squants.energy.Energy  Required: Metering.Reading
 
-- Make fields `private`, expose behaviour through methods
-- Prefer `val` and immutable data – then public fields are harmless
-- Choose the **smallest** visibility that works
-- Use `private[pkg]` for helpers shared within a module
-- One package per subsystem; avoid cyclic dependencies between packages
-- Prefer explicit imports over wildcards in larger code bases
+val s = jan + dec
+// error: value + is not a member of Metering.Reading
+```
+
+- Adding two meter readings makes no sense – and now it does not compile
+- Outside `Metering` only `Reading(...)` and `since` are available
+- At runtime a `Reading` **is** an `Energy` – no extra wrapper object
+- Why does Squants use `final class ... private` instead? It also compiles for **Scala 2**, which has no opaque types
+
+---
+
+<style scoped>
+pre { font-size: 16px; }
+li { font-size: 21px; }
+</style>
+
+# Preview: How Does 3500.kWh Work?
+
+`Int` has no method `kWh` or `kW`. From `Energy.scala` and `Power.scala`:
+
+```scala
+object EnergyConversions {
+  implicit class EnergyConversions[A](n: A)(implicit num: Numeric[A]) {
+    def kWh = KilowattHours(n)
+    ...
+object PowerConversions {
+  implicit class PowerConversions[A](n: A)(implicit num: Numeric[A]) {
+    def kW = Kilowatts(n)
+    ...
+```
+
+```scala
+import squants.energy.EnergyConversions.*
+import squants.energy.PowerConversions.*
+
+3500.kWh                         // 3500.0 kWh
+EnergyConversions(3500).kWh      // 3500.0 kWh – what the compiler inserts
+5.kW                             // 5.0 kW
+PowerConversions(5).kW           // 5.0 kW
+```
+
+- No `kWh` on `Int`: the compiler **wraps** the number automatically – only after the import
+
+<p class="small"><b>Not covered yet:</b> implicit classes and implicit parameters (<code>Numeric[A]</code>). Scala 3 uses <code>extension</code> methods instead.</p>
+
+---
+
+<style scoped>
+pre { font-size: 19px; }
+</style>
+
+# Our Own Unit Syntax: Extension Methods
+
+The same effect in Scala 3 style – an `object` as namespace for our extensions:
+
+```scala
+import squants.energy.{Energy, KilowattHours, Kilowatts, Power}
+import squants.market.{EUR, Money, USD}
+import squants.time.{Hours, Time}
+
+object Units:
+  extension (n: Int)
+    def kWh: Energy = KilowattHours(n)
+    def kW: Power   = Kilowatts(n)
+    def hours: Time = Hours(n)
+    def eur: Money  = EUR(n)
+  extension (d: Double)
+    def eur: Money = EUR(d)
+    def usd: Money = USD(d)
+```
+
+- Only Squants **types and units** are imported – no `*Conversions` objects
+- Extension methods are the **Scala 3 way**; Squants uses Scala 2 implicit classes for the same effect
+
+---
+
+<style scoped>
+pre { font-size: 20px; }
+</style>
+
+# Using the Extensions
+
+```scala
+import Units.*
+
+3500.kWh                               // 3500.0 kWh
+5.kW                                   // 5.0 kW
+5.kW * 3.hours                         // 15000.0 Wh
+(5.kW * 3.hours).in(KilowattHours)     // 15.0 kWh
+
+kWh(3500)                              // 3500.0 kWh – what 3500.kWh calls
+Units.kWh(3500)                        // 3500.0 kWh
+```
+
+- `3500.kWh` is just a call of the method `kWh` with `3500` as argument
+- No explicit `KilowattHours(...)` or `Kilowatts(...)` needed
+- Power × time = energy: 5 kW for 3 hours are 15 kWh
+
+---
+
+<style scoped>
+pre { font-size: 18px; }
+</style>
+
+# Without import Units.*
+
+```scala
+object Units:
+  extension (n: Int)
+    def kWh: Energy = KilowattHours(n)
+    ...
+
+val e: Energy = 3500.kWh               // no import Units.*
+```
+
+```
+value kWh is not a member of Int, but could be made available as an extension method.
+
+The following import might fix the problem:
+
+  import squants.energy.EnergyConversions.EnergyConversions
+```
+
+- Extensions are only visible where they are **defined or imported** – like any name
+- The compiler suggests Squants' implicit class – the fix for our code is `import Units.*`
+
+<p class="small"><b>Not covered yet:</b> extension methods in detail.</p>
+
+---
+
+<style scoped>
+pre { font-size: 18px; }
+</style>
+
+# Worked Example: A Bill in EUR and USD
+
+```scala
+import squants.market.*
+import Units.*
+
+given MoneyContext =                         // example rate: 1 EUR = 1.10 USD
+  MoneyContext(EUR, defaultCurrencySet, List(CurrencyExchangeRate(EUR(1), USD(1.10))))
+
+val usage: Energy = 2.kW * 1750.hours                // heat pump, 2 kW for 1750 h
+usage.in(KilowattHours)                              // 3500.0 kWh
+val priceUsd: Price[Energy] = 0.35.usd / 1.kWh       // 0.35 USD/1.0 kWh
+val baseFee: Money = 12.eur * 12                     // 144 EUR
+```
+
+- `Money / Energy` gives a `Price[Energy]`
+- The `MoneyContext` holds the default currency and the exchange rates
+
+<p class="small"><b>Not covered yet:</b> <code>given</code> and implicit parameters – <code>Money</code> methods find the <code>MoneyContext</code> automatically.</p>
+
+---
+
+<style scoped>
+pre { font-size: 18px; }
+</style>
+
+# Worked Example: Converting and Totals
+
+```scala
+val priceEur = priceUsd in EUR                      // 0.31818... EUR/1.0 kWh
+val total: Money = priceEur * usage + baseFee
+total.toFormattedString                             // €1257.64
+(total in USD).toFormattedString                    // $1383.40
+total to USD                                        // 1383.4000... (a BigDecimal)
+
+(priceUsd * usage + baseFee).toFormattedString      // $1383.40
+```
+
+- `in` converts to a `Money` in another currency, `to` returns only the amount
+- `Price[Energy] * Energy` gives `Money` – units and currencies fit together
+- Mixing currencies in `+` uses the exchange rate: the EUR base fee is converted to USD
+
+<p class="small">Real signature: <code>def in(unit: Currency)(implicit context: MoneyContext)</code>. <b>Not covered yet:</b> implicit parameters.</p>
 
 ---
 
@@ -664,7 +894,6 @@ table, th, td { font-size: 17px !important; padding: 2px 10px !important; }
 | Import position | top of file | anywhere |
 | Default visibility | package-private | public |
 | `protected` | package + subclasses | subclasses |
-| Static nested class | `static class` | class in companion object |
 | Utility module | `final` class + `static` | `object` |
 | Hide representation | wrapper class | `opaque type` |
 | Delegation | hand-written | `export` |
@@ -685,7 +914,7 @@ section { font-size: 23px; }
 - Visibility: Java defaults to package-private, Scala to public
 - `private[pkg]` qualifies access; companions share private members
 - `object` as module; `opaque type` hides representations at zero cost; `export` delegates
-- Nesting: Java static vs inner classes, Scala path-dependent types and nested objects
+- Squants: packages, unit objects, private constructors and companion factories in a real library
 
 ---
 
