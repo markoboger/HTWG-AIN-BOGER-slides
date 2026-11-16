@@ -920,11 +920,28 @@ section { font-size: 23px; }
 
 <!-- _class: aufgabe -->
 
+<style scoped>
+section { font-size: 18px; }
+ul { margin: 0.1em 0; }
+li { margin: 0; }
+p { margin: 0.35em 0; }
+</style>
+
 # Task
 
-(Task to fill)
-
+**1. CodeTask:** keep working on the exercises for this lecture.
 - Reading: Learn Scala 3, Chapter 36
+
+**2. Units and namespaces** (in your Mill project, with `org.typelevel::squants:1.8.3`)
+- Create a package `de.htwg.energy` and put the `Units` object from the slides into it
+- Add your own extensions, e.g. `def MWh: Energy`, `def minutes: Time` and `def chf: Money`
+- Use them from a `@main` in **another** package: once with `import Units.*`, once with a renamed import
+
+**3. An energy bill from meter readings**
+- Use the opaque type `Metering.Reading` and build `Reading`s for January and December
+- Compute the consumption with `since`, then price it with `0.35.usd / 1.kWh` and add the base fee `12.eur * 12`
+- With the example rate 1 EUR = 1.10 USD, print the total in EUR and in USD
+- Check: for the heat pump (`2.kW * 1750.hours`) you should get €1257.64 and $1383.40
 
 ---
 
