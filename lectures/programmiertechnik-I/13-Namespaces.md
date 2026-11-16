@@ -702,7 +702,7 @@ pre { font-size: 19px; }
 
 # Opaque Type: Meter Readings
 
-Squants has no opaque types – so we add one for **meter readings**:
+Example from metering: a **meter reading** is an `Energy` that is never negative and never added to another reading:
 
 ```scala
 import squants.energy.{Energy, KilowattHours}
@@ -742,48 +742,12 @@ val s = jan + dec
 ---
 
 <style scoped>
-pre { font-size: 16px; }
-li { font-size: 21px; }
-</style>
-
-# Preview: How Does 3500.kWh Work?
-
-`Int` has no method `kWh` or `kW`. From `Energy.scala` and `Power.scala`:
-
-```scala
-object EnergyConversions {
-  implicit class EnergyConversions[A](n: A)(implicit num: Numeric[A]) {
-    def kWh = KilowattHours(n)
-    ...
-object PowerConversions {
-  implicit class PowerConversions[A](n: A)(implicit num: Numeric[A]) {
-    def kW = Kilowatts(n)
-    ...
-```
-
-```scala
-import squants.energy.EnergyConversions.*
-import squants.energy.PowerConversions.*
-
-3500.kWh                         // 3500.0 kWh
-EnergyConversions(3500).kWh      // 3500.0 kWh – what the compiler inserts
-5.kW                             // 5.0 kW
-PowerConversions(5).kW           // 5.0 kW
-```
-
-- No `kWh` on `Int`: the compiler **wraps** the number automatically – only after the import
-
-<p class="small"><b>Not covered yet:</b> implicit classes and implicit parameters (<code>Numeric[A]</code>). Scala 3 uses <code>extension</code> methods instead.</p>
-
----
-
-<style scoped>
 pre { font-size: 19px; }
 </style>
 
 # Our Own Unit Syntax: Extension Methods
 
-The same effect in Scala 3 style – an `object` as namespace for our extensions:
+Existing classes can be **extended** with Scala 3 `extension` methods – here `Int` and `Double` get unit syntax, collected in an `object` as namespace:
 
 ```scala
 import squants.energy.{Energy, KilowattHours, Kilowatts, Power}

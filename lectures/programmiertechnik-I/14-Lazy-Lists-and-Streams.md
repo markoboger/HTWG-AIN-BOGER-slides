@@ -183,7 +183,7 @@ section { font-size: 21px; }
 
 # Call-by-Value vs. Call-by-Name
 
-Scala, like Java, is **strict** by default. A parameter of type `=> A` is passed **by name**: it is evaluated each time it is used.
+Scala, like Java, is **strict** by default: every argument is evaluated **before** the call. That is exactly **call-by-value** – *strict* and *call-by-value* mean the same thing. A parameter of type `=> A` is passed **by name**: it is evaluated each time it is used.
 
 <div class="columns" style="grid-template-columns: 1fr 1fr; align-items: start;">
 <div markdown="1">
@@ -192,11 +192,11 @@ Scala, like Java, is **strict** by default. A parameter of type `=> A` is passed
 def compute(): Int =
   println("computing"); 21
 
-def twiceV(x: Int): Int = x + x
-def twiceN(x: => Int): Int = x + x
+def twiceByValue(x: Int): Int = x + x
+def twiceByName(x: => Int): Int = x + x
 
-twiceV(compute())
-twiceN(compute())
+twiceByValue(compute())
+twiceByName(compute())
 ```
 
 </div>
@@ -212,7 +212,7 @@ computing
 42
 ```
 
-- by value: evaluated **once**, before the call
+- by value (strict): evaluated **once**, before the call
 - by name: evaluated **at every use** – or never
 
 </div>
@@ -851,6 +851,77 @@ converged(ratios, 1e-12)      // (30,1.6180339887496482)
 - One lazy list built from another – nothing is computed until `converged` asks
 - The ratios jump above and below $\varphi$ and get closer with every step
 - After 30 steps the difference to the exact value is in the last decimal place
+
+---
+
+<style scoped>
+section { font-size: 20px; }
+pre { font-size: 17px; }
+</style>
+
+# Live Data: The ISS as an Infinite Sequence
+
+[Where the ISS at](https://wheretheiss.at/w/developer) returns the current position of the ISS as JSON – no API key:
+`https://api.wheretheiss.at/v1/satellites/25544` → `latitude`, `longitude`, `altitude` (km), `velocity` (km/h), `timestamp`
+
+```scala
+import scala.io.Source
+
+case class IssReading(time: Long, lat: Double, lon: Double, altitude: Double, velocity: Double)
+
+val url = "https://api.wheretheiss.at/v1/satellites/25544"
+
+def field(json: String, name: String): Double =          // minimal JSON parsing
+  raw""""$name":(-?[\d.]+)""".r.findFirstMatchIn(json).get.group(1).toDouble
+
+def fetch(): IssReading =
+  val json = Source.fromURL(url).mkString
+  IssReading(field(json, "timestamp").toLong, field(json, "latitude"),
+             field(json, "longitude"), field(json, "altitude"), field(json, "velocity"))
+
+def readings: LazyList[IssReading] =
+  LazyList.continually { Thread.sleep(1000); fetch() }  // one request per second
+
+readings.take(3).map(_.velocity).toList
+// List(27562.841645238, 27562.802529459, 27562.763394003)
+```
+
+---
+
+<style scoped>
+section { font-size: 21px; }
+pre { font-size: 19px; }
+</style>
+
+# Sliding Windows: Average Velocity
+
+`sliding(n)` groups a sequence into overlapping windows of `n` consecutive elements:
+
+```scala
+val velocities = readings.map(_.velocity)
+
+val averages = velocities.sliding(60).map(w => w.sum / w.size)
+                                         // one window = last 60 readings = 1 minute
+
+averages.take(3).foreach(println)        // waits ~62 s, then prints 3 averages
+```
+
+- Nothing is fetched until `take(3)` and `foreach` **demand** values
+- `sliding` on a `LazyList` returns an `Iterator` of windows – also lazy
+- `readings` is a `def`, not a `val`: a `val` would **memoize** every reading forever (Pitfall 2: holding the head)
+
+---
+
+<!-- _class: aufgabe -->
+
+# Exercise: Your Own ISS Pipeline
+
+1. Write `fetch()` and an infinite `LazyList[IssReading]` with `LazyList.continually`
+2. Test with small numbers first: `take(5)` and `sliding(3)` – not `sliding(60)`
+3. Compute the average `velocity` and `altitude` per window
+4. Extension: estimate the distance flown between two readings from `lat`/`lon` and compare it with `velocity`
+
+<p class="small"><b>Rate limit:</b> about one request per second – always keep the <code>Thread.sleep(1000)</code> and never call <code>toList</code> or <code>sum</code> on the infinite list.</p>
 
 ---
 

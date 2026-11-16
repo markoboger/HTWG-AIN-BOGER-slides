@@ -53,11 +53,11 @@ pi(1000) // 3.140592653839794
 def compute(): Int =
   println("computing"); 21
 
-def twiceV(x: Int): Int = x + x
-def twiceN(x: => Int): Int = x + x
+def twiceByValue(x: Int): Int = x + x
+def twiceByName(x: => Int): Int = x + x
 
-twiceV(compute()) // prints "computing" once,  result 42
-twiceN(compute()) // prints "computing" twice, result 42
+twiceByValue(compute()) // prints "computing" once,  result 42
+twiceByName(compute()) // prints "computing" twice, result 42
 
 // --- lazy val ---
 lazy val config =
