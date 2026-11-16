@@ -1,0 +1,39 @@
+//| mill-version: 1.3.1
+// Mill build for the Programmiertechnik I code examples.
+// Layout: src/main/scala/pr1/<lecture folder>/, one Mill module per lecture.
+//   ./mill pr1.numberTypes.run
+//   ./mill pr1.namespaces.run
+//   ./mill pr1.namespaces.runMain app.run
+// Worksheets (*.worksheet.sc) are evaluated by Metals, not compiled by Mill.
+package build
+import mill.*, scalalib.*
+import mill.api.BuildCtx
+
+trait Lecture extends ScalaModule {
+  /** Folder name below src/main/scala/pr1/ */
+  def folder: String
+  def scalaVersion = "3.9.0"
+  override def moduleDir = BuildCtx.workspaceRoot / "src" / "main" / "scala" / "pr1" / folder
+  // .scala files live directly in the lecture folder (Mill's default would be moduleDir/src)
+  def sources = Task.Sources(moduleDir)
+}
+
+object pr1 extends Module {
+  object numberTypes extends Lecture {
+    def folder = "05-Number Types"
+    def mainClass = Some("EnergyBill$package")
+  }
+  object arraysAndLists extends Lecture { def folder = "06-Arrays and List" }
+  object controlStructures extends Lecture { def folder = "07-Controll Structures" }
+  object tupleEnumObjectClass extends Lecture { def folder = "08-Tuple Enum Object Class" }
+  object genericTypesPatternMatching extends Lecture { def folder = "09-Generic Types Pattern Matching" }
+  object recursion extends Lecture { def folder = "10-Recursion" }
+  object collections extends Lecture { def folder = "12-Collections" }
+  object namespaces extends Lecture {
+    def folder = "13-Namespaces" // one sub-folder per package: app/, bank/, energy/, ...
+    def mvnDeps = Seq(mvn"org.typelevel::squants:1.8.3")
+    def mainClass = Some("app.namespaces")
+  }
+  object lazyList extends Lecture { def folder = "14-LazyList" }
+  object optionTry extends Lecture { def folder = "15-Option Try" }
+}

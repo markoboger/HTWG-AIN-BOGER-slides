@@ -33,6 +33,7 @@ In this lecture you will learn about
 - infinite data structures: naturals, Fibonacci, primes
 - lazy vs. forcing operations, views and iterators
 - Java Streams in comparison
+- practice: computing limits of sequences and series to a given precision
 
 Supporting literature:
 
@@ -741,23 +742,7 @@ table, th, td { font-size: 18px !important; padding: 2px 10px !important; }
 ## 7
 # Practice
 
-Collatz sequences
-
----
-
-# The Collatz Problem
-
-Start with a positive integer $n$ and repeat:
-
-$$
-n \mapsto \begin{cases} n / 2 & \text{if } n \text{ is even} \\ 3n + 1 & \text{if } n \text{ is odd} \end{cases}
-$$
-
-until you reach 1.
-
-- $6 \to 3 \to 10 \to 5 \to 16 \to 8 \to 4 \to 2 \to 1$
-- Conjecture (Collatz, 1937): **every** start value reaches 1 – still unproven!
-- We do not know the length in advance – a perfect fit for an infinite `LazyList` that we cut off
+Making infinite sequences and series executable
 
 ---
 
@@ -765,52 +750,114 @@ until you reach 1.
 section { font-size: 21px; }
 </style>
 
-# Collatz in Scala
+# Back to Chapter 1: When Do We Stop?
 
-Generation (`iterate`) is separated from consumption (`takeWhile`, `length`, `max`):
+A converging sequence has a **limit** – but we can only compute finitely many elements.
+Stop rule: stop as soon as two successive elements differ by less than $\varepsilon$:
 
-```scala
-def collatz(n: Long): LazyList[Long] =
-  LazyList.iterate(n)(k => if k % 2 == 0 then k / 2 else 3 * k + 1)
-    .takeWhile(_ != 1) :+ 1L
+$$
+|x_{n+1} - x_n| < \varepsilon
+$$
 
-collatz(6).toList     // List(6, 3, 10, 5, 16, 8, 4, 2, 1)
-collatz(27).length    // 112
-collatz(27).max       // 9232
+Three examples from mathematics:
 
-(1L to 100_000L).maxBy(n => collatz(n).length)   // 77031
-```
+- **Heron's method** for $\sqrt{a}$ – a recursive sequence: $\ x_0 = a,\ \ x_{n+1} = \frac{1}{2}\left(x_n + \frac{a}{x_n}\right)$
+- **Two series for $\pi$** – Leibniz (slide 7) and Nilakantha: $\ \pi = 3 + \frac{4}{2\cdot3\cdot4} - \frac{4}{4\cdot5\cdot6} + \frac{4}{6\cdot7\cdot8} - \dots$
+- **Golden ratio** from Fibonacci numbers (chapter 4): $\ \varphi = \lim \frac{F_{n+1}}{F_n} = \frac{1 + \sqrt5}{2}$
 
-- `iterate` describes the infinite sequence
-- `takeWhile` cuts it at the first 1
-- Start value 27 climbs to 9232 before it comes back down
+The **generator** describes the infinite sequence, the **consumer** decides when the precision is reached.
 
 ---
 
-# The Same Idea: Searching a Log
+<style scoped>
+section { font-size: 21px; }
+</style>
 
-Lazily consume lines – stop as soon as we have enough:
+# Heron's Method: A Converging Sequence
 
 ```scala
-val log = LazyList("INFO start", "WARN disk", "ERROR db down",
-                   "INFO x", "ERROR timeout", "ERROR boom")
+def heron(a: Double): LazyList[Double] =
+  LazyList.iterate(a)(x => (x + a / x) / 2)
 
-log.filter(_.startsWith("ERROR")).take(2).toList
-// List(ERROR db down, ERROR timeout)
+def converged(xs: LazyList[Double], eps: Double): (Int, Double) =
+  val i = xs.zip(xs.tail).indexWhere((x, y) => (y - x).abs < eps)
+  (i + 1, xs(i + 1))
+
+heron(2).take(6).toList
+// List(2.0, 1.5, 1.4166666666666665, 1.4142156862745097,
+//      1.4142135623746899, 1.414213562373095)
+converged(heron(2), 1e-12)           // (6,1.414213562373095)
+math.sqrt(2)                         // 1.4142135623730951
+converged(heron(1_000_000), 1e-9)    // (15,1000.0)
 ```
 
-With a real file, `scala.io.Source.fromFile("app.log").getLines()` returns an `Iterator[String]`:
+- `converged` works for **any** sequence of `Double` – it is reused on the next slides
+- `zip(xs.tail)` pairs each element with its successor, `indexWhere` stops at the first match
+- Memoization: `xs(i + 1)` is not computed twice
 
-- lines are read only as they are needed
-- a 10 GB log file never has to fit into memory
-- `.filter(...).take(2)` stops reading after the second error
+---
+
+<style scoped>
+section { font-size: 21px; }
+</style>
+
+# Two Series for π: Who Converges Faster?
+
+```scala
+def leibniz: LazyList[Double] =
+  LazyList.from(0).map(k => (if k % 2 == 0 then 4.0 else -4.0) / (2 * k + 1))
+    .scanLeft(0.0)(_ + _)
+
+def nilakantha: LazyList[Double] =
+  LazyList.from(1).map { k =>
+    val n = 2.0 * k
+    (if k % 2 == 1 then 4.0 else -4.0) / (n * (n + 1) * (n + 2))
+  }.scanLeft(3.0)(_ + _)
+
+def termsUntil(xs: LazyList[Double], eps: Double): Int =
+  xs.indexWhere(s => (s - math.Pi).abs < eps)
+```
+
+| Precision | Leibniz | Nilakantha |
+|---|---:|---:|
+| `termsUntil(_, 1e-3)` | 1000 | 6 |
+| `termsUntil(_, 1e-6)` | 1000001 | 62 |
+
+- Same generator pattern, **very** different speed – the code only consumes what it needs
+- `def`, not `val`: the million partial sums are not kept in memory (Pitfall 2)
+
+---
+
+<style scoped>
+section { font-size: 21px; }
+</style>
+
+# The Golden Ratio from Fibonacci Numbers
+
+With `fibs` from chapter 4, the ratios of successive Fibonacci numbers form a new sequence:
+
+```scala
+val fibs: LazyList[BigInt] =
+  BigInt(0) #:: BigInt(1) #:: fibs.zip(fibs.tail).map((a, b) => a + b)
+
+val ratios = fibs.tail.zip(fibs.tail.tail).map((a, b) => b.toDouble / a.toDouble)
+
+ratios.take(8).toList
+// List(1.0, 2.0, 1.5, 1.6666666666666667, 1.6, 1.625, 1.6153846153846154, 1.619047619047619)
+converged(ratios, 1e-12)      // (30,1.6180339887496482)
+(1 + math.sqrt(5)) / 2        // 1.618033988749895
+```
+
+- One lazy list built from another – nothing is computed until `converged` asks
+- The ratios jump above and below $\varphi$ and get closer with every step
+- After 30 steps the difference to the exact value is in the last decimal place
 
 ---
 
 <!-- _class: inhalt -->
 
 <style scoped>
-section { font-size: 23px; }
+section { font-size: 22px; }
 </style>
 
 # Summary
@@ -824,6 +871,7 @@ section { font-size: 23px; }
 - Limit first, then force – and do not hold on to the head
 - Views and iterators: lazy, but not memoized
 - Java Streams: lazy pipelines, intermediate vs. terminal, single-use
+- Practice: stop an infinite sequence at a precision – Heron, π series, golden ratio
 
 ---
 

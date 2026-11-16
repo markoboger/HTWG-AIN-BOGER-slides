@@ -195,7 +195,7 @@ public class Account {
 Same style as Java:
 
 ```scala
-package de.htwg.bank
+package bank
 
 class Account(val owner: String)
 ```
@@ -215,15 +215,15 @@ Differences to Java:
 Package clauses can enclose definitions – also several in one file:
 
 ```scala
-package de.htwg.bank:
+package bank:
 
   class Account(val owner: String)
 
-  package util:                       // de.htwg.bank.util
+  package util:                       // bank.util
     def describe(a: Account): String = a.owner
 
 package app:
-  import de.htwg.bank.Account
+  import bank.Account
   @main def run(): Unit = println(Account("Ada").owner)
 ```
 
@@ -236,7 +236,7 @@ package app:
 Scala 3: `def`, `val`, `var`, ... can live **directly in a package**:
 
 ```scala
-package de.htwg.bank
+package bank
 
 def fee(amount: Int): Int = amount / 100
 
@@ -252,9 +252,9 @@ val MaxBalance = 1_000_000
 # Scala Imports: Selectors
 
 ```scala
-import de.htwg.bank.Account              // one member
-import de.htwg.bank.{Account, fee}       // several members
-import de.htwg.bank.*                    // everything (Java: .*)
+import bank.Account                      // one member
+import bank.{Account, fee}               // several members
+import bank.*                            // everything (Java: .*)
 import scala.math.max                    // a method from an object
 ```
 
@@ -268,7 +268,7 @@ import scala.math.max                    // a method from an object
 
 ```scala
 import java.util.{List as JList}          // rename
-import de.htwg.bank.{fee as bankFee}      // rename a method
+import bank.{fee as bankFee}              // rename a method
 import java.util.{Random as _, *}         // hide Random, import the rest
 
 val jl: JList[Int] = new ArrayList[Int]()
@@ -333,28 +333,6 @@ capitalizeWords("hello scala world")   // "Hello Scala World"
 
 ---
 
-# Java: Static Utility Classes
-
-```java
-public final class StringUtils {
-    private StringUtils() {}                       // no instances
-    public static final String SEPARATOR = ", ";
-    public static String capitalizeWords(String s) {
-        StringBuilder b = new StringBuilder();
-        for (String w : s.split(" ")) b.append(cap(w)).append(' ');
-        return b.toString().trim();
-    }
-    private static String cap(String w) {
-        return w.isEmpty() ? w : Character.toUpperCase(w.charAt(0)) + w.substring(1);
-    }
-}
-```
-
-- Java needs `final`, a `private` constructor and `static` everywhere
-- Scala: an `object` is exactly one instance – and a real value (can extend traits, be passed around)
-
----
-
 <!-- _class: kapitel -->
 
 ## 5
@@ -403,7 +381,7 @@ class Savings(o: String) extends Account(o):
 # Qualified Access: private[X]
 
 ```scala
-package de.htwg.bank:
+package bank:
   class Account(val owner: String):
     private[bank] var branch = 0   // visible in package bank
 
@@ -533,21 +511,75 @@ Namespaces in a real library
 
 # What Is Squants?
 
-A Scala library for **quantities with units** (Typelevel project):
+A Scala library for **quantities with units** (Typelevel project, [Squants ScalaDocs](https://javadoc.io/doc/org.typelevel/squants_2.13/1.8.3/index.html)):
 
 ```scala
 //> using dep org.typelevel::squants:1.8.3
 
-import squants.energy.{Energy, KilowattHours, Kilowatts}
-import squants.market.{EUR, Money, Price}
+import squants.space.{Length, Meters, Kilometers}
+import squants.mass.{Mass, Kilograms}
+import squants.time.{Time, Minutes}
+import squants.space.LengthConversions.*
+import squants.mass.MassConversions.*
+import squants.time.TimeConversions.*
 ```
 
-- `Energy` in `KilowattHours`, `Power` in `Kilowatts`, `Time` in `Hours`
+- One package per dimension: `Length` in `squants.space`, `Mass` in `squants.mass`, `Time` in `squants.time`, ...
 - `Money` in `EUR`, `CHF`, ... and `Price[A]` = money per quantity
 - The compiler rejects nonsense like *kWh + EUR*
 - Version 1.8.3 is built for Scala 2.12, 2.13 and 3 – its source is **Scala 2 style**
 
 <p class="small">Outputs in this chapter were produced with Scala 3.9.0 and an English locale; on a German system Squants prints <code>3500,0 kWh</code>.</p>
+
+---
+
+<style scoped>
+pre { font-size: 19px; }
+</style>
+
+# Squants: Working with Units
+
+```scala
+// 1.0 Quantities with Constructors
+val distance1 = Meters(5)
+val weight1 = Kilograms(10)
+val duration1 = Minutes(90)
+
+// 1.1 Quantities with unit names as methods (Scala 3 extension methods)
+import squants.space.LengthConversions.*
+import squants.mass.MassConversions.*
+import squants.time.TimeConversions.*
+
+val distance2 = 5.meters
+val weight2 = 10.kilograms
+val duration2 = 90.minutes
+```
+
+---
+
+<style scoped>
+pre { font-size: 19px; }
+</style>
+
+# Squants: Arithmetic and New Dimensions
+
+```scala
+import squants.motion.KilometersPerHour
+import squants.thermal.{Celsius, Fahrenheit}
+
+5.meters + 30.centimeters                    // 5.3 m
+weight * 3                                   // 30.0 kg
+2.meters * 3.meters                          // 6.0 m²    Length * Length = Area
+val speed = 100.meters / 9.58.seconds        // 10.438413361169102 m/s
+speed.in(KilometersPerHour)                  // 37.578288100208766 km/h
+(KilometersPerHour(120) * 2.5.hours).in(Kilometers)   // 300.0 km
+Celsius(21).in(Fahrenheit)                   // 69.8°F
+
+// 5.meters + 10.kilograms                   // does not compile
+```
+
+- Combining dimensions yields new types: `Area`, `Velocity`, `Length`
+- Full example: `src/main/scala/pr1/13-Namespaces/Squants.worksheet.sc`
 
 ---
 
@@ -933,7 +965,7 @@ p { margin: 0.35em 0; }
 - Reading: Learn Scala 3, Chapter 36
 
 **2. Units and namespaces** (in your Mill project, with `org.typelevel::squants:1.8.3`)
-- Create a package `de.htwg.energy` and put the `Units` object from the slides into it
+- Create a package `energy` and put the `Units` object from the slides into it
 - Add your own extensions, e.g. `def MWh: Energy`, `def minutes: Time` and `def chf: Money`
 - Use them from a `@main` in **another** package: once with `import Units.*`, once with a renamed import
 

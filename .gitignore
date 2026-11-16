@@ -21,11 +21,21 @@ yarn.lock
 !lectures/**/*.html
 !lectures/**/*.pdf
 
+# metals
+.metals/
+
+# Scala 
+target/
+/**/.scala-build/
+
+
 # General temporary files
 .DS_Store
 Thumbs.db
 *.tmp
 *.temp
+.bsp*
+.ide-backup*
 
 # Logs
 *.log
