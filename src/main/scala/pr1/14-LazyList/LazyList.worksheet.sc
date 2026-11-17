@@ -1,4 +1,4 @@
-// Lecture 14: Lazy Lists and Streams – all code from the slides, in deck order
+// Lecture 14: Lazy Lists – all code from the slides, in deck order
 // Open in VS Code with Metals (worksheet) or run with: scala-cli run LazyList.worksheet.sc
 // Expected results are given as comments.
 

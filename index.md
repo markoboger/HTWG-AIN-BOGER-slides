@@ -54,7 +54,7 @@ Diese Folien werden mit **Marp** erstellt und sind nach jedem Push in der aktuel
 - **[11 Version Control with Git](lectures/programmiertechnik-I/11-Version-Control-Git.html)** ([HTML](lectures/programmiertechnik-I/11-Version-Control-Git.html), [PDF](lectures/programmiertechnik-I/11-Version-Control-Git.pdf))
 - **[12 Collections](lectures/programmiertechnik-I/12-Collections.html)** ([HTML](lectures/programmiertechnik-I/12-Collections.html), [PDF](lectures/programmiertechnik-I/12-Collections.pdf))
 - **[13 Namespaces, Packages and Visibility](lectures/programmiertechnik-I/13-Namespaces.html)** ([HTML](lectures/programmiertechnik-I/13-Namespaces.html), [PDF](lectures/programmiertechnik-I/13-Namespaces.pdf))
-- **[14 Lazy Lists and Streams](lectures/programmiertechnik-I/14-Lazy-Lists-and-Streams.html)** ([HTML](lectures/programmiertechnik-I/14-Lazy-Lists-and-Streams.html), [PDF](lectures/programmiertechnik-I/14-Lazy-Lists-and-Streams.pdf))
+- **[14 Lazy Lists](lectures/programmiertechnik-I/14-Lazy-Lists.html)** ([HTML](lectures/programmiertechnik-I/14-Lazy-Lists.html), [PDF](lectures/programmiertechnik-I/14-Lazy-Lists.pdf))
 
 </div>
 
