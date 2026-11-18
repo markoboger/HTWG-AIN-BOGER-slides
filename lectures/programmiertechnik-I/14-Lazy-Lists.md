@@ -572,8 +572,8 @@ geo.take(6).toList   // List(0.0, 1.0, 1.5, 1.75, 1.875, 1.9375)
 geo(30)              // 1.9999999981373549
 
 val harm = LazyList.from(1).map(1.0 / _).scanLeft(0.0)(_ + _)
-harm.indexWhere(_ > 5)    // 83
-harm.indexWhere(_ > 10)   // 12367
+harm.take(6).toList  // List(0.0, 1.0, 1.5, 1.8333333333333333, 2.083333333333333, 2.283333333333333)
+harm(10)             // 2.9289682539682538
 ```
 
 The geometric series converges to 2; the harmonic series diverges – but very slowly.
