@@ -96,14 +96,6 @@ section { font-size: 22px; }
 
 ---
 
-# Debugger
-
-<p style="text-align: center; font-size: 30px; margin-top: 140px;">▶ <a href="https://www.youtube.com/watch?v=zX-t5E5hQh0">Video: Using a Debugger</a></p>
-
-<p class="small" style="text-align: center;">youtube.com/watch?v=zX-t5E5hQh0 (from the original lecture)</p>
-
----
-
 <style scoped>
 section { font-size: 21px; }
 </style>
