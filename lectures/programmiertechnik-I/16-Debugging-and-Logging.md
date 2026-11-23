@@ -165,6 +165,8 @@ Click **debug**, or press **F5**.
 }
 ```
 
+`.vscode/launch.json` is created by VS Code (wizard on first **F5**, type provided by Metals) or by hand. It stores **how to start** a debug session: main class or test, arguments, JVM options. Needed when the debug code lens is not enough.
+
 </div>
 </div>
 
