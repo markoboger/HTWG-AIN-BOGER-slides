@@ -355,10 +355,10 @@ section { font-size: 21px; }
 
 A **logpoint** prints a message instead of pausing – a `println` without changing the code.
 
-Right-click the gutter → **Add Logpoint**; expressions go in curly braces:
+Right-click the gutter → **Add Logpoint**; expressions use Scala string interpolation: `$name` or `${expression}`:
 
 ```text
-◆  i = {i}, xs(i) = {xs(i)}, sum = {sum}
+◆  i = $i, xs(i) = ${xs(i)}, sum = $sum
 ```
 
 Output in the Debug Console:
