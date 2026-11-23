@@ -54,6 +54,8 @@ object pr1 extends Module {
   }
   object debuggingAndLogging extends Lecture {
     def folder = "16-Debugging and Logging"
+    // Scala 3.9.0 has no expression compiler for the debugger yet (logpoints with $x fail)
+    override def scalaVersion = "3.3.9"
     def mvnDeps = Seq(
       mvn"com.typesafe.scala-logging::scala-logging:3.9.5",
       mvn"ch.qos.logback:logback-classic:1.5.6"
