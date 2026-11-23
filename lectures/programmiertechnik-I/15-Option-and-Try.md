@@ -12,6 +12,8 @@ _footer: ""
 ## Programmiertechnik I
 # Lecture 15: Option and Try
 
+<p class="small">How Option models a value that may be missing instead of null, how Try models a computation that may fail instead of throwing, and how map, flatMap, getOrElse and for-comprehensions chain them safely.</p>
+
 ---
 
 <!-- _class: inhalt -->
@@ -32,8 +34,7 @@ In this lecture you will learn about
 - `Try`: modelling a computation that may fail – instead of throwing
 - `map`, `flatMap`, `getOrElse`, `fold`, `recover` and `for`-comprehensions
 - use cases: user input, map lookup, division, files, chains of steps
-- when to use `Option`, `Try` or `Either`
-- Java's `try`-`catch`-`finally` and `Optional` in comparison
+- when to use `Option` and when `Try`
 
 Supporting literature:
 
@@ -173,7 +174,7 @@ findEmail("Eve").map(_.length)                 // None – no crash
 findEmail("Eve").map(_.length).getOrElse(0)    // 0
 ```
 
-- You **cannot** call `.length` on an `Option[String]` by accident – the compiler stops you
+- Calling `.length` directly on an `Option[String]` does not compile – `map` applies it to the value inside
 - The caller has to decide what "missing" means
 - In Scala code: never use `null`, use `Option`
 
@@ -216,6 +217,7 @@ Option("x")                   // Some(x)
 "4x2".toIntOption             // None
 List(3, 1, 4).headOption      // Some(3)
 List(3, 1, 4).find(_ > 5)     // None
+Map(1 -> "Ada").get(1)        // Some(Ada)
 Map(1 -> "Ada").get(2)        // None
 ```
 
@@ -254,8 +256,12 @@ section { font-size: 22px; }
 val some: Option[Int] = Some(3)
 val none: Option[Int] = None
 
+some.get                               // 3
+none.get                               // NoSuchElementException: None.get
+
 some.getOrElse(0)                      // 3
 none.getOrElse(0)                      // 0       default value
+some.orElse(Some(7))                   // Some(3)
 none.orElse(Some(7))                   // Some(7) alternative Option
 some.fold("none")(x => s"value $x")    // "value 3"
 none.fold("none")(x => s"value $x")    // "none"
@@ -295,12 +301,17 @@ section { font-size: 21px; }
 What if the function itself returns an `Option`?
 
 ```scala
-def findUser(id: Int): Option[User] = users.get(id)
+case class User(name: String, email: Option[String])
 
-findUser(1).map(_.email)        // Some(Some(ada@htwg.de))   nested!
-findUser(1).flatMap(_.email)    // Some(ada@htwg.de)
-findUser(2).flatMap(_.email)    // None   – user exists, no email
-findUser(3).flatMap(_.email)    // None   – no such user
+class Users(users: Map[Int, User]):
+  def findUser(id: Int): Option[User] = users.get(id)
+
+val users = Users(Map(1 -> User("Ada", Some("ada@htwg.de"))))
+
+users.findUser(1).map(_.email)        // Some(Some(ada@htwg.de))   nested!
+users.findUser(1).flatMap(_.email)    // Some(ada@htwg.de)
+users.findUser(2).flatMap(_.email)    // None   – no such user
+users.findUser(3).flatMap(_.email)    // None   – no such user
 ```
 
 - `flatMap` = `map` + flatten
@@ -312,20 +323,54 @@ findUser(3).flatMap(_.email)    // None   – no such user
 section { font-size: 22px; }
 </style>
 
-# `for`-Comprehensions with `Option`
+# Safe Access: `lift`
 
-Several `flatMap`s read better as a `for`:
+`parts(i)` throws if index `i` does not exist. `parts.lift(i)` returns an `Option` instead:
 
 ```scala
-val sum = for
-  x <- "1".toIntOption
-  y <- "2".toIntOption
-  z <- "3".toIntOption
-yield x + y + z            // Some(6)
+val parts = "ada@htwg.de".split("@")   // Array(ada, htwg.de)
+
+parts(1)                         // htwg.de
+parts(2)                         // ArrayIndexOutOfBoundsException
+parts.lift(1)                    // Some(htwg.de)
+parts.lift(2)                    // None
+
+"no-at-sign".split("@").lift(1)  // None – no domain, no crash
+Map(1 -> "Ada").lift(2)          // None – same as get(2)
 ```
 
-- Change any string to `"x"` and `sum` becomes `None`
+- A `Seq` or `Map` is a function that is defined only for some keys
+- `lift` turns it into a function that is defined for all keys: `Int => Option[A]`
+- That is why `email.split("@").lift(1)` fits into the `for` on the next slide
+
+---
+
+<style scoped>
+section { font-size: 22px; }
+</style>
+
+# `for`-Comprehensions with `Option`
+
+Several `flatMap`s read better as a `for` – here with `users` from the `flatMap` slide:
+
+```scala
+def emailDomain(id: Int): Option[String] =
+  for
+    user   <- users.findUser(id)        // Option[User]
+    email  <- user.email                // Option[String]
+    domain <- email.split("@").lift(1)  // Option[String]
+  yield domain
+
+emailDomain(1)    // Some(htwg.de)
+emailDomain(3)    // None – no such user
+
+// the same without for:
+users.findUser(1).flatMap(u => u.email.flatMap(e => e.split("@").lift(1)))
+```
+
+- The first step that yields `None` stops the chain – the result is `None`
 - The compiler translates this to `flatMap` and `map`, exactly as for `List`
+
 
 ---
 
@@ -360,18 +405,21 @@ A computation that may succeed or fail
 section { font-size: 22px; }
 </style>
 
-# Exceptions Break the Flow
+# Things Can Go Wrong
+
+Not every computation can always deliver a result:
+
+- the user types `4x2` where a number is expected
+- a program divides by a value that happens to be `0`
+- a file does not exist, a server does not answer
 
 ```scala
-"4x2".toInt     // java.lang.NumberFormatException: For input string: "4x2"
-100 / 0         // java.lang.ArithmeticException: / by zero
+"4x2".toInt     // ?
+100 / 0         // ?
 ```
 
-- An exception **jumps** out of the expression – it is not a value
-- The type `Int` does not tell you that it may fail
-- Classic answer: `try … catch` (chapter 4)
-
-`Option` would lose the reason. We want the result **or the exception** – as a value.
+- With `null`, a **value is missing** – a design decision from 1965 that we still pay for
+- Here, the **computation itself breaks** – and the type `Int` does not warn you either
 
 ---
 
@@ -379,7 +427,152 @@ section { font-size: 22px; }
 section { font-size: 22px; }
 </style>
 
-# `Try { … }`: `Success` and `Failure`
+# What Happens: An Exception Is Thrown
+
+```scala
+"4x2".toInt     // java.lang.NumberFormatException: For input string: "4x2"
+100 / 0         // java.lang.ArithmeticException: / by zero
+```
+
+- The JVM creates an **exception object** and **throws** it
+- The exception **jumps** out of the expression – it is not a value
+- The rest of the code is skipped, the exception travels up the call stack
+- If nobody catches it, the program stops with a stack trace
+
+---
+
+<style scoped>
+section { font-size: 21px; }
+</style>
+
+# The Class `Exception`
+
+```scala
+val e = Exception("not a number")
+e.getMessage                     // "not a number"        – what went wrong
+e.getClass.getName               // "java.lang.Exception" – which kind of error
+e.isInstanceOf[Throwable]        // true
+
+val nfe = NumberFormatException("For input string: \"4x2\"")
+nfe.isInstanceOf[RuntimeException]   // true
+```
+
+```text
+Throwable
+├── Error                  serious JVM problems – do not catch
+└── Exception
+    ├── IOException
+    └── RuntimeException
+        ├── NumberFormatException
+        └── ArithmeticException
+```
+
+- An exception is an ordinary object: message, class and stack trace
+- Everything that can be thrown is a **`Throwable`**
+
+---
+
+<style scoped>
+section { font-size: 21px; }
+</style>
+
+# Java: `try` … `catch`
+
+```java
+try {
+    int n = Integer.parseInt("4x2");
+    System.out.println(n);                      // never reached
+} catch (NumberFormatException e) {
+    System.out.println("not a number: " + e.getMessage());
+}
+// not a number: For input string: "4x2"
+```
+
+- `parseInt` **throws** an object – the rest of the `try` block is skipped
+- `catch (T e)` catches it if it is of type `T` or a subclass
+
+---
+
+<style scoped>
+section { font-size: 22px; }
+</style>
+
+# What Is Wrong with `try` … `catch`?
+
+```scala
+def parse(s: String): Int =
+  try s.toInt
+  catch case e: NumberFormatException => -1     // magic value
+
+parse("42")      // 42
+parse("4x2")     // -1   – or was it really -1?
+```
+
+- The type `Int` does not say that `parse` may fail – the caller can forget to catch
+- The `catch` must return something: a magic value, `null`, or throw again
+- An exception is not a value: you cannot store it, pass it on or `map` over it
+- Error handling moves away from the place where the result is used
+
+`Option` would lose the reason. We want the result **or the exception** – as a value.
+
+---
+
+<style scoped>
+section { font-size: 21px; }
+</style>
+
+# Even Worse: `throws` without `catch`
+
+```scala
+@throws[NumberFormatException]                 // Java: int parse(String s) throws NumberFormatException
+def parse(s: String): Int = s.toInt            // no try, no catch
+
+def total(xs: List[String]): Int = xs.map(parse).sum          // passes it on
+
+def report(xs: List[String]): String =                     // somewhere else: the catch
+  try s"total: ${total(xs)}"
+  catch case e: NumberFormatException => s"bad input: ${e.getMessage}"
+
+report(List("1", "2", "3"))      // "total: 6"
+report(List("1", "4x2", "3"))    // "bad input: For input string: "4x2""
+```
+
+- `throws` only **documents** the exception – `parse` leaves the problem to its callers
+- The exception passes silently through `total` – the `catch` ends up in another method
+- Whoever calls `total` must know what may be thrown deep inside – forget it and the program stops
+- The error is handled far away from its cause
+
+---
+
+<style scoped>
+section { font-size: 22px; }
+</style>
+
+# `Try`: `Success` and `Failure`
+
+```scala
+import scala.util.{Try, Success, Failure}
+
+val ok:  Try[Int] = Success(42)
+val bad: Try[Int] = Failure(Exception("not a number"))
+
+ok.getOrElse(0)                                // 42
+bad.getOrElse(0)                               // 0
+ok.fold(e => e.getMessage, n => s"got $n")     // "got 42"
+bad.fold(e => e.getMessage, n => s"got $n")    // "not a number"
+```
+
+- `Try[A]` is either `Success(value)` or `Failure(exception)`
+- A `Failure` holds an exception – `getMessage` returns its message as a `String`
+- Like `Option`, but a `Failure` keeps the **reason**
+
+---
+
+<style scoped>
+section { font-size: 22px; }
+</style>
+
+# `Try { … }`: Catching Exceptions
 
 ```scala
 import scala.util.{Try, Success, Failure}
@@ -414,7 +607,12 @@ report(parse("7"))     // "got 7"
 report(parse("x"))     // "failed: For input string: "x""
 ```
 
-Unlike `None`, a `Failure` tells you **what** went wrong.
+| | Result is there | No result |
+|---|---|---|
+| `Option[A]` | `Some(value)` | `None` – holds **nothing** |
+| `Try[A]` | `Success(value)` – same as `Some` | `Failure(ex)` – holds a **`Throwable`** |
+
+`Success` and `Some` are identical. The difference is the other case: `None` is empty, a `Failure` tells you **what** went wrong.
 
 ---
 
@@ -463,7 +661,7 @@ parse("x").recoverWith {
 section { font-size: 22px; }
 </style>
 
-# `for`, `toOption`, `toEither`
+# `for` and `toOption`
 
 ```scala
 val r = for
@@ -474,7 +672,6 @@ yield q                                   // Success(5)
 
 parse("5").toOption                       // Some(5)
 parse("x").toOption                       // None  – reason is dropped
-parse("x").toEither.left.map(_.getMessage) // Left(For input string: "x")
 ```
 
 `Try` fits into `for`-comprehensions just like `Option` and `List`.
@@ -510,17 +707,17 @@ section { font-size: 20px; }
 
 **Alexander, Learn Scala 3 the Fast Way** – lesson "Functions: Options and Functional Error Handling"
 - `makeInt(s: String): Option[Int]`: `Some` for success, `None` for failure
-- `None` gives no details – for those use `Try`/`Success`/`Failure` or `Either`/`Left`/`Right`
+- `None` gives no details – for those use `Try`/`Success`/`Failure`
 - the lesson was left out of the printed book by mistake and is published on alvinalexander.com
 - the word "monad" is not used; that topic is in his functional programming material
 
 **Scala 3 Book** (docs.scala-lang.org, co-written by Alexander), "Functional Error Handling"
-- functional methods do not throw; they return `Option`, `Try` or `Either`
+- functional methods do not throw; they return `Option` or `Try`
 - consume them with `match` or `for` expressions
 
 **Lewis, Introduction to the Art of Programming Using Scala**
 - 7.5.1 "The Option Type" (chapter "Arrays and Lists in Scala")
-- 22.3 "Exceptions", 22.3.1 "try-catch-finally", 22.3.3 "Loan Pattern" (chapter "Stream I/O")
+- 22.3 "Exceptions" (chapter "Stream I/O")
 
 ---
 
@@ -581,7 +778,7 @@ section { font-size: 22px; }
 
 # Safe Division
 
-Three ways to say "this may fail":
+Two ways to say "this may fail":
 
 ```scala
 def safeDiv(a: Int, b: Int): Option[Int] =
@@ -589,12 +786,8 @@ def safeDiv(a: Int, b: Int): Option[Int] =
 
 def divTry(a: Int, b: Int): Try[Int] = Try(a / b)
 
-def divE(a: Int, b: Int): Either[String, Int] =
-  if b == 0 then Left("division by zero") else Right(a / b)
-
 safeDiv(1, 0)   // None
 divTry(1, 0)    // Failure(java.lang.ArithmeticException: / by zero)
-divE(1, 0)      // Left(division by zero)
 ```
 
 ---
@@ -608,17 +801,17 @@ section { font-size: 22px; }
 File I/O throws (`FileNotFoundException`, `IOException`) – a typical case for `Try`:
 
 ```scala
-import scala.util.{Try, Using}
+import scala.util.Try
 import scala.io.Source
 
 def readLines(path: String): Try[List[String]] =
-  Using(Source.fromFile(path))(src => src.getLines().toList)
+  Try(Source.fromFile(path).getLines().toList)
 
 readLines("numbers.txt").map(_.size) // Success(12) – number of lines
 readLines("missing.txt")              // Failure(java.io.FileNotFoundException: …)
 ```
 
-`Using` returns a `Try` **and** closes the file afterwards – Scala's try-with-resources.
+The exception becomes a `Failure` – the type `Try[List[String]]` tells the caller that reading may fail.
 
 ---
 
@@ -652,181 +845,15 @@ Each step may fail; the first `Failure` short-circuits the rest. Error handling 
 section { font-size: 22px; }
 </style>
 
-# `Option` vs. `Try` vs. `Either`
+# `Option` vs. `Try`
 
 | Use | when | example |
 |---|---|---|
 | `Option[A]` | a value may be absent; the reason does not matter | `Map.get`, `headOption`, optional field |
 | `Try[A]` | code may throw an exception (often Java APIs, I/O) | parsing, files, network |
-| `Either[E, A]` | failure is expected and you define its type | validation with error messages |
 
-- Convert with `toOption`, `toEither`
-- By convention `Left` is the error, `Right` the result
+- Convert a `Try` to an `Option` with `toOption` – the exception is dropped
 - Do not throw exceptions for normal, expected situations
-
----
-
-<!-- _class: kapitel -->
-
-## 4
-# Java: try-catch-finally
-
-The classic mechanism in comparison
-
----
-
-<style scoped>
-section { font-size: 21px; }
-</style>
-
-# `try`-`catch`-`finally` in Java
-
-```java
-static int parse(String s) {
-    try {
-        return Integer.parseInt(s.trim());
-    } catch (NumberFormatException e) {
-        System.out.println("not a number: " + s);
-        return 0;
-    } finally {
-        System.out.println("parse done");   // runs in every case
-    }
-}
-```
-
-- `try`: code that may throw
-- `catch`: one or more handlers, the first matching type wins
-- `finally`: always runs – after success, after a handled or an unhandled exception
-
----
-
-<style scoped>
-section { font-size: 21px; }
-</style>
-
-# Checked vs. Unchecked Exceptions
-
-```java
-static List<String> readLines(String path) throws IOException {   // checked
-    return Files.readAllLines(Path.of(path));
-}
-static int divide(int a, int b) {
-    if (b == 0) throw new IllegalArgumentException("b must not be 0"); // unchecked
-    return a / b;
-}
-```
-
-| | checked | unchecked |
-|---|---|---|
-| superclass | `Exception` | `RuntimeException`, `Error` |
-| examples | `IOException`, `SQLException` | `NullPointerException`, `ArithmeticException` |
-| compiler | must be caught or declared with `throws` | no obligation |
-
-Scala has no checked exceptions – `Try` makes failure visible in the **type** instead.
-
----
-
-<style scoped>
-section { font-size: 21px; }
-</style>
-
-# Multiple `catch` and `try`-with-resources
-
-```java
-try {
-    System.out.println(readLines("numbers.txt").size());
-} catch (FileNotFoundException e) {             // more specific first
-    System.out.println("no file: " + e.getMessage());
-} catch (IOException e) {
-    System.out.println("I/O problem: " + e.getMessage());
-}
-
-static String firstLine(String path) throws IOException {
-    try (BufferedReader in = new BufferedReader(new FileReader(path))) {
-        return in.readLine();
-    }                                           // in.close() is called automatically
-}
-```
-
-- Multi-catch: `catch (NumberFormatException | ArithmeticException e)`
-- `try`-with-resources (Java 7) replaces most hand-written `finally { close(); }`
-
----
-
-<style scoped>
-section { font-size: 22px; }
-</style>
-
-# Java's `Optional`
-
-Java 8 adopted the same idea as Scala's `Option`:
-
-```java
-static Optional<String> email(String user) {
-    Map<String, String> mails = Map.of("ada", "ada@htwg.de");
-    return Optional.ofNullable(mails.get(user));
-}
-
-email("ada").map(String::toUpperCase).orElse("no mail")   // "ADA@HTWG.DE"
-email("bob").isPresent()                                  // false
-```
-
-- `Optional.of`, `ofNullable`, `empty` – `map`, `flatMap`, `filter`, `orElse`
-- Meant for return values; most older APIs still return `null`
-- No `Try` in the Java standard library – failure stays an exception
-
----
-
-<style scoped>
-section { font-size: 19px; }
-</style>
-
-# Side by Side: Scala `Try` vs. Java `try`-`catch`
-
-<div class="columns">
-<div markdown="1">
-
-**Scala**
-
-```scala
-val r: Try[Int] = for
-  x <- Try("10".toInt)
-  y <- Try("0".toInt)
-  q <- Try(x / y)
-yield q
-
-r match
-  case Success(q)  => println(q)
-  case Failure(ex) =>
-    println(s"failed: ${ex.getMessage}")
-```
-
-</div>
-<div markdown="1">
-
-**Java**
-
-```java
-try {
-    int x = Integer.parseInt("10");
-    int y = Integer.parseInt("0");
-    System.out.println(x / y);
-} catch (NumberFormatException
-       | ArithmeticException e) {
-    System.out.println("failed: "
-        + e.getMessage());
-}
-```
-
-</div>
-</div>
-
-| | Scala `Try` | Java `try`-`catch` |
-|---|---|---|
-| failure is | a value of type `Try[A]` | a jump in control flow |
-| visible in type | yes | only checked exceptions (`throws`) |
-| composition | `map`, `flatMap`, `for`, `recover` | nested blocks |
-| cleanup | `Using` | `finally`, try-with-resources |
 
 ---
 
@@ -843,16 +870,30 @@ section { font-size: 23px; }
 - `map`, `flatMap`, `filter`, `getOrElse`, `fold`, `recover` – no need to unpack
 - `for`-comprehensions chain fallible steps; the first failure stops the chain
 - `Option`, `Try` and `List` share `map`/`flatMap` – they are monads
-- `Option` for absence, `Try` for exceptions, `Either` for typed errors
-- Java: `try`-`catch`-`finally`, checked vs. unchecked, try-with-resources, `Optional`
+- `Option` for absence, `Try` for exceptions
 
 ---
 
 <!-- _class: aufgabe -->
 
+<style scoped>
+section { font-size: 18px; }
+</style>
+
 # Task
 
-(Task to fill)
+**Student input for a university system** – `Option` for what may be missing, `Try` for what may fail
+
+```scala
+case class StudentInput(matrikel: String, email: String, enrolled: String)
+case class Student(matrikel: Int, email: String, enrolled: java.time.LocalDate)
+```
+
+1. `validMatrikel`, `validEmail`, `validDate` return an `Option`: only digits, contains `@`, `LocalDate.parse` works
+2. `toStudent(in: StudentInput): Option[Student]` combines them with a `for`-comprehension
+3. `readConfig(path: String): Try[List[String]]` reads all lines of `students.csv`
+4. `parseLine(line: String): Try[StudentInput]` fails unless a line has three comma-separated fields
+5. Print the valid students, the invalid inputs (`None`) and the message of every failed line (`Failure`)
 
 - Reading: Learn Scala 3, Chapters 58–60
 

@@ -30,9 +30,10 @@ In this lecture you will learn about
 - writing debug messages – and why `println` is not enough
 - using a logger: SLF4J, Logback and scala-logging
 - log levels, context (MDC), configuration and JSON logs
+- writing tests with MUnit: assertions, running tests, and pinning down a bug
 - in which order to approach a bug
 
-New tools: VS Code Debugger (Metals), SLF4J, Logback, scala-logging
+New tools: VS Code Debugger (Metals), SLF4J, Logback, scala-logging, MUnit
 
 ---
 
@@ -435,26 +436,6 @@ Two mismatches between our thinking and our code.
 
 ---
 
-<style scoped>
-section { font-size: 22px; }
-</style>
-
-# Debugging Tests
-
-- Metals shows **debug** code lenses on test classes and single tests (MUnit, ScalaTest)
-- Turn the bug into a **failing test** first, then debug the test
-
-```scala
-class AverageSuite extends munit.FunSuite:
-  test("average of 2, 3, 1, 4 is 2.5"):
-    assertEquals(average(List(2, 3, 1, 4)), 2.5)
-```
-
-- After the fix, the test stays – the bug can never come back unnoticed
-- A debugging session is gone after you close it; a test is not
-
----
-
 <!-- _class: kapitel -->
 
 ## 3
@@ -774,7 +755,125 @@ section { font-size: 21px; }
 <!-- _class: kapitel -->
 
 ## 4
-# How to Debug
+# Testing
+
+---
+
+<style scoped>
+section { font-size: 21px; }
+</style>
+
+# A Basic MUnit Test Suite
+
+A test suite is a class that extends `munit.FunSuite`. Each `test` has a name and a body:
+
+```scala
+def average(xs: List[Int]): Double =
+  require(xs.nonEmpty, "average of empty list")
+  xs.sum.toDouble / xs.length
+
+class AverageSuite extends munit.FunSuite:
+  test("average of 2, 3, 1, 4 is 2.5"):
+    assertEquals(average(List(2, 3, 1, 4)), 2.5)
+```
+
+- Other test frameworks exist, for example **ScalaTest** – we cover them in depth in semester 3
+
+---
+
+<style scoped>
+section { font-size: 20px; }
+</style>
+
+# Assertions: `assertEquals`, `assert` and `intercept`
+
+<div class="columns">
+<div markdown="1">
+
+`assertEquals` compares an obtained value with an expected one:
+
+```scala
+test("average of one element"):
+  assertEquals(average(List(7)), 7.0)
+```
+
+`assert` checks a Boolean condition:
+
+```scala
+test("average stays in range"):
+  val mean = average(List(2, 3, 1, 4))
+  assert(mean > 0.0 && mean < 10.0)
+```
+
+</div>
+<div markdown="1">
+
+`intercept` checks that a block throws a given exception:
+
+```scala
+test("empty list is rejected"):
+  intercept[IllegalArgumentException]:
+    average(List.empty)
+```
+
+If the exception is missing, or has the wrong type, the test fails.
+
+</div>
+</div>
+
+---
+
+<style scoped>
+section { font-size: 18px; }
+pre { font-size: 15px; }
+</style>
+
+# Running Tests with Mill
+
+<div class="columns">
+<div markdown="1">
+
+A Scala 3 module with MUnit, in `build.mill`:
+
+```scala
+package build
+import mill.*, scalalib.*
+
+object average extends ScalaModule {
+  def scalaVersion = "3.9.0"
+
+  object test extends ScalaTests,
+      TestModule.Munit {
+    def mvnDeps = Seq(
+      mvn"org.scalameta::munit:1.1.1")
+  }
+}
+```
+
+```text
+./mill average.test
+```
+
+</div>
+<div markdown="1">
+
+A failing `assertEquals` shows what the code returned and what you expected:
+
+```text
+==> X AverageSuite.average of 2, 3, 1, 4 is 2.5
+values are not the same
+=> Obtained
+2.0
+=> Diff (- expected, + obtained)
+-2.5
++2.0
+1 FAILED] ./mill average.test
+```
+
+The buggy `average` returned `2.0` instead of `2.5`.
+
+</div>
+</div>
 
 ---
 
@@ -782,18 +881,68 @@ section { font-size: 21px; }
 section { font-size: 22px; }
 </style>
 
-# Debugging Order (Marko's advice) – TODO
+# Debugging Tests
 
-<div style="border: 3px dashed #c00; padding: 1em; color: #c00;">
+- Metals shows **debug** code lenses on test classes and single tests
+- Turn the bug into a **failing test** first, then debug the test
 
-**Placeholder – to be filled in by Marko.**
+```scala
+class AverageSuite extends munit.FunSuite:
+  test("average of 2, 3, 1, 4 is 2.5"):
+    assertEquals(average(List(2, 3, 1, 4)), 2.5)
+```
 
-In which order should a bug be approached?
+- After the fix, the test stays – the bug can never come back unnoticed
+- A debugging session is gone after you close it; a test is not
 
-1. …
-2. …
-3. …
+---
 
+<!-- _class: kapitel -->
+
+## 5
+# How to Debug
+
+---
+
+<style scoped>
+section { font-size: 18px; }
+</style>
+
+# Debugging Order
+
+The same order helps you **avoid** a bug and **search** for one:
+
+<div class="columns">
+<div markdown="1">
+
+**1. Clean Architecture**
+- Separate layers and components
+- Bugs can then be confined into single components
+
+**2. Clean Code**
+- Write clean, readable code; good metrics; low complexity; no tangles
+- This reduces the risk of bugs and makes them easier to find
+
+**3. Tests**
+- Full coverage does not prevent bugs, but often catches new ones as you write them
+- Isolate a new bug in a failing test – the test remains a safety net
+
+</div>
+<div markdown="1">
+
+**4. Interact with the code early**
+- Build a TUI long before you start work on a GUI
+- Java makes direct interaction with objects hard; in Scala this is possible
+
+**5. Logging**
+- Write text output to the console – but `System.out.println` pollutes the code and needs manual clean-up
+- Use a log mechanism instead: on/off per class, and the log code can be maintained
+
+**6. Debugger**
+- The debugger should be your **last resort**
+- Debugging is tedious, time-consuming and non-repeatable
+
+</div>
 </div>
 
 ---
@@ -801,7 +950,7 @@ In which order should a bug be approached?
 <!-- _class: inhalt -->
 
 <style scoped>
-section { font-size: 22px; }
+section { font-size: 21px; }
 </style>
 
 # Summary
@@ -809,21 +958,28 @@ section { font-size: 22px; }
 - A bug is a mismatch between our thinking and our code – the computer is right
 - The debugger is a last resort, but a powerful one
 - VS Code + Metals: code lens or `launch.json`, then F5
-- Breakpoints, conditional breakpoints, logpoints and exception breakpoints
-- Step over / into / out, variables, watch, call stack, debug console
-- Turn a bug into a failing test before you fix it
+- Breakpoints, logpoints, exception breakpoints; step, variables, watch, call stack, debug console
 - Prefer a logger over `println`: levels, sources, time stamps, destinations
-- SLF4J + Logback + scala-logging; macros make disabled messages free
-- `logback.xml`: per-package levels, appenders, rolling files, colors, JSON
-- MDC adds context such as an order ID to every line
+- SLF4J + Logback + scala-logging; `logback.xml` and MDC for context
+- MUnit: `FunSuite`, `assertEquals`, `assert`, `intercept`; run with `scala-cli test` or `sbt test`
+- Turn a bug into a failing test before you fix it – the test stays as a safety net
+- Approach a bug in this order: architecture, clean code, tests, early interaction, logging, debugger last
 
 ---
 
 <!-- _class: aufgabe -->
 
+<style scoped>
+section { font-size: 18px; }
+</style>
+
 # Task
 
-(Task to fill)
+Take the **university example** from Lecture 15 (`StudentInput` → `Student`, `readConfig`, `parseLine`) and practise debugging, logging and tests.
+
+1. Set a breakpoint, for example on a **bad input line**, and step through the program in the VS Code debugger. Inspect the values (`Option`, `Try`, the parsed fields).
+2. Add logging with `LazyLogging` and suitable levels: `debug` per line, `warn` for `None`, `error` for `Failure`.
+3. Write a few **MUnit** tests for `validMatrikel`, `validEmail` and `parseLine`, including a failing-input case.
 
 ---
 
