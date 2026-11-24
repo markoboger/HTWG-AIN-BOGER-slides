@@ -39,7 +39,7 @@ In this lecture you will learn about
 Supporting literature:
 
 - Lewis, Introduction to the Art of Programming Using Scala, 7.5.1, 22.3
-- Alexander, Learn Scala 3 the Fast Way, "Options and Functional Error Handling"
+- Alexander, Learn Scala 3 the Fast Way, "Options and Functional Error Handling", chapters 58 and 60
 
 </div>
 <div markdown="1">
@@ -895,7 +895,7 @@ case class Student(matrikel: Int, email: String, enrolled: java.time.LocalDate)
 4. `parseLine(line: String): Try[StudentInput]` fails unless a line has three comma-separated fields
 5. Print the valid students, the invalid inputs (`None`) and the message of every failed line (`Failure`)
 
-- Reading: Learn Scala 3, Chapters 58–60
+- Reading: Learn Scala 3, Chapters 58 and 60
 
 ---
 
