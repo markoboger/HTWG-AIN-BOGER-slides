@@ -686,18 +686,18 @@ parse("x").toOption                       // None  – reason is dropped
 ---
 
 <style scoped>
-section { font-size: 21px; }
+section { font-size: 19px; }
 </style>
 
 # A Common Pattern: `map` + `flatMap`
 
 `List`, `LazyList`, `Option` and `Try` share the same shape:
 
-| Type | "box" | `flatMap` stops at |
-|---|---|---|
-| `List[A]` | 0 … n values | `Nil` |
-| `Option[A]` | 0 or 1 value | `None` |
-| `Try[A]` | value or exception | `Failure` |
+| Type | "box" | `flatMap` stops at | `map` example |
+|---|---|---|---|
+| `List[A]` | 0 … n values | `Nil` | `List(1, 2, 3).map(_ * 2)` → `List(2, 4, 6)` |
+| `Option[A]` | 0 or 1 value | `None` | `Some(2).map(_ * 2)` → `Some(4)` |
+| `Try[A]` | value or exception | `Failure` | `Try("21".toInt).map(_ * 2)` → `Success(42)` |
 
 - A way to **wrap** a value: `Some(x)`, `Success(x)`, `List(x)`
 - A way to **chain**: `flatMap`
