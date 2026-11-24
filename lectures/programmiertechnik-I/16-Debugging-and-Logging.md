@@ -12,6 +12,8 @@ _footer: ""
 ## Programmiertechnik I
 # Lecture 16: Debugging and Logging
 
+<p class="small">How to find bugs systematically with the VS Code debugger – breakpoints, logpoints, stepping and the call stack – how to replace println with structured logging via scala-logging and Logback, and how MUnit tests pin bugs down before they come back.</p>
+
 ---
 
 <!-- _class: inhalt -->
@@ -46,9 +48,24 @@ New tools: VS Code Debugger (Metals), SLF4J, Logback, scala-logging, MUnit
 
 # What Is a Bug?
 
-<a href="https://www.youtube.com/watch?v=UPuTO9vg5gk"><img src="assets/pt16-bug-video.jpg" alt="Video thumbnail: What is a bug? (click to open on YouTube)" style="display: block; margin: 10px auto 0; height: 400px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.15);" /></a>
+<div class="columns">
+<div markdown="1">
 
-<p class="small" style="text-align: center; margin-top: 8px;">▶ <a href="https://www.youtube.com/watch?v=UPuTO9vg5gk">9th September 1947: First computer ‘bug’ found in the Harvard Mark II</a> – HistoryPod, YouTube</p>
+<img src="assets/pt16-first-bug-logbook.jpg" alt="Logbook page of the Harvard Mark II, 9 September 1947, with the moth taped in" style="display: block; margin: 0 auto; height: 330px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.15);" />
+
+<p class="small" style="text-align: center;">The logbook: a moth found in <b>relay #70, panel F</b> of the Harvard Mark II – "First actual case of bug being found."</p>
+
+</div>
+<div markdown="1">
+
+<img src="assets/pt16-mark-i-relays.jpg" alt="Racks of electromechanical relays in the Harvard Mark I" style="display: block; margin: 0 auto; height: 330px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.15);" />
+
+<p class="small" style="text-align: center;">Relays like these switched every bit in the Mark I and Mark II – the moth was stuck between the contacts of one of them.</p>
+
+</div>
+</div>
+
+<p class="small" style="text-align: center; margin-top: 4px;">▶ <a href="https://www.youtube.com/watch?v=UPuTO9vg5gk">9th September 1947: First computer ‘bug’ found in the Harvard Mark II</a> – HistoryPod, YouTube · Photos: Naval History and Heritage Command (public domain); Arnold Reinhold, <a href="https://commons.wikimedia.org/wiki/File:Harvard_Mark_I_rear.JPG">Wikimedia Commons</a>, CC BY-SA 4.0</p>
 
 ---
 
@@ -64,10 +81,30 @@ The computer executes the given code **correctly**, so there is no error in the 
 
 To debug a program is to find the **mismatch between our thoughts and the code** we wrote to express these.
 
-To find a bug, we need to increase our understanding of what the code actually does. We can use
+To find a bug, we need to increase our understanding of what the code actually does. Historically, we used
 
-- a **debugger**, a tool that executes code line by line
-- **debug messages**, print out states of the program while it runs
+1. **debug messages** with `println`, printing out states of the program while it runs
+2. a **debugger**, a tool that executes code line by line
+
+---
+
+<style scoped>
+section { font-size: 22px; }
+</style>
+
+# Disadvantages of `println`
+
+```scala
+println(s"average called with $xs")
+```
+
+- **Clutters production code**: debug output is mixed into the real code – and has to be cleaned up again afterwards
+- **No conditions**: it always prints – you cannot filter by level or category or switch it off
+- **No external output**: everything goes to standard out – not to a file, a server or a monitoring system
+
+<br>
+
+> From these shortcomings, **logging** mechanisms were developed.
 
 ---
 
@@ -223,10 +260,13 @@ Breakpoints can be disabled, removed, or listed in the **Breakpoints** panel.
 ---
 
 <style scoped>
-section { font-size: 22px; }
+section { font-size: 19px; }
 </style>
 
 # Stepping
+
+<div class="columns" style="grid-template-columns: 1fr 1fr; align-items: start;">
+<div markdown="1">
 
 | Action | Key | What it does |
 |---|---|---|
@@ -238,6 +278,18 @@ section { font-size: 22px; }
 | Stop | ⇧F5 | end the session |
 
 Rule of thumb: **Step Over** by default, **Step Into** only where you suspect the bug.
+
+</div>
+<div markdown="1">
+
+<img src="assets/pt16-debug-toolbar.png" alt="VS Code debug toolbar with Continue, Step Over, Step Into, Step Out, Restart and Stop" style="display: block; width: 100%; margin: 0 auto;" />
+
+<img src="assets/pt16-debug-session.png" alt="VS Code paused on a breakpoint, debug toolbar at the top of the editor" style="display: block; width: 100%; margin: 14px auto 0; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.15);" />
+
+<p class="small" style="text-align: center;">The debug toolbar appears at the top of the editor while a session runs. Screenshots: <a href="https://code.visualstudio.com/docs/debugtest/debugging">VS Code docs</a></p>
+
+</div>
+</div>
 
 ---
 
@@ -438,10 +490,13 @@ Two mismatches between our thinking and our code.
 ---
 
 <style scoped>
-section { font-size: 22px; }
+section { font-size: 21px; }
 </style>
 
-# Debug Messages with `println`
+# From `println` to a Logger
+
+<div class="columns">
+<div markdown="1">
 
 ```scala
 def average(xs: List[Int]): Double =
@@ -449,15 +504,29 @@ def average(xs: List[Int]): Double =
   ...
 ```
 
-Quick, but:
+```text
+average called with List(2, 3, 1, 4)
+```
 
-- no way to switch it off without changing the code
-- no time stamp, no source, no severity
-- always goes to the console – not to a file, not to a server
-- gets forgotten and committed
-- string is built even if nobody reads it
+</div>
+<div markdown="1">
 
-A **logger** solves all of this.
+```scala
+def average(xs: List[Int]): Double =
+  logger.debug(s"average called with $xs")
+  ...
+```
+
+```text
+11:56:20.239 DEBUG Average - average called with List(2, 3, 1, 4)
+```
+
+</div>
+</div>
+
+- Recap: see *Disadvantages of `println`*
+- A logger adds **time stamp, source and severity** → *Log Levels*
+- The message is only built if the level is **enabled** → *Lazy Messages for Free*
 
 ---
 
@@ -524,20 +593,21 @@ section { font-size: 20px; }
 # scala-logging: `LazyLogging`
 
 ```scala
+import scala.util.{Try, Success, Failure}
 import com.typesafe.scalalogging.LazyLogging
 
 case class Order(id: Int, items: List[String], total: Double)
 
 class OrderService extends LazyLogging:
-  def place(order: Order): Either[String, Order] =
+  def place(order: Order): Try[Order] =
     logger.info(s"Placing order with ${order.items.size} items")
     logger.debug(s"Items: ${order.items.mkString(", ")}")
     if order.total <= 0 then
       logger.warn(s"Rejected order, total = ${order.total}")
-      Left("invalid total")
+      Failure(IllegalArgumentException("invalid total"))
     else
       logger.info(f"Order accepted, total = ${order.total}%.2f EUR")
-      Right(order)
+      Success(order)
 ```
 
 `LazyLogging` provides a `logger`, created on first use and named after the class.
@@ -653,7 +723,7 @@ The **Mapped Diagnostic Context** attaches key-value pairs to every log line of 
 ```scala
 import org.slf4j.MDC
 
-def place(order: Order): Either[String, Order] =
+def place(order: Order): Try[Order] =
   MDC.put("orderId", order.id.toString)
   try
     logger.info("Placing order")
