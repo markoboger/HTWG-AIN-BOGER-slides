@@ -335,6 +335,7 @@ section { font-size: 22px; }
 ```scala
 val parts = "ada@htwg.de".split("@")   // Array(ada, htwg.de)
 
+parts(0)                         // ada
 parts(1)                         // htwg.de
 parts(2)                         // ArrayIndexOutOfBoundsException
 parts.lift(1)                    // Some(htwg.de)
