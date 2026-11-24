@@ -71,7 +71,8 @@ section { font-size: 21px; }
 | 1965 | ALGOL W | Tony Hoare introduces the **null reference** |
 | 1972 | C | the `NULL` pointer – address 0 |
 | 1995 | Java | `null` for every reference type |
-| 2004 | Scala | inherits `null` from the JVM |
+| 2004 | Scala | inherits `null` from the JVM, but supports to avoid it |
+| 2021 | Scala 3 | avoids `null` by default |
 
 In C, `NULL` is just a pointer that points nowhere. Reading through it crashes:
 
