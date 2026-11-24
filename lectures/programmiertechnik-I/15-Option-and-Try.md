@@ -695,7 +695,7 @@ section { font-size: 21px; }
 
 | Type | "box" | `flatMap` stops at |
 |---|---|---|
-| `List[A]` | 0 … n values | – (combines all) |
+| `List[A]` | 0 … n values | `Nil` |
 | `Option[A]` | 0 or 1 value | `None` |
 | `Try[A]` | value or exception | `Failure` |
 
