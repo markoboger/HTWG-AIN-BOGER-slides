@@ -357,6 +357,10 @@ section { font-size: 22px; }
 
 # `for`-Comprehensions with `Option`
 
+```scala
+users.findUser(1).flatMap(u => u.email.flatMap(e => e.split("@").lift(1)))
+```
+
 Several `flatMap`s read better as a `for` – here with `users` from the `flatMap` slide:
 
 ```scala
@@ -369,9 +373,6 @@ def emailDomain(id: Int): Option[String] =
 
 emailDomain(1)    // Some(htwg.de)
 emailDomain(3)    // None – no such user
-
-// the same without for:
-users.findUser(1).flatMap(u => u.email.flatMap(e => e.split("@").lift(1)))
 ```
 
 - The first step that yields `None` stops the chain – the result is `None`
