@@ -128,7 +128,7 @@ System.out.println(name.length());
 //   Cannot invoke "String.length()" because "<local1>" is null
 ```
 
-**Scala** runs on the JVM and keeps `null` for Java compatibility:
+**Scala 2** runs on the JVM and keeps `null` for Java compatibility:
 
 ```scala
 val s: String = null     // compiles
@@ -137,6 +137,8 @@ s.length                 // java.lang.NullPointerException
 
 - Safer than C: a defined exception instead of a crash – but still a runtime error
 - The type `String` still lies: it does not say "maybe missing"
+
+**Scala 3** – requires inheritance from nullable
 
 
 ---
