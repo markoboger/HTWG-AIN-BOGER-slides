@@ -309,12 +309,14 @@ case class User(name: String, email: Option[String])
 class Users(users: Map[Int, User]):
   def findUser(id: Int): Option[User] = users.get(id)
 
-val users = Users(Map(1 -> User("Ada", Some("ada@htwg.de"))))
+val users = Users(Map(
+  1 -> User("Ada", Some("ada@htwg.de")),
+  2 -> User("Bob", None)))
 
 users.findUser(1).map(_.email)        // Some(Some(ada@htwg.de))   nested!
 users.findUser(1).flatMap(_.email)    // Some(ada@htwg.de)
-users.findUser(2).flatMap(_.email)    // None   – no such user
-users.findUser(3).flatMap(_.email)    // None   – no such user
+users.findUser(2).flatMap(_.email)    // None   – no such email
+users.findUser(3)                     // None   – no such user
 ```
 
 - `flatMap` = `map` + flatten
