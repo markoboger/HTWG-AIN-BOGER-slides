@@ -241,20 +241,138 @@ def msort[T](less: (T, T) => Boolean)(xs: List[T]): List[T] = {
 
 # A practical Example: msort
 
+<style scoped>
+section { font-size: 20px; padding-top: 40px; }
+.io-pairs {
+  background-color: var(--bgColor-muted);
+  border-radius: 6px;
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.15em;
+}
+.io-pairs .pair {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.9fr);
+  column-gap: 1.2em;
+  align-items: start;
+}
+.io-pairs pre,
+.io-pairs marp-pre,
+.io-pairs :is(pre, marp-pre) {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+  font-size: 14px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+</style>
+
+<div class="io-pairs">
+<div class="pair">
+<div>
+
 ```scala
 def intsort = msort((x: Int, y: Int) => x < y) _
-                       //> intsort: => List[Int] => List[Int]
-intsort(List(9, 2, 5, 7, 3, 8))
-                       //> res24: List[Int] = List(2, 3, 5, 7, 8, 9)
-def reverseintsort = msort((x: Int, y: Int) => x > y) _
-                       //> reverseintsort: => List[Int] => List[Int]
-reverseintsort(List(9, 2, 5, 7, 3, 8))
-                       //> res25: List[Int] = List(9, 8, 7, 5, 3, 2)
-def stringsort = msort((s1: String, s2: String) => s1.length < s2.length) _
-                     //> stringsort: => List[String] => List[String]
-stringsort(List("coffee", "tee", "beer", "orangejuice"))
-      //> res26: List[String] = List(tee, beer, coffee, orangejuice)
 ```
+
+</div>
+<div>
+
+```scala
+//> intsort: => List[Int] => List[Int]
+```
+
+</div>
+</div>
+<div class="pair">
+<div>
+
+```scala
+intsort(List(9, 2, 5, 7, 3, 8))
+```
+
+</div>
+<div>
+
+```scala
+//> res24: List[Int] = List(2, 3, 5, 7, 8, 9)
+```
+
+</div>
+</div>
+<div class="pair">
+<div>
+
+```scala
+def reverseintsort = msort((x: Int, y: Int) => x > y) _
+```
+
+</div>
+<div>
+
+```scala
+//> reverseintsort: => List[Int] => List[Int]
+```
+
+</div>
+</div>
+<div class="pair">
+<div>
+
+```scala
+reverseintsort(List(9, 2, 5, 7, 3, 8))
+```
+
+</div>
+<div>
+
+```scala
+//> res25: List[Int] = List(9, 8, 7, 5, 3, 2)
+```
+
+</div>
+</div>
+<div class="pair">
+<div>
+
+```scala
+def stringsort = msort((s1: String, s2: String) => s1.length < s2.length) _
+```
+
+</div>
+<div>
+
+```scala
+//> stringsort: => List[String] => List[String]
+```
+
+</div>
+</div>
+<div class="pair">
+<div>
+
+```scala
+stringsort(List("coffee", "tee", "beer", "orangejuice"))
+```
+
+</div>
+<div>
+
+```scala
+//> res26: List[String] = List(tee, beer, coffee, orangejuice)
+```
+
+</div>
+</div>
+</div>
 
 ---
 
@@ -288,18 +406,138 @@ product(List(1,2,3,4,5))
 
 # An even more practical Example
 
+<style scoped>
+section { font-size: 20px; padding-top: 40px; }
+.io-pairs {
+  background-color: var(--bgColor-muted);
+  border-radius: 6px;
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.15em;
+}
+.io-pairs .pair {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.9fr);
+  column-gap: 1.2em;
+  align-items: start;
+}
+.io-pairs pre,
+.io-pairs marp-pre,
+.io-pairs :is(pre, marp-pre) {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+  font-size: 14px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+</style>
+
+<div class="io-pairs">
+<div class="pair">
+<div>
+
 ```scala
 def sum2(list:List[Int])=list.foldLeft(0)(_+_)
-       //> sum2: (list: List[Int])Int
-sum2(List(1,2,3,4,5))       //> res29: Int = 15
-
-List(1,2,3,4,5).foldLeft(0)(_+_) //> res30: Int = 15
-
-def product2(list:List[Int])=list.foldLeft(1)(_*_)
-                          //> product2: (list: List[Int])Int
-product2(List(1,2,3,4,5))  //> res31: Int = 120
-List(1,2,3,4,5).foldLeft(1)(_*_) //> res32: Int = 120
 ```
+
+</div>
+<div>
+
+```scala
+//> sum2: (list: List[Int])Int
+```
+
+</div>
+</div>
+<div class="pair">
+<div>
+
+```scala
+sum2(List(1,2,3,4,5))
+```
+
+</div>
+<div>
+
+```scala
+//> res29: Int = 15
+```
+
+</div>
+</div>
+<div class="pair">
+<div>
+
+```scala
+List(1,2,3,4,5).foldLeft(0)(_+_)
+```
+
+</div>
+<div>
+
+```scala
+//> res30: Int = 15
+```
+
+</div>
+</div>
+<div class="pair">
+<div>
+
+```scala
+def product2(list:List[Int])=list.foldLeft(1)(_*_)
+```
+
+</div>
+<div>
+
+```scala
+//> product2: (list: List[Int])Int
+```
+
+</div>
+</div>
+<div class="pair">
+<div>
+
+```scala
+product2(List(1,2,3,4,5))
+```
+
+</div>
+<div>
+
+```scala
+//> res31: Int = 120
+```
+
+</div>
+</div>
+<div class="pair">
+<div>
+
+```scala
+List(1,2,3,4,5).foldLeft(1)(_*_)
+```
+
+</div>
+<div>
+
+```scala
+//> res32: Int = 120
+```
+
+</div>
+</div>
+</div>
 
 ---
 
@@ -634,9 +872,17 @@ object TempConverter extends SimpleSwingApplication {
 
 <style scoped>
 pre { font-size: 12px; }
+.columns img {
+  width: auto !important;
+  height: auto !important;
+  max-width: 100%;
+  max-height: none;
+  object-fit: contain;
+  display: block;
+}
 </style>
 
-<div class="columns" style="grid-template-columns: 1.2fr 1fr; align-items: start;">
+<div class="columns" style="grid-template-columns: 1.2fr 1fr; align-items: center;">
 <div>
 
 ```java
@@ -668,7 +914,7 @@ public class JavaFxTuts extends Application {
 </div>
 <div>
 
-![h:430](assets/se09-s34-1.png)
+![w:220](assets/se09-s34-1.png)
 
 </div>
 </div>
@@ -686,9 +932,17 @@ public class JavaFxTuts extends Application {
 
 <style scoped>
 pre { font-size: 11px; }
+.columns img {
+  width: auto !important;
+  height: auto !important;
+  max-width: 100%;
+  max-height: none;
+  object-fit: contain;
+  display: block;
+}
 </style>
 
-<div class="columns" style="grid-template-columns: 1.2fr 1fr; align-items: start;">
+<div class="columns" style="grid-template-columns: 1.2fr 1fr; align-items: center;">
 <div>
 
 ```scala
@@ -731,7 +985,7 @@ object ScalaFXHelloWorld extends JFXApp {
 </div>
 <div>
 
-![h:430](assets/se09-s36-1.png)
+![w:446](assets/se09-s36-1.png)
 
 </div>
 </div>
