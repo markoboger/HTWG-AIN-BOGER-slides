@@ -21,9 +21,11 @@ _footer: ""
 section { font-size: 22px; }
 </style>
 
-- Scala has a number of mechanisms that allow to create simpler APIs compared to Java or other OO-languages.
-- Sometimes such improved APIs are referred to as internal DSLs.
-- We will look at
+Scala has a number of mechanisms that allow to create simpler APIs compared to Java or other OO-languages.
+Sometimes such improved APIs are referred to as internal DSLs.
+
+We will look at:
+
 - the use of parentheses
 - anonymous functions
 - higher order functions
