@@ -39,7 +39,7 @@ We will look at:
 
 # Use of Parentheses
 
-- Function calls can use `()` or `{}` for parameters
+Function calls can use `()` or `{}` for parameters.
 
 ```scala
 def f(x: Int) = x + 1               //> f: (x: Int)Int
@@ -51,7 +51,7 @@ f{5}                                //> res1: Int = 6
 
 # Anonymous Functions or Function Literals
 
-- Functions can be defined without giving it a name. This is useful for example to pass the function as parameter.
+Functions can be defined without giving it a name. This is useful for example to pass the function as parameter.
 ```scala
 (x: Int) => x + 1   //> res2: Int => Int = <function1>
 ```
@@ -60,20 +60,20 @@ f{5}                                //> res1: Int = 6
 
 # Higher Order Functions
 
-- Higher Order Functions accept a function as parameter
+Higher Order Functions accept a function as parameter.
 ```scala
 def f(x: Int) = x + 1             //> f: (x: Int)Int
 
 numbers.foreach(x: Int => f(x))
 ```
 
-- foreach is such a higher order function. It is one of the simplest such functions. The disadvantage of foreach is, it returns nothing (Unit). Other higher order functions are map, reduce, fold, filter etc.
+foreach is such a higher order function. It is one of the simplest such functions. The disadvantage of foreach is, it returns nothing (Unit). Other higher order functions are map, reduce, fold, filter etc.
 
 ---
 
 # Syntactic Sugar
 
-- There are several ways to abbreviate the syntax.
+There are several ways to abbreviate the syntax.
 ```scala
 val numbers = List(1, 2, 3, 4, 5)
                //> numbers  : List[Int] = List(1, 2, 3, 4, 5)
@@ -90,7 +90,7 @@ numbers foreach print                         //> 12345
 
 # Higher Order Functions
 
-- Map is a stronger example of a higher order function. It maps from a collection to a collection.
+Map is a stronger example of a higher order function. It maps from a collection to a collection.
 ```scala
 numbers.map(x => x + 1)  //> res3: List[Int] = List(2, 3, 4, 5, 6)
 numbers.map(_ + 1)     //> res4: List[Int] = List(2, 3, 4, 5, 6)
@@ -104,7 +104,7 @@ numbers map f        //> res8: List[Int] = List(2, 3, 4, 5, 6)
 
 # Chaining Higher Order Functions
 
-- Functions that return a collection can be chained, one after the other.
+Functions that return a collection can be chained, one after the other.
 ```scala
 List(-10, -5, 0, 5, 10)
    .filter(_ > 0)
@@ -126,7 +126,7 @@ List(-10, -5, 0, 5, 10)
 
 # Anonymous Classes
 
-- An anonymous class seems to be implemented in place.
+An anonymous class seems to be implemented in place.
 ```scala
 val f1 = Foo {
     println("hello from the `f1` instance")
@@ -134,7 +134,7 @@ val f1 = Foo {
 }
 ```
 
-- This is achieved by allowing a function as parameter of the constructor
+This is achieved by allowing a function as parameter of the constructor.
 ```scala
 case class Foo[A, B](f: A => B) {
     // more code here ...
@@ -169,7 +169,7 @@ f2(5)                                  //> res16: Int = 15
 
 # Currying
 
-- Currying turns a function with multiple arguments into a sequence of functions, each with a single argument.
+Currying turns a function with multiple arguments into a sequence of functions, each with a single argument.
 ```scala
 def f3(c: Int) = (x: Int) => x + c  //> f3: (c: Int)Int => Int
 f3(1)(5)                         //> res17: Int = 6
@@ -185,7 +185,7 @@ f3(10) {
 
 # Partially Applied Functions
 
-- Applying  a curried function to a part of its parameters returns a function with the missing parameters
+Applying  a curried function to a part of its parameters returns a function with the missing parameters.
 ```scala
 def f4 = f3(10)                 //> f4: => Int => Int
 f4(5)                          //> res21: Int = 15
@@ -555,16 +555,16 @@ List(1,2,3,4,5).foldLeft(1)(_*_)
 
 # Partial Functions
 
-- Partial Functions are only defined for parts of its domain.
-- For example, taking the square root should only be defined for non-negative numbers.
-- It uses the case notation, similar to the match-case.
+Partial Functions are only defined for parts of its domain.
+For example, taking the square root should only be defined for non-negative numbers.
+It uses the case notation, similar to the match-case.
 ```scala
 val squareRoot: PartialFunction[Double, Double] = {
  case x if x >= 0 => Math.sqrt(x)
 }
 ```
 
-- A partial function has the method `isDefinedAt`
+A partial function has the method `isDefinedAt`.
 
 ```scala
 squareRoot.isDefinedAt(2) shouldEqual true
@@ -575,9 +575,9 @@ squareRoot.isDefinedAt(-2) shouldEqual false
 
 # Libraries
 
-- Libraries can make use of the above mentioned mechanisms and create very powerful and short notations.
-- A good example of that is the test library, ScalaTest.
-- Libraries that make even more use of these mechanisms are ScalaSwing and ScalaFx.
+Libraries can make use of the above mentioned mechanisms and create very powerful and short notations.
+A good example of that is the test library, ScalaTest.
+Libraries that make even more use of these mechanisms are ScalaSwing and ScalaFx.
 
 ---
 
@@ -586,9 +586,9 @@ squareRoot.isDefinedAt(-2) shouldEqual false
 <div class="columns" style="grid-template-columns: 1.2fr 1fr; align-items: start;">
 <div>
 
-- Swing is a Java library to create desktop applications.
-- It provides components to create buttons, labels, menus etc. in Java.
-- It comes with a uniform Java look and feel.
+Swing is a Java library to create desktop applications.
+It provides components to create buttons, labels, menus etc. in Java.
+It comes with a uniform Java look and feel.
 
 </div>
 <div>
@@ -675,8 +675,8 @@ class gui {
 
 # Scala Swing
 
-- Scala Swing makes Java Swing accessible in Scala. It is a thin layer around Swing, giving full access to Swing functionality with a Scala API.
-- While doing that, it simplifies the API considerably. Scala Swing is an excellent example how Scala can make an API much simpler and shorter to use.
+Scala Swing makes Java Swing accessible in Scala. It is a thin layer around Swing, giving full access to Swing functionality with a Scala API.
+While doing that, it simplifies the API considerably. Scala Swing is an excellent example how Scala can make an API much simpler and shorter to use.
 
 ---
 
@@ -783,7 +783,7 @@ new Component {
 
 # Menus
 
-- Menus are added to the property menubar
+Menus are added to the property menubar.
 ```scala
 menuBar = new MenuBar {
     contents += new Menu("File") {
@@ -851,10 +851,10 @@ object TempConverter extends SimpleSwingApplication {
 <div class="columns" style="grid-template-columns: 1.2fr 1fr; align-items: start;">
 <div>
 
-- JavaFX is a Java library to - also - create desktop applications.
-- It is a more modern approach compared to Swing.
-- It was intended as a replacement to Swing, providing animation, video, charts, HTML integration, hardware acceleration etc.
-- The central abstractions are Stage and Scene.
+JavaFX is a Java library to - also - create desktop applications.
+It is a more modern approach compared to Swing.
+It was intended as a replacement to Swing, providing animation, video, charts, HTML integration, hardware acceleration etc.
+The central abstractions are Stage and Scene.
 
 </div>
 <div>
@@ -925,8 +925,8 @@ public class JavaFxTuts extends Application {
 
 # Scala FX
 
-- ScalaFX is a UI DSL written within the Scala Language that sits on top of JavaFX 2.
-- Again, ScalaFX achieves a much simpler and shorter API, making it easier to write and to read.
+ScalaFX is a UI DSL written within the Scala Language that sits on top of JavaFX 2.
+Again, ScalaFX achieves a much simpler and shorter API, making it easier to write and to read.
 
 ---
 
